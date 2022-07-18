@@ -10,8 +10,6 @@ I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wi
 - 🔭 I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
 - 📫 How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)
 
----
-
 ## 🛠 &nbsp; Language and Tools:
 
 ### &nbsp; Programming languages:
@@ -40,7 +38,6 @@ I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wi
 <p>
 <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="linux" width="40" height="40"/>&nbsp;
 </p>
----
 
 ### 🔥 &nbsp; My Stats :
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=arunike&theme=dark&background=000000)](https://git.io/streak-stats)

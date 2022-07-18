@@ -8,7 +8,8 @@
 
 I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 
-- 🔭 I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
+- 🔭 I’m curently working as Software Engineer and contributing to frontend and backend for building web applications.
+- Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
 - 📫 How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)
 
 ## 🛠 &nbsp; Language and Tools:

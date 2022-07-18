@@ -3,7 +3,7 @@
 ![status](https://img.shields.io/badge/status-up-brightgreen) ![Gender](https://img.shields.io/badge/gender-%F0%9F%A4%B5-lightgrey) ![](https://visitor-badge.glitch.me/badge?page_id=github.com/arunike)
 
 ## About Me :
-<img align='right' src='https://octodex.github.com/images/NUX_Octodex.gif' width='200'>
+<img align='right' src='https://octodex.github.com/images/hula_loop_octodex03.gif' width='200'>
 
 I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 

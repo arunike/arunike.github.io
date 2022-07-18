@@ -3455,12 +3455,12 @@ h6 {
     content: none; }
 
 .footer_area {
-  padding: 120px 0;
+  padding: 10px 0;
   position: relative; }
   .footer_area:before {
     content: '';
     position: absolute;
-    top: -200px;
+    top: -90px;
     left: 0px;
     right: 0px;
     bottom: 0px;

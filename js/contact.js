@@ -8,7 +8,7 @@ $(document).ready(function(){
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
 
-    // validate contactForm form
+    // Validate contactForm form
     $(function() {
         $('#contactForm').validate({
             rules: {
@@ -79,7 +79,6 @@ $(document).ready(function(){
                 })
             }
         })
-    })
-        
- })(jQuery)
+    })   
+})(jQuery)
 })

@@ -2,7 +2,7 @@
 
 ![status](https://img.shields.io/badge/status-up-brightgreen) ![Gender](https://img.shields.io/badge/gender-%F0%9F%A4%B5-lightgrey) ![](https://visitor-badge.glitch.me/badge?page_id=github.com/arunike)
 
-<img align='right' src='https://octodex.github.com/images/NUX_Octodex.gif' width='2000'>
+<img align='right' src='https://octodex.github.com/images/codercat.jpg' width='200'>
 
 ## About Me :
 

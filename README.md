@@ -4,7 +4,7 @@
 
 ## About Me :
 
-I am a Computer Science student at University of Wisconsin-Madison.
+I am a Computer Science student at <a href="https://www.cs.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 
 - 🔭 I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
 - 📫 How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)

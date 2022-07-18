@@ -34,6 +34,11 @@ I am a Computer Science student at University of Wisconsin-Madison.
 <p>
 <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg" title="SQL" alt="SQL" width="40" height="40"/>&nbsp;
 </p>
+
+### &nbsp; Other:
+<p>
+<img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="linux" width="40" height="40"/>&nbsp;
+</p>
 ---
 
 ### 🔥 &nbsp; My Stats :

@@ -6,11 +6,11 @@
 
 ## About Me :
 
-I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
+:computer: I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 
-- 🔭 I’m curently working as Software Engineer and contributing to frontend and backend for building web applications.
-- Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
-- 📫 How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)
+- :office: I’m curently working as Software Engineer and contributing to frontend and backend for building web applications.
+- :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
+- :email: How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)
 
 ## 🛠 &nbsp; Language and Tools:
 
@@ -41,7 +41,7 @@ I'm Richie Zhou, a junior Computer Science student at <a href="https://www.cs.wi
 <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="linux" width="40" height="40"/>&nbsp;
 </p>
 
-### 🔥 &nbsp; My Stats :
+### :fire: &nbsp; My Stats :
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=arunike&theme=dark&background=000000)](https://git.io/streak-stats)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=arunike&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)

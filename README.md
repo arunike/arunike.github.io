@@ -4,14 +4,14 @@
 
 ### About Me :
 
-I am a Computer Science student <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> at University of Wisconsin-Madison.
+I am a Computer Science student at University of Wisconsin-Madison.
 
 - 🔭 I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
 - 📫 How to reach me: &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-Richie-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/richiezhou/)
 
 ---
 
-### 🛠 &nbsp;Languages and Tools :
+### 🛠 &nbsp; Language and Tools:
 
 <p>
 <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
@@ -24,7 +24,6 @@ I am a Computer Science student <img src="https://media.giphy.com/media/WUlplcMp
 <img src="https://github.com/devicons/devicon/blob/master/icons/r/r-original.svg" title="R" alt="R" width="40" height="40"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
-
 </p>
 
 ---

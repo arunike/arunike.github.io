@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.04252698.css",
-    "main.js": "/static/js/main.df1e28af.js",
+    "main.js": "/static/js/main.7000eb63.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -9,7 +9,7 @@
     "static/media/song-of-the-wind-piano.png": "/static/media/song-of-the-wind-piano.5ae9b022702e2b9c71c2.png",
     "static/media/logo.png": "/static/media/logo.6a6395541cb29063df31.png",
     "static/media/compsci320.png": "/static/media/compsci320.906bf0aad74d2d5a8775.png",
-    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.dfcb430f037a6f4b0ca3.pdf",
+    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.e4e91ec1a9d584e0aa44.pdf",
     "static/media/compsci559.png": "/static/media/compsci559.e3348f4e6698ef63b7ac.png",
     "static/media/compsci506.png": "/static/media/compsci506.34155d77732a029c8862.png",
     "static/media/body-bg.png": "/static/media/body-bg.74878fa16e62dfa48e55.png",
@@ -43,12 +43,12 @@
     "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/index.html",
     "main.04252698.css.map": "/static/css/main.04252698.css.map",
-    "main.df1e28af.js.map": "/static/js/main.df1e28af.js.map",
+    "main.7000eb63.js.map": "/static/js/main.7000eb63.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04252698.css",
-    "static/js/main.df1e28af.js"
+    "static/js/main.7000eb63.js"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.784b0122.css",
-    "main.js": "/static/js/main.aef598c7.js",
+    "main.js": "/static/js/main.176e0e10.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -24,6 +24,7 @@
     "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.4edee425b1e5b264e70b.pdf",
     "static/media/rlang.png": "/static/media/rlang.2ea8e0c6b8f6e11bfb64.png",
     "static/media/compsci400.png": "/static/media/compsci400.daee16b61344767aec4d.png",
+    "static/media/firebase.png": "/static/media/firebase.93af9a3e359db111a40e.png",
     "static/media/sql.png": "/static/media/sql.77a76a6718ac5d4d224f.png",
     "static/media/nyc-map.png": "/static/media/nyc-map.fabc43f64ec58d9d7d9b.png",
     "static/media/w2pdf.png": "/static/media/w2pdf.b76999710e86499b71d8.png",
@@ -59,12 +60,12 @@
     "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/index.html",
     "main.784b0122.css.map": "/static/css/main.784b0122.css.map",
-    "main.aef598c7.js.map": "/static/js/main.aef598c7.js.map",
+    "main.176e0e10.js.map": "/static/js/main.176e0e10.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.784b0122.css",
-    "static/js/main.aef598c7.js"
+    "static/js/main.176e0e10.js"
   ]
 }

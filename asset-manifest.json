@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.784b0122.css",
-    "main.js": "/static/js/main.74cc805c.js",
+    "main.js": "/static/js/main.70ad455b.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -12,9 +12,9 @@
     "static/media/compsci320.png": "/static/media/compsci320.906bf0aad74d2d5a8775.png",
     "static/media/compsci559.png": "/static/media/compsci559.e3348f4e6698ef63b7ac.png",
     "static/media/compsci506.png": "/static/media/compsci506.34155d77732a029c8862.png",
+    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.99b59d022cf60441aa5f.pdf",
     "static/media/body-bg.png": "/static/media/body-bg.74878fa16e62dfa48e55.png",
     "static/media/pac-man.png": "/static/media/pac-man.6449d1f9d195c92d6d9c.png",
-    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.547bd2a8758b1c414ec8.pdf",
     "static/media/snowflake.png": "/static/media/snowflake.f15a110d7b69f311aa05.png",
     "static/media/compsci400.png": "/static/media/compsci400.daee16b61344767aec4d.png",
     "static/media/nyc-map.png": "/static/media/nyc-map.fabc43f64ec58d9d7d9b.png",
@@ -60,12 +60,12 @@
     "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/index.html",
     "main.784b0122.css.map": "/static/css/main.784b0122.css.map",
-    "main.74cc805c.js.map": "/static/js/main.74cc805c.js.map",
+    "main.70ad455b.js.map": "/static/js/main.70ad455b.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.784b0122.css",
-    "static/js/main.74cc805c.js"
+    "static/js/main.70ad455b.js"
   ]
 }

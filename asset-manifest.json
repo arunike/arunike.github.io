@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.784b0122.css",
-    "main.js": "/static/js/main.f6c71049.js",
+    "main.js": "/static/js/main.7901e3b0.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -15,6 +15,7 @@
     "static/media/body-bg.png": "/static/media/body-bg.74878fa16e62dfa48e55.png",
     "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.2584d11ce9e803b2c4d8.pdf",
     "static/media/pac-man.png": "/static/media/pac-man.6449d1f9d195c92d6d9c.png",
+    "static/media/hdfs.png": "/static/media/hdfs.60455224303890492c45.png",
     "static/media/snowflake.png": "/static/media/snowflake.f15a110d7b69f311aa05.png",
     "static/media/sqlserver.png": "/static/media/sqlserver.8190f894aca3752e6928.png",
     "static/media/compsci400.png": "/static/media/compsci400.daee16b61344767aec4d.png",
@@ -38,7 +39,6 @@
     "static/media/compsci252.png": "/static/media/compsci252.3462835755d13bf931d9.png",
     "static/media/compsci579.png": "/static/media/compsci579.0cd13e93466180cb0170.png",
     "static/media/cassandra.png": "/static/media/cassandra.e541ef214528a228be8b.png",
-    "static/media/hdfs.png": "/static/media/hdfs.bc6575fe74d30b91e211.png",
     "static/media/kotlin.png": "/static/media/kotlin.b3a09489d88a3a3b16ec.png",
     "static/media/family-financial-management.png": "/static/media/family-financial-management.0c062570a6f45c27df29.png",
     "static/media/compsci240.png": "/static/media/compsci240.5d98dc7aba7b83adcf10.png",
@@ -78,12 +78,12 @@
     "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/index.html",
     "main.784b0122.css.map": "/static/css/main.784b0122.css.map",
-    "main.f6c71049.js.map": "/static/js/main.f6c71049.js.map",
+    "main.7901e3b0.js.map": "/static/js/main.7901e3b0.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.784b0122.css",
-    "static/js/main.f6c71049.js"
+    "static/js/main.7901e3b0.js"
   ]
 }

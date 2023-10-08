@@ -1,0 +1,119 @@
+
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<script src="https://www.cs571.org/lib/cs571-client.js" defer></script>
+		<script src="order.js" defer></script>
+	</head>
+	<body>
+		<img src="assets/banner.jpg" height="200" width="600"/>
+		<h1>Badger Bakery</h1>
+		<a href="index.html">Home</a>
+		<a href="about-us.html">About Us</a>
+		<a href="order.html">Order</a>
+		<a href="contact.html">Contact</a>
+		<p id="feature"></p>
+		<h2>Order Online</h2>
+		<p>Now available for ordering online! Only available for pickup.</p>
+		<table>
+			<tr>
+				<th>Item</th>
+				<th>Price (in $)</th>
+				<th>Quantity Needed</th>
+			</tr>
+			<tr>
+				<td>Bagel</td>
+				<td id="bagel-price">2.50</td>
+				<td><input type="text" id="bagel-quantity" value="0"></td>
+			</tr>
+			<tr>
+				<td>Donut</td>
+				<td id="donut-price">1.50</td>
+				<td><input type="text" id="donut-quantity" value="0"></td>
+			</tr>
+			<tr>
+				<td>Muffin</td>
+				<td id="muffin-price">2.00</td>
+				<td><input type="text" id="muffin-quantity" value="0"></td>
+			</tr>
+			<tr>
+				<td>Pie</td>
+				<td id="pie-price">5.50</td>
+				<td><input type="text" id="pie-quantity" value="0"></td>
+			</tr>
+			<tr>
+				<td>Cake</td>
+				<td id="cake-price">6.50</td>
+				<td><input type="text" id="cake-quantity" value="0"></td>
+			</tr>
+		</table>
+	
+		<br>
+		
+		<div style="display: inline-flex;">
+		<!-- Is there a better way to do this? Yes! React will be helpful here. -->
+			<label for="state-tax"><strong>Select Your State:</strong></label>
+			<select id="state-tax">
+				<option value="AL">AL</option>
+				<option value="AK">AK</option>
+				<option value="AZ">AZ</option>
+				<option value="AR">AR</option>
+				<option value="CA">CA</option>
+				<option value="CO">CO</option>
+				<option value="CT">CT</option>
+				<option value="DE">DE</option>
+				<option value="DC">DC</option>
+				<option value="FL">FL</option>
+				<option value="GA">GA</option>
+				<option value="HI">HI</option>
+				<option value="ID">ID</option>
+				<option value="IL">IL</option>
+				<option value="IN">IN</option>
+				<option value="IA">IA</option>
+				<option value="KS">KS</option>
+				<option value="KY">KY</option>
+				<option value="LA">LA</option>
+				<option value="ME">ME</option>
+				<option value="MD">MD</option>
+				<option value="MA">MA</option>
+				<option value="MI">MI</option>
+				<option value="MN">MN</option>
+				<option value="MS">MS</option>
+				<option value="MO">MO</option>
+				<option value="MT">MT</option>
+				<option value="NE">NE</option>
+				<option value="NV">NV</option>
+				<option value="NH">NH</option>
+				<option value="NJ">NJ</option>
+				<option value="NM">NM</option>
+				<option value="NY">NY</option>
+				<option value="NC">NC</option>
+				<option value="ND">ND</option>
+				<option value="OH">OH</option>
+				<option value="OK">OK</option>
+				<option value="OR">OR</option>
+				<option value="PA">PA</option>
+				<option value="RI">RI</option>
+				<option value="SC">SC</option>
+				<option value="SD">SD</option>
+				<option value="TN">TN</option>
+				<option value="TX">TX</option>
+				<option value="UT">UT</option>
+				<option value="VT">VT</option>
+				<option value="VA">VA</option>
+				<option value="WA">WA</option>
+				<option value="WV">WV</option>
+				<option value="WI">WI</option>
+				<option value="WY">WY</option>
+			</select>
+			<button id="btn-what-is-my-sales-tax" class="secondary-button" style="margin-left: 0.5rem;">What is my sales tax rate?</button>
+		</div>
+
+		<br>
+		<br>
+	
+		<button id="btn-subtotal" class="secondary-button">Get Subtotal</button>
+		<button id="btn-sales-tax" class="secondary-button">Get Sales Tax</button>
+		<button id="btn-checkout" class="primary-button">Checkout</button>	
+	</body>
+</html>

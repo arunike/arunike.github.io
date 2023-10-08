@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="3D Prism">
+        <meta name="keywords" content="HTML, JavaScript">
+        <meta name="author" content="Richie Zhou">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>COMP SCI 559 Homework Assignment 07</title>
+    </head>
+    <h1>Richie's 3D Prism</h1>
+    <body>
+        <script id="vertexShader" type="not-js">
+            precision highp float;
+            attribute vec3 vPosition;
+            attribute vec3 vColor;
+            attribute vec3 vNormal;
+            attribute vec2 vTexCoord;
+            varying vec2 fTexCoord;
+            varying vec3 fPosition;
+            varying vec3 fColor;
+            varying vec3 fNormal;
+            varying vec3 light2;
+            uniform vec3 rawLight;
+            uniform mat3 uMVn;
+            uniform mat4 uMV; 
+            uniform mat4 uMVP;
+
+            void main(void) {
+                vec4 tempPos = uMV * vec4(vPosition, 1.0);
+                fPosition = tempPos.xyz;
+                gl_Position = uMVP * vec4(vPosition, 1.0);
+                fColor = vColor.xyz;
+                fNormal = uMVn * vNormal;
+                light2 = rawLight.xyz;
+                fTexCoord = vTexCoord;
+            }
+        </script>
+
+        <script id="fragmentShader" type="not-js">
+            precision highp float;
+            varying vec3 fPosition;
+            varying vec3 fColor;
+            varying vec3 fNormal;
+            varying vec2 fTexCoord;
+            varying vec3 light2;
+            uniform sampler2D texSampler1;
+            uniform sampler2D texSampler2;
+            const vec3 light1 = vec3(0, 0, 0);
+            const vec3 lightColor1 = vec3(1.0, .6, .0);
+            const vec3 lightColor2 = vec3(1.0, .6, 0);
+            
+            vec2 phongReflection(vec3 light, float Ka, float Kd, float Ks, float specExp) {
+                vec3 n = normalize(fNormal);
+                vec3 l = normalize(light);
+                vec3 e = normalize(-fPosition);
+                vec3 h = normalize(l+e);
+                float Ia_d = Ka + Kd * max(dot(l, n), 0.0);
+                float Is = Ks * pow(max(dot(h, n), 0.0), specExp);
+                return vec2(Ia_d, Is); 
+            }
+
+            void main(void) {
+                vec3 texColor = texture2D(texSampler2,fTexCoord).xyz;
+                vec3 Color_ad = phongReflection(light2, 0.0, 0.9, 0.2, 0.0).x * lightColor1 * texColor;
+                vec3 Color_s = phongReflection(light2, 0.5, 0.5, 0.8, 16.0).y * lightColor2;
+                gl_FragColor = vec4(Color_ad + Color_s, 1.0);
+            }
+        </script>
+        <script src="gl-matrix-min.js"></script>
+        <script src="Project07.js"></script>   
+        <canvas id="myCanvas" width="700" height="700"></canvas>
+        <br> <br>
+        Amount of Light: <input id="slider1" type="range" min="-100" max="100"/>
+        <br>
+        Rotation: <input id="slider2" type="range" min="-100" max="100"/>
+        <br>
+        Speed: <input id="slider3" type="range" min="-10" max="100"/>
+    </body>
+</html>

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e3f1286a.css",
-    "main.js": "/static/js/main.eb843ed6.js",
+    "main.js": "/static/js/main.a26b63fc.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -19,7 +19,6 @@
     "static/media/snowflake.png": "/static/media/snowflake.f15a110d7b69f311aa05.png",
     "static/media/sqlserver.png": "/static/media/sqlserver.8190f894aca3752e6928.png",
     "static/media/compsci400.png": "/static/media/compsci400.daee16b61344767aec4d.png",
-    "static/media/nyc-map.png": "/static/media/nyc-map.fabc43f64ec58d9d7d9b.png",
     "static/media/w2pdf.png": "/static/media/w2pdf.b76999710e86499b71d8.png",
     "static/media/sql.png": "/static/media/sql.0ce2171017511e49cf73.png",
     "static/media/clang.png": "/static/media/clang.4d328d421113cf0d2750.png",
@@ -77,12 +76,12 @@
     "static/media/snake.png": "/static/media/snake.ff7ea5c9743fb87f1f36.png",
     "index.html": "/index.html",
     "main.e3f1286a.css.map": "/static/css/main.e3f1286a.css.map",
-    "main.eb843ed6.js.map": "/static/js/main.eb843ed6.js.map",
+    "main.a26b63fc.js.map": "/static/js/main.a26b63fc.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e3f1286a.css",
-    "static/js/main.eb843ed6.js"
+    "static/js/main.a26b63fc.js"
   ]
 }

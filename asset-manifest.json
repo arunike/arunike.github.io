@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e3f1286a.css",
-    "main.js": "/static/js/main.a26b63fc.js",
+    "main.js": "/static/js/main.a93a040b.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -20,12 +20,12 @@
     "static/media/sqlserver.png": "/static/media/sqlserver.8190f894aca3752e6928.png",
     "static/media/compsci400.png": "/static/media/compsci400.daee16b61344767aec4d.png",
     "static/media/w2pdf.png": "/static/media/w2pdf.b76999710e86499b71d8.png",
-    "static/media/sql.png": "/static/media/sql.0ce2171017511e49cf73.png",
     "static/media/clang.png": "/static/media/clang.4d328d421113cf0d2750.png",
     "static/media/stat340.png": "/static/media/stat340.752b65ea478cc3382cfc.png",
-    "static/media/springboot.png": "/static/media/springboot.6c6c662590529591728c.png",
+    "static/media/spring-boot.png": "/static/media/spring-boot.6c6c662590529591728c.png",
     "static/media/cpp.png": "/static/media/cpp.8c3775832b4122226ab6.png",
     "static/media/python.png": "/static/media/python.93a0e9ec42ddfebc9c9e.png",
+    "static/media/sql.png": "/static/media/sql.d66b34bc88f4e38177be.png",
     "static/media/rlang.png": "/static/media/rlang.6f0faf4564552c0c3fc7.png",
     "static/media/firebase.png": "/static/media/firebase.625940aa29777e3a4cf1.png",
     "static/media/html.png": "/static/media/html.b74df08d26fe5cd91e29.png",
@@ -35,6 +35,7 @@
     "static/media/mysql.png": "/static/media/mysql.2b154efb5570a07fa0a4.png",
     "static/media/react.png": "/static/media/react.0b021db27acf78d8c6e4.png",
     "static/media/css.png": "/static/media/css.a4fa50005ff3218b6e9d.png",
+    "static/media/react-native.png": "/static/media/react-native.2af1d62eae171e9933c2.png",
     "static/media/compsci252.png": "/static/media/compsci252.3462835755d13bf931d9.png",
     "static/media/compsci579.png": "/static/media/compsci579.0cd13e93466180cb0170.png",
     "static/media/cassandra.png": "/static/media/cassandra.e541ef214528a228be8b.png",
@@ -76,12 +77,12 @@
     "static/media/snake.png": "/static/media/snake.ff7ea5c9743fb87f1f36.png",
     "index.html": "/index.html",
     "main.e3f1286a.css.map": "/static/css/main.e3f1286a.css.map",
-    "main.a26b63fc.js.map": "/static/js/main.a26b63fc.js.map",
+    "main.a93a040b.js.map": "/static/js/main.a93a040b.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e3f1286a.css",
-    "static/js/main.a26b63fc.js"
+    "static/js/main.a93a040b.js"
   ]
 }

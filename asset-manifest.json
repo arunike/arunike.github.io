@@ -1,10 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.7ed3d820.css",
-    "main.js": "/static/js/main.279fb6d9.js",
+    "main.js": "/static/js/main.5db6eb4b.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/Badger News iOS Demo.mp4": "/static/media/Badger News iOS Demo.b01154fff03508e86fc1.mp4",
+    "static/media/Badger Chat iOS Demo.mp4": "/static/media/Badger Chat iOS Demo.86b19451f55918a05e36.mp4",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
+    "static/media/Badger Bakery iOS Demo.mp4": "/static/media/Badger Bakery iOS Demo.dba9d2fbcfea4d08a757.mp4",
     "static/media/qians-portfolio.png": "/static/media/qians-portfolio.13db905c9ff435304bf2.png",
     "static/media/song-of-the-wind-piano.png": "/static/media/song-of-the-wind-piano.5ae9b022702e2b9c71c2.png",
     "static/media/logo.png": "/static/media/logo.6a6395541cb29063df31.png",
@@ -77,12 +80,12 @@
     "static/media/snake.png": "/static/media/snake.ff7ea5c9743fb87f1f36.png",
     "index.html": "/index.html",
     "main.7ed3d820.css.map": "/static/css/main.7ed3d820.css.map",
-    "main.279fb6d9.js.map": "/static/js/main.279fb6d9.js.map",
+    "main.5db6eb4b.js.map": "/static/js/main.5db6eb4b.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ed3d820.css",
-    "static/js/main.279fb6d9.js"
+    "static/js/main.5db6eb4b.js"
   ]
 }

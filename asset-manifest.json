@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.7ed3d820.css",
-    "main.js": "/static/js/main.22f5c5ff.js",
+    "main.js": "/static/js/main.0c256af7.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/cyberpunk vr racing game demo.mp4": "/static/media/cyberpunk vr racing game demo.55376e7bd09750d5a7f1.mp4",
+    "static/media/badger chat dialogflow demo.mp4": "/static/media/badger chat dialogflow demo.f0e89255b2b575de7c32.mp4",
     "static/media/badger news ios demo.mp4": "/static/media/badger news ios demo.b01154fff03508e86fc1.mp4",
     "static/media/badger chat ios demo.mp4": "/static/media/badger chat ios demo.86b19451f55918a05e36.mp4",
     "static/media/purple-profile.png": "/static/media/purple-profile.6de89fa0d1b85ad939c7.png",
@@ -81,12 +82,12 @@
     "static/media/snake.png": "/static/media/snake.ff7ea5c9743fb87f1f36.png",
     "index.html": "/index.html",
     "main.7ed3d820.css.map": "/static/css/main.7ed3d820.css.map",
-    "main.22f5c5ff.js.map": "/static/js/main.22f5c5ff.js.map",
+    "main.0c256af7.js.map": "/static/js/main.0c256af7.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ed3d820.css",
-    "static/js/main.22f5c5ff.js"
+    "static/js/main.0c256af7.js"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7ed3d820.css",
-    "main.js": "/static/js/main.07910c76.js",
+    "main.js": "/static/js/main.7a5e71a7.js",
     "static/js/415.4d6acbeb.chunk.js": "/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/cyberpunk vr racing game demo.mp4": "/static/media/cyberpunk vr racing game demo.55376e7bd09750d5a7f1.mp4",
@@ -16,11 +16,11 @@
     "static/media/logo.png": "/static/media/logo.6a6395541cb29063df31.png",
     "static/media/redis.png": "/static/media/redis.f45798fa68ab13aeeb19.png",
     "static/media/compsci579.png": "/static/media/compsci579.e26a3b5ab8007a9fb9e6.png",
-    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.e27aa9547fcfaad7baf8.pdf",
     "static/media/compsci320.png": "/static/media/compsci320.906bf0aad74d2d5a8775.png",
     "static/media/compsci559.png": "/static/media/compsci559.e3348f4e6698ef63b7ac.png",
     "static/media/compsci506.png": "/static/media/compsci506.ec704e2b0b8270cb2de6.png",
     "static/media/body-bg.png": "/static/media/body-bg.74878fa16e62dfa48e55.png",
+    "static/media/Richie Zhou's Resume 2023.pdf": "/static/media/Richie Zhou's Resume 2023.31b79a4f19391a18eee5.pdf",
     "static/media/pac-man.png": "/static/media/pac-man.6449d1f9d195c92d6d9c.png",
     "static/media/hdfs.png": "/static/media/hdfs.60455224303890492c45.png",
     "static/media/snowflake.png": "/static/media/snowflake.f15a110d7b69f311aa05.png",
@@ -83,12 +83,12 @@
     "static/media/snake.png": "/static/media/snake.ff7ea5c9743fb87f1f36.png",
     "index.html": "/index.html",
     "main.7ed3d820.css.map": "/static/css/main.7ed3d820.css.map",
-    "main.07910c76.js.map": "/static/js/main.07910c76.js.map",
+    "main.7a5e71a7.js.map": "/static/js/main.7a5e71a7.js.map",
     "415.4d6acbeb.chunk.js.map": "/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ed3d820.css",
-    "static/js/main.07910c76.js"
+    "static/js/main.7a5e71a7.js"
   ]
 }

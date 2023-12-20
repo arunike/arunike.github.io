@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="box">
+            <div class="content">
+                <div class="login-wrapper">
+                    <div class="mask"></div>
+                    <div class="login-content">
+                        <h1>Login</h1>
+                        <div class="title-text">
+                            Welcome to this screen, you can log in to the system from this screen, or you can choose another way to log in.
+                        </div>
+                        <div class="other-login">
+                            <img src="./imgs/Google.png" alt="Google">
+                            <span>Sign in with Google</span>
+                        </div>
+                        <div class="login-form">
+                            <input type="text" class="user" placeholder="example@email.com">
+                            <input type="password" class="password" placeholder="password">
+                        </div>
+                        <button class="login-btn">Sign in</button>
+                        <div class="tips">
+                            <span>Don't have a account yet?</span>
+                            <a href="./RegisterPage/register.html">Register here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        let flag = 0;
+        function changeBg() {
+            if (flag % 2 == 0)
+                document.querySelector('.other-login').style.backgroundColor = 'rgb(248, 182, 217)';
+            else
+                document.querySelector('.other-login').style.backgroundColor = 'rgb(182, 211, 248)';
+            if (flag == 4)
+                flag = 1;
+            else
+                flag++;
+            document.querySelector('.content').style.background = `url(./imgs/bg${flag}.png) no-repeat`;
+            return changeBg
+        }
+        setInterval(changeBg(), 5000);
+    </script>
+</html>

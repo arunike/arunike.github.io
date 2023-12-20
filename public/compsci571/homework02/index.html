@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://www.cs571.org/lib/cs571-client.js" defer></script>
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<h1>Badger Book</h1>
+		<form>
+			<label for="search-name">Name: </label>
+			<input id="search-name"/>
+			<label for="search-major">Major: </label>
+			<input id="search-major"/>
+			<label for="search-interest">Interest: </label>
+			<input id="search-interest"/>
+			<button id="search-btn" type="submit">Search</button>
+		</form>
+		<p>Your search resulted in <strong id="num-results">???</strong> student(s).</p>
+		<div class="container-fluid">
+			<div id="students"></div>
+		</div>
+	</body>
+</html>

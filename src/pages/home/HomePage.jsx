@@ -249,9 +249,9 @@ function Home() {
                   />
                 </Col>
               </Row>
-              <div class="container text-center mt-5">
+              <div className="container text-center mt-5">
                 <h2>To visit more of my projects</h2> 
-                <a href="https://github.com/arunike" class="btn btn-xl btn-dark" target="blank">Visit My GitHub &nbsp; <IoLogoGithub />  </a>
+                <a href="https://github.com/arunike" className="btn btn-xl btn-dark" target="blank">Visit My GitHub &nbsp; <IoLogoGithub />  </a>
               </div>
           </Container>
         </Container> <br /> <br /> <br />

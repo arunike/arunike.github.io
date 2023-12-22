@@ -71,7 +71,7 @@ function updateBoardView() {
 
     for(var i = 0; i < 4; i++) { // Update the view of the board
         for (var j = 0; j < 4; j++) { // Update the view of the board
-            $("#grid-container").append('<div class="number-cell" id="number-cell-' + i + '-' + j + '"></div>'); // Add a number cell
+            $("#grid-container").append('<div className="number-cell" id="number-cell-' + i + '-' + j + '"></div>'); // Add a number cell
 
             var theNumberCell = $("#number-cell-" + i + "-" + j); // Get the number cell
 

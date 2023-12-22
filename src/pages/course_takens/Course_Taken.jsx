@@ -47,21 +47,21 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS300} class="me-3" alt="cs300" width={250} height={250}/>
+          <img src={CS300} className="me-3" alt="cs300" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 300 - Programming II </strong> <br />
             <strong className="purple">Professor: Hobbes Legault </strong> <br />
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2020 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll learn about Object-Oriented Programming in <strong>Java</strong>, leveraging classes and objects to address complex problems. Delve into array-based and linked data structures like lists, stacks, and queues. Craft multi-class programs employing interfaces, generics, and exception handling through hands-on assignments. Master reading/writing data to/from files, navigating command line arguments, and handling exceptions. Dive into essential topics like object-oriented design, the difference between classes and objects, effective searching and sorting techniques, an introduction to abstract data types such as Lists, Stacks, and Queues, and the basics of complexity analysis and recursion.
+            <strong className="purple">Description: </strong> In this course, you'll learn about Object-Oriented Programming in <strong>Java</strong>, leveraging classes and objects to address complex problems. Delve into array-based and linked data structures like lists, stacks, and queues. Craft multi-className programs employing interfaces, generics, and exception handling through hands-on assignments. Master reading/writing data to/from files, navigating command line arguments, and handling exceptions. Dive into essential topics like object-oriented design, the difference between classes and objects, effective searching and sorting techniques, an introduction to abstract data types such as Lists, Stacks, and Queues, and the basics of complexity analysis and recursion.
             </ul>
         </div>
       </div>
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS220} class="me-3" alt="cs220" width={250} height={250}/>
+          <img src={CS220} className="me-3" alt="cs220" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 220 - Data Science Programming I </strong> <br />
             <strong className="purple">Professor: Meenakshi Syamkumar </strong> <br />
@@ -75,7 +75,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS400} class="me-3" alt="cs400" width={250} height={250}/>
+          <img src={CS400} className="me-3" alt="cs400" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 400 - Programming III </strong> <br />
             <strong className="purple">Professor: Gary Dahl </strong> <br />
@@ -89,7 +89,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS240} class="me-3" alt="stat240" width={250} height={250}/>
+          <img src={CS240} className="me-3" alt="stat240" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 240 - Introduction to Discrete Mathematics </strong> <br />
             <strong className="purple">Professor: Jun Le Goh </strong> <br />
@@ -103,7 +103,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS354} class="me-3" alt="cs354" width={250} height={250}/>
+          <img src={CS354} className="me-3" alt="cs354" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 354 - Machine Organization and Programming </strong> <br />
             <strong className="purple">Professor: Michael Doescher </strong> <br />
@@ -117,7 +117,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS577} class="me-3" alt="cs577" width={250} height={250}/>
+          <img src={CS577} className="me-3" alt="cs577" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 577 - Introduction to Algorithms </strong> <br />
             <strong className="purple">Professor: Marc Renault </strong> <br />
@@ -131,7 +131,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={STAT240} class="me-3" alt="stat240" width={250} height={250}/> <br />
+          <img src={STAT240} className="me-3" alt="stat240" width={250} height={250}/> <br />
           <ul className="course_taken_right_text list">
             <strong className="purple">STAT 240 - Data Science Modeling I </strong> <br />
             <strong className="purple">Professor: Bi Cheng Wu </strong> <br />
@@ -145,7 +145,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS537} class="me-3" alt="cs537" width={250} height={250}/>
+          <img src={CS537} className="me-3" alt="cs537" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 537 - Introduction to Operating Systems </strong> <br />
             <strong className="purple">Professor: Remzi Arpaci-Dusseau </strong> <br />
@@ -159,7 +159,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS540} class="me-3" alt="cs540" width={250} height={250}/> <br />
+          <img src={CS540} className="me-3" alt="cs540" width={250} height={250}/> <br />
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 540 - Introduction to Artificial Intelligence </strong> <br />
             <strong className="purple">Professor: Fred Sala </strong> <br />
@@ -173,7 +173,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS559} class="me-3" alt="cs559" width={250} height={250}/>
+          <img src={CS559} className="me-3" alt="cs559" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 559 - Computer Graphics </strong> <br />
             <strong className="purple">Professor: Eftychios Sifakis </strong> <br />
@@ -187,7 +187,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS320} class="me-3" alt="cs320" width={250} height={250}/>
+          <img src={CS320} className="me-3" alt="cs320" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 320 - Data Science Programming II </strong> <br />
             <strong className="purple">Professor: Meenakshi Syamkumar </strong> <br />
@@ -201,7 +201,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS506} class="me-3" alt="cs506" width={250} height={250}/>
+          <img src={CS506} className="me-3" alt="cs506" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 506 - Software Engineering </strong> <br />
             <strong className="purple">Professor: Scott Swanson </strong> <br />
@@ -215,7 +215,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS564} class="me-3" alt="cs564" width={250} height={250}/>
+          <img src={CS564} className="me-3" alt="cs564" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 564 - Database Management Systems: Design and Implementation </strong> <br />
             <strong className="purple">Professor: Xiaoyao Yu </strong> <br />
@@ -229,7 +229,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS579} class="me-3" alt="cs579" width={250} height={250}/>
+          <img src={CS579} className="me-3" alt="cs579" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 579 - Virtual Reality </strong> <br />
             <strong className="purple">Professor: Kevin Ponto </strong> <br />
@@ -243,7 +243,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS407} class="me-3" alt="cs407" width={250} height={250}/>
+          <img src={CS407} className="me-3" alt="cs407" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 407 - Foundation of Mobile Systems and Applications </strong> <br />
             <strong className="purple">Professor: Suman Banerjee </strong> <br />
@@ -257,7 +257,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS544} class="me-3" alt="cs544" width={250} height={250}/>
+          <img src={CS544} className="me-3" alt="cs544" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 544: Intro to Big Data </strong> <br />
             <strong className="purple">Professor: Tyler Caraza-Harter </strong> <br />
@@ -271,7 +271,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={CS571} class="me-3" alt="cs571" width={250} height={250}/>
+          <img src={CS571} className="me-3" alt="cs571" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">COMP SCI 571 - Building User Interfaces </strong> <br />
             <strong className="purple">Professor: Yuhang Zhao </strong> <br />
@@ -285,7 +285,7 @@ function Course_Taken() {
 
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
-          <img src={STAT340} class="me-3" alt="stat340" width={250} height={250}/>
+          <img src={STAT340} className="me-3" alt="stat340" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong className="purple">STAT 340 - Data Science Modeling II </strong> <br />
             <strong className="purple">Professor: Bi Cheng Wu </strong> <br />

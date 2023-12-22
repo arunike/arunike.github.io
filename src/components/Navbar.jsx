@@ -92,7 +92,7 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/course_taken"
-                smooth={true}
+                smooth="true"
                 onClick={() => updateExpanded(false)}
               >
                 <MdOutlineLibraryBooks style={{ marginBottom: "2px" }} /> Course Taken

@@ -18,7 +18,7 @@ function buildStudentsHtml(studs) {
  * @returns 
  */
 function buildStudentHtml(stud) {
-	let html = `<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">`;
+	let html = `<div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">`;
     html += `<h2>${stud.name.first} ${stud.name.last}</h2>`;
     html += `<h5>${stud.major}</h5>`;
     html += `<p>${stud.name.first} is taking ${stud.numCredits} credits and ${stud.fromWisconsin == true ? 'is' : 'is not'} from Wisconsin.</p>`;

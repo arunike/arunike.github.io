@@ -19,7 +19,7 @@ import OtherStack from "./about/OtherStack";
 import ProjectCard from "../projects/ProjectCards";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
-import Resume from "../../assets/resume/Richie Zhou's Resume 2023.pdf";
+import Resume from "../../assets/resume/Richies_Resume.pdf";
 import homeLogo from "../../assets/imgs/purple-profile.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";

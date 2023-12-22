@@ -21,7 +21,7 @@
     "react-icons": "^4.12.0",
     "react-modal": "^3.16.1",
     "react-parallax-tilt": "^1.7.177",
-    "react-pdf": "^7.6.0",
+    "react-pdf": "^5.7.2",
     "react-router-dom": "^6.21.0",
     "react-router-hash-link": "^2.4.3",
     "react-tsparticles": "^2.12.2",

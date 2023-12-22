@@ -22,6 +22,7 @@ import CS579 from "../../assets/imgs/courses/compsci579.png";
 import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import HTMLPortfolio from "../../assets/imgs/projects/html-portfolio.png";
+import LaTexResume from "../../assets/imgs/projects/latex-resume.png";
 
 import BadgerBakeryDemo from "../../assets/video/cs571/badger bakery ios demo.mp4";
 import BadgerNewsDemo from "../../assets/video/cs571/badger news ios demo.mp4";
@@ -43,18 +44,29 @@ function Projects() {
             <Container>
               <h2>Projects</h2>
               <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-              <Col md={4} className="project-card">
+                <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={ResumeBuilder}
+                    imgPath={LaTexResume}
                     isBlog={false}
-                    title="Resume Builder"
-                    description="A simple resume builder application built with Next.js and Tailwind CSS. 
-                    The application allows users to create a resume by filling out a form. 
-                    The resume can be downloaded as a PDF file."
-                    ghLink="https://github.com/arunike/resume-builder"
-                    demoName="Demo"
+                    title="LaTex Resume"
+                    description="A LaTeX resume template designed to showcase your education, experience, projects, and technical skills. 
+                    It provides a professional and visually appealing layout for creating a comprehensive resume."
+                    ghLink="https://github.com/arunike/LaTex-Resume"
+                    
                   />
                 </Col>
+
+                <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={ResumeBuilder}
+                      isBlog={false}
+                      title="Resume Builder"
+                      description="A simple resume builder application built with Next.js and Tailwind CSS. 
+                      The application allows users to create a resume by filling out a form. 
+                      The resume can be downloaded as a PDF file."
+                      ghLink="https://github.com/arunike/resume-builder"
+                    />
+                  </Col>
 
                 <Col md={4} className="project-card">
                   <ProjectCard

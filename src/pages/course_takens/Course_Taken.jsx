@@ -21,16 +21,37 @@ import CS571 from "../../assets/imgs/courses/compsci571.png";
 import STAT340 from "../../assets/imgs/courses/stat340.png";
 import CS544 from "../../assets/imgs/courses/compsci544.png";
 
+import UWMadisonCS from "../../assets/imgs/uw-madison-cs.png";
+
 function Course_Taken() {
   return (
     <Container fluid className="project-section">
       <h1 className="project-heading">
         COURSE TAKEN
-      </h1> 
+      </h1>
+      {/* 
+      <img src={} alt="" width={500} height={100} className="ms-5"/>
+      <h2>
+        (Graduate)
+      </h2> <br /> <br />
+      <Particle />
+      <div className="container mt-5 ">
+        <div className="d-flex mt-4 ms-5">
+          <img src={xxx} alt="xxx" width={250} height={250}/>
+          <ul className="course_taken_right_text list">
+            <strong className="purple"> xxx </strong> <br />
+              <strong className="purple"> xxx </strong> <br />
+              <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
+              <strong className="purple">When: Fall 2024 </strong> <br />
+              <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong>
+            </ul>
+        </div>
+      </div> */}
+
+      <img src={UWMadisonCS} alt="uw-madison-cs" width={500} height={100} className="ms-5"/>
       <h2>
         University of Wisconsin - Madison (Undergraduate)
       </h2> <br /> <br />
-      
       <div className="container mt-5">
         <div className="d-flex mt-4 ms-5">
           <img src={CS252} alt="cs252" width={250} height={250}/>
@@ -68,7 +89,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Spring 2021 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll explore the fundamentals of <strong>Python</strong> programming, encompassing data types, control mechanisms, functions, and input/output operations. Dive deeper into the essentials of data science, focusing on data visualization and analysis techniques. Through interactive assignments, you'll harness Python to address practical challenges. Master the art of reading/writing data to/from files, efficiently utilize command line inputs, and adeptly manage exceptions.
+            <strong className="purple">Description: </strong> In this course, you'll explore the fundamentals of <strong>Python</strong> programming, encompassing data types, control mechanisms, functions, and input/output operations. Dive deeper into the essentials of data science, focusing on data visualization and analysis techniques. Through interactive assignments, you'll harness Python to address practical challenges. Master the art of reading/writing data to/from files, efficiently utilize command line inputs, and adeptly manage exceptions. This comprehensive learning experience is augmented with 13 weekly projects, each designed to reinforce your understanding and application of Python in real-world scenarios, enhancing your programming and data science skills.
             </ul>
         </div>
       </div>
@@ -96,7 +117,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2021 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll navigate the foundational principles of logic, sets, and relations, emphasizing discrete structures like integers, bits, strings, trees, and graphs. Explore the intricacies of propositional and predicate logic, Boolean algebra, and mathematical induction. Deepen your understanding with recursion, invariants, and algorithmic validation. Unravel the core concepts of counting and the analysis of recurrence and asymptotic growth. Through interactive learning, gain proficiency in the pivotal areas of mathematical proofs and their application in computing.
+            <strong className="purple">Description: </strong> In this course, you'll dive deep into the core structures of computer systems, emphasizing their intricate relationships and impacts on performance using <strong>C</strong>. Unpack the complexities of virtual address spaces, dynamic memory management, memory hierarchies, and the nuances of assembly language. Explore the mechanics of communication via interrupts and signals and the transformation journey of code from compilation to linkage. Through hands-on exercises, gain a comprehensive understanding of the foundational layers of computing and their seamless orchestration. The course is further enriched with six projects, each designed to provide practical experience and a deeper insight into these vital components of computer systems.
             </ul>
         </div>
       </div>
@@ -152,7 +173,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2022 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll navigate the intricate landscape of computer system structures and their functionalities. Dive into the essentials of input-output hardware, the nuances of interrupt handling, and the characteristics of magnetic storage mediums like tapes, discs, and drums. Explore the realms of associative memories and virtual address translation methods building using <strong>C</strong>. Deepen your understanding of diverse computing environments, from batch processing to real-time systems, while mastering scheduling and resource allocation techniques. You'll gain proficiency in modular software designs, performance metrics, and comprehensive system evaluations through interactive modules.
+            <strong className="purple">Description: </strong> In this course, you'll navigate the intricate landscape of computer system structures and their functionalities. Dive into the essentials of input-output hardware, the nuances of interrupt handling, and the characteristics of magnetic storage mediums like tapes, discs, and drums. Explore associative memories and virtual address translation methods building using <strong>C</strong>. Deepen your understanding of diverse computing environments, from batch processing to real-time systems, while mastering scheduling and resource allocation techniques. Through interactive modules, you'll gain proficiency in modular software designs, performance metrics, and comprehensive system evaluations. This course includes seven projects designed to reinforce your learning and provide practical experience in these critical aspects of computer systems.
             </ul>
         </div>
       </div>
@@ -166,7 +187,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2022 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll journey into artificial intelligence and its foundational principles. Explore knowledge-driven search methodologies, automated deduction techniques, and robust knowledge representation via predicate logic. Dive deep into machine learning and probabilistic reasoning paradigms. Through hands-on modules, you'll tackle applications spanning problem-solving, data mining, game strategies, natural language processing, computer vision, speech interpretation, and robotics using <strong>Python</strong>, offering a comprehensive insight into the vast world of intelligent systems.
+            <strong className="purple">Description: </strong> In this course, you'll explore artificial intelligence and its foundational principles. Delve into knowledge-driven search methodologies, automated deduction techniques, and robust knowledge representation through predicate logic. You'll dive deep into the paradigms of machine learning and probabilistic reasoning. The hands-on modules cover many applications, including problem-solving, data mining, game strategies, natural language processing, computer vision, speech interpretation, and robotics, all using <strong>Python</strong>. This comprehensive course offers a deep dive into the vast world of intelligent systems and includes ten projects, each designed to enhance your understanding and skills in artificial intelligence.
             </ul>
         </div>
       </div>
@@ -180,7 +201,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2022 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll traverse the captivating world of computer graphics using <strong>JavaScript</strong>. Delve into the intricacies of image formation, representation, composition, and manipulation. Explore the modeling, transformation, and projection of 2D and 3D geometric entities using JavaScript's powerful rendering capabilities. Unravel the detailed representation of curves and surfaces. Engage in modules on rendering techniques, dynamic animation, multimedia integrations, and advanced visualization. You'll gain a comprehensive understanding of visual computing and its myriad applications through interactive sessions and hands-on JavaScript exercises.
+            <strong className="purple">Description: </strong> In this course, you will traverse an immersive exploration of computer graphics, utilizing the power of <strong>JavaScript</strong>. You will delve into the complexities of image formation, representation, composition, and manipulation. Discover the intricacies of modeling, transforming, and projecting 2D and 3D geometric entities, harnessing JavaScript's robust rendering capabilities. The course also covers detailed representations of curves and surfaces. Engage with modules focusing on rendering techniques, dynamic animation, multimedia integrations, and advanced visualization. Throughout the course, you'll gain a comprehensive understanding of visual computing and apply these concepts through interactive sessions and practical JavaScript exercises. Additionally, you'll have the opportunity to undertake eight creativity projects of your choice, allowing you to demonstrate and refine your newfound skills in computer graphics.
             </ul>
         </div>
       </div>
@@ -194,7 +215,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Spring 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll dive deeper into Data Science methodologies using <strong>Python</strong>, building on your foundational knowledge of tabular analysis. Grasp the art of implementing data structures like graphs for efficient data representation. Become adept at utilizing tools such as version control and Python virtual environments, honing a strong emphasis on ensuring reproducibility in analysis. Discover the world of tracing and A/B testing as avenues to curate insightful datasets. Engage with foundational techniques in classification, clustering, optimization, and simulation. Throughout the course, the significance of visual representation, ensuring you master the art of plotting and effective data communication.
+            <strong className="purple">Description: </strong> In this course, you'll deepen your understanding of Data Science methodologies, focusing on <strong>Python</strong>. Building on your knowledge of tabular analysis, you will learn to skillfully implement data structures like graphs for more efficient data representation. The course emphasizes mastering tools such as version control and Python virtual environments, with a strong focus on ensuring reproducibility in your analyses. Explore the realms of tracing and A/B testing as methods to create meaningful datasets. You will also become proficient in foundational classification, clustering, optimization, and simulation techniques. A vital aspect of the course is the art of visual representation, ensuring you master plotting and effective data communication. This comprehensive learning journey is reinforced with seven projects designed to challenge and enhance your skills in applying these advanced data science techniques.
             </ul>
         </div>
       </div>
@@ -208,7 +229,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Spring 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll embark on a journey through the realm of software development, focusing on creating and refining expansive software systems. Dive into the intricacies of software engineering processes, from requirement gathering to specification drafting. Familiarize yourself with the dynamics of agile methodology, software architectures, prevalent design patterns, <strong>Docker, and MySQL</strong>. Sharpen your skills in testing, debugging, and understanding cost and quality metrics. Engage in hands-on team projects, collaborating in a group of six to bring theoretical knowledge into practical application, ensuring a comprehensive grasp of software engineering principles and practices.
+            <strong className="purple">Description: </strong> In this course, you'll embark on a journey through the realm of software development, focusing on creating and refining expansive software systems. Dive into the intricacies of software engineering processes, from requirement gathering to specification drafting. Familiarize yourself with the dynamics of agile methodology, software architectures, prevalent design patterns, <strong>Docker, and MySQL</strong>. Sharpen your skills in testing, debugging, and understanding cost and quality metrics. Engage in hands-on team projects, collaborating in a group of six to bring theoretical knowledge into a semester long practical application project, ensuring a comprehensive grasp of software engineering principles and practices.
             </ul>
         </div>
       </div>
@@ -222,7 +243,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Spring 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> Immerse yourself in the intricate world of database management systems in this course. Dive deep into the design principles behind relational databases and unravel the mysteries of efficient schema design and application integration. Get hands-on with practical implementations using <strong>C++ and SQL</strong>, understanding the core mechanisms like query processing, concurrency control, and integrity maintenance. Collaborating in a team of three to develop a robust database management system project that showcases your newfound expertise.
+            <strong className="purple">Description: </strong> In this course, you'll immerse yourself in the intricate world of database management systems. Dive deep into the design principles behind relational databases and unravel the mysteries of efficient schema design and application integration. Get hands-on with practical implementations using <strong>C++ and SQL</strong>, understanding the core mechanisms like query processing, concurrency control, and integrity maintenance. Collaborating in a team of three to develop a robust database management system project (4 projects) that showcases your newfound expertise.
             </ul>
         </div>
       </div>
@@ -236,7 +257,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Spring 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong> In this course, you'll dive into the captivating realm of virtual reality, exploring the intricacies of <strong>Unity, C#</strong>, and advanced 3D modeling techniques. Trace the journey of virtual reality from its historical origins to its modern-day innovations and ponder its potential for the future. As part of a dynamic team of four, you will craft a compelling 3D virtual reality experience, showcasing the fusion of art, design, engineering, and technology. Collaborating in a team of four, you'll develop a comprehensive 3D virtual reality project.
+            <strong className="purple">Description: </strong> In this course, you'll dive into the captivating realm of virtual reality, exploring the intricacies of <strong>Unity, C#</strong>, and advanced 3D modeling techniques. Trace the journey of virtual reality from its historical origins to its modern-day innovations and ponder its potential for the future. As part of a dynamic team of four, you will craft a compelling 3D virtual reality experience, showcasing the fusion of art, design, engineering, and technology. Collaborating in a team of four, you'll develop a comprehensive semester long 3D virtual reality project.
             </ul>
         </div>
       </div>
@@ -250,7 +271,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/></strong> <br />
             <strong className="purple">When: Fall 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong>
+            <strong className="purple">Description: </strong> In this course, you'll delve into the unique challenges and opportunities mobile platforms present. This course focuses on designing and implementing applications that navigate constraints like limited processing, memory, energy, and fluctuating bandwidth while leveraging features such as touchscreens, cameras, electronic compasses, GPS, and accelerometers. Through nine lab sessions, you'll gain hands-on experience with various Android mobile application development aspects using <strong>Kotlin</strong>. The course culminates in a semester-long team project for groups of four, where you can bring your creative ideas to life, synthesizing your learning into a practical, innovative mobile application.
             </ul>
         </div>
       </div>
@@ -264,7 +285,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong>
+            <strong className="purple">Description: </strong> In this course, you'll master distributed systems for storing and analyzing vast datasets and exploring unstructured and structured storage methods. Dive into data analysis, learning new query languages, processing streaming data, and training machine learning models, predominantly with <strong>Python</strong>. Engage with cutting-edge technologies like Docker, PyTorch, HDFS, Spark, Cassandra, Kafka, and BigQuery. Eight collaborative partner projects offer hands-on experience combining technology, strategy, and teamwork in the rapidly evolving extensive data landscape.
             </ul>
         </div>
       </div>
@@ -278,7 +299,7 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/></strong> <br />
             <strong className="purple">When: Fall 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/></strong> <br />
-            <strong className="purple">Description: </strong>
+            <strong className="purple">Description: </strong> In this course, you'll embark on an enlightening journey into UX development and experience the blend of programming expertise and design insight for creating compelling user interfaces. Covering web, mobile, and voice interfaces across three focused modules, you'll develop skills in <strong>JavaScript, React, React Native, and Dialogflow</strong>, advancing to full-stack development. The course offers 12 weekly projects, each tailored to enhance your understanding of user needs and solution effectiveness, culminating in a robust portfolio showcasing your proficiency in building intuitive and responsive user-facing applications.
             </ul>
         </div>
       </div>
@@ -292,27 +313,10 @@ function Course_Taken() {
             <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
             <strong className="purple">When: Fall 2023 </strong> <br />
             <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-            <strong className="purple">Description: </strong>
+            <strong className="purple">Description: </strong> In this course, it will equip you with the skills to explain and predict real-world phenomena using data using <strong>R</strong>. You'll learn the comprehensive process of data science, from collecting and cleaning data to modeling and analyzing it, enabling you to answer complex questions about the world around you. This journey through data science will provide you with a solid foundation in statistical and mathematical modeling, which is essential for understanding and interpreting the vast data landscapes of the modern era.
             </ul>
         </div>
       </div>
-
-      {/* <h2>
-        (Graduate)
-      </h2> <br /> <br />
-      <Particle />
-      <div className="container mt-5 ">
-        <div className="d-flex mt-4 ms-5">
-          <img src={xxx} alt="xxx" width={250} height={250}/>
-          <ul className="course_taken_right_text list">
-            <strong className="purple"> xxx </strong> <br />
-              <strong className="purple"> xxx </strong> <br />
-              <strong className="purple">Rating: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong> <br />
-              <strong className="purple">When: Fall 2024 </strong> <br />
-              <strong className="purple">Workload: <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> </strong>
-            </ul>
-        </div>
-      </div> */}
       <br /> <br /> <br />
     </Container>
   );

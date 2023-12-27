@@ -34,7 +34,7 @@ function ProgrammingLangStack() {
             <img src={sql} length={150} width={150} title="SQL" alt="sql"/>
         </Col>
     </Row>
-  );
+    );
 }
 
 export default ProgrammingLangStack;

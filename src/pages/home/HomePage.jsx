@@ -49,7 +49,7 @@ function Home() {
         ProjectCardEffect('.tech-icons');
       }, 1200);
 
-      return () => clearTimeout(timer);  // Cleanup on component unmount
+      return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -94,7 +94,7 @@ function Home() {
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
                 <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="" target="blank">University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
+                  Currently, I'm pursuing my master's in Computer Science at <a href="" target="blank" style={{ textDecoration: 'none' }}>TBD</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
@@ -102,7 +102,7 @@ function Home() {
                   <br />
                 </p>
                 <Col md={4}>
-                  <a className="primary_btn" href={Resume}> <span>Download resume</span> </a>
+                  <a className="primary_btn" href={Resume} style={{ textDecoration: 'none' }}> <span>Download resume</span> </a>
                 </Col>
               </Col>
 

@@ -20,7 +20,7 @@ import ProjectCard from "../projects/ProjectCards";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import Resume from "../../assets/resume/Richies_Resume.pdf";
-import homeLogo from "../../assets/imgs/purple-profile.png";
+import ProfilePicture from "../../assets/imgs/profile.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
@@ -78,10 +78,10 @@ function Home() {
 
               <Col md={5} className="home-logo" style={{ paddingBottom: 20 }}>
                 <img
-                  src={homeLogo}
-                  alt="home pic"
+                  src={ProfilePicture}
+                  alt="profile picture"
                   className="img-fluid"
-                  style={{ maxHeight: "450px" }}
+                  style={{ maxHeight: "350px", marginLeft: "140px"}}
                 />
               </Col>
             </Row>

@@ -13,6 +13,11 @@ function Github() {
         blockSize={15}
         blockMargin={5}
         fontSize={16}
+        theme={{
+          light: ['#EBDEF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'],
+          dark: ['#EBDEF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'],
+        }}
+        showWeekdayLabels={true}
       />
     </Row>
   );

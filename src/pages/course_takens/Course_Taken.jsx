@@ -22,6 +22,7 @@ import STAT340 from "../../assets/imgs/courses/stat340.png";
 import CS544 from "../../assets/imgs/courses/compsci544.png";
 
 import UWMadisonCS from "../../assets/imgs/uw-madison-cs.png";
+import ColumbiaEngineering from "../../assets/imgs/columbia-engineering.png";
 
 function Course_Taken() {
   return (
@@ -29,12 +30,11 @@ function Course_Taken() {
       <h1 className="project-heading">
         COURSE TAKEN
       </h1>
-      {/* 
-      <img src={} alt="" width={500} height={100} className="ms-5"/>
-      <h2>
-        (Graduate)
-      </h2> <br /> <br />
-      <Particle />
+      {/* <h2>
+        Columbia University (Graduate)
+      </h2>
+      <img src={ColumbiaEngineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/>
+      <br /> <br />
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
           <img src={xxx} alt="xxx" width={250} height={250}/>
@@ -48,10 +48,11 @@ function Course_Taken() {
         </div>
       </div> */}
 
-      <img src={UWMadisonCS} alt="uw-madison-cs" width={500} height={100} className="ms-5"/>
       <h2>
         University of Wisconsin - Madison (Undergraduate)
-      </h2> <br /> <br />
+      </h2>
+      <img src={UWMadisonCS} alt="university of wisconsin madison cs" width={500} height={80} className="ms-5"/>
+      <br /> <br />
       <div className="container mt-5">
         <div className="d-flex mt-4 ms-5">
           <img src={CS252} alt="cs252" width={250} height={250}/>

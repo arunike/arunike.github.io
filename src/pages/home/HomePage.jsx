@@ -93,8 +93,16 @@ function Home() {
             <Row>
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
+                {/* <p className="home-about-body">
+                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank" style={{ textDecoration: 'none' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
+                  <br /> <br />
+                  Ever since I was young, programming have been something that I am passionate doing.
+                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
+                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
+                  <br />
+                </p> */}
                 <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="" target="blank" style={{ textDecoration: 'none' }}>TBD</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
+                  I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
@@ -294,7 +302,7 @@ function Home() {
               <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                Revamped Rockitcoin’s user authorization interface for mobile and web platforms using React, elevating security and usability, resulting in a 20% increase in user retention rate.
+                Revamped Rockitcoin's user authorization interface for mobile and web platforms using React, elevating security and usability, resulting in a 20% increase in user retention rate.
               </p>
             </VerticalTimelineElement>
 
@@ -325,7 +333,8 @@ function Home() {
           <Row className="info_item">
             <h4>
               <AiOutlineMail style={{color: "#c770f0"}}/>
-                <a href="mailto:richiezhouyjz@gmail.com">zhou469@wisc.edu || richiezhouyjz@gmail.com</a>
+                {/* <a href="mailto:@columbia.edu">@columbia.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a> */}
+                <a href="mailto:zhou469@wisc.edu">zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
             </h4>
 
             <h4>

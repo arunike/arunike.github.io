@@ -33,7 +33,7 @@ function Course_Taken() {
       {/* <h2>
         Columbia University (Graduate)
       </h2>
-      <img src={ColumbiaEngineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/>
+      <a href="https://www.cs.columbia.edu/" target="blank"><img src={ColumbiaEngineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/>
       <br /> <br />
       <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
@@ -51,7 +51,7 @@ function Course_Taken() {
       <h2>
         University of Wisconsin - Madison (Undergraduate)
       </h2>
-      <img src={UWMadisonCS} alt="university of wisconsin madison cs" width={500} height={80} className="ms-5"/>
+      <a href="https://cdis.wisc.edu/" target="blank"><img src={UWMadisonCS} alt="university of wisconsin madison cs" width={500} height={80} className="ms-5"/></a>
       <br /> <br />
       <div className="container mt-5">
         <div className="d-flex mt-4 ms-5">

@@ -220,7 +220,7 @@ function Projects() {
                 </Col>
               </Row>
 
-              <h2>Courses</h2>
+              <h2 style={{ color: "#C5050C" }}>UW-Madison Courses</h2>
               <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
               <Col md={4} className="project-card">
                   <ProjectCard
@@ -318,6 +318,45 @@ function Projects() {
                           "http://arunike.github.io/compsci559/project08/index.html"
                       ]}
                       demoName="Project"
+                  />
+                </Col> <br /> <br /> <br />
+              </Row>
+
+              <h2 style={{ color: "#348EDE" }}>Columbia University Courses</h2>
+              <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+              <Col md={4} className="project-card">
+                  <ProjectCard
+                    imgPath={CS571}
+                    isBlog={false}
+                    title="COMP SCI 571"
+                    description="Introduces software development of user interfaces (UIs). 
+                    Build competence in implementing UIs using state-of-the-art (1) UI paradigms, such as event-driven interfaces, direct-manipulation interfaces, and dialogue-based interaction; (2) methods for capturing, interpreting, and responding to different forms of user input and states, including pointing, text entry, speech, touch, gestures, user activity, context, and physiological states; and (3) platform-specific UI development APIs, frameworks, and tool kits for multiple platforms including web/mobile/desktop interfaces, natural user interfaces, and voice user interfaces. 
+                    Learn about the fundamental concepts, technologies, algorithms, and methods in building user interfaces, implement UIs using of state-of-the-art UI development tools, and build a UI development projects."
+                    ghLink="https://github.com/arunike/CS571"
+                    demoLinks={[
+                      "http://arunike.github.io/compsci571/homework01/index.html",
+                      "http://arunike.github.io/compsci571/homework02/index.html",
+                      "http://arunike.github.io/#/badger-bakery",
+                      "http://arunike.github.io/#/badger-classroom",
+                      "https://github.com/arunike/CS571/tree/main/Homework%2005",
+                      "https://github.com/arunike/CS571/tree/main/Homework%2006",
+                      BadgerBakeryDemo,
+                      BadgerNewsDemo,
+                      BadgerChatDemo,
+                      BadgerChatDialogflowDemo,
+                      "https://github.com/arunike/CS571/tree/main/Homework%2012"
+                    ]}
+                    demoName="Homework"
+                    demoLinkLabels={{
+                      [BadgerChatDialogflowDemo]: "Homework 11",
+                      "Homework%2012": "Homework 12"
+                    }}
+                    demoLinkIsVideo={{
+                      BadgerBakeryDemo: true,
+                      BadgerNewsDemo: true,
+                      BadgerChatDemo: true,
+                      BadgerChatDialogflowDemo: true
+                    }}
                   />
                 </Col> <br /> <br /> <br />
               </Row>

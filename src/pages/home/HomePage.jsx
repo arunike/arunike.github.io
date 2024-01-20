@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import { MdWorkOutline } from "react-icons/md";
 import { IoLogoGithub } from "react-icons/io";
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 import Particle from "../../components/Particle";
 import Type from "./Type";
@@ -20,11 +25,14 @@ import ProjectCard from "../projects/ProjectCards";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import Resume from "../../assets/resume/Richies_Resume.pdf";
-import ProfilePicture from "../../assets/imgs/profile.png";
+import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
+import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
+import ColumbiaProfilePicture from "../../assets/imgs/Columbia University Profile Picture.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
+import Lumen from "../../assets/imgs/timeline/Lumen.png";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
@@ -39,6 +47,29 @@ import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
 function Home() {
+  const [showDiplomaModal, setShowDiplomaModal] = useState(false);
+  const [numPages, setNumPages] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleDiplomaModalClose = () => setShowDiplomaModal(false);
+  const handleDiplomaModalShow = () => setShowDiplomaModal(true);
+
+  const onDocumentLoadSuccess = (numPages) => {
+    setNumPages(numPages);
+  };
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < numPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   useEffect(() => {
       const timer = setTimeout(() => {
         ProjectCardEffect('.home-header');
@@ -78,7 +109,7 @@ function Home() {
 
               <Col md={5} className="home-logo" style={{ paddingBottom: 20 }}>
                 <img
-                  src={ProfilePicture}
+                  src={UWMadisonProfilePicture}
                   alt="profile picture"
                   className="img-fluid"
                   style={{ maxHeight: "350px", marginLeft: "140px"}}
@@ -94,7 +125,7 @@ function Home() {
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
                 {/* <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank" style={{ textDecoration: 'none' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
+                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
@@ -102,7 +133,7 @@ function Home() {
                   <br />
                 </p> */}
                 <p className="home-about-body">
-                  I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank" style={{ textDecoration: 'none' }}>University of Wisconsin-Madison</a>.
+                  I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
@@ -122,6 +153,30 @@ function Home() {
             </Row>
           </Container>
       </Container>
+
+      <Modal show={showDiplomaModal} onHide={handleDiplomaModalClose} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>My UW-Madison Diploma</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="pdf-viewer-container">
+            {currentPage > 1 && (
+              <AiOutlineLeft className="pdf-nav-arrow left-arrow" onClick={goToPreviousPage} />
+            )}
+            <Document file={UWMadisonDiploma} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={currentPage} />
+            </Document>
+            {currentPage < numPages && (
+              <AiOutlineRight className="pdf-nav-arrow right-arrow" onClick={goToNextPage} />
+            )}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleDiplomaModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
         <Container fluid className="about-section" id="skills">
           <Particle />
@@ -269,7 +324,23 @@ function Home() {
               TIMELINE
           </h1> <br /> <br />
           <VerticalTimeline lineColor="#F5F5F5">
-          
+            {/* <VerticalTimelineElement
+              className="vertical-timeline-element--work"
+              dateClassName="purple"
+              date="May 2024 - August 2024"
+              contentStyle={{ border: '1px outset #623686' }}
+              contentArrowStyle={{ borderRight: '7px solid  #c770f0' }}
+              iconStyle={{ background: '#c770f0', color: '#fff' }}
+              icon={<MdWorkOutline />}
+            >
+              <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
+              <a href="https://www.lumen.com/en-us/home.html" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Lumen</h4> </a>
+              <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen" /> </a>
+              <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
+              <p>
+              </p>
+            </VerticalTimelineElement> */}
+
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="purple"
@@ -281,7 +352,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
               <a href="https://www.northerntrust.com/united-states/home" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Northern Trust</h4> </a>
-              <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="NorthernTrust" /> </a>
+              <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
                 Developed and optimized algorithms in Java and C++ to enhance the computational efficiency of NT's Goals Driven Wealth Management platform, leading to an 8% increase in transaction processing speed.
@@ -317,7 +388,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Full Stack Developer Intern</h3>
               <a href="https://www.rockitcoin.com/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">UNFCU</h4> </a>
-              <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="UNFCU" /> </a>
+              <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union" /> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
                 Utilized the Next.js framework to architect and deploy intuitive entry pages, streamline navigation, and cohesively convey company culture, culminating in a measurable 30% uplift in customer satisfaction rate.
@@ -333,8 +404,8 @@ function Home() {
           <Row className="info_item">
             <h4>
               <AiOutlineMail style={{color: "#c770f0"}}/>
-                {/* <a href="mailto:@columbia.edu">@columbia.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a> */}
-                <a href="mailto:zhou469@wisc.edu">zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
+                {/* <a href="mailto:@columbia.edu" style={{ color:'#348EDE' }}>@columbia.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a> */}
+                <a href="mailto:zhou469@wisc.edu" style={{ color:'#C5050C' }}>zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
             </h4>
 
             <h4>

@@ -54,7 +54,7 @@ function Home() {
   const handleDiplomaModalClose = () => setShowDiplomaModal(false);
   const handleDiplomaModalShow = () => setShowDiplomaModal(true);
 
-  const onDocumentLoadSuccess = (numPages) => {
+  const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
   };
 

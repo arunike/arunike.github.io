@@ -7,9 +7,9 @@
 <img align='right' src='https://octodex.github.com/images/codercat.jpg' width='200'>
 
 ## About Me :
-:computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="" target="blank">University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
+:computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 
-- :office: I’m currently working as Software Engineer and contributing to frontend and backend for building web and mobile applications.
+- :office: I’m currently working as a software Engineer and contributing to the front end and back end of building web and mobile applications.
 - :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
 - :email: How to reach me: &nbsp; <a href="https://www.linkedin.com/in/richiezhou"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 
@@ -64,8 +64,8 @@
     <img src="https://github.com/devicons/devicon/blob/master/icons/threejs/threejs-original.svg" title="ThreeJS" alt="threeJS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/spark.png" title="Spark" alt="spark" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/hdfs.png" title="HDFS" alt="HDFS" width="40" height="40"/>&nbsp; 
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/cassandra.png" title="Cassandra" alt="Cassandra" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/kafka.png" title="Kafka" alt="Kafka" width="40" height="40"/>&nbsp;
+    <!-- <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/cassandra.png" title="Cassandra" alt="Cassandra" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/kafka.png" title="Kafka" alt="Kafka" width="40" height="40"/>&nbsp; -->
 </p>
 
 ### &nbsp; Other:

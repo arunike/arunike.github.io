@@ -124,16 +124,8 @@ function Home() {
             <Row>
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
-                {/* <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
-                  <br /> <br />
-                  Ever since I was young, programming have been something that I am passionate doing.
-                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
-                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
-                  <br />
-                </p> */}
                 <p className="home-about-body">
-                  I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
+                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.

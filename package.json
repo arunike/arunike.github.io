@@ -24,6 +24,7 @@
     "react-pdf": "^5.7.2",
     "react-router-dom": "^6.21.0",
     "react-router-hash-link": "^2.4.3",
+    "react-tooltip": "^5.26.3",
     "react-tsparticles": "^2.12.2",
     "react-vertical-timeline-component": "^3.6.0",
     "typewriter-effect": "^2.21.0",

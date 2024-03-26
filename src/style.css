@@ -780,3 +780,22 @@ button:focus {
   background-color: #A9A9A9 !important;
   color: #FFFFFF !important;
 }
+
+/* --------- */
+/* Image Preview */
+/* --------- */
+.img-preview {
+  position: absolute;
+  transform: translate(-50%, -10%);
+  z-index: 100;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+}
+
+.example-container .example-diff-arrow {
+  color: #fff;
+  background-color: rgb(55, 55, 55);
+}
+
+.example-container .example-diff-arrow .example-arrow {
+  background-color: rgb(222, 34, 72);
+}

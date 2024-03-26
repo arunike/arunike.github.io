@@ -14,19 +14,21 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 import Particle from "../../components/Particle";
 import Type from "./Type";
-import Github from "./about/Github";
-import ProgrammingLangStack from "./about/ProgrammingLangStack";
-import FrameworkStack from "./about/FrameworkStack";
-import DatabaseStack from "./about/DatabaseStack";
-import WebDevStack from "./about/WebDevStack";
-import ToolStack from "./about/ToolStack";
-import OtherStack from "./about/OtherStack";
+import Github from "./github/Github";
+import ProgrammingLangStack from "./skills/ProgrammingLangStack";
+import FrameworkStack from "./skills/FrameworkStack";
+import DatabaseStack from "./skills/DatabaseStack";
+import WebDevStack from "./skills/WebDevStack";
+import ToolStack from "./skills/ToolStack";
+import OtherStack from "./skills/OtherStack";
 import ProjectCard from "../projects/ProjectCards";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import Resume from "../../assets/resume/Richies_Resume.pdf";
 import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
+import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Preview.png";
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
+import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
 import ColumbiaProfilePicture from "../../assets/imgs/Columbia University Profile Picture.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
@@ -50,9 +52,16 @@ function Home() {
   const [showDiplomaModal, setShowDiplomaModal] = useState(false);
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isDiplomaPreviewVisible, setIsDiplomaPreviewVisible] = useState(false);
+  const [isResumePreviewVisible, setIsResumePreviewVisible] = useState(false);
 
+  const showDiplomaPreview = () => setIsDiplomaPreviewVisible(true);
+  const hideDiplomaPreview = () => setIsDiplomaPreviewVisible(false);
   const handleDiplomaModalClose = () => setShowDiplomaModal(false);
   const handleDiplomaModalShow = () => setShowDiplomaModal(true);
+
+  const showResumePreview = () => setIsResumePreviewVisible(true);
+  const hideResumePreview = () => setIsResumePreviewVisible(false);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -125,7 +134,13 @@ function Home() {
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
                 <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}> University of Wisconsin - Madison</span>.
+                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. 
+                  Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {isDiplomaPreviewVisible && (
+                    <div className="img-preview">
+                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )}
                   <br /> <br />
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
@@ -133,7 +148,12 @@ function Home() {
                   <br />
                 </p>
                 <Col md={4}>
-                  <a className="primary_btn" href={Resume} style={{ textDecoration: 'none' }}> <span>Download resume</span> </a>
+                  <a className="primary_btn" href={Resume} style={{ textDecoration: 'none' }}> <span onMouseEnter={showResumePreview} onMouseLeave={hideResumePreview}>Download resume</span> </a>
+                  {isResumePreviewVisible && (
+                    <div className="img-preview">
+                      <img src={ResumePreview} alt="Resume Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )}
                 </Col>
               </Col>
 

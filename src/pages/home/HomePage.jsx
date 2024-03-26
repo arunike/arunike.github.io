@@ -412,25 +412,24 @@ function Home() {
         <Container className="contact_info" id="contact">
           <h1 className="project-heading">
             CONTACT
-          </h1> <br /> <br />
-          <Row className="info_item">
-            <h4>
-              <AiOutlineMail style={{color: "#c770f0"}}/>
-                {/* <a href="mailto:@columbia.edu" style={{ color:'#348EDE' }}>@columbia.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a> */}
-                <a href="mailto:zhou469@wisc.edu" style={{ color:'#C5050C' }}>zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
-            </h4>
-
-            <h4>
-              <AiFillLinkedin style={{color: "#c770f0"}}/>
-              <a href="https://www.linkedin.com/in/richiezhou/">linkedin.com/in/richiezhou/</a>
-            </h4>
-
-            <h4>
-              <AiFillGithub style={{color: "#c770f0"}}/>
-              <a href="https://github.com/arunike">github.com/arunike</a>
-            </h4> <br /> <br />
+          </h1> <br /><br />
+          <Row className="info_item justify-content-center">
+            <Col xs={12} md={8}>
+              <h4 className="badger-red">
+                <AiOutlineMail className="purple"/>
+                <a href="mailto:zhou469@wisc.edu" className="wisc-email">zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
+              </h4>
+              <h4>
+                <AiFillLinkedin className="purple"/>
+                <a href="https://www.linkedin.com/in/richiezhou/">linkedin.com/in/richiezhou/</a>
+              </h4>
+              <h4>
+                <AiFillGithub className="purple"/>
+                <a href="https://github.com/arunike">github.com/arunike</a>
+              </h4>
+            </Col>
           </Row>
-        </Container> <br /> <br /> <br />
+        </Container> <br /><br /><br />
     </section>
   );
 }

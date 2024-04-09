@@ -48,6 +48,8 @@ import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
 
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
+// 75aadb
+
 function Home() {
   const [showDiplomaModal, setShowDiplomaModal] = useState(false);
   const [numPages, setNumPages] = useState(null);
@@ -118,7 +120,7 @@ function Home() {
 
               <Col md={5} className="home-logo" style={{ paddingBottom: 20 }}>
                 <img
-                  src={UWMadisonProfilePicture}
+                  src={ ColumbiaProfilePicture }
                   alt="profile picture"
                   className="img-fluid"
                   style={{ maxHeight: "350px", marginLeft: "140px"}}
@@ -197,32 +199,32 @@ function Home() {
               SKILLS
             </h1> <br /> <br />
               <h1 className="project-heading">
-              <strong className="purple">Programming Languages</strong>
+              <strong className="blue">Programming Languages</strong>
               </h1>
               <ProgrammingLangStack />
 
               <h1 className="project-heading">
-              <strong className="purple">Web Development</strong>
+              <strong className="blue">Web Development</strong>
               </h1>
               <WebDevStack />
 
               <h1 className="project-heading">
-                <strong className="purple">Frameworks</strong>
+                <strong className="blue">Frameworks</strong>
               </h1>
               <FrameworkStack />
 
               <h1 className="project-heading">
-              <strong className="purple">Database & Tools</strong>
+              <strong className="blue">Database & Tools</strong>
               </h1>
               <DatabaseStack />
 
               <h1 className="project-heading">
-              <strong className="purple">Tools</strong>
+              <strong className="blue">Tools</strong>
               </h1>
               <ToolStack />
 
               <h1 className="project-heading">
-              <strong className="purple">Others</strong>
+              <strong className="blue">Others</strong>
               </h1>
               <OtherStack />
 
@@ -338,11 +340,11 @@ function Home() {
           <VerticalTimeline lineColor="#F5F5F5">
             {/* <VerticalTimelineElement
               className="vertical-timeline-element--work"
-              dateClassName="purple"
+              dateClassName="blue"
               date="May 2024 - August 2024"
-              contentStyle={{ border: '1px outset #623686' }}
-              contentArrowStyle={{ borderRight: '7px solid  #c770f0' }}
-              iconStyle={{ background: '#c770f0', color: '#fff' }}
+              contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
+              contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
+              iconStyle={{ background: '#75aadb', color: '#fff' }}
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
@@ -355,11 +357,11 @@ function Home() {
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
-              dateClassName="purple"
+              dateClassName="blue"
               date="June 2023 - August 2023"
-              contentStyle={{ border: '1px outset #623686' }}
-              contentArrowStyle={{ borderRight: '7px solid  #c770f0' }}
-              iconStyle={{ background: '#c770f0', color: '#fff' }}
+              contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
+              contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
+              iconStyle={{ background: '#75aadb', color: '#fff' }}
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
@@ -373,11 +375,11 @@ function Home() {
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
-              dateClassName="purple"
+              dateClassName="blue"
               date="August 2022 - March 2023"
-              contentStyle={{ border: '1px outset #623686' }}
-              contentArrowStyle={{ borderRight: '7px solid  #c770f0' }}
-              iconStyle={{ background: '#c770f0', color: '#fff' }}
+              contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
+              contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
+              iconStyle={{ background: '#75aadb', color: '#fff' }}
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
@@ -391,11 +393,10 @@ function Home() {
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
-              dateClassName="purple"
+              dateClassName="blue"
               date="May 2022 - August 2022"
-              contentStyle={{ border: '1px outset #623686' }}
-              contentArrowStyle={{ borderRight: '7px solid  #c770f0' }}
-              iconStyle={{ background: '#c770f0', color: '#fff' }}
+              contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
+              iconStyle={{ background: '#75aadb', color: '#fff' }}
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Full Stack Developer Intern</h3>
@@ -416,15 +417,15 @@ function Home() {
           <Row className="info_item justify-content-center">
             <Col xs={12} md={8}>
               <h4 className="badger-red">
-                <AiOutlineMail className="purple"/>
+                <AiOutlineMail className="blue"/>
                 <a href="mailto:zhou469@wisc.edu" className="wisc-email">zhou469@wisc.edu</a> | <a href="mailto:richiezhouyjz@gmail.com">richiezhouyjz@gmail.com</a>
               </h4>
               <h4>
-                <AiFillLinkedin className="purple"/>
+                <AiFillLinkedin className="blue"/>
                 <a href="https://www.linkedin.com/in/richiezhou/">linkedin.com/in/richiezhou/</a>
               </h4>
               <h4>
-                <AiFillGithub className="purple"/>
+                <AiFillGithub className="blue"/>
                 <a href="https://github.com/arunike">github.com/arunike</a>
               </h4>
             </Col>

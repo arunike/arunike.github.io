@@ -35,13 +35,14 @@ function ResumeNew() {
             variant="primary"
             href={Resume}
             target="_blank"
-            style={{ maxWidth: "250px" }}
+            style={{ maxWidth: "250px", backgroundColor: "#accce6"}}
           >
             <AiOutlineDownload />
             &nbsp;Download CV
           </Button>
         </Row>
       </Container>
+      <br/>
     </div>
   );
 }

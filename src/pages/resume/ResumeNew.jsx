@@ -20,8 +20,8 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
-        <Particle />
-        <Row className="resume">
+        <Particle /> <br/> <br/> <br/> <br/> <br/> <br/>
+        <Row>
         <h1>
           RESUME
         </h1>

@@ -30,11 +30,11 @@ function Course_Taken() {
       <h1 className="project-heading">
         COURSE TAKEN
       </h1>
-      <h2>
+      {/* <h2>
         Columbia University (Graduate)
       </h2>
       <a href="https://www.cs.columbia.edu/" target="blank"><img src={ColumbiaEngineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/> </a>
-      <br /> <br />
+      <br /> <br /> */}
       {/* <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
           <img src={xxx} alt="xxx" width={250} height={250}/>

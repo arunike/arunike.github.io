@@ -29,7 +29,7 @@ import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
 import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Preview.png";
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
 import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
-import ColumbiaProfilePicture from "../../assets/imgs/Columbia University Profile Picture.png";
+// import ColumbiaProfilePicture from "../../assets/imgs/Columbia University Profile Picture.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
@@ -120,7 +120,7 @@ function Home() {
 
               <Col md={5} className="home-logo" style={{ paddingBottom: 20 }}>
                 <img
-                  src={ ColumbiaProfilePicture }
+                  src={ UWMadisonProfilePicture }
                   alt="profile picture"
                   className="img-fluid"
                   style={{ maxHeight: "350px", marginLeft: "140px"}}
@@ -135,9 +135,22 @@ function Home() {
             <Row>
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
-                <p className="home-about-body">
+                {/* <p className="home-about-body">
                   Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. 
                   Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {isDiplomaPreviewVisible && (
+                    <div className="img-preview">
+                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )}
+                  <br /> <br />
+                  Ever since I was young, programming have been something that I am passionate doing.
+                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
+                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
+                  <br />
+                </p> */}
+                <p className="home-about-body">
+                  I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
                   {isDiplomaPreviewVisible && (
                     <div className="img-preview">
                       <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>

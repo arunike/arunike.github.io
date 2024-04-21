@@ -322,9 +322,9 @@ function Projects() {
                 </Col> <br /> <br /> <br />
               </Row>
 
-              <h2 style={{ color: "#348EDE" }}>Columbia University Courses</h2>
+              {/* <h2 style={{ color: "#348EDE" }}>Columbia University Courses</h2> */}
               <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-              {/* <Col md={4} className="project-card">
+                {/* <Col md={4} className="project-card">
                   <ProjectCard
                     imgPath={
                     isBlog={false}

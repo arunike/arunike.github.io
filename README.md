@@ -7,7 +7,8 @@
 <img align='right' src='https://octodex.github.com/images/codercat.jpg' width='200'>
 
 ## About Me :
-:computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
+<!-- :computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>. -->
+:computer: Hello, I'm Richie Zhou. I Recently earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
 
 - :office: I’m currently working as a software Engineer and contributing to the front end and back end of building web and mobile applications.
 - :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 

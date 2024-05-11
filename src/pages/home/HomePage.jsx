@@ -26,6 +26,7 @@ import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import Resume from "../../assets/resume/Richies_Resume.pdf";
 import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
+// import CUDiploma from "../../assets/diploma/Columbia University Diploma.pdf";
 import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Preview.png";
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
 import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
@@ -48,19 +49,38 @@ import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
 
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
-// 75aadb
-
 function Home() {
   const [showDiplomaModal, setShowDiplomaModal] = useState(false);
+
+  // const [showCUDiplomaModal, setShowCUDiplomaModal] = useState(false);
+  // const [showUWMadisonDiplomaModal, setShowUWMadisonDiplomaModal] = useState(false);
+
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isDiplomaPreviewVisible, setIsDiplomaPreviewVisible] = useState(false);
+
+  // const [isCUDiplomaPreviewVisible, setIsCUDiplomaPreviewVisible] = useState(false);
+  // const [isUWMadisonDiplomaPreviewVisible, setIsUWMadisonDiplomaPreviewVisible] = useState(false);
+
   const [isResumePreviewVisible, setIsResumePreviewVisible] = useState(false);
 
   const showDiplomaPreview = () => setIsDiplomaPreviewVisible(true);
   const hideDiplomaPreview = () => setIsDiplomaPreviewVisible(false);
+
+  // const showCUDiplomaPreview = () => setIsCUDiplomaPreviewVisible(true);
+  // const hideCUDiplomaPreview = () => setIsCUDiplomaPreviewVisible(false);
+
+  // const showUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(true);
+  // const hideUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(false);
+
   const handleDiplomaModalClose = () => setShowDiplomaModal(false);
   const handleDiplomaModalShow = () => setShowDiplomaModal(true);
+
+  // const handleCUDiplomaModalClose = () => setShowCUDiplomaModal(false);
+  // const handleCUDiplomaModalShow = () => setShowCUDiplomaModal(true);
+
+  // const handleUWMadisonDiplomaModalClose = () => setShowUWMadisonDiplomaModal(false);
+  // const handleUWMadisonDiplomaModalShow = () => setShowUWMadisonDiplomaModal(true);
 
   const showResumePreview = () => setIsResumePreviewVisible(true);
   const hideResumePreview = () => setIsResumePreviewVisible(false);
@@ -149,6 +169,26 @@ function Home() {
                   I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
                   <br />
                 </p> */}
+                
+                {/* <p className="home-about-body">
+                  Currently, I'm pursuing my master's in Computer Science at <span onMouseEnter={showCUDiplomaPreview} onMouseLeave={hideCUDiplomaPreview} onClick={handleCUDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#348EDE' }}>Columbia University</span>. 
+                  {isCUDiplomaPreviewVisible && (
+                    <div className="img-preview">
+                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )} Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showUWMadisonDiplomaPreview} onMouseLeave={hideUWMadisonDiplomaPreview} onClick={handleUWMadisonDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {isUWMadisonDiplomaPreviewVisible && (
+                    <div className="img-preview">
+                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )}
+                  <br /> <br />
+                  Ever since I was young, programming have been something that I am passionate doing.
+                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
+                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
+                  <br />
+                </p> */}
+
                 <p className="home-about-body">
                   I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
                   {isDiplomaPreviewVisible && (
@@ -162,6 +202,7 @@ function Home() {
                   I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
                   <br />
                 </p>
+
                 <Col md={4}>
                   <a className="primary_btn" href={Resume} style={{ textDecoration: 'none' }}> <span onMouseEnter={showResumePreview} onMouseLeave={hideResumePreview}>Download resume</span> </a>
                   {isResumePreviewVisible && (
@@ -180,6 +221,54 @@ function Home() {
             </Row>
           </Container>
       </Container>
+
+      {/* <Modal show={showCUDiplomaModal} onHide={handleCUDiplomaModalClose} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>My Columbia University Diploma</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="pdf-viewer-container">
+            {currentPage > 1 && (
+              <AiOutlineLeft className="pdf-nav-arrow left-arrow" onClick={goToPreviousPage} />
+            )}
+            <Document file={CUDiploma} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={currentPage} />
+            </Document>
+            {currentPage < numPages && (
+              <AiOutlineRight className="pdf-nav-arrow right-arrow" onClick={goToNextPage} />
+            )}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCUDiplomaModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showUWMadisonDiplomaModal} onHide={handleUWMadisonDiplomaModalClose} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>My UW-Madison Diploma</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="pdf-viewer-container">
+            {currentPage > 1 && (
+              <AiOutlineLeft className="pdf-nav-arrow left-arrow" onClick={goToPreviousPage} />
+            )}
+            <Document file={UWMadisonDiploma} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={currentPage} />
+            </Document>
+            {currentPage < numPages && (
+              <AiOutlineRight className="pdf-nav-arrow right-arrow" onClick={goToNextPage} />
+            )}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleUWMadisonDiplomaModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
 
       <Modal show={showDiplomaModal} onHide={handleDiplomaModalClose} size="lg">
         <Modal.Header closeButton>

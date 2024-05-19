@@ -47,12 +47,14 @@ function ProjectCards(props) {
 
   return (
     <Card className="project-card-view">
-      <Card.Img
-        variant="top"
-        src={props.imgPath}
-        alt="card-img"
-        style={{ width: "400px", height: "350px" }}
-      />
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Card.Img
+          variant="top"
+          src={props.imgPath}
+          alt="card-img"
+          style={{ width: "400px", height: "350px" }}
+        />
+      </div>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>
@@ -61,15 +63,15 @@ function ProjectCards(props) {
 
         {props.ghLink && (
           <Button
-          href={props.ghLink} 
-          target="_blank"
-          className="github-button"
-        >
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
+            href={props.ghLink}
+            target="_blank"
+            className="github-button"
+          >
+            <BsGithub /> &nbsp;
+            {props.isBlog ? "Blog" : "GitHub"}
+          </Button>
         )}
-        
+
         {!props.isBlog && props.demoLinks && props.demoLinks.map((demo, index) => (
           <Button
             key={index}

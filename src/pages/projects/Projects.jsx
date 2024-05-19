@@ -29,6 +29,7 @@ import BadgerNewsDemo from "../../assets/video/cs571/badger news ios demo.mp4";
 import BadgerChatDemo from "../../assets/video/cs571/badger chat ios demo.mp4";
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 import BadgerChatDialogflowDemo from "../../assets/video/cs571/badger chat dialogflow demo.mp4";
+import SongOfTheWind from "../../assets/video/Song of the Wind Demo.mov";
 
 function Projects() {
   useEffect(() => {
@@ -193,6 +194,9 @@ function Projects() {
                     title="Song of the Wind Piano"
                     description="Used Java to implement a piano play. Song of the wind is a famous song in China. It is a song about the wind. The wind is a symbol of freedom."
                     ghLink="https://github.com/arunike/Song-of-the-Wind-Piano"
+                    demoLinks={[ SongOfTheWind ]}
+                    demoName="Demo"
+                    demoLinkIsVideo={{ SongOfTheWind: true }}
                   />
                 </Col>
 

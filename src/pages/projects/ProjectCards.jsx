@@ -38,7 +38,7 @@ function ProjectCards(props) {
   const handleDemoClick = (event, demo) => {
     event.preventDefault();
     
-    if (demo.includes(".mp4")) {
+    if (demo.includes(".mp4") || demo.includes(".mov")){
       openModalWithVideo(demo);
     } else {
       window.open(demo, "_blank");

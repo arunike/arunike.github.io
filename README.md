@@ -55,11 +55,9 @@
 
 ### &nbsp; Tools:
 <p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="git" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" title="Docker" alt="docker" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/kubernetes/kubernetes-plain.svg" title="Kubernetes" alt="k8s" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/jquery/jquery-original.svg" title="JQuery" alt="jquery" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/tomcat/tomcat-line.svg" title="Tomcat" alt="tomcat" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="Redux" alt="redux" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/threejs/threejs-original.svg" title="ThreeJS" alt="threeJS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/spark.png" title="Spark" alt="spark" width="40" height="40"/>&nbsp;

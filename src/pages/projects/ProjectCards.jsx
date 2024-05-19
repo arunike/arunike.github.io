@@ -47,7 +47,12 @@ function ProjectCards(props) {
 
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
+      <Card.Img
+        variant="top"
+        src={props.imgPath}
+        alt="card-img"
+        style={{ width: "400px", height: "350px" }}
+      />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>

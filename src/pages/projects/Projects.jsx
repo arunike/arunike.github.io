@@ -19,7 +19,7 @@ import CS506 from "../../assets/imgs/courses/compsci506.png";
 import CS407 from "../../assets/imgs/courses/compsci407.png";
 import CS571 from "../../assets/imgs/courses/compsci571.png";
 import CS579 from "../../assets/imgs/courses/compsci579.png";
-import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
+import MiasPortfolio from "../../assets/imgs/projects/mias-portfolio.png";
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import HTMLPortfolio from "../../assets/imgs/projects/html-portfolio.png";
 import LaTexResume from "../../assets/imgs/projects/latex-resume.png";
@@ -46,6 +46,21 @@ function Projects() {
               <h2>Projects</h2>
               <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
                 <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={MiasPortfolio}
+                      isBlog={false}
+                      title="Mia's Portfolio"
+                      description="This is a portfolio website built for my girlfriend Mia. 
+                      It is built with JavaScript with React and deployed using Github Pages. 
+                      The main purpose of this website is to showcase Mia's work experiences and skills. 
+                      The structure of the website is as follows: Home, About Me, Experience, Project, Course Taken, Skills, Resume and Contact section"
+                      ghLink="https://github.com/miaaamao/miaaamao.github.io"
+                      demoLinks={["https://miaaamao.github.io//"]}
+                      demoName="Demo"
+                    />
+                </Col>
+
+                <Col md={4} className="project-card">
                   <ProjectCard
                     imgPath={LaTexResume}
                     isBlog={false}
@@ -58,29 +73,14 @@ function Projects() {
                 </Col>
 
                 <Col md={4} className="project-card">
-                    <ProjectCard
-                      imgPath={ResumeBuilder}
-                      isBlog={false}
-                      title="Resume Builder"
-                      description="A simple resume builder application built with Next.js and Tailwind CSS. 
-                      The application allows users to create a resume by filling out a form. 
-                      The resume can be downloaded as a PDF file."
-                      ghLink="https://github.com/arunike/resume-builder"
-                    />
-                  </Col>
-
-                <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={QIANS}
+                    imgPath={ResumeBuilder}
                     isBlog={false}
-                    title="Qian's Portfolio"
-                    description="This is a portfolio website for Qian Chen. 
-                    It is built with JavaScript with React and deployed using Github Pages. 
-                    The main purpose of this website is to showcase Qian's work experiences and skills. 
-                    The structure of the website is as follows: Home section, About me section, Work experience section, and Contact section"
-                    ghLink="https://github.com/arunike/Portfolio-Qian"
-                    demoLinks={["https://chenqian0403.github.io/"]}
-                    demoName="Demo"
+                    title="Resume Builder"
+                    description="A simple resume builder application built with Next.js and Tailwind CSS. 
+                    The application allows users to create a resume by filling out a form. 
+                    The resume can be downloaded as a PDF file."
+                    ghLink="https://github.com/arunike/resume-builder"
                   />
                 </Col>
 

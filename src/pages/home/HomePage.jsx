@@ -45,7 +45,7 @@ import CS506 from "../../assets/imgs/courses/compsci506.png";
 import CS559 from "../../assets/imgs/courses/compsci559.png";
 import CS579 from "../../assets/imgs/courses/compsci579.png";
 import PACMANG from "../../assets/imgs/projects/pac-man.png";
-import QIANS from "../../assets/imgs/projects/qians-portfolio.png";
+import MiasPortfolio from "../../assets/imgs/projects/mias-portfolio.png";
 
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
@@ -341,92 +341,92 @@ function Home() {
             <Particle />
             <Container>
               <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-              <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={CS407}
-                    isBlog={false}
-                    title="BlueDrop"
-                    ghLink="https://github.com/arunike/BlueDrop"
-                  />
+                <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={MiasPortfolio}
+                      isBlog={false}
+                      title="Mia's Portfolio"
+                      ghLink="https://github.com/miaaamao/miaaamao.github.io"
+                      demoLinks={[ "https://miaaamao.github.io/" ]}
+                      demoName="Demo"
+                    />
                 </Col>
 
                 <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={ResumeBuilder}
-                    isBlog={false}
-                    title="Resume Builder"
-                    ghLink="https://github.com/arunike/resume-builder"
-                  />
-                </Col>
+                    <ProjectCard
+                      imgPath={CS407}
+                      isBlog={false}
+                      title="BlueDrop"
+                      ghLink="https://github.com/arunike/BlueDrop"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={CS571}
-                    isBlog={false}
-                    title="COMP SCI 571"
-                    ghLink="https://github.com/arunike/CS571"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={ResumeBuilder}
+                      isBlog={false}
+                      title="Resume Builder"
+                      ghLink="https://github.com/arunike/resume-builder"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={QIANS}
-                    isBlog={false}
-                    title="Qian's Portfolio"
-                    ghLink="https://github.com/arunike/Portfolio-Qian"
-                    demoLinks={[ "https://chenqian0403.github.io/" ]}
-                    demoName="Demo"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={CS571}
+                      isBlog={false}
+                      title="COMP SCI 571"
+                      ghLink="https://github.com/arunike/CS571"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={VHR}
-                    isBlog={false}
-                    title="VHR"
-                    ghLink="https://github.com/arunike/vhr"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={VHR}
+                      isBlog={false}
+                      title="VHR"
+                      ghLink="https://github.com/arunike/vhr"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={CS506}
-                    isBlog={false}
-                    title="Five Course Bird Feeder"
-                    ghLink="https://github.com/arunike/Five-Course-Bird-Feeder-Frontend"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={CS506}
+                      isBlog={false}
+                      title="Five Course Bird Feeder"
+                      ghLink="https://github.com/arunike/Five-Course-Bird-Feeder-Frontend"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={CS579}
-                    isBlog={false}
-                    title="Cyberpunk VR Racing Game"
-                    demoLinks={[ CyberpunkVRRacingGame ]}
-                    demoName="Demo"
-                    demoLinkIsVideo={{ CyberpunkVRRacingGame: true }}
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={CS579}
+                      isBlog={false}
+                      title="Cyberpunk VR Racing Game"
+                      demoLinks={[ CyberpunkVRRacingGame ]}
+                      demoName="Demo"
+                      demoLinkIsVideo={{ CyberpunkVRRacingGame: true }}
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={CS559}
-                    isBlog={false}
-                    title="COMP SCI 559"
-                    ghLink="https://github.com/arunike/CS559"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={CS559}
+                      isBlog={false}
+                      title="COMP SCI 559"
+                      ghLink="https://github.com/arunike/CS559"
+                    />
+                  </Col>
 
-                <Col md={4} className="project-card">
-                  <ProjectCard
-                    imgPath={PACMANG}
-                    isBlog={false}
-                    title="Pac-Man Game"
-                    ghLink="https://github.com/arunike/Pac-Man"
-                    demoLinks={[ "http://arunike.github.io/project/pac_man/index.html" ]}
-                    demoName="Demo"
-                  />
-                </Col>
+                  <Col md={4} className="project-card">
+                    <ProjectCard
+                      imgPath={PACMANG}
+                      isBlog={false}
+                      title="Pac-Man Game"
+                      ghLink="https://github.com/arunike/Pac-Man"
+                      demoLinks={[ "http://arunike.github.io/project/pac_man/index.html" ]}
+                      demoName="Demo"
+                    />
+                  </Col>
               </Row>
               <div className="container text-center mt-5">
                 <h2>To visit more of my projects</h2> 

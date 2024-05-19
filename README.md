@@ -8,7 +8,7 @@
 
 ## About Me :
 <!-- :computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>. -->
-:computer: Hello, I'm Richie Zhou. I Recently earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>.
+:computer: Hello, I'm Richie Zhou. I recently earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank"> the University of Wisconsin-Madison</a>.
 
 - :office: I’m currently working as a software Engineer and contributing to the front end and back end of building web and mobile applications.
 - :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
@@ -58,15 +58,14 @@
     <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="git" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" title="Docker" alt="docker" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/kubernetes/kubernetes-plain.svg" title="Kubernetes" alt="k8s" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/json.png" title="JSON" alt="json" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/jquery/jquery-original.svg" title="JQuery" alt="jquery" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/tomcat/tomcat-line.svg" title="Tomcat" alt="tomcat" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="Redux" alt="redux" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/threejs/threejs-original.svg" title="ThreeJS" alt="threeJS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/spark.png" title="Spark" alt="spark" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/hdfs.png" title="HDFS" alt="HDFS" width="40" height="40"/>&nbsp; 
-    <!-- <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/cassandra.png" title="Cassandra" alt="Cassandra" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/kafka.png" title="Kafka" alt="Kafka" width="40" height="40"/>&nbsp; -->
+    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/cassandra.png" title="Cassandra" alt="Cassandra" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/kafka.png" title="Kafka" alt="Kafka" width="40" height="40"/>&nbsp;
 </p>
 
 ### &nbsp; Other:

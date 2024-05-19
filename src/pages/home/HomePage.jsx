@@ -50,38 +50,23 @@ import MiasPortfolio from "../../assets/imgs/projects/mias-portfolio.png";
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
 function Home() {
-  const [showDiplomaModal, setShowDiplomaModal] = useState(false);
-
-  // const [showCUDiplomaModal, setShowCUDiplomaModal] = useState(false);
-  // const [showUWMadisonDiplomaModal, setShowUWMadisonDiplomaModal] = useState(false);
-
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isDiplomaPreviewVisible, setIsDiplomaPreviewVisible] = useState(false);
 
+  // const [showCUDiplomaModal, setShowCUDiplomaModal] = useState(false);
+  const [showUWMadisonDiplomaModal, setShowUWMadisonDiplomaModal] = useState(false);
   // const [isCUDiplomaPreviewVisible, setIsCUDiplomaPreviewVisible] = useState(false);
-  // const [isUWMadisonDiplomaPreviewVisible, setIsUWMadisonDiplomaPreviewVisible] = useState(false);
-
-  const [isResumePreviewVisible, setIsResumePreviewVisible] = useState(false);
-
-  const showDiplomaPreview = () => setIsDiplomaPreviewVisible(true);
-  const hideDiplomaPreview = () => setIsDiplomaPreviewVisible(false);
-
+  const [isUWMadisonDiplomaPreviewVisible, setIsUWMadisonDiplomaPreviewVisible] = useState(false);
   // const showCUDiplomaPreview = () => setIsCUDiplomaPreviewVisible(true);
   // const hideCUDiplomaPreview = () => setIsCUDiplomaPreviewVisible(false);
-
-  // const showUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(true);
-  // const hideUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(false);
-
-  const handleDiplomaModalClose = () => setShowDiplomaModal(false);
-  const handleDiplomaModalShow = () => setShowDiplomaModal(true);
-
+  const showUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(true);
+  const hideUWMadisonDiplomaPreview = () => setIsUWMadisonDiplomaPreviewVisible(false);
   // const handleCUDiplomaModalClose = () => setShowCUDiplomaModal(false);
   // const handleCUDiplomaModalShow = () => setShowCUDiplomaModal(true);
+  const handleUWMadisonDiplomaModalClose = () => setShowUWMadisonDiplomaModal(false);
+  const handleUWMadisonDiplomaModalShow = () => setShowUWMadisonDiplomaModal(true);
 
-  // const handleUWMadisonDiplomaModalClose = () => setShowUWMadisonDiplomaModal(false);
-  // const handleUWMadisonDiplomaModalShow = () => setShowUWMadisonDiplomaModal(true);
-
+  const [isResumePreviewVisible, setIsResumePreviewVisible] = useState(false);
   const showResumePreview = () => setIsResumePreviewVisible(true);
   const hideResumePreview = () => setIsResumePreviewVisible(false);
 
@@ -156,21 +141,6 @@ function Home() {
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
                 {/* <p className="home-about-body">
-                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. 
-                  Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
-                  {isDiplomaPreviewVisible && (
-                    <div className="img-preview">
-                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
-                    </div>
-                  )}
-                  <br /> <br />
-                  Ever since I was young, programming have been something that I am passionate doing.
-                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
-                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
-                  <br />
-                </p> */}
-                
-                {/* <p className="home-about-body">
                   Currently, I'm pursuing my master's in Computer Science at <span onMouseEnter={showCUDiplomaPreview} onMouseLeave={hideCUDiplomaPreview} onClick={handleCUDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#348EDE' }}>Columbia University</span>. 
                   {isCUDiplomaPreviewVisible && (
                     <div className="img-preview">
@@ -189,9 +159,24 @@ function Home() {
                   <br />
                 </p> */}
 
+                {/* <p className="home-about-body">
+                  Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. 
+                  Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {isUWMadisonDiplomaPreviewVisible && (
+                    <div className="img-preview">
+                      <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
+                    </div>
+                  )}
+                  <br /> <br />
+                  Ever since I was young, programming have been something that I am passionate doing.
+                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
+                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
+                  <br />
+                </p> */}
+
                 <p className="home-about-body">
-                  I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
-                  {isDiplomaPreviewVisible && (
+                  I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showUWMadisonDiplomaPreview} onMouseLeave={hideUWMadisonDiplomaPreview} onClick={handleUWMadisonDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {isUWMadisonDiplomaPreviewVisible && (
                     <div className="img-preview">
                       <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
                     </div>
@@ -244,7 +229,7 @@ function Home() {
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
       <Modal show={showUWMadisonDiplomaModal} onHide={handleUWMadisonDiplomaModalClose} size="lg">
         <Modal.Header closeButton>
@@ -268,9 +253,9 @@ function Home() {
             Close
           </Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
 
-      <Modal show={showDiplomaModal} onHide={handleDiplomaModalClose} size="lg">
+      {/* <Modal show={showDiplomaModal} onHide={handleDiplomaModalClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>My UW-Madison Diploma</Modal.Title>
         </Modal.Header>
@@ -292,7 +277,7 @@ function Home() {
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
         <Container fluid className="about-section" id="skills">
           <Particle />

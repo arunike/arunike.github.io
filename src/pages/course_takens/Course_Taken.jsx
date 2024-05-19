@@ -22,7 +22,7 @@ import STAT340 from "../../assets/imgs/courses/stat340.png";
 import CS544 from "../../assets/imgs/courses/compsci544.png";
 
 import UWMadisonCS from "../../assets/imgs/uw-madison-cs.png";
-import ColumbiaEngineering from "../../assets/imgs/columbia-engineering.png";
+// import ColumbiaEngineering from "../../assets/imgs/columbia-engineering.png";
 
 function Course_Taken() {
   return (

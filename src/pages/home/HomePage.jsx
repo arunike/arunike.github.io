@@ -425,13 +425,14 @@ function Home() {
               TIMELINE
           </h1> <br /> <br />
           <VerticalTimeline lineColor="#F5F5F5">
-            {/* <VerticalTimelineElement
+            <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="blue"
               date="May 2024 - August 2024"
               contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
               contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
               iconStyle={{ background: '#75aadb', color: '#fff' }}
+              position="left"
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
@@ -440,7 +441,7 @@ function Home() {
               <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
               <p>
               </p>
-            </VerticalTimelineElement> */}
+            </VerticalTimelineElement>
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
@@ -449,6 +450,7 @@ function Home() {
               contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
               contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
               iconStyle={{ background: '#75aadb', color: '#fff' }}
+              position="right"
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
@@ -456,7 +458,7 @@ function Home() {
               <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                Developed and optimized algorithms in Java and C++ to enhance the computational efficiency of NT's Goals Driven Wealth Management platform, leading to an 8% increase in transaction processing speed.
+                Developed and optimized algorithms in Java and C++ to enhance the computational efficiency of NT’s Goals Driven Wealth Management platform, leading to an 8% increase in transaction processing speed.
               </p>
             </VerticalTimelineElement>
 
@@ -467,6 +469,7 @@ function Home() {
               contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
               contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
               iconStyle={{ background: '#75aadb', color: '#fff' }}
+              position="left"
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
@@ -484,6 +487,7 @@ function Home() {
               date="May 2022 - August 2022"
               contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
               iconStyle={{ background: '#75aadb', color: '#fff' }}
+              position="right"
               icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Full Stack Developer Intern</h3>
@@ -491,7 +495,7 @@ function Home() {
               <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union" /> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
-                Utilized the Next.js framework to architect and deploy intuitive entry pages, streamline navigation, and cohesively convey company culture, culminating in a measurable 30% uplift in customer satisfaction rate.
+                Enhanced the dynamic saving rate recommendation page using JavaScript, HTML, CSS, and PHP, boosting savings account enrollment by 3%.
               </p>
             </VerticalTimelineElement>
           </VerticalTimeline>

@@ -30,12 +30,13 @@ import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
 import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Preview.png";
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
 import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
-// import ColumbiaProfilePicture from "../../assets/imgs/Columbia University Profile Picture.png";
+// import ColumbiaProfilePicture from "../../assets/imgs/columbia-profile.png";
 import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
+import BadgerCS from "../../assets/imgs/badger-cs.png";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
@@ -200,7 +201,7 @@ function Home() {
 
               <Col md={4} className="myAvatar">
                 <Tilt>
-                  <img src={myImg} alt="avatar" className="img-fluid"/>
+                  <img src={BadgerCS} alt="avatar" className="img-fluid"/>
                 </Tilt>
               </Col>
             </Row>
@@ -425,7 +426,7 @@ function Home() {
               TIMELINE
           </h1> <br /> <br />
           <VerticalTimeline lineColor="#F5F5F5">
-            <VerticalTimelineElement
+            {/* <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="blue"
               date="May 2024 - August 2024"
@@ -441,7 +442,7 @@ function Home() {
               <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
               <p>
               </p>
-            </VerticalTimelineElement>
+            </VerticalTimelineElement> */}
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"

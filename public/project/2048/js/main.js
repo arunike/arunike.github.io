@@ -71,7 +71,7 @@ function updateBoardView() {
 
     for(var i = 0; i < 4; i++) { // Update the view of the board
         for (var j = 0; j < 4; j++) { // Update the view of the board
-            $("#grid-container").append('<div className="number-cell" id="number-cell-' + i + '-' + j + '"></div>'); // Add a number cell
+            $("#grid-container").append('<div class="number-cell" id="number-cell-' + i + '-' + j + '"></div>'); // Add a number cell
 
             var theNumberCell = $("#number-cell-" + i + "-" + j); // Get the number cell
 
@@ -116,8 +116,8 @@ function generateOneNumber() {
             break;
         }
 
-        var randX = parseInt(Math.floor(Math.random() * 4));
-        var randY = parseInt(Math.floor(Math.random() * 4));
+        randX = parseInt(Math.floor(Math.random() * 4));
+        randY = parseInt(Math.floor(Math.random() * 4));
         times++;
     }
 
@@ -147,8 +147,8 @@ $(document).keydown(function(event) {
             event.preventDefault();
 
             if(moveLeft()) {
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
 
             break;
@@ -156,8 +156,8 @@ $(document).keydown(function(event) {
             event.preventDefault();
 
             if(moveUp()) {
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
 
             break;
@@ -165,8 +165,8 @@ $(document).keydown(function(event) {
             event.preventDefault();
 
             if(moveRight()) {
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
 
             break;
@@ -174,8 +174,8 @@ $(document).keydown(function(event) {
             event.preventDefault();
 
             if(moveDown()) {
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
 
             break;
@@ -192,8 +192,6 @@ document.addEventListener('touchstart', function(event) {
     startX = event.touches[0].pageX;
     startY = event.touches[0].pageY;
 });
-
-document.addEventListener();
 
 // Listen to the touch event of the end point
 document.addEventListener('touchend', function(event) { 
@@ -214,25 +212,25 @@ document.addEventListener('touchend', function(event) {
     if(Math.abs(deltaX) > Math.abs(deltaY)) { // If the horizontal distance is greater than the vertical distance, judge the direction of the horizontal distance
         if(deltaX > 0) { // If the horizontal distance is greater than 0, move right
             if(moveRight()) { // If the move is successful, generate a number and judge whether the game is over
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
         } else { // If the horizontal distance is less than 0, move left
             if(moveLeft()){ // If the move is successful, generate a number and judge whether the game is over
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
         }
     } else { // If the vertical distance is greater than the horizontal distance, judge the direction of the vertical distance
         if(deltaY > 0) { // If the vertical distance is greater than 0, move down
             if(moveDown()) { // If the move is successful, generate a number and judge whether the game is over
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
         } else { // If the vertical distance is less than 0, move up
             if(moveUp()) { // If the move is successful, generate a number and judge whether the game is over
-                setTimeout("generateOneNumber()", 210);
-                setTimeout("isGameOver()", 300);
+                setTimeout(generateOneNumber, 210);
+                setTimeout(isGameOver, 300);
             }
         }
     }
@@ -284,7 +282,7 @@ function moveLeft() {
         }
     }
 
-    setTimeout("updateBoardView()", 200); // Update the board view
+    setTimeout(updateBoardView, 200); // Update the board view
     
     return true;
 }
@@ -323,7 +321,7 @@ function moveUp() {
         }
     }
 
-    setTimeout("updateBoardView()", 200); // Update the board view
+    setTimeout(updateBoardView, 200); // Update the board view
 
     return true;
 }
@@ -362,7 +360,7 @@ function moveRight() {
         }
     }
 
-    setTimeout("updateBoardView()", 200); // Update the board view
+    setTimeout(updateBoardView, 200); // Update the board view
 
     return true;
 }
@@ -401,7 +399,7 @@ function moveDown() {
         }
     }
 
-    setTimeout("updateBoardView()", 200);
+    setTimeout(updateBoardView, 200);
     
     return true;
 }

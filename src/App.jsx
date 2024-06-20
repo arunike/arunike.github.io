@@ -13,8 +13,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CourseTaken from "./pages/course_takens/Course_Taken";
 import IndexHTML from "./components/IndexHTML";
 import IndexFolderHTML from "./components/IndexFolderHTML";
-import BadgerBakery from "./pages/projects/compsci571/homework03/src/components/BadgerBakery";
-import BadgerClassroom from "./pages/projects/compsci571/homework04/src/components/Classroom";
 
 function App() {
   const [load, updateLoad] = useState(true);
@@ -39,9 +37,6 @@ function App() {
           <Route path="/course_taken" element={<CourseTaken />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/htmlcontent/:projectDirectory/:projectName" element={<IndexHTML />} />
-          <Route path="/htmlcontent/:projectDirectory1/:projectDirectory2/:projectName" element={<IndexFolderHTML />} />
-          <Route path="/badger-bakery" element={<BadgerBakery />} />
-          <Route path="/badger-classroom" element={<BadgerClassroom />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
       </div>

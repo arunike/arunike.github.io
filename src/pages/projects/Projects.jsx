@@ -55,7 +55,7 @@ function Projects() {
                       The main purpose of this website is to showcase Mia's work experiences and skills. 
                       The structure of the website is as follows: Home, About Me, Experience, Project, Course Taken, Skills, Resume and Contact section"
                       ghLink="https://github.com/miaaamao/miaaamao.github.io"
-                      demoLinks={["https://miaaamao.github.io//"]}
+                      demoLinks={["https://miaaamao.github.io"]}
                       demoName="Demo"
                     />
                 </Col>

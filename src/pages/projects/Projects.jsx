@@ -237,9 +237,9 @@ function Projects() {
                     ghLink="https://github.com/arunike/CS571"
                     demoLinks={[
                       "http://arunike.github.io/compsci571/homework01/index.html",
-                      "http://arunike.github.io/compsci571/homework02/index.html",
-                      "http://arunike.github.io/#/badger-bakery",
-                      "http://arunike.github.io/#/badger-classroom",
+                      "https://github.com/arunike/CS571/tree/main/Homework%2002",
+                      "https://github.com/arunike/CS571/tree/main/Homework%2003",
+                      "https://github.com/arunike/CS571/tree/main/Homework%2004",
                       "https://github.com/arunike/CS571/tree/main/Homework%2005",
                       "https://github.com/arunike/CS571/tree/main/Homework%2006",
                       BadgerBakeryDemo,

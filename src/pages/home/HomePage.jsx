@@ -426,7 +426,7 @@ function Home() {
               TIMELINE
           </h1> <br /> <br />
           <VerticalTimeline lineColor="#F5F5F5">
-            {/* <VerticalTimelineElement
+            <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="blue"
               date="May 2024 - August 2024"
@@ -441,8 +441,11 @@ function Home() {
               <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
               <p>
+                <b>Virtual Network Platform Team</b>
+                <br/>
+                  Developed a schema validation tool using Groovy, optimizing JSON schemas for bandwidth and speed fields, defining array constraints, and reducing validation errors by 30%, enhancing overall API performance and reliability.
               </p>
-            </VerticalTimelineElement> */}
+            </VerticalTimelineElement>
 
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
@@ -459,7 +462,9 @@ function Home() {
               <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                Developed and optimized algorithms in Java and C++ to enhance the computational efficiency of NT’s Goals Driven Wealth Management platform, leading to an 8% increase in transaction processing speed.
+                <b>Goals-Driven Wealth Management Team</b>
+                <br/>
+                  Enhanced NT's Goals Driven Wealth Management platform by implementing algorithms for risk assessment and portfolio optimization in Java & C++, resulting in an 8% increase in transaction processing speed.
               </p>
             </VerticalTimelineElement>
 
@@ -478,7 +483,9 @@ function Home() {
               <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                Revamped Rockitcoin's user authorization interface for mobile and web platforms using React, elevating security and usability, resulting in a 20% increase in user retention rate.
+                <b>Frontend Development Team</b>
+                <br/>
+                Revamped user authorization interface with TypeScript and React, improving security and usability, leading to an 11% increase in user retention.
               </p>
             </VerticalTimelineElement>
 
@@ -496,7 +503,9 @@ function Home() {
               <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union" /> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
-                Enhanced the dynamic saving rate recommendation page using JavaScript, HTML, CSS, and PHP, boosting savings account enrollment by 3%.
+                <b>Enterprise Application and Service Team</b>
+                <br/>
+                Improved dynamic saving rate recommendation page with JavaScript with React, increasing savings account enrollment by 3%.
               </p>
             </VerticalTimelineElement>
           </VerticalTimeline>

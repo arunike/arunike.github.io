@@ -276,6 +276,32 @@ button:focus {
 }
 
 /* --------- */
+/* Fork Button */
+/* --------- */
+.fork-btn {
+  font-size: 1.1em !important;
+  padding-top: 10px !important;
+}
+
+.fork-btn-inner {
+  line-height: 1.4em !important;
+  background-color: #75aadb !important;
+  padding: 0.25rem 1.1rem !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.fork-btn-inner:hover {
+  transform: translateY(-2px) !important;
+  background-color: #75aadb !important;
+  border-color: #75aadb !important;
+}
+
+.fork-btn-inner::after {
+  display: none !important;
+}
+
+/* --------- */
 /* Home section */
 /* --------- */
 .wave {
@@ -483,6 +509,33 @@ button:focus {
 }
 
 /* --------- */
+/* ProjectCard */
+/* --------- */
+.github-button {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.github-button:hover {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+.demo-button {
+  background-color: #808080 !important;
+  color: #FFFFFF !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.demo-button:hover {
+  background-color: #A9A9A9 !important;
+  color: #FFFFFF !important;
+}
+
+/* --------- */
 /* Skills */
 /* --------- */
 .tech-icons {
@@ -568,29 +621,11 @@ button:focus {
 }
 
 /* --------- */
-/* Fork Button */
+/* Experience */
 /* --------- */
-.fork-btn {
-  font-size: 1.1em !important;
-  padding-top: 10px !important;
-}
-
-.fork-btn-inner {
-  line-height: 1.4em !important;
-  background-color: #75aadb !important;
-  padding: 0.25rem 1.1rem !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-}
-
-.fork-btn-inner:hover {
-  transform: translateY(-2px) !important;
-  background-color: #75aadb !important;
-  border-color: #75aadb !important;
-}
-
-.fork-btn-inner::after {
-  display: none !important;
+.vertical-timeline-element-image {
+  border: 2px solid #accce6;
+  border-radius: 5px;
 }
 
 /* --------- */
@@ -684,33 +719,6 @@ button:focus {
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   padding: 0 !important;
-}
-
-/* --------- */
-/* ProjectCard */
-/* --------- */
-.github-button {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.github-button:hover {
-  background-color: #333333 !important;
-  color: #FFFFFF !important;
-}
-
-.demo-button {
-  background-color: #808080 !important;
-  color: #FFFFFF !important;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.demo-button:hover {
-  background-color: #A9A9A9 !important;
-  color: #FFFFFF !important;
 }
 
 /* --------- */

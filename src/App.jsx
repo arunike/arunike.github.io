@@ -12,7 +12,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CourseTaken from "./pages/course_takens/Course_Taken";
 import IndexHTML from "./components/IndexHTML";
-import IndexFolderHTML from "./components/IndexFolderHTML";
 
 function App() {
   const [load, updateLoad] = useState(true);

@@ -13,58 +13,35 @@ import redux from "../../../assets/imgs/techstack/redux.png";
 import threejs from "../../../assets/imgs/techstack/threejs.png";
 import latex from "../../../assets/imgs/techstack/latex.png";
 
+const tools = [
+    { src: docker, alt: "Docker", tooltipContent: "Docker" },
+    { src: kubernetes, alt: "Kubernetes", tooltipContent: "Kubernetes" },
+    { src: jquery, alt: "jQuery", tooltipContent: "jQuery" },
+    { src: spark, alt: "Spark", tooltipContent: "Spark" },
+    { src: cassandra, alt: "Cassandra", tooltipContent: "Cassandra" },
+    { src: kafka, alt: "Kafka", tooltipContent: "Kafka" },
+    { src: hdfs, alt: "HDFS", tooltipContent: "HDFS" },
+    { src: redux, alt: "Redux", tooltipContent: "Redux" },
+    { src: threejs, alt: "Three.js", tooltipContent: "Three.js" },
+    { src: latex, alt: "LaTeX", tooltipContent: "LaTeX" }
+];
+
 function ToolStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px"}}>
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={docker} length={150} width={150} alt="docker" data-tooltip-id="docker" data-tooltip-content="Docker"/>
-            </Col>
-            <Tooltip id="docker"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={kubernetes} length={150} width={150} alt="kubernetes" data-tooltip-id="k8s" data-tooltip-content="Kubernetes"/>
-            </Col>
-            <Tooltip id="k8s"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={jquery} length={150} width={150} alt="jquery" data-tooltip-id="jquery" data-tooltip-content="JQuery"/>
-            </Col>
-            <Tooltip id="jquery"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={redux} length={150} width={150} alt="redux" data-tooltip-id="redux" data-tooltip-content="Redux"/>
-            </Col>
-            <Tooltip id="redux"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={threejs} length={150} width={150} alt="threejs" data-tooltip-id="threejs" data-tooltip-content="ThreeJS"/>
-            </Col>
-            <Tooltip id="threejs"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={spark} length={150} width={150} alt="spark" data-tooltip-id="spark" data-tooltip-content="Spark"/>
-            </Col>
-            <Tooltip id="spark"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={hdfs} length={150} width={150} alt="hdfs" data-tooltip-id="hdfs" data-tooltip-content="HDFS"/>
-            </Col>
-            <Tooltip id="hdfs"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={cassandra} length={150} width={150} alt="cassandra" data-tooltip-id="cassandra" data-tooltip-content="Cassandra"/>
-            </Col>
-            <Tooltip id="cassandra"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={kafka} length={150} width={150} alt="kafka" data-tooltip-id="kafka" data-tooltip-content="Kafka"/>
-            </Col>
-            <Tooltip id="kafka"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={latex} length={150} width={150} alt="latex" data-tooltip-id="latex" data-tooltip-content="LaTex"/>
-            </Col>
-            <Tooltip id="latex"/>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+            {tools.map((ts) => (
+                <Col key={ts.alt} xs={4} md={2} className="tech-icons">
+                    <img
+                        src={ts.src}
+                        length={150}
+                        width={150}
+                        alt={ts.alt}
+                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-content={ts.tooltipContent}
+                    />
+                </Col>
+            ))}
+            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

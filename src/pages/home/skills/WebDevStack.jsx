@@ -7,28 +7,29 @@ import typescript from "../../../assets/imgs/techstack/typescript.png";
 import html from "../../../assets/imgs/techstack/html.png";
 import css from "../../../assets/imgs/techstack/css.png";
 
+const web = [
+    { src: javascript, alt: "JavaScript", tooltipContent: "JavaScript" },
+    { src: typescript, alt: "TypeScript", tooltipContent: "TypeScript" },
+    { src: html, alt: "HTML", tooltipContent: "HTML" },
+    { src: css, alt: "CSS", tooltipContent: "CSS" }
+];
+
 function WebDevStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px"}}>
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={html} length={150} width={150} alt="html" data-tooltip-id="html" data-tooltip-content="HTML"/>
-            </Col>
-            <Tooltip id="html"/>
-    
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={css} length={150} width={150} alt="css" data-tooltip-id="css" data-tooltip-content="CSS"/>
-            </Col>
-            <Tooltip id="css"/>
-
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={javascript} length={150} width={150} alt="javascript" data-tooltip-id="javascript" data-tooltip-content="JavaScript"/>
-            </Col>
-            <Tooltip id="javascript"/>
-    
-            <Col xs={4} md={2} className="tech-icons">
-                <img src={typescript} length={150} width={150} alt="typescript" data-tooltip-id="typescript" data-tooltip-content="TypeScript"/>
-            </Col>
-            <Tooltip id="typescript"/>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+            {web.map((wd) => (
+                <Col key={wd.alt} xs={4} md={2} className="tech-icons">
+                    <img
+                        src={wd.src}
+                        length={150}
+                        width={150}
+                        alt={wd.alt}
+                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-content={wd.tooltipContent}
+                    />
+                </Col>
+            ))}
+            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

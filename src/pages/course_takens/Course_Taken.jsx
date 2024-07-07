@@ -268,7 +268,7 @@ function Course_Taken() {
           <img src={CS407} className="me-3" alt="cs407" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong>COMP SCI 407 - Foundation of Mobile Systems and Applications </strong> <br />
-            <strong>Professor: </strong> Suman Banerjee <br />
+            <strong>Professor: </strong> Suman Banerjee & Mouna Ayari Ben Hadj Kacem <br />
             <strong>Rating: </strong> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <br />
             <strong>When: </strong> Fall 2023 <br />
             <strong>Workload: </strong>  <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <br />
@@ -296,7 +296,7 @@ function Course_Taken() {
           <img src={CS571} className="me-3" alt="cs571" width={250} height={250}/>
           <ul className="course_taken_right_text list">
             <strong>COMP SCI 571 - Building User Interfaces </strong> <br />
-            <strong>Professor: </strong> Yuhang Zhao <br />
+            <strong>Professor: </strong> Yuhang Zhao & Cole Nelson <br />
             <strong>Rating: </strong>  <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <br />
             <strong>When: </strong> Fall 2023 <br />
             <strong>Workload: </strong> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <AiFillStar color="#FFDB58"/> <br />

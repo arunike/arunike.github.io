@@ -11,6 +11,7 @@ import kafka from "../../../assets/imgs/techstack/kafka.png";
 import hdfs from "../../../assets/imgs/techstack/hdfs.png";
 import redux from "../../../assets/imgs/techstack/redux.png";
 import threejs from "../../../assets/imgs/techstack/threejs.png";
+import latex from "../../../assets/imgs/techstack/latex.png";
 
 function ToolStack() {
     return (
@@ -59,6 +60,11 @@ function ToolStack() {
                 <img src={kafka} length={150} width={150} alt="kafka" data-tooltip-id="kafka" data-tooltip-content="Kafka"/>
             </Col>
             <Tooltip id="kafka"/>
+
+            <Col xs={4} md={2} className="tech-icons">
+                <img src={latex} length={150} width={150} alt="latex" data-tooltip-id="latex" data-tooltip-content="LaTex"/>
+            </Col>
+            <Tooltip id="latex"/>
         </Row>
     );
 }

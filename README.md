@@ -24,6 +24,7 @@
     <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" alt="cpp" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/r/r-original.svg" title="R" alt="r" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/sql.png" title="SQL" alt="sql" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/devicons/devicon/blob/master/icons/groovy/groovy-original.svg" title="Groovy" alt="groovy" width="40" height="40"/>&nbsp;
 </p>
 
 ### &nbsp; Web Technologies

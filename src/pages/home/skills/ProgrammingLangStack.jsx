@@ -8,6 +8,7 @@ import clang from "../../../assets/imgs/techstack/clang.png";
 import cpp from "../../../assets/imgs/techstack/cpp.png";
 import rlang from "../../../assets/imgs/techstack/rlang.png";
 import sql from "../../../assets/imgs/techstack/sql.png";
+import groovy from "../../../assets/imgs/techstack/groovy.png";
 
 const programmingLang = [
     { src: java, alt: "Java", tooltipContent: "Java" },
@@ -15,7 +16,8 @@ const programmingLang = [
     { src: clang, alt: "C", tooltipContent: "C" },
     { src: cpp, alt: "C++", tooltipContent: "C++" },
     { src: rlang, alt: "R", tooltipContent: "R" },
-    { src: sql, alt: "SQL", tooltipContent: "SQL" }
+    { src: sql, alt: "SQL", tooltipContent: "SQL" },
+    { src: groovy, alt: "Groovy", tooltipContent: "Groovy" }
 ];
 
 function ProgrammingLangStack() {

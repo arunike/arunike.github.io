@@ -13,7 +13,7 @@ function Footer() {
           <h3>Designed and Developed by Richie Zhou</h3>
         </Col>
         <Col md="4" className="footer-copyright">
-          <h3>Copyright © {year} Richie</h3>
+          <h3>Copyright © 2023 - {year} Richie</h3>
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">

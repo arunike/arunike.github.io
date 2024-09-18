@@ -9,15 +9,19 @@ import cpp from "../../../assets/imgs/techstack/cpp.png";
 import rlang from "../../../assets/imgs/techstack/rlang.png";
 import sql from "../../../assets/imgs/techstack/sql.png";
 import groovy from "../../../assets/imgs/techstack/groovy.png";
+import csharp from "../../../assets/imgs/techstack/csharp.png";
+import Kotlin from "../../../assets/imgs/techstack/kotlin.png";
 
 const programmingLang = [
-    { src: java, alt: "Java", tooltipContent: "Java" },
     { src: python, alt: "Python", tooltipContent: "Python" },
+    { src: java, alt: "Java", tooltipContent: "Java" },
+    { src: sql, alt: "SQL", tooltipContent: "SQL" },
+    { src: Kotlin, alt: "Kotlin", tooltipContent: "Kotlin" },
+    { src: groovy, alt: "Groovy", tooltipContent: "Groovy" },
+    { src: rlang, alt: "R", tooltipContent: "R" },
     { src: clang, alt: "C", tooltipContent: "C" },
     { src: cpp, alt: "C++", tooltipContent: "C++" },
-    { src: rlang, alt: "R", tooltipContent: "R" },
-    { src: sql, alt: "SQL", tooltipContent: "SQL" },
-    { src: groovy, alt: "Groovy", tooltipContent: "Groovy" }
+    { src: csharp, alt: "C Sharp", tooltipContent: "C#" },
 ];
 
 function ProgrammingLangStack() {

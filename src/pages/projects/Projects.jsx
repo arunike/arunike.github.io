@@ -6,20 +6,20 @@ import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import VHR from "../../assets/imgs/projects/vhr.png";
 import SOTW from "../../assets/imgs/projects/song-of-the-wind-piano.png";
-import G2048 from "../../assets/imgs/projects/2048.png";
-import SNAKEG from "../../assets/imgs/projects/snake.png";
-import GOG from "../../assets/imgs/projects/go.png";
-import PACMANG from "../../assets/imgs/projects/pac-man.png";
-import PianoTiles from "../../assets/imgs/projects/piano-tiles.png";
+import G2048 from "../../assets/imgs/projects/2048_game.gif";
+import SNAKEG from "../../assets/imgs/projects/snake_game.gif"
+import GOG from "../../assets/imgs/projects/go_game.gif";
+import PACMANG from "../../assets/imgs/projects/pacman.gif";
+import PianoTiles from "../../assets/imgs/projects/piano_tiles.gif";
 import LoginPage from "../../assets/imgs/projects/login-page.png";
-import BlinnPhong from "../../assets/imgs/projects/blinn-phong.png";
+import BlinnPhong from "../../assets/imgs/projects/blinn_phong.gif";
 import W2PDF from "../../assets/imgs/projects/w2pdf.png";
-import CS559 from "../../assets/imgs/courses/compsci559.png";
+import CS559 from "../../assets/imgs/courses/compsci559.gif";
 import CS506 from "../../assets/imgs/courses/compsci506.png";
 import CS407 from "../../assets/imgs/courses/compsci407.png";
-import CS571 from "../../assets/imgs/courses/compsci571.png";
-import CS579 from "../../assets/imgs/courses/compsci579.png";
-import MiasPortfolio from "../../assets/imgs/projects/mias-portfolio.png";
+import CS571 from "../../assets/imgs/courses/compsci571.gif";
+import CS579 from "../../assets/imgs/courses/compsci579.gif";
+import MiasPortfolio from "../../assets/imgs/projects/mias_portfolio.gif";
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import HTMLPortfolio from "../../assets/imgs/projects/html-portfolio.png";
 import LaTexResume from "../../assets/imgs/projects/latex-resume.png";
@@ -111,13 +111,13 @@ function Projects() {
                   <ProjectCard
                     imgPath={PACMANG}
                     isBlog={false}
-                    title="Pac-Man Game"
-                    description="A Simple replicate of Pac-Man built using JavaScript. 
-                    Pac-Man is the classic arcade game. The game involves navigating Pac-Man through a maze. 
-                    The objective is that Pac-Man eat all of the pellets (white circles), while avoiding the ghosts that pursue him. 
-                    If a ghost ever catches Pac-Man then Pac-Man is defeated."
-                    ghLink="https://github.com/arunike/Pac-Man"
-                    demoLinks={[ "http://arunike.github.io/project/pac_man/index.html" ]}
+                    title="Pacman Game"
+                    description="A Simple replicate of Pacman built using JavaScript. 
+                    Pacman is the classic arcade game. The game involves navigating Pacman through a maze. 
+                    The objective is that Pacman eat all of the pellets (white circles), while avoiding the ghosts that pursue him. 
+                    If a ghost ever catches Pacman then Pacman is defeated."
+                    ghLink="https://github.com/arunike/Pacman"
+                    demoLinks={[ "http://arunike.github.io/project/pacman/index.html" ]}
                     demoName="Demo"
                   />
                 </Col>

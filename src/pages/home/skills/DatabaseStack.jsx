@@ -10,10 +10,10 @@ import sqlserver from "../../../assets/imgs/techstack/sqlserver.png";
 
 const databases = [
     { src: mysql, alt: "MySQL", tooltipContent: "MySQL" },
-    { src: redis, alt: "Redis", tooltipContent: "Redis" },
     { src: firebase, alt: "Firebase", tooltipContent: "Firebase" },
     { src: sqlserver, alt: "SQL Server", tooltipContent: "SQL Server" },
-    { src: snowflake, alt: "Snowflake", tooltipContent: "Snowflake" }
+    { src: snowflake, alt: "Snowflake", tooltipContent: "Snowflake" },
+    { src: redis, alt: "Redis", tooltipContent: "Redis" },
 ];
 
 function DatabaseStack() {

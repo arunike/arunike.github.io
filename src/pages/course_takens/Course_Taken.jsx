@@ -10,14 +10,14 @@ import CS354 from "../../assets/imgs/courses/compsci354.png";
 import CS577 from "../../assets/imgs/courses/compsci577.png";
 import STAT240 from "../../assets/imgs/courses/stat240.png";
 import CS537 from "../../assets/imgs/courses/compsci537.png";
-import CS559 from "../../assets/imgs/courses/compsci559.png";
+import CS559 from "../../assets/imgs/courses/compsci559.gif";
 import CS540 from "../../assets/imgs/courses/compsci540.png";
 import CS320 from "../../assets/imgs/courses/compsci320.png";
 import CS564 from "../../assets/imgs/courses/compsci564.png";
-import CS579 from "../../assets/imgs/courses/compsci579.png";
+import CS579 from "../../assets/imgs/courses/compsci579.gif";
 import CS506 from "../../assets/imgs/courses/compsci506.png";
 import CS407 from "../../assets/imgs/courses/compsci407.png";
-import CS571 from "../../assets/imgs/courses/compsci571.png";
+import CS571 from "../../assets/imgs/courses/compsci571.gif";
 import STAT340 from "../../assets/imgs/courses/stat340.png";
 import CS544 from "../../assets/imgs/courses/compsci544.png";
 

@@ -5,17 +5,17 @@ import { Tooltip } from 'react-tooltip';
 import react from "../../../assets/imgs/techstack/react.png";
 import vue from "../../../assets/imgs/techstack/vue.png";
 import springBoot from "../../../assets/imgs/techstack/spring-boot.png";
-import kotlin from "../../../assets/imgs/techstack/kotlin.png";
 import nodejs from "../../../assets/imgs/techstack/nodejs.png";
 import reactNative from "../../../assets/imgs/techstack/react-native.png";
+import django from "../../../assets/imgs/techstack/django.png";
 
 const frameworks = [
     { src: react, alt: "React", tooltipContent: "React" },
-    { src: vue, alt: "Vue", tooltipContent: "Vue" },
-    { src: springBoot, alt: "Spring Boot", tooltipContent: "Spring Boot" },
-    { src: kotlin, alt: "Kotlin", tooltipContent: "Kotlin" },
+    { src: reactNative, alt: "React Native", tooltipContent: "React Native" },
     { src: nodejs, alt: "Node.js", tooltipContent: "Node.js" },
-    { src: reactNative, alt: "React Native", tooltipContent: "React Native" }
+    { src: springBoot, alt: "Spring Boot", tooltipContent: "Spring Boot" },
+    { src: vue, alt: "Vue", tooltipContent: "Vue" },
+    { src: django, alt: "Django", tooltipContent: "Django" },
 ];
 
 function FrameworkStack() {

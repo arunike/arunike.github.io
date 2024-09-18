@@ -31,7 +31,7 @@ import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Pre
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
 import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
 // import ColumbiaProfilePicture from "../../assets/imgs/columbia-profile.png";
-import myImg from "./../../assets/imgs/about-me.png";
+// import myImg from "./../../assets/imgs/about-me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
@@ -40,13 +40,13 @@ import BadgerCS from "../../assets/imgs/badger-cs.png";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
-import CS571 from "../../assets/imgs/courses/compsci571.png";
+import CS571 from "../../assets/imgs/courses/compsci571.gif";
 import CS407 from "../../assets/imgs/courses/compsci407.png";
 import CS506 from "../../assets/imgs/courses/compsci506.png";
-import CS559 from "../../assets/imgs/courses/compsci559.png";
-import CS579 from "../../assets/imgs/courses/compsci579.png";
-import PACMANG from "../../assets/imgs/projects/pac-man.png";
-import MiasPortfolio from "../../assets/imgs/projects/mias-portfolio.png";
+import CS559 from "../../assets/imgs/courses/compsci559.gif";
+import CS579 from "../../assets/imgs/courses/compsci579.gif";
+import PACMANG from "../../assets/imgs/projects/pacman.gif";
+import MiasPortfolio from "../../assets/imgs/projects/mias_portfolio.gif";
 
 import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
 
@@ -176,13 +176,13 @@ function Home() {
                 </p> */}
 
                 <p className="home-about-body">
-                  I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showUWMadisonDiplomaPreview} onMouseLeave={hideUWMadisonDiplomaPreview} onClick={handleUWMadisonDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
+                  {/* I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showUWMadisonDiplomaPreview} onMouseLeave={hideUWMadisonDiplomaPreview} onClick={handleUWMadisonDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
                   {isUWMadisonDiplomaPreviewVisible && (
                     <div className="img-preview">
                       <img src={UWMadisonDiplomaPreview} alt="Diploma Preview" style={{ width: '100px', height: 'auto' }}/>
                     </div>
                   )}
-                  <br /> <br />
+                  <br /> <br /> */}
                   Ever since I was young, programming have been something that I am passionate doing.
                   I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
                   I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
@@ -407,9 +407,9 @@ function Home() {
                     <ProjectCard
                       imgPath={PACMANG}
                       isBlog={false}
-                      title="Pac-Man Game"
-                      ghLink="https://github.com/arunike/Pac-Man"
-                      demoLinks={[ "http://arunike.github.io/project/pac_man/index.html" ]}
+                      title="Pacman Game"
+                      ghLink="https://github.com/arunike/Pacman"
+                      demoLinks={[ "http://arunike.github.io/project/pacman/index.html" ]}
                       demoName="Demo"
                     />
                   </Col>
@@ -441,9 +441,9 @@ function Home() {
               <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen" /> </a>
               <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
               <p>
-                <b>Virtual Network Platform Team</b>
+                <b>Virtual Network Platform - IP Engineering Team</b>
                 <br/>
-                  Developed a schema validation tool using Groovy, optimizing JSON schemas for bandwidth and speed fields, defining array constraints, and reducing validation errors by 30%, enhancing overall API performance and reliability.
+                  Enhanced component for managing EMP protocol messages using Kafka to leverage distributed messaging capabilities for high throughput and fault tolerance, resulting in an increase in message processing efficiency.
               </p>
             </VerticalTimelineElement>
 
@@ -464,7 +464,7 @@ function Home() {
               <p>
                 <b>Goals-Driven Wealth Management Team</b>
                 <br/>
-                  Enhanced NT's Goals Driven Wealth Management platform by implementing algorithms for risk assessment and portfolio optimization in Java & C++, resulting in an 8% increase in transaction processing speed.
+                  Enhanced the Goals Driven Wealth Management platform by implementing sophisticated algorithms for risk assessment and portfolio optimization in Java, accelerating clients' wealth goals with precise investment plan recommendations.
               </p>
             </VerticalTimelineElement>
 
@@ -485,7 +485,7 @@ function Home() {
               <p>
                 <b>Frontend Development Team</b>
                 <br/>
-                Revamped user authorization interface with TypeScript and React, improving security and usability, leading to an 11% increase in user retention.
+                  Revamped user authorization interface in TypeScript with React by implementing token-based authentication and local storage encryption to reduce unauthorized access attempts.
               </p>
             </VerticalTimelineElement>
 
@@ -505,7 +505,7 @@ function Home() {
               <p>
                 <b>Enterprise Application and Service Team</b>
                 <br/>
-                Improved dynamic saving rate recommendation page with JavaScript with React, increasing savings account enrollment by 3%.
+                  Improved the accuracy of the saving rate recommendation algorithm with real-time financial data analysis in JavaScript, increasing savings account application completion through more accurate and personalized rate suggestions.
               </p>
             </VerticalTimelineElement>
           </VerticalTimeline>

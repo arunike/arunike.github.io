@@ -14,16 +14,16 @@ import threejs from "../../../assets/imgs/techstack/threejs.png";
 import latex from "../../../assets/imgs/techstack/latex.png";
 
 const tools = [
+    { src: latex, alt: "LaTeX", tooltipContent: "LaTeX" },
     { src: docker, alt: "Docker", tooltipContent: "Docker" },
     { src: kubernetes, alt: "Kubernetes", tooltipContent: "Kubernetes" },
     { src: jquery, alt: "jQuery", tooltipContent: "jQuery" },
-    { src: spark, alt: "Spark", tooltipContent: "Spark" },
     { src: cassandra, alt: "Cassandra", tooltipContent: "Cassandra" },
-    { src: kafka, alt: "Kafka", tooltipContent: "Kafka" },
     { src: hdfs, alt: "HDFS", tooltipContent: "HDFS" },
+    { src: kafka, alt: "Kafka", tooltipContent: "Kafka" },
+    { src: spark, alt: "Spark", tooltipContent: "Spark" },
     { src: redux, alt: "Redux", tooltipContent: "Redux" },
     { src: threejs, alt: "Three.js", tooltipContent: "Three.js" },
-    { src: latex, alt: "LaTeX", tooltipContent: "LaTeX" }
 ];
 
 function ToolStack() {

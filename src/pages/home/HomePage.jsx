@@ -30,25 +30,25 @@ import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
 import UWMadisonDiplomaPreview from "../../assets/diploma/UW-Madison Diploma Preview.png";
 import UWMadisonProfilePicture from "../../assets/imgs/profile.png";
 import ResumePreview from "../../assets/resume/Richies_Resume_Preview.png";
-// import ColumbiaProfilePicture from "../../assets/imgs/columbia-profile.png";
-// import myImg from "./../../assets/imgs/about-me.png";
+// import ColumbiaProfilePicture from "../../assets/imgs/columbia_profile.png";
+// import myImg from "./../../assets/imgs/about_me.png";
 import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
-import BadgerCS from "../../assets/imgs/badger-cs.png";
+import BadgerCS from "../../assets/imgs/badger_cs.png";
 
-import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
+import ResumeBuilder from "../../assets/imgs/projects/resume_builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
 import CS571 from "../../assets/imgs/courses/compsci571.gif";
 import CS407 from "../../assets/imgs/courses/compsci407.png";
 import CS506 from "../../assets/imgs/courses/compsci506.png";
 import CS559 from "../../assets/imgs/courses/compsci559.gif";
 import CS579 from "../../assets/imgs/courses/compsci579.gif";
-import PACMANG from "../../assets/imgs/projects/pacman.gif";
+import PACMAN from "../../assets/imgs/projects/pacman.gif";
 import MiasPortfolio from "../../assets/imgs/projects/mias_portfolio.gif";
 
-import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
+import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk_vr_racing_game_demo.mp4";
 
 function Home() {
   const [numPages, setNumPages] = useState(null);
@@ -183,9 +183,9 @@ function Home() {
                     </div>
                   )}
                   <br /> <br /> */}
-                  Ever since I was young, programming have been something that I am passionate doing.
-                  I have been trying to code various of applications and platforms, including web development, application development, and data analyst.
-                  I would like to utilize my skills as a Software Developer to create applications that can help the people in need.
+                  Ever since I was young, programming have been something that I am passionate about.
+                  I have worked on various of applications and platforms, including web development, application development, and data analyst.
+                  I would like to utilize my skills as a Software Developer to create applications that create an impact in the world.
                   <br />
                 </p>
 
@@ -405,7 +405,7 @@ function Home() {
 
                   <Col md={4} className="project-card">
                     <ProjectCard
-                      imgPath={PACMANG}
+                      imgPath={PACMAN}
                       isBlog={false}
                       title="Pacman Game"
                       ghLink="https://github.com/arunike/Pacman"

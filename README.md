@@ -40,7 +40,7 @@
 ### &nbsp; Frameworks
 <p>
     <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="react" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/react-native.png" title="React Native" alt="react native" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/react_native.png" title="React Native" alt="react native" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" alt="node.js" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original.svg" title="Spring Boot" alt="spring boot" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" title="Vue" alt="vue" width="40" height="40"/>&nbsp;

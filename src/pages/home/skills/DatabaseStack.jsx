@@ -1,19 +1,19 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip as Tooltip } from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 
-import snowflake from "../../../assets/imgs/techstack/snowflake.png";
-import mysql from "../../../assets/imgs/techstack/mysql.png";
-import redis from "../../../assets/imgs/techstack/redis.png";
-import firebase from "../../../assets/imgs/techstack/firebase.png";
-import sqlserver from "../../../assets/imgs/techstack/sqlserver.png";
+import Snowflake from "../../../assets/imgs/techstack/snowflake.png";
+import MySQL from "../../../assets/imgs/techstack/mysql.png";
+import Redis from "../../../assets/imgs/techstack/redis.png";
+import Firebase from "../../../assets/imgs/techstack/firebase.png";
+import SQL_Server from "../../../assets/imgs/techstack/sql_server.png";
 
 const databases = [
-    { src: mysql, alt: "MySQL", tooltipContent: "MySQL" },
-    { src: firebase, alt: "Firebase", tooltipContent: "Firebase" },
-    { src: sqlserver, alt: "SQL Server", tooltipContent: "SQL Server" },
-    { src: snowflake, alt: "Snowflake", tooltipContent: "Snowflake" },
-    { src: redis, alt: "Redis", tooltipContent: "Redis" },
+    { src: MySQL, alt: "MySQL", tooltipContent: "MySQL" },
+    { src: Firebase, alt: "Firebase", tooltipContent: "Firebase" },
+    { src: SQL_Server, alt: "SQL Server", tooltipContent: "SQL Server" },
+    { src: Snowflake, alt: "Snowflake", tooltipContent: "Snowflake" },
+    { src: Redis, alt: "Redis", tooltipContent: "Redis" },
 ];
 
 function DatabaseStack() {

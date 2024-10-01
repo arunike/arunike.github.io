@@ -2,12 +2,12 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Tooltip } from 'react-tooltip';
 
-import linux from "../../../assets/imgs/techstack/linux.png";
-import android from "../../../assets/imgs/techstack/android.png";
+import Linux from "../../../assets/imgs/techstack/linux.png";
+import Android from "../../../assets/imgs/techstack/android.png";
 
 const other = [
-    { src: linux, alt: "Linux", tooltipContent: "Linux" },
-    { src: android, alt: "Android", tooltipContent: "Android" }
+    { src: Linux, alt: "Linux", tooltipContent: "Linux" },
+    { src: Android, alt: "Android", tooltipContent: "Android" }
 ];
 
 function OtherStack() {

@@ -5,13 +5,13 @@ import Particle from "../../components/Particle";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import VHR from "../../assets/imgs/projects/vhr.png";
-import SOTW from "../../assets/imgs/projects/song-of-the-wind-piano.png";
-import G2048 from "../../assets/imgs/projects/2048_game.gif";
-import SNAKEG from "../../assets/imgs/projects/snake_game.gif"
-import GOG from "../../assets/imgs/projects/go_game.gif";
-import PACMANG from "../../assets/imgs/projects/pacman.gif";
+import SOTW from "../../assets/imgs/projects/song_of_the_wind_piano.png";
+import Game2048 from "../../assets/imgs/projects/2048_game.gif";
+import SnakeGame from "../../assets/imgs/projects/snake_game.gif"
+import GoGame from "../../assets/imgs/projects/go_game.gif";
+import PACMAN from "../../assets/imgs/projects/pacman.gif";
 import PianoTiles from "../../assets/imgs/projects/piano_tiles.gif";
-import LoginPage from "../../assets/imgs/projects/login-page.png";
+import LoginPage from "../../assets/imgs/projects/login_page.png";
 import BlinnPhong from "../../assets/imgs/projects/blinn_phong.gif";
 import W2PDF from "../../assets/imgs/projects/w2pdf.png";
 import CS559 from "../../assets/imgs/courses/compsci559.gif";
@@ -20,16 +20,16 @@ import CS407 from "../../assets/imgs/courses/compsci407.png";
 import CS571 from "../../assets/imgs/courses/compsci571.gif";
 import CS579 from "../../assets/imgs/courses/compsci579.gif";
 import MiasPortfolio from "../../assets/imgs/projects/mias_portfolio.gif";
-import ResumeBuilder from "../../assets/imgs/projects/resume-builder.png";
-import HTMLPortfolio from "../../assets/imgs/projects/html-portfolio.png";
-import LaTexResume from "../../assets/imgs/projects/latex-resume.png";
+import ResumeBuilder from "../../assets/imgs/projects/resume_builder.png";
+import HTMLPortfolio from "../../assets/imgs/projects/html_portfolio.png";
+import LaTexResume from "../../assets/imgs/projects/latex_resume.png";
 
-import BadgerBakeryDemo from "../../assets/video/cs571/badger bakery ios demo.mp4";
-import BadgerNewsDemo from "../../assets/video/cs571/badger news ios demo.mp4";
-import BadgerChatDemo from "../../assets/video/cs571/badger chat ios demo.mp4";
-import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk vr racing game demo.mp4";
-import BadgerChatDialogflowDemo from "../../assets/video/cs571/badger chat dialogflow demo.mp4";
-import SongOfTheWind from "../../assets/video/Song of the Wind Demo.mov";
+import BadgerBakeryDemo from "../../assets/video/cs571/badger_bakery_ios_demo.mp4";
+import BadgerNewsDemo from "../../assets/video/cs571/badger_news_ios_demo.mp4";
+import BadgerChatDemo from "../../assets/video/cs571/badger_chat_ios_demo.mp4";
+import CyberpunkVRRacingGame from "../../assets/video/cs579/cyberpunk_vr_racing_game_demo.mp4";
+import BadgerChatDialogflowDemo from "../../assets/video/cs571/badger_chat_dialogflow_demo.mp4";
+import SongOfTheWind from "../../assets/video/projects/song_of_the_wind_demo.mov";
 
 function Projects() {
   useEffect(() => {
@@ -109,7 +109,7 @@ function Projects() {
 
                 <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={PACMANG}
+                    imgPath={PACMAN}
                     isBlog={false}
                     title="Pacman Game"
                     description="A Simple replicate of Pacman built using JavaScript. 
@@ -136,7 +136,7 @@ function Projects() {
 
                 <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={GOG}
+                    imgPath={GoGame}
                     isBlog={false}
                     title="Go Game"
                     description="A Go game designed using Python with competitive AI to compete against you. 
@@ -148,7 +148,7 @@ function Projects() {
 
                 <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={SNAKEG}
+                    imgPath={SnakeGame}
                     isBlog={false}
                     title="Snake Game"
                     description="A simple Snake Eating game built with python. 
@@ -169,14 +169,14 @@ function Projects() {
                     Instead of relying on a reflection vector we're using a so called halfway vector that is a unit vector exactly halfway between the view direction and the light direction. 
                     The closer this halfway vector aligns with the surface's normal vector, the higher the specular contribution."
                     ghLink="https://github.com/arunike/Blinn-Phong"
-                    demoLinks={[ "http://arunike.github.io/project/blinn_phong/index.html" ]}
+                    demoLinks={[ "http://arunike.github.io/project/BlinnPhong/index.html" ]}
                     demoName="Demo"
                   />
                 </Col>
 
                 <Col md={4} className="project-card">
                   <ProjectCard
-                    imgPath={G2048}
+                    imgPath={Game2048}
                     isBlog={false}
                     title="2048 Game"
                     description="Replicated 2048 game using JavaScript. The objective of the game is to slide numbered tiles on a grid to combine them to create a tile with the number 2048; 

@@ -2,26 +2,26 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Tooltip } from 'react-tooltip';
 
-import java from "../../../assets/imgs/techstack/java.png";
-import python from "../../../assets/imgs/techstack/python.png";
-import clang from "../../../assets/imgs/techstack/clang.png";
-import cpp from "../../../assets/imgs/techstack/cpp.png";
-import rlang from "../../../assets/imgs/techstack/rlang.png";
-import sql from "../../../assets/imgs/techstack/sql.png";
-import groovy from "../../../assets/imgs/techstack/groovy.png";
-import csharp from "../../../assets/imgs/techstack/csharp.png";
+import Java from "../../../assets/imgs/techstack/java.png";
+import Python from "../../../assets/imgs/techstack/python.png";
+import CLanguage from "../../../assets/imgs/techstack/c_language.png";
+import CPP from "../../../assets/imgs/techstack/cpp.png";
+import RLanguage from "../../../assets/imgs/techstack/r_language.png";
+import SQL from "../../../assets/imgs/techstack/sql.png";
+import Groovy from "../../../assets/imgs/techstack/groovy.png";
+import CSharp from "../../../assets/imgs/techstack/csharp.png";
 import Kotlin from "../../../assets/imgs/techstack/kotlin.png";
 
 const programmingLang = [
-    { src: python, alt: "Python", tooltipContent: "Python" },
-    { src: java, alt: "Java", tooltipContent: "Java" },
-    { src: sql, alt: "SQL", tooltipContent: "SQL" },
+    { src: Python, alt: "Python", tooltipContent: "Python" },
+    { src: Java, alt: "Java", tooltipContent: "Java" },
+    { src: SQL, alt: "SQL", tooltipContent: "SQL" },
     { src: Kotlin, alt: "Kotlin", tooltipContent: "Kotlin" },
-    { src: groovy, alt: "Groovy", tooltipContent: "Groovy" },
-    { src: rlang, alt: "R", tooltipContent: "R" },
-    { src: clang, alt: "C", tooltipContent: "C" },
-    { src: cpp, alt: "C++", tooltipContent: "C++" },
-    { src: csharp, alt: "C Sharp", tooltipContent: "C#" },
+    { src: Groovy, alt: "Groovy", tooltipContent: "Groovy" },
+    { src: RLanguage, alt: "R", tooltipContent: "R" },
+    { src: CLanguage, alt: "C", tooltipContent: "C" },
+    { src: CPP, alt: "C++", tooltipContent: "C++" },
+    { src: CSharp, alt: "C Sharp", tooltipContent: "C#" },
 ];
 
 function ProgrammingLangStack() {

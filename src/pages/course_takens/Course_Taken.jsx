@@ -21,8 +21,8 @@ import CS571 from "../../assets/imgs/courses/compsci571.gif";
 import STAT340 from "../../assets/imgs/courses/stat340.png";
 import CS544 from "../../assets/imgs/courses/compsci544.png";
 
-import UWMadisonCS from "../../assets/imgs/uw-madison-cs.png";
-// import ColumbiaEngineering from "../../assets/imgs/columbia-engineering.png";
+import UWMadison_CS  from "../../assets/imgs/uw-madison_cs.png";
+// import Columbia_Engineering from "../../assets/imgs/columbia_engineering.png";
 
 function Course_Taken() {
   return (
@@ -33,7 +33,7 @@ function Course_Taken() {
       {/* <h2>
         Columbia University (Graduate)
       </h2>
-      <a href="https://www.cs.columbia.edu/" target="blank"><img src={ColumbiaEngineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/> </a>
+      <a href="https://www.cs.columbia.edu/" target="blank"><img src={Columbia_Engineering} alt="columbia university engineering" width={500} height={80} className="ms-5"/> </a>
       <br /> <br /> */}
       {/* <div className="container mt-5 ">
         <div className="d-flex mt-4 ms-5">
@@ -51,7 +51,7 @@ function Course_Taken() {
       <h2>
         University of Wisconsin - Madison (Undergraduate)
       </h2>
-      <a href="https://cdis.wisc.edu/" target="blank"><img src={UWMadisonCS} alt="university of wisconsin madison cs" width={500} height={80} className="ms-5"/></a>
+      <a href="https://cdis.wisc.edu/" target="blank"><img src={UWMadison_CS } alt="university of wisconsin madison cs" width={500} height={80} className="ms-5"/></a>
       <br /> <br />
       <div className="container mt-5">
         <div className="d-flex mt-4 ms-5">

@@ -2,20 +2,20 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Tooltip } from 'react-tooltip';
 
-import react from "../../../assets/imgs/techstack/react.png";
-import vue from "../../../assets/imgs/techstack/vue.png";
-import springBoot from "../../../assets/imgs/techstack/spring-boot.png";
-import nodejs from "../../../assets/imgs/techstack/nodejs.png";
-import reactNative from "../../../assets/imgs/techstack/react-native.png";
-import django from "../../../assets/imgs/techstack/django.png";
+import React_Image from "../../../assets/imgs/techstack/react.png";
+import Vue from "../../../assets/imgs/techstack/vue.png";
+import Spring_Boot from "../../../assets/imgs/techstack/spring_boot.png";
+import Nodejs from "../../../assets/imgs/techstack/nodejs.png";
+import React_Native from "../../../assets/imgs/techstack/react_native.png";
+import Django from "../../../assets/imgs/techstack/django.png";
 
 const frameworks = [
-    { src: react, alt: "React", tooltipContent: "React" },
-    { src: reactNative, alt: "React Native", tooltipContent: "React Native" },
-    { src: nodejs, alt: "Node.js", tooltipContent: "Node.js" },
-    { src: springBoot, alt: "Spring Boot", tooltipContent: "Spring Boot" },
-    { src: vue, alt: "Vue", tooltipContent: "Vue" },
-    { src: django, alt: "Django", tooltipContent: "Django" },
+    { src: React_Image, alt: "React", tooltipContent: "React" },
+    { src: React_Native, alt: "React Native", tooltipContent: "React Native" },
+    { src: Nodejs, alt: "Node.js", tooltipContent: "Node.js" },
+    { src: Spring_Boot, alt: "Spring Boot", tooltipContent: "Spring Boot" },
+    { src: Vue, alt: "Vue", tooltipContent: "Vue" },
+    { src: Django, alt: "Django", tooltipContent: "Django" },
 ];
 
 function FrameworkStack() {

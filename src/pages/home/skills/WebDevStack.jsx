@@ -21,8 +21,7 @@ function WebDevStack() {
                 <Col key={wd.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={wd.src}
-                        length={150}
-                        width={150}
+                        width={100}
                         alt={wd.alt}
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={wd.tooltipContent}

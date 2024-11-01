@@ -31,8 +31,7 @@ function ProgrammingLangStack() {
                 <Col key={pl.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={pl.src}
-                        length={150}
-                        width={150}
+                        width={100}
                         alt={pl.alt}
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={pl.tooltipContent}

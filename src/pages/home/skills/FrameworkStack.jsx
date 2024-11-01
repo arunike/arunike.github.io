@@ -25,8 +25,7 @@ function FrameworkStack() {
                 <Col key={fw.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={fw.src}
-                        length={150}
-                        width={150}
+                        width={100}
                         alt={fw.alt}
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={fw.tooltipContent}

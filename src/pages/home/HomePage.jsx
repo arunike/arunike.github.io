@@ -189,14 +189,14 @@ function Home() {
                   <br />
                 </p>
 
-                <Col md={4}>
+                {/* <Col md={4}>
                   <a className="primary_btn" href={Resume} style={{ textDecoration: 'none' }}> <span onMouseEnter={showResumePreview} onMouseLeave={hideResumePreview}>Download resume</span> </a>
                   {isResumePreviewVisible && (
                     <div className="img-preview">
                       <img src={ResumePreview} alt="Resume Preview" style={{ width: '100px', height: 'auto' }}/>
                     </div>
                   )}
-                </Col>
+                </Col> */}
               </Col>
 
               <Col md={4} className="myAvatar">
@@ -439,7 +439,7 @@ function Home() {
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
               <a href="https://www.lumen.com/en-us/home.html" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Lumen</h4> </a>
               <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen" /> </a>
-              <h4 className="vertical-timeline-element-subtitle">Monroe, Louisiana</h4>
+              <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
                 <b>Virtual Network Platform - IP Engineering Team</b>
                 <br/>

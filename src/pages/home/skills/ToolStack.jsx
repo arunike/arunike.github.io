@@ -33,8 +33,7 @@ function ToolStack() {
                 <Col key={ts.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={ts.src}
-                        length={150}
-                        width={150}
+                        width={100}
                         alt={ts.alt}
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={ts.tooltipContent}

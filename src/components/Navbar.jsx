@@ -49,101 +49,108 @@ function NavBar() {
             updateExpanded(expand ? false : "expanded");
           }}
         >
-          <span></span>
-          <span></span>
-          <span></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item style={{ display: "flex", alignItems: "center" }}>
+          <Nav className="ms-auto custom-nav" defaultActiveKey="#home">
+            <Nav.Item className="nav-item-custom">
               <HashLink
                 smooth
                 to="/#home"
                 onClick={() => updateExpanded(false)}
-                style={{ color: "white", marginLeft: "10px", marginBottom: "2px", textDecoration: "none"}}
+                className="nav-link-custom"
               >
-                <AiOutlineHome style={{ marginRight: "5px", marginBottom: "2px"}} /> Home
+                <AiOutlineHome className="icon" />
+                <span>Home</span>
               </HashLink>
             </Nav.Item>
 
-            <Nav.Item style={{ display: "flex", alignItems: "center" }}>
+            <Nav.Item className="nav-item-custom">
               <HashLink
                 smooth
                 to="/#about_me"
                 onClick={() => updateExpanded(false)}
-                style={{ color: "white", marginLeft: "10px", marginBottom: "2px", textDecoration: "none"}}
+                className="nav-link-custom"
               >
-                <AiOutlineUser style={{ marginRight: "5px", marginBottom: "2px"}} /> About
+                <AiOutlineUser className="icon" />
+                <span>About</span>
               </HashLink>
             </Nav.Item>
-            
-            <Nav.Item style={{ display: "flex", alignItems: "center" }}>
+
+            <Nav.Item className="nav-item-custom">
               <HashLink
                 smooth
                 to="/#skills"
                 onClick={() => updateExpanded(false)}
-                style={{ color: "white", marginLeft: "10px", marginBottom: "2px", textDecoration: "none"}}
+                className="nav-link-custom"
               >
-                <BsGear style={{ marginRight: "5px", marginBottom: "2px"}} /> Skills
+                <BsGear className="icon" />
+                <span>Skills</span>
               </HashLink>
             </Nav.Item>
 
-            <Nav.Item>
+            <Nav.Item className="nav-item-custom courses">
               <Nav.Link
+                smooth
                 as={Link}
                 to="/course_taken"
-                smooth="true"
                 onClick={() => updateExpanded(false)}
+                className="nav-link-custom"
               >
-                <MdOutlineLibraryBooks style={{ marginBottom: "2px" }} /> Course Taken
+                <MdOutlineLibraryBooks className="icon" />
+                <span>Courses</span>
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item>
+            <Nav.Item className="nav-item-custom projects">
               <Nav.Link
+                smooth
                 as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
+                className="nav-link-custom"
               >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
+                <AiOutlineFundProjectionScreen className="icon" />
+                <span>Projects</span>
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item style={{ display: "flex", alignItems: "center" }}>
+            <Nav.Item className="nav-item-custom">
               <HashLink
                 smooth
                 to="/#timeline"
                 onClick={() => updateExpanded(false)}
-                style={{ color: "white", marginLeft: "10px", marginBottom: "2px", textDecoration: "none"}}
+                className="nav-link-custom"
               >
-                <RiTimeLine style={{ marginRight: "5px", marginBottom: "2px"}} /> Timeline
+                <RiTimeLine className="icon" />
+                <span>Timeline</span>
               </HashLink>
             </Nav.Item>
 
-            <Nav.Item style={{ display: "flex", alignItems: "center" }}>
+            <Nav.Item className="nav-item-custom">
               <HashLink
                 smooth
                 to="/#contact"
                 onClick={() => updateExpanded(false)}
-                style={{ color: "white", marginLeft: "10px", marginBottom: "2px", textDecoration: "none"}}
+                className="nav-link-custom"
               >
-                <RiContactsBook2Line style={{ marginRight: "5px", marginBottom: "2px"}} /> Contact
+                <RiContactsBook2Line className="icon" />
+                <span>Contact</span>
               </HashLink>
             </Nav.Item>
 
-            <Nav.Item>
+            {/* <Nav.Item className="nav-item-custom resume">
               <Nav.Link
+                smooth
                 as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
+                className="nav-link-custom"
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument className="icon" />
+                <span>Resume</span>
               </Nav.Link>
-            </Nav.Item>
-            
+            </Nav.Item> */}
+
             <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/arunike/arunike.github.io"

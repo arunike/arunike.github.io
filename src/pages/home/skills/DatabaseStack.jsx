@@ -30,7 +30,6 @@ function DatabaseStack() {
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

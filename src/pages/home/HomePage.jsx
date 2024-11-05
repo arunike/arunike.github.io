@@ -23,6 +23,7 @@ import ToolStack from "./skills/ToolStack";
 import OtherStack from "./skills/OtherStack";
 import ProjectCard from "../projects/ProjectCards";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
+import EnhancedSkillsSection from "./skills/EnhancedSkillStack";
 
 import Resume from "../../assets/resume/Richies_Resume.pdf";
 import UWMadisonDiploma from "../../assets/diploma/UW-Madison Diploma.pdf";
@@ -280,45 +281,15 @@ function Home() {
         </Modal.Footer>
       </Modal> */}
 
-        <Container fluid className="about-section" id="skills">
-          <Particle />
-          <Container>
-            <h1 className="project-heading">
-              SKILLS
-            </h1> <br /> <br />
-              <h1 className="project-heading">
-              <strong className="blue">Programming Languages</strong>
-              </h1>
-              <ProgrammingLangStack />
-
-              <h1 className="project-heading">
-              <strong className="blue">Web Development</strong>
-              </h1>
-              <WebDevStack />
-
-              <h1 className="project-heading">
-                <strong className="blue">Frameworks</strong>
-              </h1>
-              <FrameworkStack />
-
-              <h1 className="project-heading">
-              <strong className="blue">Database & Tools</strong>
-              </h1>
-              <DatabaseStack />
-
-              <h1 className="project-heading">
-              <strong className="blue">Tools</strong>
-              </h1>
-              <ToolStack />
-
-              <h1 className="project-heading">
-              <strong className="blue">Others</strong>
-              </h1>
-              <OtherStack />
-
-              <Github />
-          </Container>
-        </Container> <br /> <br /> <br />
+      <EnhancedSkillsSection
+        ProgrammingLangStack={ProgrammingLangStack}
+        WebDevStack={WebDevStack}
+        FrameworkStack={FrameworkStack}
+        DatabaseStack={DatabaseStack}
+        ToolStack={ToolStack}
+        OtherStack={OtherStack}
+        Github={Github}
+      />
 
         <Container>
           <h1 className="project-heading">

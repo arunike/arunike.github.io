@@ -32,7 +32,6 @@ function FrameworkStack() {
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

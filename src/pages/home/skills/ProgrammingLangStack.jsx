@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
 import Java from "../../../assets/imgs/techstack/java.png";
 import Python from "../../../assets/imgs/techstack/python.png";
@@ -38,7 +37,6 @@ function ProgrammingLangStack() {
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

@@ -40,7 +40,6 @@ function ToolStack() {
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

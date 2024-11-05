@@ -28,7 +28,6 @@ function WebDevStack() {
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip"/>
         </Row>
     );
 }

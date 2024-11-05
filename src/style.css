@@ -426,20 +426,44 @@ button:focus {
 .project-image-container {
   position: relative;
   width: 100%;
-  height: 300px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  padding-top: 66.67%; /* Creates a 3:2 aspect ratio */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.card-img-top {
-  object-fit: contain !important;
-  object-position: center !important;
-  height: 300px !important;
+.image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Remove padding to ensure full coverage */
+}
+
+.project-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain; /* Use contain to show full image without cropping */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure GIFs follow the same rules */
+.project-image[src$=".gif"] {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* Remove any inherited margins or padding */
+.project-card-view .project-image-container,
+.project-card-view .image-wrapper,
+.project-card-view .project-image {
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .project-card-view:hover {
@@ -813,34 +837,32 @@ button:focus {
   transform: scale(1.1) !important;
 }
 
-/* Button Container Styles */
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;  /* Reduced gap */
-  padding: 1.2rem;  /* Reduced padding */
+  gap: 0.8rem;
+  padding: 1.2rem;
   width: 100%;
-  align-items: center;  /* Center buttons */
+  align-items: center;
 }
 
 .demo-buttons-container {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;  /* Reduced gap */
-  width: auto;  /* Allow container to size to buttons */
-  align-items: center;  /* Center buttons */
+  gap: 0.6rem;
+  width: auto;
+  align-items: center;
 }
 
 .demo-buttons-container.scrollable {
-  max-height: 180px;  /* Slightly reduced */
+  max-height: 180px;
   overflow-y: auto;
   padding-right: 10px;
   margin-top: 0.4rem;
 }
 
-/* Custom scrollbar */
 .demo-buttons-container.scrollable::-webkit-scrollbar {
-  width: 4px;  /* Thinner scrollbar */
+  width: 4px;
 }
 
 .demo-buttons-container.scrollable::-webkit-scrollbar-track {
@@ -849,7 +871,7 @@ button:focus {
 }
 
 .demo-buttons-container.scrollable::-webkit-scrollbar-thumb {
-  background: rgba(74, 74, 74, 0.3);  /* Match demo button color */
+  background: rgba(74, 74, 74, 0.3);
   border-radius: 2px;
 }
 
@@ -857,7 +879,6 @@ button:focus {
   background: rgba(74, 74, 74, 0.5);
 }
 
-/* Button Overlay */
 .button-overlay {
   position: absolute;
   top: 0;
@@ -1122,12 +1143,45 @@ button:focus {
 
 @media (max-width: 768px) {
   .project-image-container {
-    height: 300px !important;
+    padding-top: 66.67%; /* Maintain aspect ratio on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  .github-button, .demo-button {
+    width: auto !important;
+    min-width: 120px !important;
+    padding: 8px 16px !important;
+    margin: 5px !important;
+    font-size: 14px !important;
+  }
+
+  .demo-buttons-container {
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    padding: 0.8rem;
+  }
+
+  .demo-buttons-container.scrollable {
+    max-height: 150px;
   }
   
-  .card-img-top,
-  .card-img-top[src$=".gif"] {
-    width: 400px !important;
-    height: 250px !important;
+  .demo-button-wrapper {
+    width: 100%;
+  }
+  
+  .github-button, .demo-button {
+    width: 100% !important;
+    min-width: 120px !important;
+    padding: 8px 16px !important;
   }
 }

@@ -386,7 +386,7 @@ button:focus {
   color: black !important;
   font-size: 2.3em !important;
   font-weight: 500 !important;
-  padding-top: 10px !important;
+  padding-top: 50px !important;
 }
 
 .project-card {
@@ -413,7 +413,8 @@ button:focus {
   backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(117, 170, 219, 0.2) !important;
   border-radius: 16px !important;
-  padding: 1.5rem !important;
+  padding: 2.0rem !important;
+  padding-bottom: 0px !important;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
@@ -427,6 +428,7 @@ button:focus {
   position: relative;
   width: 100%;
   padding-top: 66.67%; /* Creates a 3:2 aspect ratio */
+  padding-bottom: 40px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -437,7 +439,7 @@ button:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 0; /* Remove padding to ensure full coverage */
+  padding: 0;
 }
 
 .project-image {
@@ -446,19 +448,11 @@ button:focus {
   left: 0;
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain; /* Use contain to show full image without cropping */
+  object-fit: contain;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Ensure GIFs follow the same rules */
-.project-image[src$=".gif"] {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain;
-}
-
-/* Remove any inherited margins or padding */
 .project-card-view .project-image-container,
 .project-card-view .image-wrapper,
 .project-card-view .project-image {
@@ -500,18 +494,6 @@ button:focus {
   flex-direction: column;
 }
 
-.project-card-view {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(117, 170, 219, 0.2) !important;
-  border-radius: 16px !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
 .project-card-inner {
   height: 100%;
   display: flex;
@@ -547,12 +529,7 @@ button:focus {
   overflow: hidden !important;
   position: relative !important;
   min-height: 200px !important;
-}
-
-@media (max-width: 767px) {
-  .tech-icons {
-    margin: 10px !important;
-  }
+  animation: fadeInUp 0.6s ease backwards;
 }
 
 .tech-icons:hover {
@@ -592,10 +569,6 @@ button:focus {
 
 .tech-icons:hover .tech-icon-images {
   transform: scale(1.1) !important;
-}
-
-.tech-icons {
-  animation: fadeInUp 0.6s ease backwards;
 }
 
 .tech-icons:nth-child(1) { animation-delay: 0.1s; }
@@ -769,8 +742,8 @@ button:focus {
 /* Buttons */
 /* --------- */
 .github-button, .demo-button {
-  width: 140px !important;  /* Reduced from 100% */
-  padding: 0.6rem 1rem !important;  /* Reduced padding */
+  width: 140px !important;
+  padding: 0.6rem 1rem !important;
   border-radius: 8px !important;
   font-weight: 500 !important;
   letter-spacing: 0.5px !important;
@@ -781,18 +754,18 @@ button:focus {
   gap: 0.5rem !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(4px);
-  font-size: 0.85rem !important;  /* Slightly smaller font */
+  font-size: 0.85rem !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
 .github-button {
-  background: #24292e !important;  /* GitHub's brand color */
+  background: #24292e !important;
   color: #fff !important;
 }
 
 .demo-button {
-  background: #4a4a4a !important;  /* Grey color */
+  background: #4a4a4a !important;
   color: #fff !important;
 }
 
@@ -817,19 +790,19 @@ button:focus {
 }
 
 .github-button:hover {
-  background: #000000 !important;  /* Darker on hover */
+  background: #000000 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .demo-button:hover {
-  background: #3a3a3a !important;  /* Darker grey on hover */
+  background: #3a3a3a !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .github-button svg, .demo-button svg {
-  font-size: 1.1rem !important;  /* Slightly smaller icons */
+  font-size: 1.1rem !important;
   transition: transform 0.3s ease !important;
 }
 
@@ -945,30 +918,96 @@ button:focus {
 /* --------- */
 /* Modal */
 /* --------- */
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9999; /* Increased z-index to ensure it's above everything */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-out;
 }
 
-.ReactModal__Overlay--after-open {
-  opacity: 1;
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 90vw;
+  height: 80vh;
+  max-width: 1200px;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
 }
 
-.ReactModal__Overlay--before-close {
-  opacity: 0;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.ReactModal__Content {
-  transform: scale(0.9);
-  transition: transform 0.3s ease-in-out;
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
 }
 
-.ReactModal__Content--after-open {
-  transform: scale(1);
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 1;
 }
 
-.ReactModal__Content--before-close {
-  transform: scale(0.9);
+.modal-close:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.modal-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-container {
+  flex: 1;
+  background: black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* --------- */
@@ -999,6 +1038,7 @@ button:focus {
 /* --------- */
 /* Media Queries */
 /* --------- */
+/* Home */
 @media (max-width: 767px) {
   .Typewriter__wrapper {
     font-size: 1.4em !important;
@@ -1050,6 +1090,7 @@ button:focus {
   }
 }
 
+/* Animation */
 @keyframes slideFromLeft {
   0% {
     transform: translateX(-100%);
@@ -1094,6 +1135,7 @@ button:focus {
   }
 }
 
+/* Skills */
 @media (max-width: 767px) {
   .tech-icons {
     margin: 8px !important;
@@ -1103,6 +1145,35 @@ button:focus {
   
   .tech-icon-images {
     padding: 8px !important;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+@media (max-width: 767px) {
+  .footer-copyright {
+    text-align: center !important;
+  }
+
+  .footer-body {
+    text-align: center !important;
+  }
+}
+
+/* Project */
+@media (max-width: 768px) {
+  .project-image-container {
+    padding-top: 66.67%;
   }
 }
 
@@ -1120,33 +1191,7 @@ button:focus {
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-copyright {
-    text-align: center !important;
-  }
-
-  .footer-body {
-    text-align: center !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-image-container {
-    padding-top: 66.67%; /* Maintain aspect ratio on mobile */
-  }
-}
-
+/* Button */
 @media (max-width: 768px) {
   .button-container {
     width: 100% !important;
@@ -1184,4 +1229,50 @@ button:focus {
     min-width: 120px !important;
     padding: 8px 16px !important;
   }
+}
+
+/* Modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95vw;
+    height: 85vh;
+  }
+
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width);
 }

@@ -2,15 +2,63 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
+import { createPortal } from 'react-dom';
+
+const Modal = ({ isOpen, onClose, children, title }) => {
+  useEffect(() => {
+    if (isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+      document.body.classList.add('modal-open');
+    }
+
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.body.classList.remove('modal-open');
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return createPortal(
+    <div className="modal-overlay" onClick={onClose}>
+      <div 
+        className="modal-container"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="modal-header">
+          <h3 className="modal-title">{title}</h3>
+          <button 
+            onClick={onClose}
+            className="modal-close"
+          >
+            <IoMdClose size={20} />
+          </button>
+        </div>
+        <div className="modal-content">
+          {children}
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+};
 
 function ProjectCards(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
-  const [videoOrientation, setVideoOrientation] = useState('landscape');
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -22,7 +70,6 @@ function ProjectCards(props) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Handle click/hover interactions
   const handleInteraction = () => {
     if (isMobile) {
       setIsOverlayVisible(!isOverlayVisible);
@@ -42,19 +89,13 @@ function ProjectCards(props) {
   };
 
   const openModalWithVideo = (videoPath) => {
-    const video = document.createElement('video');
-    video.src = videoPath;
-  
-    video.onloadedmetadata = () => {
-      const orientation = video.videoWidth > video.videoHeight ? 'landscape' : 'portrait';
-      setVideoOrientation(orientation);
-      setModalContent(videoPath);
-      setIsModalOpen(true);
-    };
+    setModalContent(videoPath);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setModalContent("");
   };
 
   const getDemoLabel = (demo, index) => {
@@ -157,20 +198,22 @@ function ProjectCards(props) {
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <h2>Demo</h2>
-            <div className="video-container">
-              <video controls>
-                <source src={modalContent} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <button onClick={closeModal} className="modal-close">Close</button>
-          </div>
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={closeModal}
+        title="Demo Video"
+      >
+        <div className="video-container">
+          <video 
+            controls 
+            autoPlay
+            className="modal-video"
+          >
+            <source src={modalContent} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      )}
+      </Modal>
     </motion.div>
   );
 }

@@ -37,6 +37,7 @@ import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
+import TikTok from "../../assets/imgs/timeline/TikTok.png";
 import BadgerCS from "../../assets/imgs/badger_cs.png";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume_builder.png";
@@ -142,6 +143,7 @@ function Home() {
             <Row>
               <Col md={8} className="home-about-description">
                 <h1 style={{ fontSize: "2.6em" }}>ABOUT ME</h1>
+                {/* Graduate Master Student Version */}
                 {/* <p className="home-about-body">
                   Currently, I'm pursuing my master's in Computer Science at <span onMouseEnter={showCUDiplomaPreview} onMouseLeave={hideCUDiplomaPreview} onClick={handleCUDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#348EDE' }}>Columbia University</span>. 
                   {isCUDiplomaPreviewVisible && (
@@ -161,6 +163,7 @@ function Home() {
                   <br />
                 </p> */}
 
+                {/* Master Student Version */}
                 {/* <p className="home-about-body">
                   Currently, I'm pursuing my master's in Computer Science at <a href="https://www.columbia.edu/" target="blank" style={{ textDecoration: 'none', color: '#348EDE' }}>Columbia University</a>. 
                   Previously, I earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showDiplomaPreview} onMouseLeave={hideDiplomaPreview} onClick={handleDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
@@ -176,6 +179,7 @@ function Home() {
                   <br />
                 </p> */}
 
+                {/* Undergrad Student Version */}
                 <p className="home-about-body">
                   {/* I recently earned my bachelor's degree in Computer Science & Data Science from the <span onMouseEnter={showUWMadisonDiplomaPreview} onMouseLeave={hideUWMadisonDiplomaPreview} onClick={handleUWMadisonDiplomaModalShow} style={{ textDecoration: 'none', cursor: 'pointer', color: '#C5050C' }}>University of Wisconsin - Madison</span>.
                   {isUWMadisonDiplomaPreviewVisible && (
@@ -208,7 +212,7 @@ function Home() {
             </Row>
           </Container>
       </Container>
-
+      
       {/* <Modal show={showCUDiplomaModal} onHide={handleCUDiplomaModalClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>My Columbia University Diploma</Modal.Title>
@@ -397,6 +401,27 @@ function Home() {
               TIMELINE
           </h1> <br /> <br />
           <VerticalTimeline lineColor="#F5F5F5">
+            {/* <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                dateClassName="blue"
+                date="January 2025 - Present"
+                contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
+                contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
+                iconStyle={{ background: '#75aadb', color: '#fff' }}
+                position="right"
+                icon={<MdWorkOutline />}
+            >
+              <h3 className="vertical-timeline-element-title">Software Engineer</h3>
+              <a href="https://www.tiktok.com/about" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">TikTok</h4> </a>
+              <a href="https://www.tiktok.com/about"> <img className="vertical-timeline-element-image" src={TikTok} width={140} height={140} alt="TikTok"/> </a>
+              <h4 className="vertical-timeline-element-subtitle">San Jose, CA</h4>
+              <p>
+                <b>Advertisement Team</b>
+                <br/>
+
+              </p>
+            </VerticalTimelineElement> */}
+
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="blue"
@@ -409,7 +434,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
               <a href="https://www.lumen.com/en-us/home.html" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Lumen</h4> </a>
-              <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen" /> </a>
+              <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen"/> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
                 <b>Virtual Network Platform - IP Engineering Team</b>
@@ -430,7 +455,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
               <a href="https://www.northerntrust.com/united-states/home" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Northern Trust</h4> </a>
-              <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust" /> </a>
+              <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust"/> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
                 <b>Goals-Driven Wealth Management Team</b>
@@ -451,7 +476,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
               <a href="https://www.rockitcoin.com/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Rockitcoin</h4> </a>
-              <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin" /> </a>
+              <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin"/> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
                 <b>Frontend Development Team</b>
@@ -471,7 +496,7 @@ function Home() {
             >
               <h3 className="vertical-timeline-element-title">Full Stack Developer Intern</h3>
               <a href="https://www.rockitcoin.com/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">UNFCU</h4> </a>
-              <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union" /> </a>
+              <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union"/> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
                 <b>Enterprise Application and Service Team</b>

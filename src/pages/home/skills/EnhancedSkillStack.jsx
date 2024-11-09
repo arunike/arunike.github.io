@@ -101,7 +101,6 @@ const EnhancedSkillsSection = ({
             place="top"
             effect="solid"
             className="custom-tooltip"
-            delayShow={200}
             />
         </Container>
         </Container>

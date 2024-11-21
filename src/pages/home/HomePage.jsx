@@ -37,8 +37,9 @@ import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
-import TikTok from "../../assets/imgs/timeline/TikTok.png";
+import ByteDance from "../../assets/imgs/timeline/ByteDance.png";
 import BadgerCS from "../../assets/imgs/badger_cs.png";
+import streamingArchitecture from "../../assets/streaming-architecture.pdf";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume_builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
@@ -412,11 +413,11 @@ function Home() {
                 icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer</h3>
-              <a href="https://www.tiktok.com/about" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">TikTok</h4> </a>
-              <a href="https://www.tiktok.com/about"> <img className="vertical-timeline-element-image" src={TikTok} width={140} height={140} alt="TikTok"/> </a>
+              <a href="https://www.bytedance.com/en/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">ByteDance</h4> </a>
+              <a href="https://www.bytedance.com/en/"> <img className="vertical-timeline-element-image" src={ByteDance} width={140} height={140} alt="ByteDance"/> </a>
               <h4 className="vertical-timeline-element-subtitle">San Jose, CA</h4>
               <p>
-                <b>Advertisement Team</b>
+                <b>Advertisement - Ads Interface and Platform</b>
                 <br/>
 
               </p>
@@ -437,7 +438,7 @@ function Home() {
               <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen"/> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
-                <b>Virtual Network Platform - IP Engineering Team</b>
+                <b>Virtual Network Platform - IP Engineering</b>
                 <br/>
                   Enhanced component for managing EMP protocol messages using Kafka to leverage distributed messaging capabilities for high throughput and fault tolerance, resulting in an increase in message processing efficiency.
               </p>
@@ -458,7 +459,7 @@ function Home() {
               <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust"/> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                <b>Goals-Driven Wealth Management Team</b>
+                <b>Goals-Driven Wealth Management</b>
                 <br/>
                   Enhanced the Goals Driven Wealth Management platform by implementing sophisticated algorithms for risk assessment and portfolio optimization in Java, accelerating clients' wealth goals with precise investment plan recommendations.
               </p>
@@ -479,7 +480,7 @@ function Home() {
               <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin"/> </a>
               <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
               <p>
-                <b>Frontend Development Team</b>
+                <b>Frontend Development</b>
                 <br/>
                   Revamped user authorization interface in TypeScript with React by implementing token-based authentication and local storage encryption to reduce unauthorized access attempts.
               </p>
@@ -488,7 +489,7 @@ function Home() {
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               dateClassName="blue"
-              date="May 2022 - August 2022"
+              date="June 2022 - August 2022"
               contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
               iconStyle={{ background: '#75aadb', color: '#fff' }}
               position="right"
@@ -499,7 +500,7 @@ function Home() {
               <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union"/> </a>
               <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
               <p>
-                <b>Enterprise Application and Service Team</b>
+                <b>Enterprise Application and Service</b>
                 <br/>
                   Improved the accuracy of the saving rate recommendation algorithm with real-time financial data analysis in JavaScript, increasing savings account application completion through more accurate and personalized rate suggestions.
               </p>

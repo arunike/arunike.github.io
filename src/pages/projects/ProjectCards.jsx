@@ -31,16 +31,10 @@ const Modal = ({ isOpen, onClose, children, title }) => {
 
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
-      <div 
-        className="modal-container"
-        onClick={e => e.stopPropagation()}
-      >
+      <div className="modal-container" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className="modal-title">{title}</h3>
-          <button 
-            onClick={onClose}
-            className="modal-close"
-          >
+          <button onClick={onClose} className="modal-close">
             <IoMdClose size={20} />
           </button>
         </div>
@@ -58,6 +52,7 @@ function ProjectCards(props) {
   const [modalContent, setModalContent] = useState("");
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -166,6 +161,9 @@ function ProjectCards(props) {
     </motion.div>
   );
 
+  const descriptionLength = props.description.length;
+  const shouldShowExpandButton = descriptionLength > 180; // Adjust this threshold as needed
+
   return (
     <motion.div
       className="project-card-container"
@@ -180,11 +178,7 @@ function ProjectCards(props) {
           onMouseLeave={handleMouseLeave}
         >
           <div className="image-wrapper">
-            <img
-              src={props.imgPath}
-              alt="project"
-              className="project-image"
-            />
+            <img src={props.imgPath} alt="project" className="project-image" />
           </div>
           
           <AnimatePresence>
@@ -194,7 +188,19 @@ function ProjectCards(props) {
         
         <div className="project-content">
           <h3 className="project-title">{props.title}</h3>
-          <p className="project-description">{props.description}</p>
+          <div className="project-description-container">
+            <div className={`project-description ${isExpanded ? 'expanded' : ''}`}>
+              {props.description}
+            </div>
+            {shouldShowExpandButton && (
+              <button 
+                className="expand-button"
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? 'Show Less' : 'Read More'}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -204,11 +210,7 @@ function ProjectCards(props) {
         title="Demo Video"
       >
         <div className="video-container">
-          <video 
-            controls 
-            autoPlay
-            className="modal-video"
-          >
+          <video controls autoPlay className="modal-video">
             <source src={modalContent} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

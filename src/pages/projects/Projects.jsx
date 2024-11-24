@@ -192,7 +192,7 @@ function Projects() {
                     imgPath={SOTW}
                     isBlog={false}
                     title="Song of the Wind Piano"
-                    description="Used Java to implement a piano play. Song of the wind is a famous song in China. It is a song about the wind. The wind is a symbol of freedom."
+                    description="Used Java to implement a piano play. It is a song about the wind. The wind is a symbol of freedom."
                     ghLink="https://github.com/arunike/Song-of-the-Wind-Piano"
                     demoLinks={[ SongOfTheWind ]}
                     demoName="Demo"

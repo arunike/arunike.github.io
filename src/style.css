@@ -525,7 +525,6 @@ button:focus {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #4a4a4a;
-  max-height: 100px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   position: relative;

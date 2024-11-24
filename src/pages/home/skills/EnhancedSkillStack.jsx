@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Tooltip } from 'react-tooltip';
 import Particle from "../../../components/Particle";
 

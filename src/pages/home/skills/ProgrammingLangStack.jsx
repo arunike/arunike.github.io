@@ -10,11 +10,13 @@ import SQL from "../../../assets/imgs/techstack/sql.png";
 import Groovy from "../../../assets/imgs/techstack/groovy.png";
 import CSharp from "../../../assets/imgs/techstack/csharp.png";
 import Kotlin from "../../../assets/imgs/techstack/kotlin.png";
+import GoLanguage from "../../../assets/imgs/techstack/go_language.png";
 
 const programmingLang = [
     { src: Python, alt: "Python", tooltipContent: "Python" },
     { src: Java, alt: "Java", tooltipContent: "Java" },
     { src: SQL, alt: "SQL", tooltipContent: "SQL" },
+    { src: GoLanguage, alt: "Go", tooltipContent: "Go" },
     { src: Kotlin, alt: "Kotlin", tooltipContent: "Kotlin" },
     { src: Groovy, alt: "Groovy", tooltipContent: "Groovy" },
     { src: RLanguage, alt: "R", tooltipContent: "R" },

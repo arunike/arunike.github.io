@@ -37,7 +37,7 @@ import UNFCU from "../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
-import ByteDance from "../../assets/imgs/timeline/ByteDance.png";
+import TikTok from "../../assets/imgs/timeline/TikTok.png";
 import BadgerCS from "../../assets/imgs/badger_cs.png";
 import streamingArchitecture from "../../assets/streaming-architecture.pdf";
 
@@ -413,11 +413,11 @@ function Home() {
                 icon={<MdWorkOutline />}
             >
               <h3 className="vertical-timeline-element-title">Software Engineer</h3>
-              <a href="https://www.bytedance.com/en/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">ByteDance</h4> </a>
-              <a href="https://www.bytedance.com/en/"> <img className="vertical-timeline-element-image" src={ByteDance} width={140} height={140} alt="ByteDance"/> </a>
+              <a href="https://www.tiktok.com/about" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">TikTok</h4> </a>
+              <a href="https://www.tiktok.com/about"> <img className="vertical-timeline-element-image" src={TikTok} width={140} height={140} alt="TikTok"/> </a>
               <h4 className="vertical-timeline-element-subtitle">San Jose, CA</h4>
               <p>
-                <b>Advertisement - Ads Interface and Platform</b>
+                <b>Advertisements - Global Monetization Product and Technology</b>
                 <br/>
 
               </p>

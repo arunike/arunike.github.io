@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 
 import ProgrammingLangStack from "../components/skills/ProgrammingLangStack";
@@ -9,6 +10,76 @@ import OtherStack from "../components/skills/OtherStack";
 import Github from "../components/github/Github";
 
 function Skills() {
+    const sectionRef = useRef(null);
+    const categoryRefs = useRef([]);
+
+    useEffect(() => {
+        const sectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const categoryObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        categoryObserver.unobserve(entry.target);
+                        
+                        const techIcons = entry.target.querySelectorAll('.tech-icons');
+                        techIcons.forEach((icon, index) => {
+                            icon.classList.add('not-animated');
+                            setTimeout(() => {
+                                icon.classList.remove('not-animated');
+                                icon.classList.add('animated');
+                            }, 100 + (index * 100));
+                        });
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const currentSectionRef = sectionRef.current;
+        const currentCategoryRefs = [...categoryRefs.current];
+
+        if (currentSectionRef) {
+            sectionObserver.observe(currentSectionRef);
+        }
+
+        currentCategoryRefs.forEach(ref => {
+            if (ref) {
+                categoryObserver.observe(ref);
+            }
+        });
+
+        return () => {
+            if (currentSectionRef) {
+                sectionObserver.unobserve(currentSectionRef);
+            }
+            currentCategoryRefs.forEach(ref => {
+                if (ref) {
+                    categoryObserver.unobserve(ref);
+                }
+            });
+        };
+    }, []);
+
+    categoryRefs.current = [];
+
+    const addToRefs = (el) => {
+        if (el && !categoryRefs.current.includes(el)) {
+            categoryRefs.current.push(el);
+        }
+    };
+
     return (
         <Container fluid className="skills-section" id="skills">
             <Container>
@@ -16,24 +87,36 @@ function Skills() {
                     Skillset
                 </h1>
 
-                <div className="skill-section-container">
-                    <h2 className="blue">Programming Languages</h2>
-                    <ProgrammingLangStack />
+                <div ref={sectionRef} className="skill-section-container">
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Programming Languages</h2>
+                        <ProgrammingLangStack />
+                    </div>
                     
-                    <h2 className="blue">Web Development</h2>
-                    <WebDevStack />
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Web Development</h2>
+                        <WebDevStack />
+                    </div>
                     
-                    <h2 className="blue">Frameworks</h2>
-                    <FrameworkStack />
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Frameworks</h2>
+                        <FrameworkStack />
+                    </div>
                     
-                    <h2 className="blue">Databases</h2>
-                    <DatabaseStack />
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Databases</h2>
+                        <DatabaseStack />
+                    </div>
                     
-                    <h2 className="blue">Tools</h2>
-                    <ToolStack />
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Tools</h2>
+                        <ToolStack />
+                    </div>
                     
-                    <h2 className="blue">Other Skills</h2>
-                    <OtherStack />
+                    <div ref={addToRefs} className="skill-category">
+                        <h2 className="blue">Other Skills</h2>
+                        <OtherStack />
+                    </div>
                 </div>
 
                 <h1 className="project-heading">

@@ -1545,3 +1545,50 @@ button:focus {
     opacity: 1;
   }
 }
+
+/* Skills section specific animations */
+.skills-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-section-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.skill-section-container.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-category {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.skill-category.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sequential animation delays for skill categories */
+.skill-category:nth-child(1) { transition-delay: 0.1s; }
+.skill-category:nth-child(2) { transition-delay: 0.2s; }
+.skill-category:nth-child(3) { transition-delay: 0.3s; }
+.skill-category:nth-child(4) { transition-delay: 0.4s; }
+.skill-category:nth-child(5) { transition-delay: 0.5s; }
+.skill-category:nth-child(6) { transition-delay: 0.6s; }
+
+/* Override tech-icons animation for controlled reveal */
+.tech-icons.not-animated {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: none;
+}
+
+.tech-icons.animated {
+  animation: fadeInUp 0.6s ease backwards;
+}

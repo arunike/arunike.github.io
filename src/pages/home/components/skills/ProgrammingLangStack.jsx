@@ -27,13 +27,14 @@ const programmingLang = [
 
 function ProgrammingLangStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
             {programmingLang.map((pl) => (
                 <Col key={pl.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={pl.src}
                         width={100}
                         alt={pl.alt}
+                        className="tech-icon-images"
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={pl.tooltipContent}
                     />

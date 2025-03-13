@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+
 import Tilt from "react-parallax-tilt";
 import { Document, Page } from 'react-pdf';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';

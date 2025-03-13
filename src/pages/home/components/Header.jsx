@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Type from "./Type";
 import UWMadisonProfilePicture from "../../../assets/imgs/profile.png";

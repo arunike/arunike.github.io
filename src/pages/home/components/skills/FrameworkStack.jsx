@@ -19,13 +19,14 @@ const frameworks = [
 
 function FrameworkStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
             {frameworks.map((fw) => (
                 <Col key={fw.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={fw.src}
                         width={100}
                         alt={fw.alt}
+                        className="tech-icon-images"
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={fw.tooltipContent}
                     />

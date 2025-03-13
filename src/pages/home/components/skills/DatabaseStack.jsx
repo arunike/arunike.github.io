@@ -17,13 +17,14 @@ const databases = [
 
 function DatabaseStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
             {databases.map((db) => (
                 <Col key={db.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={db.src}
                         width={100}
                         alt={db.alt}
+                        className="tech-icon-images"
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={db.tooltipContent}
                     />

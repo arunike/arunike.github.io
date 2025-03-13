@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { motion } from 'motion/react';
 import { Tooltip } from 'react-tooltip';
 import Particle from "../../../../components/Particle";
+import PropTypes from 'prop-types';
 
 const SkillSection = ({ title, StackComponent }) => {
     return (
@@ -32,6 +33,11 @@ const SkillSection = ({ title, StackComponent }) => {
         </motion.div>
         </motion.div>
     );
+};
+
+SkillSection.propTypes = {
+    title: PropTypes.string.isRequired,
+    StackComponent: PropTypes.elementType.isRequired,
 };
 
 const EnhancedSkillsSection = ({
@@ -105,6 +111,16 @@ const EnhancedSkillsSection = ({
         </Container>
         </Container>
     );
+};
+
+EnhancedSkillsSection.propTypes = {
+    ProgrammingLangStack: PropTypes.elementType.isRequired,
+    WebDevStack: PropTypes.elementType.isRequired,
+    FrameworkStack: PropTypes.elementType.isRequired,
+    DatabaseStack: PropTypes.elementType.isRequired,
+    ToolStack: PropTypes.elementType.isRequired,
+    OtherStack: PropTypes.elementType.isRequired,
+    Github: PropTypes.elementType.isRequired,
 };
 
 export default EnhancedSkillsSection;

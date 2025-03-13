@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiOutlineMail, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoLogoGithub } from "react-icons/io";
 import Particle from "../../../components/Particle";

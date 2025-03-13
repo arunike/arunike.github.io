@@ -15,13 +15,14 @@ const web = [
 
 function WebDevStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
             {web.map((wd) => (
                 <Col key={wd.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={wd.src}
                         width={100}
                         alt={wd.alt}
+                        className="tech-icon-images"
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={wd.tooltipContent}
                     />

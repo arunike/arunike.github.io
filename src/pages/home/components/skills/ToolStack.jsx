@@ -27,13 +27,14 @@ const tools = [
 
 function ToolStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
             {tools.map((ts) => (
                 <Col key={ts.alt} xs={4} md={2} className="tech-icons">
                     <img
                         src={ts.src}
                         width={100}
                         alt={ts.alt}
+                        className="tech-icon-images"
                         data-tooltip-id="tech-tooltip"
                         data-tooltip-content={ts.tooltipContent}
                     />

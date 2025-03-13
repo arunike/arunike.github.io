@@ -526,14 +526,17 @@ button:focus {
   line-height: 1.6;
   color: #4a4a4a;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
   position: relative;
+  transition: max-height 0.5s cubic-bezier(0.33, 1, 0.68, 1), 
+              opacity 0.3s ease-in-out;
+  will-change: max-height;
+  max-height: 70px;
 }
 
 .project-description.expanded {
-  max-height: 250px; /* Fixed height when expanded */
+  max-height: 250px;
   overflow-y: auto;
-  padding-right: 8px; /* Space for scrollbar */
+  padding-right: 8px;
 }
 
 .project-description.expanded::-webkit-scrollbar {
@@ -563,14 +566,20 @@ button:focus {
   cursor: pointer;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.3s ease;
   margin-top: 0.5rem;
   width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .expand-button:hover {
   color: #0060a8;
+  transform: translateY(-2px);
+}
+
+.expand-button:active {
+  transform: translateY(0);
 }
 
 .project-description:not(.expanded)::after {
@@ -579,9 +588,10 @@ button:focus {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 2em;
-  background: linear-gradient(to bottom, transparent, white);
+  height: 3em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 /* --------- */
@@ -999,92 +1009,104 @@ button:focus {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 9999; /* Increased z-index to ensure it's above everything */
+  right: 0;
+  bottom: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  animation: fadeIn 0.2s ease-out;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  padding: 20px;
 }
 
 .modal-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  width: 90%;
+  max-width: 800px;
   background: white;
-  width: 90vw;
-  height: 80vh;
-  max-width: 1200px;
-  border-radius: 0.75rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  animation: scaleIn 0.3s ease-out;
-  display: flex;
-  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  overflow: hidden;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
 }
 
 .modal-title {
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #111827;
-  margin: 0;
+  color: #1a1a1a;
 }
 
-.modal-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+.modal-close-button {
   background: transparent;
   border: none;
-  color: #6b7280;
-  padding: 0.5rem;
   cursor: pointer;
-  border-radius: 9999px;
+  padding: 8px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
-  z-index: 1;
+  color: #666;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.modal-close:hover {
-  background-color: #f3f4f6;
-  color: #111827;
+.modal-close-button:hover {
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .modal-content {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  padding: 24px;
+  max-height: calc(90vh - 100px);
+  overflow: auto;
 }
 
-.video-container {
-  flex: 1;
-  background: black;
+.modal-video-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
 }
 
 .modal-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Media queries for responsive modal */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+  }
+  
+  .modal-header {
+    padding: 12px 16px;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  
+  .modal-content {
+    padding: 16px;
+  }
 }
 
 /* --------- */
@@ -1140,175 +1162,11 @@ button:focus {
   }
 }
 
-@keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
+/* --------- */
+/* Animations */
+/* --------- */
 
-/* Animation */
-@keyframes slideFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromBottom {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Skills */
-@media (max-width: 767px) {
-  .tech-icons {
-    margin: 8px !important;
-    padding: 15px !important;
-    min-height: 160px !important;
-  }
-  
-  .tech-icon-images {
-    padding: 8px !important;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Footer */
-@media (max-width: 767px) {
-  .footer-copyright {
-    text-align: center !important;
-  }
-
-  .footer-body {
-    text-align: center !important;
-  }
-}
-
-/* Project */
-@media (max-width: 768px) {
-  .project-image-container {
-    padding-top: 66.67%;
-  }
-}
-
-@media (max-width: 992px) {
-  .project-col {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-col {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-/* Button */
-@media (max-width: 768px) {
-  .button-container {
-    width: 100% !important;
-    padding: 10px !important;
-  }
-
-  .github-button, .demo-button {
-    width: auto !important;
-    min-width: 120px !important;
-    padding: 8px 16px !important;
-    margin: 5px !important;
-    font-size: 14px !important;
-  }
-
-  .demo-buttons-container {
-    gap: 10px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .button-container {
-    padding: 0.8rem;
-  }
-
-  .demo-buttons-container.scrollable {
-    max-height: 150px;
-  }
-  
-  .demo-button-wrapper {
-    width: 100%;
-  }
-  
-  .github-button, .demo-button {
-    width: 100% !important;
-    min-width: 120px !important;
-    padding: 8px 16px !important;
-  }
-}
-
-/* Modal */
+/* Fade in animations with enhanced easing */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1318,7 +1176,299 @@ button:focus {
   }
 }
 
+/* Reveal animations with spring physics feel */
+@keyframes revealFromLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth scale animations */
 @keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInFast {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Fancy blur reveal animation */
+@keyframes blurReveal {
+  0% {
+    filter: blur(15px);
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Staggered reveal for multiple elements */
+@keyframes staggeredFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle shimmer effect for elements */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Pulse animation for emphasis */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(167, 203, 232, 0.15);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(167, 203, 232, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(167, 203, 232, 0.15);
+  }
+}
+
+/* Apply animations to elements */
+.reveal-left {
+  animation: revealFromLeft 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-right {
+  animation: revealFromRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-top {
+  animation: revealFromTop 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-bottom {
+  animation: revealFromBottom 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scale-in-fast {
+  animation: scaleInFast 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.blur-reveal {
+  animation: blurReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Apply staggered animations to children */
+.stagger-children > * {
+  opacity: 0;
+  animation: staggeredFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Generate staggered delays for up to 10 child elements */
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+.stagger-children > *:nth-child(9) { animation-delay: 0.9s; }
+.stagger-children > *:nth-child(10) { animation-delay: 1.0s; }
+
+/* Shimmer effect for buttons and cards */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse animation for important elements */
+.pulse-effect {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Hover animations for interactive elements */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(167, 203, 232, 0.3);
+}
+
+/* Animation for tech icons section */
+.tech-icons {
+  animation-name: fadeInUp;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-fill-mode: backwards;
+}
+
+.tech-icons:nth-child(1) { animation-delay: 0.1s; }
+.tech-icons:nth-child(2) { animation-delay: 0.2s; }
+.tech-icons:nth-child(3) { animation-delay: 0.3s; }
+.tech-icons:nth-child(4) { animation-delay: 0.4s; }
+.tech-icons:nth-child(5) { animation-delay: 0.5s; }
+.tech-icons:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s, transform 0.4s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.4s, transform 0.4s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleIn {
   from {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.95);
@@ -1329,41 +1479,69 @@ button:focus {
   }
 }
 
-@media (max-width: 768px) {
-  .modal-container {
-    width: 95vw;
-    height: 85vh;
-  }
+/* Navbar link hover effect */
+.nav-link-custom::after {
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  .modal-header {
-    padding: 1rem 1.5rem;
-  }
+/* Button hover animations */
+.primary_btn {
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-  .modal-title {
-    font-size: 1.25rem;
-  }
+.primary_btn:hover {
+  transform: translateY(-3px);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-  .modal-close {
-    top: 1rem;
-    right: 1rem;
+/* Wave animation with smoother curve */
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+/* Animation for modal */
+.modal-overlay {
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.modal-container {
+  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body.modal-open {
-  overflow: hidden;
-  padding-right: var(--scrollbar-width);
-}
-
-@media (max-width: 768px) {
-  .project-description {
-    font-size: 0.9rem;
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
-  .project-title {
-    font-size: 1.3rem;
-  }
-
-  .project-description.expanded {
-    max-height: 120px; /* Slightly smaller height on mobile */
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

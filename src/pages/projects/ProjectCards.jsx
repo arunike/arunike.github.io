@@ -1,149 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { IoMdClose } from "react-icons/io";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
-import { createPortal } from 'react-dom';
-
-// Styles for Modal
-const overlayStyles = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.75)',
-  backdropFilter: 'blur(5px)',
-  zIndex: 9999,
-  padding: '20px'
-};
-
-const containerStyles = {
-  position: 'relative',
-  width: '90%',
-  maxWidth: '800px',
-  background: 'white',
-  borderRadius: '12px',
-  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  margin: 'auto'
-};
-
-const headerStyles = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '16px 24px',
-  borderBottom: '1px solid #eee'
-};
-
-const titleStyles = {
-  margin: 0,
-  fontSize: '1.5rem',
-  fontWeight: 600,
-  color: '#1a1a1a'
-};
-
-const closeButtonStyles = {
-  background: 'transparent',
-  border: 'none',
-  cursor: 'pointer',
-  padding: '8px',
-  borderRadius: '50%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#666'
-};
-
-const contentStyles = {
-  padding: '24px',
-  maxHeight: 'calc(90vh - 100px)',
-  overflow: 'auto'
-};
-
-const videoContainerStyles = {
-  position: 'relative',
-  width: '100%',
-  paddingBottom: '56.25%', // 16:9 aspect ratio
-  height: 0,
-  overflow: 'hidden',
-  borderRadius: '8px',
-  background: '#000'
-};
-
-const videoStyles = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '100%',
-  height: '100%',
-  objectFit: 'contain'
-};
-
-// Modal Component
-const Modal = ({ isOpen, onClose, children, title }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  return createPortal(
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onClick={onClose}
-        style={overlayStyles}
-      >
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.95, opacity: 0, y: 20 }}
-          onClick={e => e.stopPropagation()}
-          style={containerStyles}
-          transition={{ type: "spring", duration: 0.3 }}
-        >
-          <div style={headerStyles}>
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              style={titleStyles}
-            >
-              {title}
-            </motion.h3>
-            <motion.button
-              onClick={onClose}
-              style={closeButtonStyles}
-              whileHover={{ scale: 1.1, backgroundColor: '#f0f0f0' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <IoMdClose size={24} />
-            </motion.button>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={contentStyles}
-          >
-            {children}
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>,
-    document.body
-  );
-};
+import Modal from './Modal'; // Import the separate Modal component
 
 // ProjectCards Component
 function ProjectCards(props) {
@@ -152,6 +11,7 @@ function ProjectCards(props) {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const descriptionRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -190,6 +50,18 @@ function ProjectCards(props) {
   const closeModal = () => {
     setIsModalOpen(false);
     setModalContent("");
+  };
+
+  const toggleDescription = () => {
+    if (!isExpanded) {
+      // When expanding, use the actual content height
+      const contentHeight = descriptionRef.current.scrollHeight;
+      descriptionRef.current.style.maxHeight = `${contentHeight}px`;
+    } else {
+      // When collapsing, animate back to default
+      descriptionRef.current.style.maxHeight = '70px';
+    }
+    setIsExpanded(!isExpanded);
   };
 
   const getDemoLabel = (demo, index) => {
@@ -320,17 +192,16 @@ function ProjectCards(props) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <motion.div 
+            <div 
+              ref={descriptionRef}
               className={`project-description ${isExpanded ? 'expanded' : ''}`}
-              animate={{ height: isExpanded ? "auto" : "70px" }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               {props.description}
-            </motion.div>
+            </div>
             {props.description?.length > 100 && (
               <motion.button 
                 className="expand-button"
-                onClick={() => setIsExpanded(!isExpanded)}
+                onClick={toggleDescription}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -341,26 +212,24 @@ function ProjectCards(props) {
         </div>
       </motion.div>
 
-      <AnimatePresence>
-        {isModalOpen && (
-          <Modal 
-            isOpen={isModalOpen} 
-            onClose={closeModal}
-            title="Demo Video"
-          >
-            <div style={videoContainerStyles}>
-              <video 
-                controls 
-                autoPlay 
-                style={videoStyles}
-              >
-                <source src={modalContent} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Modal>
-        )}
-      </AnimatePresence>
+      {isModalOpen && (
+        <Modal 
+          isOpen={isModalOpen} 
+          onClose={closeModal}
+          title="Demo Video"
+        >
+          <div className="modal-video-container">
+            <video 
+              controls 
+              autoPlay 
+              className="modal-video"
+            >
+              <source src={modalContent} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </Modal>
+      )}
     </motion.div>
   );
 }

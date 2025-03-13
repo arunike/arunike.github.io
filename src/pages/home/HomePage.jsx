@@ -39,7 +39,6 @@ import NorthernTrust from "../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../assets/imgs/timeline/Lumen.png";
 import TikTok from "../../assets/imgs/timeline/TikTok.png";
 import BadgerCS from "../../assets/imgs/badger_cs.png";
-import streamingArchitecture from "../../assets/streaming-architecture.pdf";
 
 import ResumeBuilder from "../../assets/imgs/projects/resume_builder.png";
 import VHR from "../../assets/imgs/projects/vhr.png";
@@ -419,7 +418,7 @@ function Home() {
               <p>
                 <b>Advertisements - Global Monetization Product and Technology</b>
                 <br/>
-
+                  Launched sophisticated shop advertising features in TypeScript with React, incorporating mobile analytics and automated merchant onboarding, catalyzing growth in ad adoption and monthly revenue.
               </p>
             </VerticalTimelineElement> */}
 
@@ -440,7 +439,7 @@ function Home() {
               <p>
                 <b>Virtual Network Platform - IP Engineering</b>
                 <br/>
-                  Enhanced component for managing EMP protocol messages using Kafka to leverage distributed messaging capabilities for high throughput and fault tolerance, resulting in an increase in message processing efficiency.
+                  Orchestrated EMP protocol message handling system using Kafka's distributed messaging capabilities to achieve high throughput and fault tolerance, which increased message throughput.
               </p>
             </VerticalTimelineElement>
 
@@ -482,7 +481,7 @@ function Home() {
               <p>
                 <b>Frontend Development</b>
                 <br/>
-                  Revamped user authorization interface in TypeScript with React by implementing token-based authentication and local storage encryption to reduce unauthorized access attempts.
+                  Revamped user authorization interface in TypeScript with React by implementing token-based authentication and utilizing HTTP-only, secure cookies for storing sensitive session information, fortifying system security against unauthorized access.
               </p>
             </VerticalTimelineElement>
 
@@ -502,7 +501,7 @@ function Home() {
               <p>
                 <b>Enterprise Application and Service</b>
                 <br/>
-                  Improved the accuracy of the saving rate recommendation algorithm with real-time financial data analysis in JavaScript, increasing savings account application completion through more accurate and personalized rate suggestions.
+                  Transformed saving rate recommendation engine with real-time financial analysis in JavaScript, catalyzing higher account completion rates through precision-targeted suggestions.
               </p>
             </VerticalTimelineElement>
           </VerticalTimeline>

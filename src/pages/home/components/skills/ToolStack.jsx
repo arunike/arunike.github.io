@@ -1,17 +1,16 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
-import Docker from "../../../assets/imgs/techstack/docker.png";
-import Kubernetes from "../../../assets/imgs/techstack/kubernetes.png";
-import JQuery from "../../../assets/imgs/techstack/jquery.png";
-import Spark from "../../../assets/imgs/techstack/spark.png";
-import Cassandra from "../../../assets/imgs/techstack/cassandra.png";
-import Kafka from "../../../assets/imgs/techstack/kafka.png";
-import HDFS from "../../../assets/imgs/techstack/hdfs.png";
-import Redux from "../../../assets/imgs/techstack/redux.png";
-import Threejs from "../../../assets/imgs/techstack/threejs.png";
-import Latex from "../../../assets/imgs/techstack/latex.png";
+import Docker from "../../../../assets/imgs/techstack/docker.png";
+import Kubernetes from "../../../../assets/imgs/techstack/kubernetes.png";
+import JQuery from "../../../../assets/imgs/techstack/jquery.png";
+import Spark from "../../../../assets/imgs/techstack/spark.png";
+import Cassandra from "../../../../assets/imgs/techstack/cassandra.png";
+import Kafka from "../../../../assets/imgs/techstack/kafka.png";
+import HDFS from "../../../../assets/imgs/techstack/hdfs.png";
+import Redux from "../../../../assets/imgs/techstack/redux.png";
+import Threejs from "../../../../assets/imgs/techstack/threejs.png";
+import Latex from "../../../../assets/imgs/techstack/latex.png";
 
 const tools = [
     { src: Latex, alt: "LaTeX", tooltipContent: "LaTeX" },

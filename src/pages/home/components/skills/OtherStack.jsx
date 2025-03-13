@@ -1,9 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
-import Linux from "../../../assets/imgs/techstack/linux.png";
-import Android from "../../../assets/imgs/techstack/android.png";
+import Linux from "../../../../assets/imgs/techstack/linux.png";
+import Android from "../../../../assets/imgs/techstack/android.png";
 
 const other = [
     { src: Linux, alt: "Linux", tooltipContent: "Linux" },

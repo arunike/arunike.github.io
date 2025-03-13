@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+node_modules/**/*
+
+# Build directories
+build/
+dist/
+public/
+
+# Environment files
+.env
+.env.*
+
+# Cache files
+.cache/
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+logs/
+
+# Misc
+.DS_Store

@@ -1,12 +1,11 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
-import Snowflake from "../../../assets/imgs/techstack/snowflake.png";
-import MySQL from "../../../assets/imgs/techstack/mysql.png";
-import Redis from "../../../assets/imgs/techstack/redis.png";
-import Firebase from "../../../assets/imgs/techstack/firebase.png";
-import SQL_Server from "../../../assets/imgs/techstack/sql_server.png";
+import Snowflake from "../../../../assets/imgs/techstack/snowflake.png";
+import MySQL from "../../../../assets/imgs/techstack/mysql.png";
+import Redis from "../../../../assets/imgs/techstack/redis.png";
+import Firebase from "../../../../assets/imgs/techstack/firebase.png";
+import SQL_Server from "../../../../assets/imgs/techstack/sql_server.png";
 
 const databases = [
     { src: MySQL, alt: "MySQL", tooltipContent: "MySQL" },

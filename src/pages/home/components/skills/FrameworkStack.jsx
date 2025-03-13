@@ -1,13 +1,12 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
-import React_Image from "../../../assets/imgs/techstack/react.png";
-import Vue from "../../../assets/imgs/techstack/vue.png";
-import Spring_Boot from "../../../assets/imgs/techstack/spring_boot.png";
-import Nodejs from "../../../assets/imgs/techstack/nodejs.png";
-import React_Native from "../../../assets/imgs/techstack/react_native.png";
-import Django from "../../../assets/imgs/techstack/django.png";
+import React_Image from "../../../../assets/imgs/techstack/react.png";
+import Vue from "../../../../assets/imgs/techstack/vue.png";
+import Spring_Boot from "../../../../assets/imgs/techstack/spring_boot.png";
+import Nodejs from "../../../../assets/imgs/techstack/nodejs.png";
+import React_Native from "../../../../assets/imgs/techstack/react_native.png";
+import Django from "../../../../assets/imgs/techstack/django.png";
 
 const frameworks = [
     { src: React_Image, alt: "React", tooltipContent: "React" },

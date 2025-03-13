@@ -1,11 +1,10 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Tooltip } from 'react-tooltip';
 
-import Javascript from "../../../assets/imgs/techstack/javascript.png";
-import Typescript from "../../../assets/imgs/techstack/typescript.png";
-import HTML from "../../../assets/imgs/techstack/html.png";
-import CSS from "../../../assets/imgs/techstack/css.png";
+import Javascript from "../../../../assets/imgs/techstack/javascript.png";
+import Typescript from "../../../../assets/imgs/techstack/typescript.png";
+import HTML from "../../../../assets/imgs/techstack/html.png";
+import CSS from "../../../../assets/imgs/techstack/css.png";
 
 const web = [
     { src: Javascript, alt: "JavaScript", tooltipContent: "JavaScript" },

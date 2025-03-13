@@ -1,16 +1,16 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import Java from "../../../assets/imgs/techstack/java.png";
-import Python from "../../../assets/imgs/techstack/python.png";
-import CLanguage from "../../../assets/imgs/techstack/c_language.png";
-import CPP from "../../../assets/imgs/techstack/cpp.png";
-import RLanguage from "../../../assets/imgs/techstack/r_language.png";
-import SQL from "../../../assets/imgs/techstack/sql.png";
-import Groovy from "../../../assets/imgs/techstack/groovy.png";
-import CSharp from "../../../assets/imgs/techstack/csharp.png";
-import Kotlin from "../../../assets/imgs/techstack/kotlin.png";
-import GoLanguage from "../../../assets/imgs/techstack/go_language.png";
+import Java from "../../../../assets/imgs/techstack/java.png";
+import Python from "../../../../assets/imgs/techstack/python.png";
+import CLanguage from "../../../../assets/imgs/techstack/c_language.png";
+import CPP from "../../../../assets/imgs/techstack/cpp.png";
+import RLanguage from "../../../../assets/imgs/techstack/r_language.png";
+import SQL from "../../../../assets/imgs/techstack/sql.png";
+import Groovy from "../../../../assets/imgs/techstack/groovy.png";
+import CSharp from "../../../../assets/imgs/techstack/csharp.png";
+import Kotlin from "../../../../assets/imgs/techstack/kotlin.png";
+import GoLanguage from "../../../../assets/imgs/techstack/go_language.png";
 
 const programmingLang = [
     { src: Python, alt: "Python", tooltipContent: "Python" },

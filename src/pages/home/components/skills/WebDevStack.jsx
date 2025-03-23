@@ -24,12 +24,12 @@ function WebDevStack() {
                         width={100}
                         alt={wd.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="web-tech-tooltip"
                         data-tooltip-content={wd.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="web-tech-tooltip" />
         </Row>
     );
 }

@@ -26,12 +26,12 @@ function DatabaseStack() {
                         width={100}
                         alt={db.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="database-tech-tooltip"
                         data-tooltip-content={db.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="database-tech-tooltip" />
         </Row>
     );
 }

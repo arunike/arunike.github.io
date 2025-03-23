@@ -36,12 +36,12 @@ function ProgrammingLangStack() {
                         width={100}
                         alt={pl.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="programming-language-tech-tooltip"
                         data-tooltip-content={pl.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="programming-language-tech-tooltip" />
         </Row>
     );
 }

@@ -20,12 +20,12 @@ function OtherStack() {
                         width={100}
                         alt={os.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="other-tech-tooltip"
                         data-tooltip-content={os.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="other-tech-tooltip" />
         </Row>
     );
 }

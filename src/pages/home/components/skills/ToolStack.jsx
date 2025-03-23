@@ -36,12 +36,12 @@ function ToolStack() {
                         width={100}
                         alt={ts.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="tool-tech-tooltip"
                         data-tooltip-content={ts.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="tool-tech-tooltip" />
         </Row>
     );
 }

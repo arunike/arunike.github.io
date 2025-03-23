@@ -28,12 +28,12 @@ function FrameworkStack() {
                         width={100}
                         alt={fw.alt}
                         className="tech-icon-images"
-                        data-tooltip-id="tech-tooltip"
+                        data-tooltip-id="framework-tech-tooltip"
                         data-tooltip-content={fw.tooltipContent}
                     />
                 </Col>
             ))}
-            <Tooltip id="tech-tooltip" />
+            <Tooltip id="framework-tech-tooltip" />
         </Row>
     );
 }

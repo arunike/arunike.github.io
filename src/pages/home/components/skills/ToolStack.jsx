@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Tooltip } from "react-tooltip";
 
 import Docker from "../../../../assets/imgs/techstack/docker.png";
 import Kubernetes from "../../../../assets/imgs/techstack/kubernetes.png";
@@ -40,6 +41,7 @@ function ToolStack() {
                     />
                 </Col>
             ))}
+            <Tooltip id="tech-tooltip" />
         </Row>
     );
 }

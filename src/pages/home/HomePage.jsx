@@ -4,11 +4,11 @@ import Particle from "../../components/Particle";
 import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import Header from "./components/Header";
-import AboutMe from "./components/AboutMe";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Timeline from "./components/Timeline";
-import Contact from "./components/Contact";
+import AboutMe from "./components/sections/AboutMe";
+import Skills from "./components/sections/Skills";
+import Projects from "./components/sections/Projects";
+import Timeline from "./components/sections/Timeline";
+import Contact from "./components/sections/Contact";
 
 function Home() {
   useEffect(() => {

@@ -1,19 +1,19 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoLogoGithub } from "react-icons/io";
-import Particle from "../../../components/Particle";
-import ProjectCard from "../../projects/ProjectCards";
+import Particle from "../../../../components/Particle";
+import ProjectCard from "../../../projects/ProjectCards";
 
-import MiasPortfolio from "../../../assets/imgs/projects/mias_portfolio.gif";
-import CS407 from "../../../assets/imgs/courses/compsci407.png";
-import ResumeBuilder from "../../../assets/imgs/projects/resume_builder.png";
-import CS571 from "../../../assets/imgs/courses/compsci571.gif";
-import VHR from "../../../assets/imgs/projects/vhr.png";
-import CS506 from "../../../assets/imgs/courses/compsci506.png";
-import CS579 from "../../../assets/imgs/courses/compsci579.gif";
-import CS559 from "../../../assets/imgs/courses/compsci559.gif";
-import PACMAN from "../../../assets/imgs/projects/pacman.gif";
-import CyberpunkVRRacingGame from "../../../assets/video/cs579/cyberpunk_vr_racing_game_demo.mp4";
+import MiasPortfolio from "../../../../assets/imgs/projects/mias_portfolio.gif";
+import CS407 from "../../../../assets/imgs/courses/compsci407.png";
+import ResumeBuilder from "../../../../assets/imgs/projects/resume_builder.png";
+import CS571 from "../../../../assets/imgs/courses/compsci571.gif";
+import VHR from "../../../../assets/imgs/projects/vhr.png";
+import CS506 from "../../../../assets/imgs/courses/compsci506.png";
+import CS579 from "../../../../assets/imgs/courses/compsci579.gif";
+import CS559 from "../../../../assets/imgs/courses/compsci559.gif";
+import PACMAN from "../../../../assets/imgs/projects/pacman.gif";
+import CyberpunkVRRacingGame from "../../../../assets/video/cs579/cyberpunk_vr_racing_game_demo.mp4";
 
 function Projects() {
     return (

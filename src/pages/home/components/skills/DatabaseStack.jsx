@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Tooltip } from "react-tooltip";
 
 import Snowflake from "../../../../assets/imgs/techstack/snowflake.png";
 import MySQL from "../../../../assets/imgs/techstack/mysql.png";
@@ -30,6 +31,7 @@ function DatabaseStack() {
                     />
                 </Col>
             ))}
+            <Tooltip id="tech-tooltip" />
         </Row>
     );
 }

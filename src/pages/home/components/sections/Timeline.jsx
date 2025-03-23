@@ -4,11 +4,11 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { MdWorkOutline } from "react-icons/md";
 
-import UNFCU from "../../../assets/imgs/timeline/UNFCU.png";
-import Rockitcoin from "../../../assets/imgs/timeline/Rockitcoin.png";
-import NorthernTrust from "../../../assets/imgs/timeline/NorthernTrust.png";
-import Lumen from "../../../assets/imgs/timeline/Lumen.png";
-// import TikTok from "../../../assets/imgs/timeline/TikTok.png";
+import UNFCU from "../../../../assets/imgs/timeline/UNFCU.png";
+import Rockitcoin from "../../../../assets/imgs/timeline/Rockitcoin.png";
+import NorthernTrust from "../../../../assets/imgs/timeline/NorthernTrust.png";
+import Lumen from "../../../../assets/imgs/timeline/Lumen.png";
+// import TikTok from "../../../../assets/imgs/timeline/TikTok.png";
 
 function Timeline() {
     return (

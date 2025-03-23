@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Tooltip } from "react-tooltip";
 
 import Linux from "../../../../assets/imgs/techstack/linux.png";
 import Android from "../../../../assets/imgs/techstack/android.png";
@@ -24,6 +25,7 @@ function OtherStack() {
                     />
                 </Col>
             ))}
+            <Tooltip id="tech-tooltip" />
         </Row>
     );
 }

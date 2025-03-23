@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 
-import ProgrammingLangStack from "../components/skills/ProgrammingLangStack";
-import FrameworkStack from "../components/skills/FrameworkStack";
-import DatabaseStack from "../components/skills/DatabaseStack";
-import WebDevStack from "../components/skills/WebDevStack";
-import ToolStack from "../components/skills/ToolStack";
-import OtherStack from "../components/skills/OtherStack";
-import Github from "../components/github/Github";
+import ProgrammingLangStack from "../skills/ProgrammingLangStack";
+import FrameworkStack from "../skills/FrameworkStack";
+import DatabaseStack from "../skills/DatabaseStack";
+import WebDevStack from "../skills/WebDevStack";
+import ToolStack from "../skills/ToolStack";
+import OtherStack from "../skills/OtherStack";
+import Github from "../github/Github";
 
 function Skills() {
     const sectionRef = useRef(null);

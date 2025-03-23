@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { motion } from 'motion/react';
 import { Tooltip } from 'react-tooltip';
-import Particle from "../../../../components/Particle";
+import Particle from "../../../components/Particle";
 import PropTypes from 'prop-types';
 
 const SkillSection = ({ title, StackComponent }) => {

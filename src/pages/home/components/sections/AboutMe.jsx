@@ -4,10 +4,10 @@ import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
 import { Document, Page } from 'react-pdf';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-import BadgerCS from "../../../assets/imgs/badger_cs.png";
-import UWMadisonDiploma from "../../../assets/diploma/UW-Madison Diploma.pdf";
+import BadgerCS from "../../../../assets/imgs/badger_cs.png";
+import UWMadisonDiploma from "../../../../assets/diploma/UW-Madison Diploma.pdf";
 // import CUDiploma from "../../../assets/diploma/UW-Madison Diploma.pdf";
-import UWMadisonDiplomaPreview from "../../../assets/diploma/UW-Madison Diploma Preview.png";
+import UWMadisonDiplomaPreview from "../../../../assets/diploma/UW-Madison Diploma Preview.png";
 // import CUDiplomaPreview from "../../../assets/diploma/UW-Madison Diploma Preview.png";
 
 function AboutMe() {

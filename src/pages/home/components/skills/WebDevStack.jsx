@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Tooltip } from "react-tooltip";
 
 import Javascript from "../../../../assets/imgs/techstack/javascript.png";
 import Typescript from "../../../../assets/imgs/techstack/typescript.png";
@@ -28,6 +29,7 @@ function WebDevStack() {
                     />
                 </Col>
             ))}
+            <Tooltip id="tech-tooltip" />
         </Row>
     );
 }

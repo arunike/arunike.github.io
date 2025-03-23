@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Tooltip } from "react-tooltip";
 
 import React_Image from "../../../../assets/imgs/techstack/react.png";
 import Vue from "../../../../assets/imgs/techstack/vue.png";
@@ -32,6 +33,7 @@ function FrameworkStack() {
                     />
                 </Col>
             ))}
+            <Tooltip id="tech-tooltip" />
         </Row>
     );
 }

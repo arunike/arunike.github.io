@@ -15,10 +15,10 @@ import GoLanguage from "../../../../assets/imgs/techstack/go_language.png";
 
 const programmingLang = [
     { src: Python, alt: "Python", tooltipContent: "Python" },
-    { src: Java, alt: "Java", tooltipContent: "Java" },
-    { src: SQL, alt: "SQL", tooltipContent: "SQL" },
     { src: GoLanguage, alt: "Go", tooltipContent: "Go" },
+    { src: Java, alt: "Java", tooltipContent: "Java" },
     { src: Kotlin, alt: "Kotlin", tooltipContent: "Kotlin" },
+    { src: SQL, alt: "SQL", tooltipContent: "SQL" },
     { src: Groovy, alt: "Groovy", tooltipContent: "Groovy" },
     { src: RLanguage, alt: "R", tooltipContent: "R" },
     { src: CLanguage, alt: "C", tooltipContent: "C" },
@@ -28,7 +28,10 @@ const programmingLang = [
 
 function ProgrammingLangStack() {
     return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
+        <Row
+            style={{ justifyContent: "center", paddingBottom: "50px" }}
+            className="stagger-children"
+        >
             {programmingLang.map((pl) => (
                 <Col key={pl.alt} xs={4} md={2} className="tech-icons">
                     <img

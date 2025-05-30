@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../../components/Particle";
-import ProjectCardEffect from "../../components/ProjectCardEffect";
 
 import VHR from "../../assets/imgs/projects/vhr.png";
 import SOTW from "../../assets/imgs/projects/song_of_the_wind_piano.png";
@@ -32,10 +31,6 @@ import BadgerChatDialogflowDemo from "../../assets/video/cs571/badger_chat_dialo
 import SongOfTheWind from "../../assets/video/projects/song_of_the_wind_demo.mov";
 
 function Projects() {
-  useEffect(() => {
-    ProjectCardEffect('.project-card');
-  }, []);
-  
   return (
     <Container fluid className="project-section">
       <h1 className="project-heading">

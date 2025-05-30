@@ -527,8 +527,7 @@ button:focus {
   color: #4a4a4a;
   overflow: hidden;
   position: relative;
-  transition: max-height 0.5s cubic-bezier(0.33, 1, 0.68, 1), 
-              opacity 0.3s ease-in-out;
+  transition: max-height 0.5s cubic-bezier(0.33, 1, 0.68, 1);
   will-change: max-height;
   max-height: 70px;
 }

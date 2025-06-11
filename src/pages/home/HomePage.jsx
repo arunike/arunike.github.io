@@ -18,13 +18,9 @@ function Home() {
       </Container>
 
       <AboutMe />
-
       <Skills />
-
       <Projects />
-
       <Timeline />
-
       <Contact />
     </section>
   );

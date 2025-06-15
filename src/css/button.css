@@ -1,0 +1,58 @@
+/* --------- */
+/* Button */
+/* --------- */
+.primary_btn {
+  display: inline-block;
+  color: #fff;
+  letter-spacing: 0px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 46px;
+  outline: none !important;
+  text-align: left;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-image:
+    linear-gradient(to right, #accce6 0%, #75aadb 100%),
+    radial-gradient(circle at top left, #accce6, #75aadb);
+  border: double 2px transparent;
+  box-shadow: 0px 10px 30px #a7cbe8;
+  transition: all 0.4s ease 0s;
+}
+
+.primary_btn span {
+  padding: 0 42px;
+}
+
+.primary_btn.tr-bg {
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    radial-gradient(circle at top left, #accce6, #75aadb);
+  border: 2px solid transparent;
+  color: #222222;
+  box-shadow: none;
+}
+
+.primary_btn.tr-bg:hover {
+  background-image:
+    linear-gradient(to right, #accce6 0%, #75aadb 100%),
+    radial-gradient(circle at top left, #accce6, #75aadb);
+  border: double 2px transparent;
+  color: #ffffff;
+  box-shadow: 0px 10px 30px #a7cbe8;
+}
+
+.primary_btn:hover {
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    radial-gradient(circle at top left, #accce6, #75aadb);
+  border: 2px solid #75aadb;
+  color: #222222;
+  box-shadow: none;
+  background-clip: border-box;
+  transition: background-color 0.3s;
+}

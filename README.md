@@ -1,22 +1,25 @@
 # Hello :wave:
 
-![Status](https://img.shields.io/badge/status-up-brightgreen) 
-![Gender](https://img.shields.io/badge/gender-%F0%9F%A4%B5-lightgrey) 
+![Status](https://img.shields.io/badge/status-up-brightgreen)
+![Gender](https://img.shields.io/badge/gender-%F0%9F%A4%B5-lightgrey)
 ![Visitor](https://komarev.com/ghpvc/?username=arunike&color=c770f0)
 
 <img align='right' src='https://octodex.github.com/images/codercat.jpg' width='200'>
 
 ## About Me :
+
 <!-- :computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>. -->
+
 :computer: Hello, I'm Richie Zhou. I recently earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank"> the University of Wisconsin-Madison</a>.
 
 - :office: I’m currently working as a software Engineer and contributing to the front end and back end of building web and mobile applications.
-- :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me. 
+- :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me.
 - :email: How to reach me: &nbsp; <a href="https://www.linkedin.com/in/richiezhou"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 
 ## 🛠 &nbsp; Language and Tools:
 
 ### &nbsp; Programming languages:
+
 <p> 
     <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" alt="python" width="40" height="40"/>&nbsp;  
     <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" alt="java" width="40" height="40"/>&nbsp;
@@ -30,6 +33,7 @@
 </p>
 
 ### &nbsp; Web Technologies
+
 <p>
     <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="javascript" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="typescript" width="40" height="40"/>&nbsp;
@@ -38,6 +42,7 @@
 </p>
 
 ### &nbsp; Frameworks
+
 <p>
     <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="react" width="40" height="40"/>&nbsp;
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/react_native.png" title="React Native" alt="react native" width="40" height="40"/>&nbsp;
@@ -48,6 +53,7 @@
 </p>
 
 ### &nbsp; Databases:
+
 <p>
     <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" title="Mysql" alt="mysql" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg" title="Firebase" alt="firebase" width="40" height="40"/>&nbsp;
@@ -57,6 +63,7 @@
 </p>
 
 ### &nbsp; Tools:
+
 <p>
     <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/latex.png" title="LaTex" alt="latex" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" title="Docker" alt="docker" width="40" height="40"/>&nbsp;
@@ -71,12 +78,14 @@
 </p>
 
 ### &nbsp; Other:
+
 <p>
     <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="Linux" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-original.svg" title="Android" alt="Android" width="40" height="40"/>&nbsp;
 </p>
 
 ## :fire: &nbsp; My Stats :
+
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=arunike&layout=compact&langs_count=8&hide=assembly,makefile,perl,m4,lua,dtrace,shell,html)](https://github.com/anuraghazra/github-readme-stats)
 
 ![Github stats](https://github-readme-stats.vercel.app/api?username=arunike&show_icons=true)

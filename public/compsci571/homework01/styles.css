@@ -1,13 +1,15 @@
-table, th, td {
+table,
+th,
+td {
   border: 1px solid;
 }
 
 .large-text-wrap {
-  inline-size: 600px; 
+  inline-size: 600px;
 }
 
 .primary-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 30px;

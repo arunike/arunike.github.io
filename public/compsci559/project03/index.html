@@ -1,46 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Game">
-        <meta name="keywords" content="HTML, JavaScript">
-        <meta name="author" content="Richie Zhou">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>COMP SCI 559 Homework Assignment 03</title>
-        <style>
-            .button {
-                display: inline-block;
-                padding: 15px 25px;
-                font-size: 24px;
-                cursor: pointer;
-                position: absolute;
-                text-align: center;
-                text-decoration: none;
-                outline: none;
-                color: #fff;
-                background-color: #FF0000;
-                border: none;
-                border-radius: 15px;
-                box-shadow: 0 9px #999;
-            }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Game" />
+    <meta name="keywords" content="HTML, JavaScript" />
+    <meta name="author" content="Richie Zhou" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMP SCI 559 Homework Assignment 03</title>
+    <style>
+      .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #ff0000;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
 
-            .button:active {
-            background-color: #000000;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-            }
-        </style>
-    </head>
+      .button:active {
+        background-color: #000000;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+    </style>
+  </head>
 
-    <h1>Richie's MineCraft Steve Getaway</h1>
-    <body>
-        <canvas id="myCanvas"
-                width="950" height="600"
-                >
-        </canvas>
-        <br> <br>
-        <button className = "button" onclick="game()">Click to Start</button>
-        <script type="text/javascript" src="gl-matrix-min.js"></script>
-        <script src="Project03.js" id="module"></script>
-    </body>
+  <h1>Richie's MineCraft Steve Getaway</h1>
+  <body>
+    <canvas id="myCanvas" width="950" height="600"> </canvas>
+    <br />
+    <br />
+    <button className="button" onclick="game()">Click to Start</button>
+    <script type="text/javascript" src="gl-matrix-min.js"></script>
+    <script src="Project03.js" id="module"></script>
+  </body>
 </html>

@@ -5,17 +5,16 @@ import Container from "react-bootstrap/Container";
 import logo from "../assets/logo.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
+import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import {
   AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-import { RiTimeLine, RiContactsBook2Line} from "react-icons/ri";
+import { RiTimeLine, RiContactsBook2Line } from "react-icons/ri";
 import { BsGear } from "react-icons/bs";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { CgFileDocument } from "react-icons/cg";
 import { HashLink } from "react-router-hash-link";
 
 function NavBar() {
@@ -41,15 +40,14 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand"/>
+          <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
           }}
-        >
-        </Navbar.Toggle>
+        ></Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto custom-nav" defaultActiveKey="#home">
             <Nav.Item className="nav-item-custom">

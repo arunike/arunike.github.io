@@ -34,7 +34,7 @@
   position: absolute;
   background: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: blur(15.5px);
-          backdrop-filter: blur(15.5px);
+  backdrop-filter: blur(15.5px);
 }
 .box .content .login-wrapper .login-content {
   width: 80%;
@@ -88,11 +88,21 @@
 .box .content .login-wrapper .login-content .login-form input:focus {
   outline: none;
 }
-.box .content .login-wrapper .login-content .login-form input::-moz-placeholder {
+.box
+  .content
+  .login-wrapper
+  .login-content
+  .login-form
+  input::-moz-placeholder {
   font-weight: 600;
   color: black;
 }
-.box .content .login-wrapper .login-content .login-form input:-ms-input-placeholder {
+.box
+  .content
+  .login-wrapper
+  .login-content
+  .login-form
+  input:-ms-input-placeholder {
   font-weight: 600;
   color: black;
 }
@@ -119,4 +129,4 @@
 .box .content .login-wrapper .login-content .tips span:nth-child(2) {
   color: rgb(54, 59, 197);
   font-weight: 600;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */

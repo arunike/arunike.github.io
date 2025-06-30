@@ -4,9 +4,21 @@ import { Row } from "react-bootstrap";
 
 function Github() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "10px", color: "black" }}>
+    <Row
+      style={{
+        justifyContent: "center",
+        paddingBottom: "10px",
+        color: "black",
+      }}
+    >
       <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        <a href="https://github.com/arunike" target="blank" style={{ textDecoration: 'none'}}><strong className="blue">Day I Code</strong> </a>
+        <a
+          href="https://github.com/arunike"
+          target="blank"
+          style={{ textDecoration: "none" }}
+        >
+          <strong className="blue">Day I Code</strong>{" "}
+        </a>
       </h1>
       <GitHubCalendar
         username="arunike"
@@ -14,8 +26,8 @@ function Github() {
         blockMargin={5}
         fontSize={16}
         theme={{
-          light: ['#EBDEF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'],
-          dark: ['#EBDEF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'],
+          light: ["#EBDEF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"],
+          dark: ["#EBDEF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"],
         }}
         showWeekdayLabels={true}
       />

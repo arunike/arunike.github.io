@@ -8,30 +8,33 @@ import HTML from "../../../../assets/imgs/techstack/html.png";
 import CSS from "../../../../assets/imgs/techstack/css.png";
 
 const web = [
-    { src: Javascript, alt: "JavaScript", tooltipContent: "JavaScript" },
-    { src: Typescript, alt: "TypeScript", tooltipContent: "TypeScript" },
-    { src: HTML, alt: "HTML", tooltipContent: "HTML" },
-    { src: CSS, alt: "CSS", tooltipContent: "CSS" }
+  { src: Javascript, alt: "JavaScript", tooltipContent: "JavaScript" },
+  { src: Typescript, alt: "TypeScript", tooltipContent: "TypeScript" },
+  { src: HTML, alt: "HTML", tooltipContent: "HTML" },
+  { src: CSS, alt: "CSS", tooltipContent: "CSS" },
 ];
 
 function WebDevStack() {
-    return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
-            {web.map((wd) => (
-                <Col key={wd.alt} xs={4} md={2} className="tech-icons">
-                    <img
-                        src={wd.src}
-                        width={100}
-                        alt={wd.alt}
-                        className="tech-icon-images"
-                        data-tooltip-id="web-tech-tooltip"
-                        data-tooltip-content={wd.tooltipContent}
-                    />
-                </Col>
-            ))}
-            <Tooltip id="web-tech-tooltip" />
-        </Row>
-    );
+  return (
+    <Row
+      style={{ justifyContent: "center", paddingBottom: "50px" }}
+      className="stagger-children"
+    >
+      {web.map((wd) => (
+        <Col key={wd.alt} xs={4} md={2} className="tech-icons">
+          <img
+            src={wd.src}
+            width={100}
+            alt={wd.alt}
+            className="tech-icon-images"
+            data-tooltip-id="web-tech-tooltip"
+            data-tooltip-content={wd.tooltipContent}
+          />
+        </Col>
+      ))}
+      <Tooltip id="web-tech-tooltip" />
+    </Row>
+  );
 }
 
 export default WebDevStack;

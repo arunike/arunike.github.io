@@ -1,33 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Marine Animals made with Shapes">
-    <meta name="keywords" content="HTML, JavaScript">
-    <meta name="author" content="Richie Zhou">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="description" content="Marine Animals made with Shapes" />
+    <meta name="keywords" content="HTML, JavaScript" />
+    <meta name="author" content="Richie Zhou" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COMP SCI 559 Homework Assignment 01</title>
   </head>
-  
+
   <body>
-    <b> <p style= "font-size: x-large">Richie's Tetris</p> </br>
+    <b><p style="font-size: x-large">Richie's Tetris</p></b>
     <style>
-      .button1 {width: 45px;}
-      .button2 {width: 300px;}
-      .slider1 {width: 200px;}
+      .button1 {
+        width: 45px;
+      }
+      .button2 {
+        width: 300px;
+      }
+      .slider1 {
+        width: 200px;
+      }
     </style>
 
-    <canvas id="myCanvas" 
-      width="350" height="550"
-      style="border:2px solid #000;">
+    <canvas
+      id="myCanvas"
+      width="350"
+      height="550"
+      style="border: 2px solid #000"
+    >
     </canvas>
 
-    <br>
-    <input className="button1" id="leftButton" type="button"value="&#60;--"/>
+    <br />
+    <input className="button1" id="leftButton" type="button" value="&#60;--" />
     <input className="slider1" id="slider1" type="range" min="0" max="9" />
-    <input className="button1" id="rightButton" type="button"value="--&#62;"/>
-    <br> <br>
-    <input className="button2" id="dropButton" type="button" value="DROP"/>
+    <input className="button1" id="rightButton" type="button" value="--&#62;" />
+    <br />
+    <br />
+    <input className="button2" id="dropButton" type="button" value="DROP" />
     <script src="Project01.js" id="module"></script>
   </body>
 </html>

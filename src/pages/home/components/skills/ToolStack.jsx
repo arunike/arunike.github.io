@@ -14,36 +14,39 @@ import Threejs from "../../../../assets/imgs/techstack/threejs.png";
 import Latex from "../../../../assets/imgs/techstack/latex.png";
 
 const tools = [
-    { src: Latex, alt: "LaTeX", tooltipContent: "LaTeX" },
-    { src: Docker, alt: "Docker", tooltipContent: "Docker" },
-    { src: Kubernetes, alt: "Kubernetes", tooltipContent: "Kubernetes" },
-    { src: JQuery, alt: "jQuery", tooltipContent: "jQuery" },
-    { src: Cassandra, alt: "Cassandra", tooltipContent: "Cassandra" },
-    { src: HDFS, alt: "HDFS", tooltipContent: "HDFS" },
-    { src: Kafka, alt: "Kafka", tooltipContent: "Kafka" },
-    { src: Spark, alt: "Spark", tooltipContent: "Spark" },
-    { src: Redux, alt: "Redux", tooltipContent: "Redux" },
-    { src: Threejs, alt: "Three.js", tooltipContent: "Three.js" },
+  { src: Latex, alt: "LaTeX", tooltipContent: "LaTeX" },
+  { src: Docker, alt: "Docker", tooltipContent: "Docker" },
+  { src: Kubernetes, alt: "Kubernetes", tooltipContent: "Kubernetes" },
+  { src: JQuery, alt: "jQuery", tooltipContent: "jQuery" },
+  { src: Cassandra, alt: "Cassandra", tooltipContent: "Cassandra" },
+  { src: HDFS, alt: "HDFS", tooltipContent: "HDFS" },
+  { src: Kafka, alt: "Kafka", tooltipContent: "Kafka" },
+  { src: Spark, alt: "Spark", tooltipContent: "Spark" },
+  { src: Redux, alt: "Redux", tooltipContent: "Redux" },
+  { src: Threejs, alt: "Three.js", tooltipContent: "Three.js" },
 ];
 
 function ToolStack() {
-    return (
-        <Row style={{ justifyContent: "center", paddingBottom: "50px" }} className="stagger-children">
-            {tools.map((ts) => (
-                <Col key={ts.alt} xs={4} md={2} className="tech-icons">
-                    <img
-                        src={ts.src}
-                        width={100}
-                        alt={ts.alt}
-                        className="tech-icon-images"
-                        data-tooltip-id="tool-tech-tooltip"
-                        data-tooltip-content={ts.tooltipContent}
-                    />
-                </Col>
-            ))}
-            <Tooltip id="tool-tech-tooltip" />
-        </Row>
-    );
+  return (
+    <Row
+      style={{ justifyContent: "center", paddingBottom: "50px" }}
+      className="stagger-children"
+    >
+      {tools.map((ts) => (
+        <Col key={ts.alt} xs={4} md={2} className="tech-icons">
+          <img
+            src={ts.src}
+            width={100}
+            alt={ts.alt}
+            className="tech-icon-images"
+            data-tooltip-id="tool-tech-tooltip"
+            data-tooltip-content={ts.tooltipContent}
+          />
+        </Col>
+      ))}
+      <Tooltip id="tool-tech-tooltip" />
+    </Row>
+  );
 }
 
 export default ToolStack;

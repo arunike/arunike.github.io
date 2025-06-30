@@ -11,408 +11,215 @@ import UNFCU from "../../../../assets/imgs/timeline/UNFCU.png";
 import Rockitcoin from "../../../../assets/imgs/timeline/Rockitcoin.png";
 import NorthernTrust from "../../../../assets/imgs/timeline/NorthernTrust.png";
 import Lumen from "../../../../assets/imgs/timeline/Lumen.png";
-// import TikTok from "../../../../assets/imgs/timeline/TikTok.png";
+import TikTok from "../../../../assets/imgs/timeline/TikTok.png";
 
-// function Timeline() {
-//     return (
-//         <Container id="timeline">
-//         <h1 className="project-heading">
-//             TIMELINE
-//         </h1> <br /> <br />
-
-//         {/* <VerticalTimelineElement
-//                 className="vertical-timeline-element--work"
-//                 dateClassName="blue"
-//                 date="January 2025 - Present"
-//                 contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
-//                 iconStyle={{ background: '#75aadb', color: '#fff' }}
-//                 position="right"
-//                 icon={<MdWorkOutline />}
-//             >
-//             <h3 className="vertical-timeline-element-title">Software Engineer</h3>
-//             <a href="https://www.tiktok.com/about" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">TikTok</h4> </a>
-//             <a href="https://www.tiktok.com/about"> <img className="vertical-timeline-element-image" src={TikTok} width={140} height={140} alt="TikTok"/> </a>
-//             <h4 className="vertical-timeline-element-subtitle">San Jose, CA</h4>
-//             <p>
-//             <b>Advertisements - Global Monetization Product and Technology</b>
-//             <br/>
-//                 Launched sophisticated shop advertising features in TypeScript with React, incorporating mobile analytics and automated merchant onboarding, catalyzing growth in ad adoption and monthly revenue.
-//             </p>
-//         </VerticalTimelineElement> */}
-
-//         <VerticalTimeline lineColor="#F5F5F5">
-//             <VerticalTimelineElement
-//             className="vertical-timeline-element--work"
-//             dateClassName="blue"
-//             date="May 2024 - August 2024"
-//             contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
-//             contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
-//             iconStyle={{ background: '#75aadb', color: '#fff' }}
-//             position="left"
-//             icon={<MdWorkOutline />}
-//             >
-//             <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
-//             <a href="https://www.lumen.com/en-us/home.html" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Lumen</h4> </a>
-//             <a href="https://www.lumen.com/en-us/home.html"> <img className="vertical-timeline-element-image" src={Lumen} width={140} height={140} alt="Lumen"/> </a>
-//             <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
-//             <p>
-//                 <b>Virtual Network Platform - IP Engineering</b>
-//                 <br/>
-//                 Orchestrated a fault-tolerant message processing system using Kafka that handled millions EMP protocol messages per hour with guaranteed delivery, improving overall system throughput.
-//             </p>
-//             </VerticalTimelineElement>
-
-//             <VerticalTimelineElement
-//             className="vertical-timeline-element--work"
-//             dateClassName="blue"
-//             date="June 2023 - August 2023"
-//             contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
-//             contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
-//             iconStyle={{ background: '#75aadb', color: '#fff' }}
-//             position="right"
-//             icon={<MdWorkOutline />}
-//             >
-//             <h3 className="vertical-timeline-element-title">Software Engineer Intern</h3>
-//             <a href="https://www.northerntrust.com/united-states/home" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Northern Trust</h4> </a>
-//             <a href="https://www.northerntrust.com/united-states/home"> <img className="vertical-timeline-element-image" src={NorthernTrust} width={140} height={140} alt="Northern Trust"/> </a>
-//             <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
-//             <p>
-//                 <b>Goals-Driven Wealth Management</b>
-//                 <br/>
-//                 Enhanced the Goals Driven Wealth Management platform by implementing sophisticated algorithms for risk assessment and portfolio optimization in Java, accelerating clients' wealth goals with precise investment plan recommendations.
-//             </p>
-//             </VerticalTimelineElement>
-
-//             <VerticalTimelineElement
-//             className="vertical-timeline-element--work"
-//             dateClassName="blue"
-//             date="August 2022 - March 2023"
-//             contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
-//             contentArrowStyle={{ borderRight: '7px solid  #75aadb' }}
-//             iconStyle={{ background: '#75aadb', color: '#fff' }}
-//             position="left"
-//             icon={<MdWorkOutline />}
-//             >
-//             <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
-//             <a href="https://www.rockitcoin.com/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">Rockitcoin</h4> </a>
-//             <a href="https://www.rockitcoin.com/"> <img className="vertical-timeline-element-image" src={Rockitcoin} width={140} height={140} alt="Rockitcoin"/> </a>
-//             <h4 className="vertical-timeline-element-subtitle">Chicago, Illinois</h4>
-//             <p>
-//                 <b>Frontend Development</b>
-//                 <br/>
-//                 Revamped user authorization interface in TypeScript with React by implementing token-based authentication and utilizing HTTP-only, secure cookies for storing sensitive session information, fortifying system security against unauthorized access.
-//             </p>
-//             </VerticalTimelineElement>
-
-//             <VerticalTimelineElement
-//             className="vertical-timeline-element--work"
-//             dateClassName="blue"
-//             date="June 2022 - August 2022"
-//             contentStyle={{ border: '#accce6', boxShadow: '4px 5px 4px 3px #a7cbe8' }}
-//             iconStyle={{ background: '#75aadb', color: '#fff' }}
-//             position="right"
-//             icon={<MdWorkOutline />}
-//             >
-//             <h3 className="vertical-timeline-element-title">Full Stack Developer Intern</h3>
-//             <a href="https://www.unfcu.org/home/" style={{textDecoration: 'none'}}> <h4 className="vertical-timeline-element-subtitle">UNFCU</h4> </a>
-//             <a href="https://www.unfcu.org/home/"> <img className="vertical-timeline-element-image" src={UNFCU} width={140} height={140} alt="United National Federal Credit Union"/> </a>
-//             <h4 className="vertical-timeline-element-subtitle">New York, New York</h4>
-//             <p>
-//                 <b>Enterprise Application and Service</b>
-//                 <br/>
-//                 Transformed saving rate recommendation engine with real-time financial analysis in JavaScript, catalyzing higher account completion rates through precision-targeted suggestions.
-//             </p>
-//             </VerticalTimelineElement>
-//         </VerticalTimeline>
-//         </Container>
-//     );
-// }
-
-// export default Timeline;
 function Timeline() {
+  const timelineData = [
+    {
+      id: "tiktok",
+      company: "TikTok",
+      role: "Software Engineer",
+      department: "Global Monetization and Platform - Ads Platform",
+      location: "San Jose, CA",
+      duration: "January 2025 - Present",
+      logo: TikTok,
+      website: "https://www.tiktok.com/about",
+      position: "left",
+      achievements: [],
+      technologies: ["React", "TypeScript", "Go"],
+      isActive: false,
+    },
+    {
+      id: "lumen",
+      company: "Lumen Technologies",
+      role: "Software Engineer Intern",
+      department: "Virtual Network Platform - IP Engineering",
+      location: "New York, NY",
+      duration: "May 2024 - August 2024",
+      logo: Lumen,
+      website: "https://www.lumen.com",
+      position: "right",
+      achievements: [
+        "Orchestrated a fault-tolerant message processing system using Kafka that handled millions EMP protocol messages per hour with guaranteed delivery, improving overall system throughput.",
+      ],
+      technologies: ["Groovy", "Kafka"],
+    },
+    {
+      id: "northern-trust",
+      company: "Northern Trust",
+      role: "Software Engineer Intern",
+      department: "Goals Driven Wealth Management",
+      location: "Chicago, IL",
+      duration: "June 2023 - August 2023",
+      logo: NorthernTrust,
+      website: "https://www.northerntrust.com/united-states/home",
+      position: "left",
+      achievements: [
+        "Developed scalable financial applications using Java and Spring Boot, improving system performance and reliability for wealth management solutions.",
+      ],
+      technologies: ["Spring Boot", "Java", "C++"],
+    },
+    {
+      id: "rockitcoin",
+      company: "Rockitcoin",
+      role: "Software Developer Intern",
+      department: "Frontend Development",
+      location: "Chicago, IL",
+      duration: "August 2022 - March 2023",
+      logo: Rockitcoin,
+      website: "https://www.rockitcoin.com/",
+      position: "right",
+      achievements: [
+        "Built responsive web applications using React and TypeScript, enhancing user experience for cryptocurrency trading platform with improved UI/UX design.",
+      ],
+      technologies: ["React", "TypeScript", "Node.js"],
+    },
+    {
+      id: "unfcu",
+      company: "UNFCU",
+      role: "Full Stack Developer Intern",
+      department: "Enterprise Application and Service",
+      location: "New York, NY",
+      duration: "June 2022 - August 2022",
+      logo: UNFCU,
+      website: "https://www.unfcu.org/",
+      position: "left",
+      achievements: [
+        "Developed full-stack financial applications using modern JavaScript frameworks, contributing to digital banking solutions that served thousands of credit union members.",
+      ],
+      technologies: ["JavaScript", "React", "Node.js", "Python"],
+    },
+  ];
+
+  const cardStyles = {
+    contentStyle: {
+      border: "none",
+      borderRadius: "20px",
+      boxShadow: "0 8px 32px rgba(117, 170, 219, 0.2)",
+      background: "rgba(255, 255, 255, 0.95)",
+      backdropFilter: "blur(10px)",
+      padding: "2rem",
+      position: "relative",
+      overflow: "hidden",
+    },
+    contentArrowStyle: {
+      borderRight: "7px solid rgba(255, 255, 255, 0.95)",
+    },
+    iconStyle: {
+      background: "linear-gradient(135deg, #75aadb, #accce6)",
+      color: "#fff",
+      boxShadow: "0 4px 16px rgba(117, 170, 219, 0.4)",
+    },
+  };
+
+  const renderTimelineElement = (experience) => {
+    if (experience.isActive === false) return null;
+
+    return (
+      <VerticalTimelineElement
+        key={experience.id}
+        className="vertical-timeline-element--work enhanced-timeline-card"
+        contentStyle={cardStyles.contentStyle}
+        contentArrowStyle={cardStyles.contentArrowStyle}
+        iconStyle={cardStyles.iconStyle}
+        position={experience.position}
+        icon={<MdWorkOutline />}
+      >
+        <div className="timeline-card-content">
+          {/* Company Header */}
+          <div className="company-header">
+            <img
+              className="company-logo"
+              src={experience.logo}
+              width={60}
+              height={60}
+              alt={experience.company}
+            />
+            <div className="company-info">
+              <h3 className="role-title">{experience.role}</h3>
+              <a
+                href={experience.website}
+                className="company-name"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {experience.company}
+              </a>
+            </div>
+          </div>
+
+          <div className="location-date">
+            <span className="location">
+              <MdLocationOn /> {experience.location}
+            </span>
+            <span className="duration">
+              <MdDateRange /> {experience.duration}
+            </span>
+          </div>
+
+          <div className="department">{experience.department}</div>
+
+          {experience.achievements.length > 0 && (
+            <div className="achievements">
+              {experience.achievements.map((achievement, index) => (
+                <div key={index} className="achievement-item">
+                  <p>{achievement}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="tech-stack">
+            {experience.technologies.map((tech, index) => (
+              <span key={index} className="tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </VerticalTimelineElement>
+    );
+  };
+
+  const headerConfig = {
+    title: "PROFESSIONAL TIMELINE",
+    subtitle: "My journey through the tech industry",
+  };
+
   return (
-    <Container id="timeline">
-      <h1 className="project-heading">PROFESSIONAL TIMELINE</h1> <br /> <br />
+    <Container id="timeline" className="timeline-section">
+      <div className="timeline-header">
+        <h1 className="project-heading">{headerConfig.title}</h1>
+        <p className="timeline-subtitle">{headerConfig.subtitle}</p>
+      </div>
+
       <VerticalTimeline lineColor="#F5F5F5">
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work enhanced-timeline-card"
-          contentStyle={{
-            border: "none",
-            borderRadius: "20px",
-            boxShadow: "0 8px 32px rgba(117, 170, 219, 0.2)",
-            background: "rgba(255, 255, 255, 0.95)",
-            backdropFilter: "blur(10px)",
-            padding: "2rem",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          contentArrowStyle={{
-            borderRight: "7px solid rgba(255, 255, 255, 0.95)",
-          }}
-          iconStyle={{
-            background: "linear-gradient(135deg, #75aadb, #accce6)",
-            color: "#fff",
-            boxShadow: "0 4px 16px rgba(117, 170, 219, 0.4)",
-          }}
-          position="left"
-          icon={<MdWorkOutline />}
-        >
-          <div className="timeline-card-content">
-            <div className="company-header">
-              <img
-                className="company-logo"
-                src={Lumen}
-                width={60}
-                height={60}
-                alt="Lumen"
-              />
-              <div className="company-info">
-                <h3 className="role-title">Software Engineer Intern</h3>
-                <a href="https://www.lumen.com" className="company-name">
-                  Lumen Technologies
-                </a>
-              </div>
-            </div>
-
-            <div className="location-date">
-              <span className="location">
-                <MdLocationOn /> New York, NY
-              </span>
-              <span className="duration">
-                <MdDateRange /> May 2024 - August 2024
-              </span>
-            </div>
-
-            <div className="department">
-              Virtual Network Platform - IP Engineering
-            </div>
-
-            <div className="achievements">
-              <div className="achievement-item">
-                <p>
-                  Orchestrated a fault-tolerant message processing system using
-                  Kafka that handled millions EMP protocol messages per hour
-                  with guaranteed delivery, improving overall system throughput.
-                </p>
-              </div>
-            </div>
-
-            <div className="tech-stack">
-              <span className="tech-tag">Groovy</span>
-              <span className="tech-tag">Kafka</span>
-            </div>
-          </div>
-        </VerticalTimelineElement>
-
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work enhanced-timeline-card"
-          contentStyle={{
-            border: "none",
-            borderRadius: "20px",
-            boxShadow: "0 8px 32px rgba(117, 170, 219, 0.2)",
-            background: "rgba(255, 255, 255, 0.95)",
-            backdropFilter: "blur(10px)",
-            padding: "2rem",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          contentArrowStyle={{
-            borderRight: "7px solid rgba(255, 255, 255, 0.95)",
-          }}
-          iconStyle={{
-            background: "linear-gradient(135deg, #75aadb, #accce6)",
-            color: "#fff",
-            boxShadow: "0 4px 16px rgba(117, 170, 219, 0.4)",
-          }}
-          position="right"
-          icon={<MdWorkOutline />}
-        >
-          <div className="timeline-card-content">
-            <div className="company-header">
-              <img
-                className="company-logo"
-                src={NorthernTrust}
-                width={60}
-                height={60}
-                alt="Northern Trust"
-              />
-              <div className="company-info">
-                <h3 className="role-title">Software Engineer Intern</h3>
-                <a
-                  href="https://www.northerntrust.com/united-states/home"
-                  className="company-name"
-                >
-                  Northern Trust
-                </a>
-              </div>
-            </div>
-
-            <div className="location-date">
-              <span className="location">
-                <MdLocationOn /> Chicago, IL
-              </span>
-              <span className="duration">
-                <MdDateRange /> June 2023 - August 2023
-              </span>
-            </div>
-
-            <div className="department">Goals Driven Wealth Management</div>
-
-            <div className="achievements">
-              <div className="achievement-item">
-                <p>
-                  Orchestrated a fault-tolerant message processing system using
-                  Kafka that handled millions EMP protocol messages per hour
-                  with guaranteed delivery, improving overall system throughput.
-                </p>
-              </div>
-            </div>
-
-            <div className="tech-stack">
-              <span className="tech-tag">Spring Boot</span>
-              <span className="tech-tag">Java</span>
-              <span className="tech-tag">C++</span>
-            </div>
-          </div>
-        </VerticalTimelineElement>
-
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work enhanced-timeline-card"
-          contentStyle={{
-            border: "none",
-            borderRadius: "20px",
-            boxShadow: "0 8px 32px rgba(117, 170, 219, 0.2)",
-            background: "rgba(255, 255, 255, 0.95)",
-            backdropFilter: "blur(10px)",
-            padding: "2rem",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          contentArrowStyle={{
-            borderRight: "7px solid rgba(255, 255, 255, 0.95)",
-          }}
-          iconStyle={{
-            background: "linear-gradient(135deg, #75aadb, #accce6)",
-            color: "#fff",
-            boxShadow: "0 4px 16px rgba(117, 170, 219, 0.4)",
-          }}
-          position="left"
-          icon={<MdWorkOutline />}
-        >
-          <div className="timeline-card-content">
-            <div className="company-header">
-              <img
-                className="company-logo"
-                src={Rockitcoin}
-                width={60}
-                height={60}
-                alt="Rockitcoin"
-              />
-              <div className="company-info">
-                <h3 className="role-title">Software Developer Intern</h3>
-                <a href="https://www.rockitcoin.com/" className="company-name">
-                  Rockitcoin
-                </a>
-              </div>
-            </div>
-
-            <div className="location-date">
-              <span className="location">
-                <MdLocationOn /> Chicago, IL
-              </span>
-              <span className="duration">
-                <MdDateRange /> August 2022 - March 2023
-              </span>
-            </div>
-
-            <div className="department">Frontend Development</div>
-
-            <div className="achievements">
-              <div className="achievement-item">
-                <p>
-                  Orchestrated a fault-tolerant message processing system using
-                  Kafka that handled millions EMP protocol messages per hour
-                  with guaranteed delivery, improving overall system throughput.
-                </p>
-              </div>
-            </div>
-
-            <div className="tech-stack">
-              <span className="tech-tag">React</span>
-              <span className="tech-tag">TypeScript</span>
-              <span className="tech-tag">Node.js</span>
-            </div>
-          </div>
-        </VerticalTimelineElement>
-
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work enhanced-timeline-card"
-          contentStyle={{
-            border: "none",
-            borderRadius: "20px",
-            boxShadow: "0 8px 32px rgba(117, 170, 219, 0.2)",
-            background: "rgba(255, 255, 255, 0.95)",
-            backdropFilter: "blur(10px)",
-            padding: "2rem",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          contentArrowStyle={{
-            borderRight: "7px solid rgba(255, 255, 255, 0.95)",
-          }}
-          iconStyle={{
-            background: "linear-gradient(135deg, #75aadb, #accce6)",
-            color: "#fff",
-            boxShadow: "0 4px 16px rgba(117, 170, 219, 0.4)",
-          }}
-          position="right"
-          icon={<MdWorkOutline />}
-        >
-          <div className="timeline-card-content">
-            <div className="company-header">
-              <img
-                className="company-logo"
-                src={UNFCU}
-                width={60}
-                height={60}
-                alt="UNFCU"
-              />
-              <div className="company-info">
-                <h3 className="role-title">Full Stack Developer Intern</h3>
-                <a href="https://www.unfcu.org/" className="company-name">
-                  UNFCU
-                </a>
-              </div>
-            </div>
-
-            <div className="location-date">
-              <span className="location">
-                <MdLocationOn /> New York, NY
-              </span>
-              <span className="duration">
-                <MdDateRange /> June 2022 - August 2022
-              </span>
-            </div>
-
-            <div className="department">Enterprise Application and Service</div>
-
-            <div className="achievement-item">
-              <p>
-                Orchestrated a fault-tolerant message processing system using
-                Kafka that handled millions EMP protocol messages per hour with
-                guaranteed delivery, improving overall system throughput.
-              </p>
-            </div>
-
-            <div className="tech-stack">
-              <span className="tech-tag">JavaScript</span>
-              <span className="tech-tag">React</span>
-              <span className="tech-tag">Node.js</span>
-              <span className="tech-tag">Python</span>
-            </div>
-          </div>
-        </VerticalTimelineElement>
+        {timelineData.map(renderTimelineElement)}
       </VerticalTimeline>
+
+      <div className="timeline-stats">
+        <div className="stat-item">
+          <span className="stat-number">
+            {timelineData.filter((exp) => exp.isActive !== false).length}
+          </span>
+          <span className="stat-label">Experiences</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number">
+            {
+              [...new Set(timelineData.flatMap((exp) => exp.technologies))]
+                .length
+            }
+          </span>
+          <span className="stat-label">Technologies</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number">
+            {[...new Set(timelineData.map((exp) => exp.location))].length}
+          </span>
+          <span className="stat-label">Cities</span>
+        </div>
+      </div>
     </Container>
   );
 }

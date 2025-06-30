@@ -4,6 +4,7 @@ import { IoLogoGithub } from "react-icons/io";
 import Particle from "../../../../components/Particle";
 import ProjectCard from "../../../projects/ProjectCards";
 
+// Import project images and assets
 import MiasPortfolio from "../../../../assets/imgs/projects/mias_portfolio.gif";
 import CS407 from "../../../../assets/imgs/courses/compsci407.png";
 import ResumeBuilder from "../../../../assets/imgs/projects/resume_builder.png";
@@ -16,108 +17,129 @@ import PACMAN from "../../../../assets/imgs/projects/pacman.gif";
 import CyberpunkVRRacingGame from "../../../../assets/video/cs579/cyberpunk_vr_racing_game_demo.mp4";
 
 function Projects() {
-    return (
-        <Container>
-        <h1 className="project-heading">
-            PROJECT
-        </h1> <br /> <br />
+  const projectsData = [
+    {
+      id: "mias-portfolio",
+      imgPath: MiasPortfolio,
+      title: "Mia's Portfolio",
+      ghLink: "https://github.com/miaaamao/miaaamao.github.io",
+      demoLinks: ["https://miaaamao.github.io/"],
+      demoName: "Demo",
+    },
+    {
+      id: "bluedrop",
+      imgPath: CS407,
+      title: "BlueDrop",
+      ghLink: "https://github.com/arunike/BlueDrop",
+    },
+    {
+      id: "resume-builder",
+      imgPath: ResumeBuilder,
+      title: "Resume Builder",
+      ghLink: "https://github.com/arunike/resume-builder",
+    },
+    {
+      id: "cs571-projects",
+      imgPath: CS571,
+      title: "COMP SCI 571",
+      ghLink: "https://github.com/arunike/CS571",
+    },
+    {
+      id: "vhr-system",
+      imgPath: VHR,
+      title: "VHR",
+      ghLink: "https://github.com/arunike/vhr",
+    },
+    {
+      id: "bird-feeder",
+      imgPath: CS506,
+      title: "Five Course Bird Feeder",
+      ghLink: "https://github.com/arunike/Five-Course-Bird-Feeder-Frontend",
+    },
+    {
+      id: "vr-racing-game",
+      imgPath: CS579,
+      title: "Cyberpunk VR Racing Game",
+      demoLinks: [CyberpunkVRRacingGame],
+      demoName: "Demo",
+      demoLinkIsVideo: { [CyberpunkVRRacingGame]: true },
+    },
+    {
+      id: "cs559-graphics",
+      imgPath: CS559,
+      title: "COMP SCI 559",
+      ghLink: "https://github.com/arunike/CS559",
+    },
+    {
+      id: "pacman-game",
+      imgPath: PACMAN,
+      title: "Pacman Game",
+      ghLink: "https://github.com/arunike/Pacman",
+      demoLinks: ["http://arunike.github.io/project/pacman/index.html"],
+      demoName: "Demo",
+    },
+  ];
+
+  const githubSection = {
+    title: "To visit more of my projects",
+    buttonText: "Visit My GitHub",
+    url: "https://github.com/arunike",
+  };
+
+  const renderProjectCard = (project, index) => (
+    <Col md={4} className="project-card" key={project.id}>
+      <ProjectCard
+        imgPath={project.imgPath}
+        isBlog={false}
+        title={project.title}
+        ghLink={project.ghLink}
+        demoLinks={project.demoLinks}
+        demoName={project.demoName}
+        demoLinkIsVideo={project.demoLinkIsVideo}
+        animationDelay={`${index * 0.1}s`}
+      />
+    </Col>
+  );
+
+  const renderGitHubSection = () => (
+    <div className="github-section text-center mt-5">
+      <h2 className="github-title">{githubSection.title}</h2>
+      <a
+        href={githubSection.url}
+        className="btn btn-xl btn-dark github-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {githubSection.buttonText} &nbsp; <IoLogoGithub />
+      </a>
+    </div>
+  );
+
+  return (
+    <Container fluid className="project-section">
+      <Container>
+        <div className="project-header">
+          <h1 className="project-heading">
+            MY PROJECTS
+            <span className="project-count">({projectsData.length})</span>
+          </h1>
+          <p className="project-subtitle">
+            A showcase of my technical projects and creative solutions
+          </p>
+        </div>
+
         <Particle />
-        <Container>
-            <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={MiasPortfolio}
-                isBlog={false}
-                title="Mia's Portfolio"
-                ghLink="https://github.com/miaaamao/miaaamao.github.io"
-                demoLinks={[ "https://miaaamao.github.io/" ]}
-                demoName="Demo"
-                />
-            </Col>
 
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={CS407}
-                isBlog={false}
-                title="BlueDrop"
-                ghLink="https://github.com/arunike/BlueDrop"
-                />
-            </Col>
+        <Row className="project-grid">
+          {projectsData.map((project, index) =>
+            renderProjectCard(project, index),
+          )}
+        </Row>
 
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={ResumeBuilder}
-                isBlog={false}
-                title="Resume Builder"
-                ghLink="https://github.com/arunike/resume-builder"
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={CS571}
-                isBlog={false}
-                title="COMP SCI 571"
-                ghLink="https://github.com/arunike/CS571"
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={VHR}
-                isBlog={false}
-                title="VHR"
-                ghLink="https://github.com/arunike/vhr"
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={CS506}
-                isBlog={false}
-                title="Five Course Bird Feeder"
-                ghLink="https://github.com/arunike/Five-Course-Bird-Feeder-Frontend"
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={CS579}
-                isBlog={false}
-                title="Cyberpunk VR Racing Game"
-                demoLinks={[ CyberpunkVRRacingGame ]}
-                demoName="Demo"
-                demoLinkIsVideo={{ CyberpunkVRRacingGame: true }}
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={CS559}
-                isBlog={false}
-                title="COMP SCI 559"
-                ghLink="https://github.com/arunike/CS559"
-                />
-            </Col>
-
-            <Col md={4} className="project-card">
-                <ProjectCard
-                imgPath={PACMAN}
-                isBlog={false}
-                title="Pacman Game"
-                ghLink="https://github.com/arunike/Pacman"
-                demoLinks={[ "http://arunike.github.io/project/pacman/index.html" ]}
-                demoName="Demo"
-                />
-            </Col>
-            </Row>
-            <div className="container text-center mt-5">
-            <h2>To visit more of my projects</h2> 
-            <a href="https://github.com/arunike" className="btn btn-xl btn-dark" target="blank">Visit My GitHub &nbsp; <IoLogoGithub />  </a>
-            </div>
-        </Container>
-        </Container>
-    );
+        {renderGitHubSection()}
+      </Container>
+    </Container>
+  );
 }
 
 export default Projects;

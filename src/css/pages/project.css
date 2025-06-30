@@ -1,5 +1,5 @@
 /* --------- */
-/* Projects */
+/* Project Section */
 /* --------- */
 .project-section {
   position: relative !important;
@@ -141,6 +141,34 @@
   font-weight: 600;
   margin-bottom: 1rem;
   color: #000;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.tech-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #75aadb, #accce6);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap; /* Prevents text from wrapping within the tag */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(117, 170, 219, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(117, 170, 219, 0.3);
+  background: linear-gradient(135deg, #0060a8, #75aadb);
 }
 
 .project-description-container {

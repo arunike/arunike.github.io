@@ -1,11 +1,10 @@
-@import "./css/button.css";
-@import "./css/contact.css";
-@import "./css/course_taken.css";
-@import "./css/experience.css";
-@import "./css/pdf_viewer.css";
-@import "./css/project.css";
-@import "./css/skills.css";
-@import "./css/timeline.css";
+@import "./css/components/button.css";
+@import "./css/pages/contact.css";
+@import "./css/pages/course_taken.css";
+@import "./css/components/pdf_viewer.css";
+@import "./css/pages/project.css";
+@import "./css/pages/skills.css";
+@import "./css/pages/timeline.css";
 
 html {
   --section-background-color: linear-gradient(

@@ -1,17 +1,56 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import Modal from "./Modal";
 import PropTypes from "prop-types";
 
-function ProjectCards(props) {
+function ProjectCards({
+  imgPath,
+  title,
+  description,
+  ghLink,
+  demoLinks,
+  demoName = "Demo",
+  demoLinkLabels = {},
+  demoLinkIsVideo = {},
+  isBlog = false,
+  technologies = [],
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+
   const descriptionRef = useRef(null);
+
+  const animations = {
+    card: {
+      initial: { opacity: 0, y: 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true },
+      transition: { duration: 0.5, type: "spring", stiffness: 100 },
+    },
+    cardHover: {
+      whileHover: { y: -5 },
+      transition: { type: "spring", stiffness: 300 },
+    },
+    image: {
+      whileHover: { scale: 1.02 },
+      transition: { duration: 0.2 },
+    },
+    overlay: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
+      transition: { duration: 0.2 },
+    },
+    button: {
+      whileHover: { scale: 1.05 },
+      whileTap: { scale: 0.95 },
+    },
+  };
 
   useEffect(() => {
     const checkMobile = () => {
@@ -20,39 +59,42 @@ function ProjectCards(props) {
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
-
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const handleInteraction = () => {
+  const openModalWithVideo = useCallback((videoPath) => {
+    setModalContent(videoPath);
+    setIsModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setModalContent("");
+  }, []);
+
+  const handleInteraction = useCallback(() => {
     if (isMobile) {
       setIsOverlayVisible(!isOverlayVisible);
     }
-  };
+  }, [isMobile, isOverlayVisible]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (!isMobile) {
       setIsOverlayVisible(true);
     }
-  };
+  }, [isMobile]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (!isMobile) {
       setIsOverlayVisible(false);
     }
-  };
+  }, [isMobile]);
 
-  const openModalWithVideo = (videoPath) => {
-    setModalContent(videoPath);
-    setIsModalOpen(true);
-  };
+  const toggleDescription = useCallback(() => {
+    if (!descriptionRef.current) {
+      return;
+    }
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setModalContent("");
-  };
-
-  const toggleDescription = () => {
     if (!isExpanded) {
       const contentHeight = descriptionRef.current.scrollHeight;
       descriptionRef.current.style.maxHeight = `${contentHeight}px`;
@@ -60,77 +102,84 @@ function ProjectCards(props) {
       descriptionRef.current.style.maxHeight = "70px";
     }
     setIsExpanded(!isExpanded);
-  };
+  }, [isExpanded]);
 
-  const getDemoLabel = (demo, index) => {
-    for (const key in props.demoLinkLabels) {
-      if (
-        Object.prototype.hasOwnProperty.call(props.demoLinkLabels, key) &&
-        demo.includes(key)
-      ) {
-        return props.demoLinkLabels[key];
+  const getDemoLabel = useCallback(
+    (demo, index) => {
+      for (const key in demoLinkLabels) {
+        if (
+          Object.prototype.hasOwnProperty.call(demoLinkLabels, key) &&
+          demo.includes(key)
+        ) {
+          return demoLinkLabels[key];
+        }
       }
-    }
-    return (
-      props.demoName + (props.demoLinks?.length > 1 ? ` ${index + 1}` : "")
-    );
-  };
 
-  const handleDemoClick = (event, demo) => {
-    event.preventDefault();
-    event.stopPropagation();
+      return demoName + (demoLinks?.length > 1 ? ` ${index + 1}` : "");
+    },
+    [demoLinkLabels, demoName, demoLinks],
+  );
 
-    if (demo.includes(".mp4") || demo.includes(".mov")) {
-      openModalWithVideo(demo);
-    } else {
-      window.open(demo, "_blank");
-    }
-  };
+  const handleDemoClick = useCallback(
+    (event, demo) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (
+        demo.includes(".mp4") ||
+        demo.includes(".mov") ||
+        demoLinkIsVideo[demo]
+      ) {
+        openModalWithVideo(demo);
+      } else {
+        window.open(demo, "_blank", "noopener,noreferrer");
+      }
+    },
+    [demoLinkIsVideo, openModalWithVideo],
+  );
+
+  const handleGitHubClick = useCallback(
+    (event) => {
+      event.stopPropagation();
+      window.open(ghLink, "_blank", "noopener,noreferrer");
+    },
+    [ghLink],
+  );
 
   const ButtonOverlay = () => (
-    <motion.div
-      className="button-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-    >
+    <motion.div className="button-overlay" {...animations.overlay}>
       <div className="button-container">
-        {props.ghLink && (
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <motion.button
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(props.ghLink, "_blank");
-              }}
+        {ghLink && (
+          <motion.div {...animations.button}>
+            <button
+              onClick={handleGitHubClick}
               className="github-button"
-              whileHover={{ backgroundColor: "#2a2a2a" }}
+              aria-label={`View ${title} on GitHub`}
             >
               <BsGithub /> &nbsp;
-              {props.isBlog ? "Blog" : "GitHub"}
-            </motion.button>
+              {isBlog ? "Blog" : "GitHub"}
+            </button>
           </motion.div>
         )}
 
-        {!props.isBlog && props.demoLinks && (
+        {!isBlog && demoLinks && (
           <div
-            className={`demo-buttons-container ${props.demoLinks.length > 2 ? "scrollable" : ""}`}
+            className={`demo-buttons-container ${demoLinks.length > 2 ? "scrollable" : ""}`}
           >
-            {props.demoLinks.map((demo, index) => (
+            {demoLinks.map((demo, index) => (
               <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                key={`${demo}-${index}`}
+                {...animations.button}
                 className="demo-button-wrapper"
               >
-                <motion.button
+                <button
                   onClick={(e) => handleDemoClick(e, demo)}
                   className="demo-button"
-                  whileHover={{ backgroundColor: "#0056b3" }}
+                  aria-label={`View ${getDemoLabel(demo, index)}`}
                 >
                   <CgWebsite /> &nbsp;
                   {getDemoLabel(demo, index)}
-                </motion.button>
+                </button>
               </motion.div>
             ))}
           </div>
@@ -139,104 +188,98 @@ function ProjectCards(props) {
     </motion.div>
   );
 
-  return (
+  const renderImage = () => (
     <motion.div
-      className="project-card-container"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        stiffness: 100,
-      }}
+      className="project-image-container"
+      onClick={handleInteraction}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <motion.div
-        className="project-card-view"
-        whileHover={{ y: -5 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <motion.div
-          className="project-image-container"
-          onClick={handleInteraction}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <motion.div
-            className="image-wrapper"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <motion.img
-              src={props.imgPath}
-              alt="project"
-              className="project-image"
-              layoutId={`project-${props.title}`}
-            />
-          </motion.div>
-
-          <AnimatePresence>
-            {isOverlayVisible && <ButtonOverlay />}
-          </AnimatePresence>
-        </motion.div>
-
-        <div className="project-content">
-          <motion.h3
-            className="project-title"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            {props.title}
-          </motion.h3>
-          <motion.div
-            className="project-description-container"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <div
-              ref={descriptionRef}
-              className={`project-description ${isExpanded ? "expanded" : ""}`}
-            >
-              {props.description}
-            </div>
-            {props.description?.length > 100 && (
-              <motion.button
-                className="expand-button"
-                onClick={toggleDescription}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isExpanded ? "Show Less" : "Read More"}
-              </motion.button>
-            )}
-          </motion.div>
-        </div>
+      <motion.div className="image-wrapper" {...animations.image}>
+        <img
+          src={imgPath}
+          alt={`${title} project screenshot`}
+          className="project-image"
+          loading="lazy"
+        />
       </motion.div>
 
-      {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModal} title="Demo Video">
-          <div className="modal-video-container">
-            <video controls autoPlay className="modal-video">
-              <source src={modalContent} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </Modal>
-      )}
+      <AnimatePresence>{isOverlayVisible && <ButtonOverlay />}</AnimatePresence>
     </motion.div>
+  );
+
+  const renderContent = () => (
+    <div className="project-content">
+      <h3 className="project-title">{title}</h3>
+
+      {technologies.length > 0 && (
+        <div className="project-technologies">
+          {technologies.map((tech, index) => (
+            <span key={index} className="tech-tag">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div className="project-description-container">
+        <div
+          ref={descriptionRef}
+          className={`project-description ${isExpanded ? "expanded" : ""}`}
+        >
+          {description}
+        </div>
+        {description && description.length > 150 && (
+          <motion.button
+            className="expand-button"
+            onClick={toggleDescription}
+            {...animations.button}
+          >
+            {isExpanded ? "Show Less" : "Read More"}
+          </motion.button>
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      <motion.div className="project-card-container" {...animations.card}>
+        <motion.div className="project-card-view" {...animations.cardHover}>
+          {renderImage()}
+          {renderContent()}
+        </motion.div>
+      </motion.div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title="Demo Video"
+        size="large"
+      >
+        <div className="modal-video-container">
+          <video controls autoPlay className="modal-video" preload="metadata">
+            <source src={modalContent} type="video/mp4" />
+            <source src={modalContent} type="video/mov" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </Modal>
+    </>
   );
 }
 
 ProjectCards.propTypes = {
-  demoLinkLabels: PropTypes.object,
-  demoName: PropTypes.string,
-  demoLinks: PropTypes.array,
-  ghLink: PropTypes.string,
-  isBlog: PropTypes.bool,
-  imgPath: PropTypes.string,
-  title: PropTypes.string,
+  imgPath: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  ghLink: PropTypes.string,
+  demoLinks: PropTypes.arrayOf(PropTypes.string),
+  demoName: PropTypes.string,
+  demoLinkLabels: PropTypes.object,
+  demoLinkIsVideo: PropTypes.object,
+  isBlog: PropTypes.bool,
+  technologies: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default ProjectCards;

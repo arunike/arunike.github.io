@@ -1,57 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Piano Tiles</title>
-		<style>
-			#main {
-				width: 360px;
-				height: 360px;
-				background: white;
-				border: 2px solid green;
-				margin: 0 auto;
-				position: relative;
-				overflow: hidden;
-			}
-			#container {
-				width: 100%;
-				height: 360px;
-				position: relative;
-				top: -90px;
-				background: white;
-			}
-			.row {
-				width: 100%;
-				height: 90px;
-			}
-			.cell {
-				width: 90px;
-				height: 90px;
-				float: left;	
-			}
-			.black {
-				background:black;
-			}
-			#score {
-				text-align: center;
-			}
-			h1 {text-align: center;}
-			p {text-align: center;}
-		</style>
-	</head>
-	<body>
-		<h1>Piano Tiles</h1>
-		<p>
-			Clear the tiles by clicking on the black tiles as fast as you can to get the highest score possible.
-		</p>
-		<p>
-			Tip: The speed increases as you score more points.
-		</p>
-		<h2 id="score">0</h2>
-			<div id="main">
-				<div id="container"></div>
-			</div>
-	</body>
-	<script src="pianoTiles.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Piano Tiles</title>
+    <style>
+      #main {
+        width: 360px;
+        height: 360px;
+        background: white;
+        border: 2px solid green;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      #container {
+        width: 100%;
+        height: 360px;
+        position: relative;
+        top: -90px;
+        background: white;
+      }
+      .row {
+        width: 100%;
+        height: 90px;
+      }
+      .cell {
+        width: 90px;
+        height: 90px;
+        float: left;
+      }
+      .black {
+        background: black;
+      }
+      #score {
+        text-align: center;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Piano Tiles</h1>
+    <p>
+      Clear the tiles by clicking on the black tiles as fast as you can to get
+      the highest score possible.
+    </p>
+    <p>Tip: The speed increases as you score more points.</p>
+    <h2 id="score">0</h2>
+    <div id="main">
+      <div id="container"></div>
+    </div>
+  </body>
+  <script src="pianoTiles.js"></script>
 </html>

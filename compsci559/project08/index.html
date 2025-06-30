@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="WebGL Reflection">
-        <meta name="keywords" content="HTML, JavaScript">
-        <meta name="author" content="Richie Zhou">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>COMP SCI 559 Homework Assignment 08</title>
-    </head>
-    <h1>Richie's Flying Cat in London</h1>
-    <body onload="main()">
-        <script>
-            var VSHADER_SOURCE = `
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="WebGL Reflection" />
+    <meta name="keywords" content="HTML, JavaScript" />
+    <meta name="author" content="Richie Zhou" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMP SCI 559 Homework Assignment 08</title>
+  </head>
+  <h1>Richie's Flying Cat in London</h1>
+  <body onload="main()">
+    <script>
+      var VSHADER_SOURCE = `
                 attribute vec4 a_Position;
                 attribute vec4 a_Normal;
                 attribute vec2 a_TexCoord;
@@ -31,7 +31,7 @@
                 } 
             `;
 
-            var FSHADER_SOURCE = `
+      var FSHADER_SOURCE = `
                 precision mediump float;
                 uniform vec3 u_LightPosition;
                 uniform vec3 u_ViewPosition;
@@ -67,7 +67,7 @@
                 }
             `;
 
-            var VSHADER_SOURCE_TEXTURE_CUBE = `
+      var VSHADER_SOURCE_TEXTURE_CUBE = `
                 attribute vec4 a_Position;
                 attribute vec4 a_Normal;
                 uniform mat4 u_MvpMatrix;
@@ -85,7 +85,7 @@
                 } 
             `;
 
-            var FSHADER_SOURCE_TEXTURE_CUBE = `
+      var FSHADER_SOURCE_TEXTURE_CUBE = `
                 precision mediump float;
                 varying vec4 v_TexCoord;
                 uniform vec3 u_ViewPosition;
@@ -102,7 +102,7 @@
                 }
             `;
 
-            var VSHADER_SOURCE_ENVCUBE = `
+      var VSHADER_SOURCE_ENVCUBE = `
                 attribute vec4 a_Position;
                 varying vec4 v_Position;
                 
@@ -112,7 +112,7 @@
                 }
             `;
 
-            var FSHADER_SOURCE_ENVCUBE = `
+      var FSHADER_SOURCE_ENVCUBE = `
                 precision mediump float;
                 uniform samplerCube u_envCubeMap;
                 uniform mat4 u_viewDirectionProjectionInverse;
@@ -123,21 +123,34 @@
                     gl_FragColor = textureCube(u_envCubeMap, normalize(t.xyz / t.w));
                 }
             `;
-        </script>
-        <canvas id="myCanvas" width = "500" height = "500"></canvas>
-        <script src="cuon-matrix.js"></script>
-        <script src="Project08.js"></script>
-        <br> <br>
-        <div style="border-width: 1px; border-style:outset; border-radius:10px; width: 590px; height: 140px; background-color: #012169; padding: 5px; text-align: center;">
-            <br>
-            <span style="color: #C8102E">
-                <b>Press P</b>: Switch point of view (First person and Third person) of cat<br> 
-                <b>Press W/S</b>: Forward/Backward (Only works in Third person)<br>
-                <b>Press A/D</b>: Left/Right (Only works in First person)<br>
-                <p>Tip: Use <b>mouse</b> to adjust angle</p>
-            </span>
-        </div>
-        <br>
-        <button onclick="location.reload()">Refresh</button>
-    </body>
+    </script>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script src="cuon-matrix.js"></script>
+    <script src="Project08.js"></script>
+    <br />
+    <br />
+    <div
+      style="
+        border-width: 1px;
+        border-style: outset;
+        border-radius: 10px;
+        width: 590px;
+        height: 140px;
+        background-color: #012169;
+        padding: 5px;
+        text-align: center;
+      "
+    >
+      <br />
+      <span style="color: #c8102e">
+        <b>Press P</b>: Switch point of view (First person and Third person) of
+        cat<br />
+        <b>Press W/S</b>: Forward/Backward (Only works in Third person)<br />
+        <b>Press A/D</b>: Left/Right (Only works in First person)<br />
+        <p>Tip: Use <b>mouse</b> to adjust angle</p>
+      </span>
+    </div>
+    <br />
+    <button onclick="location.reload()">Refresh</button>
+  </body>
 </html>

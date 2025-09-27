@@ -19,15 +19,18 @@ function Timeline() {
       id: "tiktok",
       company: "TikTok",
       role: "Software Engineer",
-      department: "Global Monetization and Platform - Ads Platform",
+      department:
+        "Global Monetization and Platform - Ads Interface and Platform",
       location: "San Jose, CA",
       duration: "January 2025 - Present",
       logo: TikTok,
       website: "https://www.tiktok.com/about",
       position: "left",
-      achievements: [],
+      achievements: [
+        "Integrated proprietary off-platform top-up system for iOS advertisers in the U.S. using Go, implementing secure payment flows and recharge APIs to reduce platform fees.",
+      ],
       technologies: ["React", "TypeScript", "Go"],
-      isActive: false,
+      isActive: true,
     },
     {
       id: "lumen",
@@ -40,9 +43,9 @@ function Timeline() {
       website: "https://www.lumen.com",
       position: "right",
       achievements: [
-        "Orchestrated a fault-tolerant message processing system using Kafka that handled millions EMP protocol messages per hour with guaranteed delivery, improving overall system throughput.",
+        "Architected fault-tolerant messaging system using Kafka, implementing message deduplication and partition management to reliably process Millions EMP protocol messages per hour and improve throughput.",
       ],
-      technologies: ["Groovy", "Kafka"],
+      technologies: ["Groovy", "Kafka", "AWS"],
     },
     {
       id: "northern-trust",
@@ -55,24 +58,24 @@ function Timeline() {
       website: "https://www.northerntrust.com/united-states/home",
       position: "left",
       achievements: [
-        "Developed scalable financial applications using Java and Spring Boot, improving system performance and reliability for wealth management solutions.",
+        "Designed sophisticated algorithms for risk assessment and portfolio optimization on a client-centric wealth management platform in Java, providing clients with customizable investment plan recommendations.",
       ],
-      technologies: ["Spring Boot", "Java", "C++"],
+      technologies: ["Spring Boot", "Java", "C++", "Azure"],
     },
     {
       id: "rockitcoin",
       company: "Rockitcoin",
       role: "Software Developer Intern",
-      department: "Frontend Development",
+      department: "Web Development",
       location: "Chicago, IL",
       duration: "August 2022 - March 2023",
       logo: Rockitcoin,
       website: "https://www.rockitcoin.com/",
       position: "right",
       achievements: [
-        "Built responsive web applications using React and TypeScript, enhancing user experience for cryptocurrency trading platform with improved UI/UX design.",
+        "- Revamped authentication microservices in Node.js, implementing JWT token-based authentication and HTTP-only cookies, preventing credential exposure and reducing unauthorized access attempts.",
       ],
-      technologies: ["React", "TypeScript", "Node.js"],
+      technologies: ["React", "TypeScript", "Node.js", "Firebase"],
     },
     {
       id: "unfcu",
@@ -85,9 +88,9 @@ function Timeline() {
       website: "https://www.unfcu.org/",
       position: "left",
       achievements: [
-        "Developed full-stack financial applications using modern JavaScript frameworks, contributing to digital banking solutions that served thousands of credit union members.",
+        "Built savings rate recommendation engine with real-time financial analytics in JavaScript, catalyzing higher account completion rates through personalized suggestions.",
       ],
-      technologies: ["JavaScript", "React", "Node.js", "Python"],
+      technologies: ["JavaScript", "React", "Node.js", "Python", "MySQL"],
     },
   ];
 
@@ -183,7 +186,7 @@ function Timeline() {
 
   const headerConfig = {
     title: "PROFESSIONAL TIMELINE",
-    subtitle: "My journey through the tech industry",
+    subtitle: "My software engineer journey",
   };
 
   return (

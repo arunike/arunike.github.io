@@ -8,11 +8,13 @@ import Spring_Boot from "../../../../assets/imgs/techstack/spring_boot.png";
 import Nodejs from "../../../../assets/imgs/techstack/nodejs.png";
 import React_Native from "../../../../assets/imgs/techstack/react_native.png";
 import Django from "../../../../assets/imgs/techstack/django.png";
+import Nextjs from "../../../../assets/imgs/techstack/nextjs.png";
 
 const frameworks = [
   { src: React_Image, alt: "React", tooltipContent: "React" },
   { src: React_Native, alt: "React Native", tooltipContent: "React Native" },
   { src: Nodejs, alt: "Node.js", tooltipContent: "Node.js" },
+  { src: Nextjs, alt: "Next.js", tooltipContent: "Next.js" },
   { src: Spring_Boot, alt: "Spring Boot", tooltipContent: "Spring Boot" },
   { src: Vue, alt: "Vue", tooltipContent: "Vue" },
   { src: Django, alt: "Django", tooltipContent: "Django" },

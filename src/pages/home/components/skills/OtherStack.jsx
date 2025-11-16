@@ -4,10 +4,18 @@ import { Tooltip } from "react-tooltip";
 
 import Linux from "../../../../assets/imgs/techstack/linux.png";
 import Android from "../../../../assets/imgs/techstack/android.png";
+import GCP from "../../../../assets/imgs/techstack/gcp.png";
+import Azure from "../../../../assets/imgs/techstack/microsoft_azure.png";
 
 const other = [
   { src: Linux, alt: "Linux", tooltipContent: "Linux" },
   { src: Android, alt: "Android", tooltipContent: "Android" },
+  {
+    src: GCP,
+    alt: "Google Cloud Platform",
+    tooltipContent: "Google Cloud Platform",
+  },
+  { src: Azure, alt: "Microsoft Azure", tooltipContent: "Microsoft Azure" },
 ];
 
 function OtherStack() {

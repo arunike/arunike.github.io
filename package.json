@@ -9,6 +9,9 @@
         "build": "vite build",
         "preview": "vite preview",
         "host": "vite --host",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
         "prepare": "husky install"

@@ -1,95 +1,125 @@
-# Hello :wave:
+# Richie Zhou's Portfolio
 
-![Status](https://img.shields.io/badge/status-up-brightgreen)
-![Gender](https://img.shields.io/badge/gender-%F0%9F%A4%B5-lightgrey)
-![Visitor](https://komarev.com/ghpvc/?username=arunike&color=c770f0)
+A modern, interactive portfolio website showcasing my software engineering projects, skills, and professional journey. Built with React and featuring smooth animations, scroll-based interactions, and a clean, contemporary design.
 
-<img align='right' src='https://octodex.github.com/images/codercat.jpg' width='200'>
+## 🌟 Features
 
-## About Me :
+- **Dynamic Home Section** - Eye-catching animated Home with cycling project images
+- **Interactive Navigation** - Smooth scrolling with a floating section navigator
+- **Featured Projects Showcase** - Scroll-triggered animations displaying key projects
+- **Services & Expertise** - Highlighting backend, frontend, data engineering, and DevOps skills
+- **Skills Timeline** - Visual representation of technical skills and professional journey
+- **Contact Form** - Interactive form for project inquiries and collaboration
+- **Responsive Design** - Optimized for desktop and mobile viewing
+- **Smooth Animations** - GSAP-powered scroll animations and transitions
 
-<!-- :computer: Hello, I'm Richie Zhou. Currently, I'm pursuing my master's in Computer Science at <a href="https://www.cs.columbia.edu/" target="blank">Columbia University</a>. Previously, I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank">University of Wisconsin-Madison</a>. -->
+## 🚀 Getting Started
 
-:computer: Hello, I'm Richie Zhou. I earned my bachelor's degree in Computer Science & Data Science from the <a href="https://cdis.wisc.edu/" target="blank"> the University of Wisconsin-Madison</a>.
+### Prerequisites
 
-- :office: I’m currently working as a software Engineer and contributing to the front end and back end of building software applications.
-- :globe_with_meridians: Visit my <a href="https://arunike.github.io/" target="blank">portfolio website</a> to learn more about me.
-- :email: How to reach me: &nbsp; <a href="https://www.linkedin.com/in/richiezhou"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-## 🛠 &nbsp; Language and Tools:
+### Installation
 
-### &nbsp; Programming languages:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/arunike/arunike.github.io
+   cd "arunike.github.io"
+   ```
 
-<p> 
-    <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" alt="python" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/go/go-original.svg" title="Go" alt="go" width="40" height="40"/>&nbsp; 
-    <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" alt="java" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/sql.png" title="SQL" alt="sql" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" alt="kotlin" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/groovy/groovy-original.svg" title="Groovy" alt="groovy" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/r/r-original.svg" title="R" alt="r" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C" alt="c" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" alt="cpp" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/csharp/csharp-original.svg" title="C#" alt="csharp" width="40" height="40"/>&nbsp;
-</p>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### &nbsp; Web Technologies
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-<p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="javascript" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="typescript" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="html" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg"  title="CSS3" alt="css" width="40" height="40"/>&nbsp;
-</p>
+4. **Open your browser**
+   
+   Navigate to `http://localhost:3000` (or the port shown in your terminal)
 
-### &nbsp; Frameworks
+### Available Scripts
 
-<p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="react" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/react_native.png" title="React Native" alt="react native" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" alt="node.js" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original.svg" title="Next.js" alt="next.js" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original.svg" title="Spring Boot" alt="spring boot" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" title="Vue" alt="vue" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain-wordmark.svg" title="Django" alt="django" width="40" height="40"/>&nbsp;
-</p>
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview the production build
+- `npm run host` - Start dev server accessible on local network
 
-### &nbsp; Databases:
+## 🛠️ Tech Stack
 
-<p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" title="Mysql" alt="mysql" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg" title="Firebase" alt="firebase" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" title="Sql Server" alt="sql server" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/snowflake.png" title="Snowflake" alt="snowflake" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/redis/redis-original.svg" title="Redis" alt="redis" width="40" height="40"/>&nbsp;
-</p>
+- **React 18** - UI library
+- **React Router** - Client-side routing
+- **Vite** - Build tool and dev server
+- **GSAP** - Animation library with ScrollTrigger
+- **Lenis** - Smooth scroll library
+- **CSS3** - Custom styling with modern features
 
-### &nbsp; Tools:
+## 📁 Project Structure
 
-<p>
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/latex.png" title="LaTex" alt="latex" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" title="Docker" alt="docker" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/kubernetes/kubernetes-plain.svg" title="Kubernetes" alt="k8s" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/jquery/jquery-original.svg" title="JQuery" alt="jquery" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/cassandra.png" title="Cassandra" alt="Cassandra" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/hdfs.png" title="HDFS" alt="HDFS" width="40" height="40"/>&nbsp; 
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/kafka.png" title="Kafka" alt="Kafka" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/arunike/arunike.github.io/blob/main/src/assets/imgs/techstack/spark.png" title="Spark" alt="spark" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="Redux" alt="redux" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/threejs/threejs-original.svg" title="ThreeJS" alt="threeJS" width="40" height="40"/>&nbsp;
-</p>
+```
+src/
+├── components/         # Reusable UI components
+│   ├── sections/       # Page sections (AboutMe, Skills, Timeline, etc.)
+│   ├── Home.jsx        # Main Home component
+│   ├── Nav.jsx         # Navigation bar
+│   ├── SectionNav.jsx  # Floating section navigator
+│   └── ...
+├── pages/              # Page components
+│   ├── Home.jsx        # Homepage
+│   ├── Projects.jsx    # Projects page
+│   └── CourseTaken.jsx # Courses page
+├── css/                # Stylesheets
+├── assets/             # Images, fonts, and static files
+├── hooks/              # Custom React hooks
+└── App.jsx             # Main app component
+```
 
-### &nbsp; Other:
+## 🎨 Key Sections
 
-<p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="Linux" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-original.svg" title="Android" alt="Android" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original.svg" title="Google Cloud" alt="Google Cloud" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/azure/azure-original.svg" title="Azure" alt="Azure" width="40" height="40"/>&nbsp;
-</p>
+1. **Home** - Landing section with animated name and rotating project images
+2. **About** - Introduction with profile picture and bio
+3. **Featured Work** - Scroll-based showcase of top 5 projects
+4. **Services** - Areas of expertise with stacking card animations
+5. **Skills** - Comprehensive tech stack display
+6. **Timeline** - Professional experience and education
+7. **Contact** - Form for reaching out
 
-## :fire: &nbsp; My Stats :
+## 🔧 Development
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=arunike&layout=compact&langs_count=8&hide=assembly,makefile,perl,m4,lua,dtrace,shell,html)](https://github.com/anuraghazra/github-readme-stats)
+### Code Quality
 
-![Github stats](https://github-readme-stats.vercel.app/api?username=arunike&show_icons=true)
+This project uses:
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Husky** - Git hooks
+- **lint-staged** - Run linters on staged files
+
+Pre-commit hooks automatically format and lint your code before each commit.
+
+## 📦 Building for Production
+
+```bash
+npm run build
+```
+
+The optimized production build will be in the `dist/` directory.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👤 Author
+
+**Richie Zhou**
+- GitHub: [@arunike](https://github.com/arunike)
+- LinkedIn: [richiezhou](https://www.linkedin.com/in/richiezhou)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from [Awwwards](https://www.awwwards.com)
+- Animation techniques using GSAP and ScrollTrigger
+- React community for excellent tools and libraries

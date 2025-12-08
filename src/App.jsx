@@ -1,55 +1,80 @@
-import React, { useState, useEffect } from "react";
-import Preloader from "./components/Pre";
-import Navbar from "./components/Navbar";
-import Home from "./pages/home/HomePage";
-import Projects from "./pages/projects/Projects";
-import Footer from "./components/Footer";
-import Resume from "./pages/resume/ResumeNew";
 import {
-  HashRouter as Router,
-  Route,
-  Routes,
-  Navigate,
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
 } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import "./style.css";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import CourseTaken from "./pages/course_takens/Course_Taken";
-import IndexHTML from "./components/IndexHTML";
+import { useEffect } from "react";
+import Transition from "./components/Transition";
+import Home from "./pages/Home";
+import CourseTaken from "./pages/CourseTaken";
+import Projects from "./pages/Projects";
+import useSmoothScroll from "./hooks/useSmoothScroll";
+import "./css/transition.css";
+import "./css/fonts.css";
+import "./css/globals.css";
+import "./css/menu.css";
+import "./css/home.css";
+import "./css/about.css";
+import "./css/work.css";
+import "./css/skills.css";
+import "./css/timeline.css";
+import "./css/projects.css";
+import "./css/contact.css";
+import "./css/footer.css";
+import "./css/section-nav.css";
+
+function ScrollToTop() {
+    const location = useLocation();
+
+    useEffect(() => {
+        // Ensure html and body styles are completely clean
+        const html = document.documentElement;
+        const body = document.body;
+
+        html.style.position = "";
+        html.style.overflow = "";
+        html.style.height = "";
+
+        body.style.position = "";
+        body.style.top = "";
+        body.style.width = "";
+        body.style.overflow = "";
+        body.style.height = "";
+
+        // Force Lenis to restart
+        if (window.lenis) {
+            window.lenis.start();
+            // Force scroll to top
+            requestAnimationFrame(() => {
+                window.lenis.scrollTo(0, {
+                    immediate: true,
+                    force: true,
+                    lock: true,
+                });
+            });
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [location.pathname]);
+
+    return null;
+}
 
 function App() {
-  const [load, updateLoad] = useState(true);
+    useSmoothScroll();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      updateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/course_taken" element={<CourseTaken />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route
-            path="/htmlcontent/:projectDirectory/:projectName"
-            element={<IndexHTML />}
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
-  );
+    return (
+        <Router>
+            <ScrollToTop />
+            <Transition />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/courses" element={<CourseTaken />} />
+                <Route path="/projects" element={<Projects />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

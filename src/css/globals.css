@@ -1,0 +1,73 @@
+:root {
+    --bg: #edf1e8;
+    --bg2: #d7dbd2;
+    --fg: #141414;
+    --accent1: #ed6a5a;
+    --accent2: #f4f1bb;
+    --accent3: #9bc1bc;
+    --accent4: #5d576b;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: hidden;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    text-transform: uppercase;
+    font-family: "rader";
+    font-style: italic;
+    line-height: 0.95;
+  }
+  
+  h1 {
+    font-size: 5rem;
+  }
+  
+  h2 {
+    font-size: 4rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--fg);
+  }
+  
+  p,
+  p.ss {
+    font-family: "formula-narrow";
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+  
+  p.mn {
+    text-transform: uppercase;
+    font-family: "supply-mono";
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.125;
+  }

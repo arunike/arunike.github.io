@@ -1,67 +1,53 @@
 {
-  "name": "portfolio_react",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "prepare": "husky",
-    "prettier": "prettier --write ."
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.2",
-    "gh-pages": "^6.1.0",
-    "motion": "^11.11.17",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.9.1",
-    "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.1.2",
-    "react-github-calendar": "^4.0.8",
-    "react-icons": "^4.12.0",
-    "react-modal": "^3.16.1",
-    "react-parallax-tilt": "^1.7.177",
-    "react-pdf": "^5.7.2",
-    "react-router-dom": "^6.21.0",
-    "react-router-hash-link": "^2.4.3",
-    "react-tooltip": "^5.26.3",
-    "react-tsparticles": "^2.12.2",
-    "react-vertical-timeline-component": "^3.6.0",
-    "typewriter-effect": "^2.21.0",
-    "web-vitals": "^3.5.0"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,css,scss,sass,less,md,html,yml,yaml}": [
-      "prettier --write"
-    ]
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
-    "prettier": "^3.5.3",
-    "vite": "^5.0.8"
-  }
+    "name": "richie-zhou-portfolio",
+    "version": "1.0.0",
+    "description": "Richie Zhou's Portfolio",
+    "homepage": "https://arunike.github.io",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "host": "vite --host",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist",
+        "prepare": "husky install"
+    },
+    "keywords": [],
+    "author": "Richie Zhou",
+    "license": "MIT",
+    "dependencies": {
+        "gsap": "^3.13.0",
+        "lenis": "^1.3.3",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^6.28.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react-swc": "^3.7.1",
+        "autoprefixer": "^10.4.22",
+        "eslint": "^8.57.1",
+        "eslint-import-resolver-node": "^0.3.9",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "gh-pages": "^6.3.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.5.2",
+        "postcss": "^8.5.6",
+        "prettier": "^3.7.4",
+        "tailwindcss": "^4.1.17",
+        "vite": "^6.3.5"
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "prettier --write",
+            "eslint --fix"
+        ],
+        "*.{css,json,md}": [
+            "prettier --write"
+        ]
+    }
 }

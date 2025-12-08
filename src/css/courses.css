@@ -1,251 +1,251 @@
 /* Courses Page Styles */
 .courses-page {
-  min-height: 100vh;
-  background-color: var(--bg);
-  padding-top: 12rem;
-  padding-bottom: 4rem;
-  position: relative;
-  width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg);
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+    position: relative;
+    width: 100%;
 }
 
 /* Header Section */
 .courses-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 .courses-header h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 2rem;
 }
 
 .university-badge-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: white;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
 }
 
 .undergraduate-badge {
-  padding: 0.25rem 1rem;
-  background-color: #60a5fa;
-  color: white;
-  font-size: 0.875rem;
-  border-radius: 9999px;
-  font-weight: 500;
+    padding: 0.25rem 1rem;
+    background-color: #60a5fa;
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    font-weight: 500;
 }
 
 .university-info {
-  text-align: left;
+    text-align: left;
 }
 
 .university-info .title {
-  color: #dc2626;
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 0.25rem;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
 }
 
 .university-info .subtitle {
-  color: #6b7280;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0;
+    color: #6b7280;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
 }
 
 /* Courses List */
 .courses-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .courses-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .course-card {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
 }
 
 .course-card:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .course-card-inner {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 /* Course Image Section */
 .course-image-section {
-  width: 16rem;
-  min-height: 16rem;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  position: relative;
+    width: 16rem;
+    min-height: 16rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
 }
 
 .semester-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.25rem 0.75rem;
-  background-color: #1f2937;
-  color: white;
-  font-size: 0.75rem;
-  border-radius: 9999px;
-  font-weight: 500;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background-color: #1f2937;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
 }
 
 .course-image-placeholder {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border: 2px solid white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .course-image-placeholder span {
-  font-size: 2.25rem;
-  font-weight: bold;
-  color: #2563eb;
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #2563eb;
 }
 
 .course-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* Course Details Section */
 .course-details-section {
-  flex: 1;
-  padding: 2rem;
+    flex: 1;
+    padding: 2rem;
 }
 
 .course-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 1rem;
-  line-height: 1.3;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    line-height: 1.3;
 }
 
 .course-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
 }
 
 .meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .meta-label {
-  color: #2563eb;
-  font-weight: 600;
+    color: #2563eb;
+    font-weight: 600;
 }
 
 .meta-value {
-  color: #374151;
+    color: #374151;
 }
 
 .rating-stars,
 .workload-stars {
-  display: flex;
-  gap: 0.125rem;
+    display: flex;
+    gap: 0.125rem;
 }
 
 .star {
-  color: #fbbf24;
-  font-size: 1.125rem;
+    color: #fbbf24;
+    font-size: 1.125rem;
 }
 
 .course-description {
-  color: #4b5563;
-  font-size: 0.875rem;
-  line-height: 1.6;
+    color: #4b5563;
+    font-size: 0.875rem;
+    line-height: 1.6;
 }
 
 /* Footer Stats */
 .courses-footer {
-  margin-top: 3rem;
-  text-align: center;
+    margin-top: 3rem;
+    text-align: center;
 }
 
 .courses-stats {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
 }
 
 .courses-stats p {
-  color: #374151;
-  font-weight: 500;
-  margin: 0;
+    color: #374151;
+    font-weight: 500;
+    margin: 0;
 }
 
 .courses-count {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2563eb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .courses-header h1 {
-    font-size: 2rem;
-  }
+    .courses-header h1 {
+        font-size: 2rem;
+    }
 
-  .course-card-inner {
-    flex-direction: column;
-  }
+    .course-card-inner {
+        flex-direction: column;
+    }
 
-  .course-image-section {
-    width: 100%;
-    height: 16rem;
-  }
+    .course-image-section {
+        width: 100%;
+        height: 16rem;
+    }
 
-  .university-badge-container {
-    flex-direction: column;
-    text-align: center;
-  }
+    .university-badge-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .university-info {
-    text-align: center;
-  }
+    .university-info {
+        text-align: center;
+    }
 }

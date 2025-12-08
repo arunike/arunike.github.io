@@ -25,7 +25,10 @@ const Footer = () => {
         };
 
         // Dynamically import all images from projects folder
-        const projectImages = import.meta.glob('/src/assets/images/projects/*.*', { eager: true, as: 'url' });
+        const projectImages = import.meta.glob(
+            "/src/assets/images/projects/*.*",
+            { eager: true, as: "url" }
+        );
         const allProjectImages = Object.values(projectImages);
 
         // Randomly select 10 images

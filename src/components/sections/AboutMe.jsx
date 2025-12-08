@@ -58,10 +58,7 @@ const AboutMe = () => {
                 <p className="mn">Code / Design / Craft / Repeat</p>
             </div>
             <div className="about-hero-portrait" ref={portraitRef}>
-                <img
-                    src={ProfilePicture}
-                    alt="profile picture"
-                />
+                <img src={ProfilePicture} alt="profile picture" />
             </div>
         </section>
     );

@@ -1,133 +1,135 @@
 /* Skills Section Styles */
 .skills-section {
-  min-height: 100vh;
-  padding: 8rem 2rem;
-  background-color: var(--bg);
-  position: relative;
+    min-height: 100vh;
+    padding: 8rem 2rem;
+    background-color: var(--bg);
+    position: relative;
 }
 
 .skills-container {
-  max-width: 1280px;
-  margin: 0 auto;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .skills-heading {
-  font-size: 4rem;
-  font-weight: bold;
-  color: var(--fg);
-  text-align: center;
-  margin-bottom: 4rem;
-  font-family: 'Supply Mono', monospace;
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--fg);
+    text-align: center;
+    margin-bottom: 4rem;
+    font-family: "Supply Mono", monospace;
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .skill-category {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 .skill-category.skills-animated {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .category-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--accent1);
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-family: 'Supply Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent1);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: "Supply Mono", monospace;
 }
 
 .tech-icons-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .tech-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 0.75rem;
-  border: 2px solid transparent;
-  min-width: 80px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-  cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    min-width: 80px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .tech-icon.skills-animated {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .tech-icon:hover {
-  border-color: var(--accent1);
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent1);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .tech-icon-emoji {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .tech-icon-image {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .tech-icon-name {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--fg);
-  text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--fg);
+    text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .skills-heading {
-    font-size: 2.5rem;
-  }
+    .skills-heading {
+        font-size: 2.5rem;
+    }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
-  .skill-category {
-    padding: 1.5rem;
-  }
+    .skill-category {
+        padding: 1.5rem;
+    }
 
-  .category-title {
-    font-size: 1.25rem;
-  }
+    .category-title {
+        font-size: 1.25rem;
+    }
 
-  .tech-icon {
-    min-width: 70px;
-    padding: 0.75rem;
-  }
+    .tech-icon {
+        min-width: 70px;
+        padding: 0.75rem;
+    }
 
-  .tech-icon-emoji {
-    font-size: 1.5rem;
-  }
+    .tech-icon-emoji {
+        font-size: 1.5rem;
+    }
 }

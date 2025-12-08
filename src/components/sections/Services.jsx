@@ -112,10 +112,7 @@ const Services = () => {
             <section id="services-header" className="services-header">
                 <div className="services-header-content">
                     <div className="services-profile-icon" ref={profileIconRef}>
-                        <img
-                            src={BadgerIcon}
-                            alt="badger cs logo"
-                        />
+                        <img src={BadgerIcon} alt="badger cs logo" />
                     </div>
                     <p>Your Vision. My Expertise.</p>
                     <div className="services-header-title">
@@ -134,10 +131,7 @@ const Services = () => {
                             <h1>Backend Development</h1>
                         </div>
                         <div className="service-card-img">
-                            <img
-                                src={BackendImg}
-                                alt="Backend Development"
-                            />
+                            <img src={BackendImg} alt="Backend Development" />
                         </div>
                     </div>
                 </div>
@@ -160,10 +154,7 @@ const Services = () => {
                             <h1>DevOps</h1>
                         </div>
                         <div className="service-card-img">
-                            <img
-                                src={DevOpsImg}
-                                alt="DevOps"
-                            />
+                            <img src={DevOpsImg} alt="DevOps" />
                         </div>
                     </div>
                 </div>

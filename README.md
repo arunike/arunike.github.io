@@ -1,8 +1,9 @@
 # Richie Zhou's Portfolio
 
-A modern, interactive portfolio website showcasing my software engineering projects, skills, and professional journey. 
+A modern, interactive portfolio website showcasing my software engineering projects, skills, and professional journey.
 
 Built with:
+
 - JavaScript with React and featuring smooth animations, scroll-based interactions, and a clean, contemporary design.
 
 ## 🌟 Features
@@ -28,24 +29,27 @@ Built with:
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/arunike/arunike.github.io
-   cd "arunike.github.io"
-   ```
+
+    ```bash
+    git clone https://github.com/arunike/arunike.github.io
+    cd "arunike.github.io"
+    ```
 
 2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+
+    ```bash
+    npm install
+    ```
 
 3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+
+    ```bash
+    npm run dev
+    ```
 
 4. **Open your browser**
-   
-   Navigate to `http://localhost:3000` (or the port shown in your terminal)
+
+    Navigate to `http://localhost:3000` (or the port shown in your terminal)
 
 ### Available Scripts
 
@@ -98,6 +102,7 @@ src/
 ### Code Quality
 
 This project uses:
+
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 - **Husky** - Git hooks
@@ -120,6 +125,7 @@ This project is licensed under the MIT License.
 ## 👤 Author
 
 **Richie Zhou**
+
 - GitHub: [@arunike](https://github.com/arunike)
 - LinkedIn: [richiezhou](https://www.linkedin.com/in/richiezhou)
 

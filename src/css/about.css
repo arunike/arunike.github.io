@@ -186,34 +186,35 @@
 
 @media (max-width: 1000px) {
     .about-hero {
-        padding: 8em 2em 4em 2em;
+        padding: 6em 1.5em 3em 1.5em;
+        gap: 2em;
     }
 
     .about-hero .about-hero-header h1 {
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .about-hero .about-hero-portrait {
+        width: clamp(120px, 35vw, 200px);
+        margin-top: 2em;
     }
 
     .about-hero .about-hero-bio {
         width: 100%;
+        margin-top: 0;
     }
 
-    .about-hero .about-hero-portrait {
-        width: 25%;
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    .about-hero .about-hero-portrait img {
-        position: absolute;
-        height: 110%;
+    .about-copy {
+        padding: 4em 1.5em;
     }
 
     .about-copy .about-copy-content {
         width: 100%;
+        padding: 2em 1.5em;
     }
 
     .about-copy .about-copy-content h3 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .about-copy .tag {
@@ -228,6 +229,10 @@
         border-radius: 0;
     }
 
+    .stats {
+        padding: 4em 1.5em;
+    }
+
     .stats .stats-row {
         flex-direction: column;
     }
@@ -235,11 +240,11 @@
     .stats .stats-col {
         width: 100%;
         text-align: center;
-        gap: 4em;
+        gap: 2em;
     }
 
     .stats .stats-header {
-        gap: 2em;
+        gap: 1em;
         margin-bottom: 2em;
     }
 }

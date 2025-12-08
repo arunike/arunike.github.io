@@ -388,50 +388,44 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
     .contact {
+        padding: 6em 1.5em;
+    }
+
+    .contact .contact-wrapper {
         grid-template-columns: 1fr;
-        gap: 2em;
-        padding: 1.5em 1em;
+        gap: 3em;
+    }
+
+    .contact-left,
+    .contact-form-container {
+        max-width: 100%;
+    }
+
+    .contact-card-header-main h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
     }
 
     .contact-card-header-main p {
         max-width: 100%;
-    }
-}
-
-@media (max-width: 1000px) {
-    .contact-card-header-main h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(0.875rem, 3vw, 1rem);
     }
 
     .form-header h2 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact {
-        padding: 1em;
-        gap: 1.5em;
+        font-size: clamp(2rem, 8vw, 3rem);
     }
 
-    .contact-form-container {
-        padding: 1.5em;
-        border-radius: 1em;
-        max-width: 100%;
+    .form-header p {
+        font-size: clamp(0.875rem, 3vw, 1rem);
     }
 
     .form-row {
         grid-template-columns: 1fr;
-        gap: 0.75em;
     }
 
-    .contact-card-header-main h1 {
-        font-size: clamp(1.75rem, 8vw, 2rem);
-    }
-
-    .form-header h2 {
-        font-size: clamp(1.25rem, 6vw, 1.5rem);
+    .contact .trail-img {
+        width: 80px;
+        height: 80px;
     }
 }

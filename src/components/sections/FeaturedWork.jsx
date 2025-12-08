@@ -221,7 +221,7 @@ const FeaturedWork = () => {
                 <p className="mn">Project Portfolio</p>
                 <p className="mn">///////////////////</p>
                 <p className="mn">
-                    <a href="#">View All Projects</a>
+                    <a href="/projects">View All Projects</a>
                 </p>
             </div>
         </section>

@@ -16,19 +16,29 @@ const Hero = () => {
                 scrollTriggerInstanceRef.current.kill();
             }
 
-            scrollTriggerInstanceRef.current = ScrollTrigger.create({
-                trigger: ".hero-img-holder",
-                start: "top bottom",
-                end: "top 20%",
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    gsap.set(".hero-img", {
-                        y: `${-110 + 110 * progress}%`,
-                        scale: 0.25 + 0.75 * progress,
-                        rotation: -15 + 15 * progress,
-                    });
-                },
-            });
+            // Only apply animation on desktop (width > 1000px)
+            if (window.innerWidth > 1000) {
+                scrollTriggerInstanceRef.current = ScrollTrigger.create({
+                    trigger: ".hero-img-holder",
+                    start: "top bottom",
+                    end: "top 20%",
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+                        gsap.set(".hero-img", {
+                            y: `${-110 + 110 * progress}%`,
+                            scale: 0.25 + 0.75 * progress,
+                            rotation: -15 + 15 * progress,
+                        });
+                    },
+                });
+            } else {
+                // On mobile, ensure video is in normal position
+                gsap.set(".hero-img", {
+                    y: "0%",
+                    scale: 1,
+                    rotation: 0,
+                });
+            }
         };
 
         initAnimations();

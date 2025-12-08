@@ -35,20 +35,16 @@
     outline: 0.25em solid var(--accent1);
     transform: rotate(10deg);
     align-self: center;
-    margin-top: 15vw;
-    margin-left: 10vw;
-    margin-bottom: -10vw;
+    margin-top: 6em;
 }
 
 .about-hero .about-hero-bio {
     text-align: center;
-    width: min(90%, 600px);
-    grid-row: 3;
+    width: min(90%, 650px);
     display: flex;
     flex-direction: column;
-    gap: clamp(1em, 2vh, 2em);
-    align-self: end;
-    padding-bottom: 1em;
+    gap: 1.5em;
+    margin-top: -4em;
 }
 
 /* about - about copy */

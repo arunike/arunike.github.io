@@ -46,6 +46,9 @@ const AboutMe = () => {
                 <h1>Hi, I'm</h1>
                 <h1>Richie</h1>
             </div>
+            <div className="about-hero-portrait" ref={portraitRef}>
+                <img src={ProfilePicture} alt="profile picture" />
+            </div>
             <div className="about-hero-bio">
                 <p className="ss">
                     Ever since I was young, programming have been something that
@@ -56,9 +59,6 @@ const AboutMe = () => {
                     create applications that create an impact in the world.,
                 </p>
                 <p className="mn">Code / Design / Craft / Repeat</p>
-            </div>
-            <div className="about-hero-portrait" ref={portraitRef}>
-                <img src={ProfilePicture} alt="profile picture" />
             </div>
         </section>
     );

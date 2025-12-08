@@ -46,7 +46,6 @@ const Nav = () => {
 
         setIsMenuOpen(false);
         setIsAnimating(false);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.pathname]);
 
     const openMenu = () => {

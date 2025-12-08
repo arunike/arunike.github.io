@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,7 +16,10 @@ const FeaturedWork = () => {
     const scrollTriggerInstanceRef = useRef(null);
 
     // Map of work items to their images
-    const workImages = [CS407, CS579, ResumeBuilder, VHR, CS506];
+    const workImages = useMemo(
+        () => [CS407, CS579, ResumeBuilder, VHR, CS506],
+        []
+    );
 
     useEffect(() => {
         const initAnimations = () => {
@@ -111,7 +114,6 @@ const FeaturedWork = () => {
                     featuredImgCards.forEach((featuredImgCard, index) => {
                         // Calculate which section we're in
                         const sectionStart = index * progressPerSection;
-                        const sectionEnd = (index + 1) * progressPerSection;
 
                         // Progress within this section (0 to 1)
                         let sectionProgress =
@@ -174,7 +176,7 @@ const FeaturedWork = () => {
                 scrollTriggerInstanceRef.current.kill();
             }
         };
-    }, []);
+    }, [workImages]);
 
     return (
         <section id="featured-work" className="featured-work">

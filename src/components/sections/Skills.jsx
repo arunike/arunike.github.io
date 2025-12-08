@@ -63,9 +63,12 @@ const Skills = () => {
                         const techIcons =
                             entry.target.querySelectorAll(".tech-icon");
                         techIcons.forEach((icon, index) => {
-                            setTimeout(() => {
-                                icon.classList.add("skills-animated");
-                            }, 100 + index * 100);
+                            setTimeout(
+                                () => {
+                                    icon.classList.add("skills-animated");
+                                },
+                                100 + index * 100
+                            );
                         });
 
                         categoryObserver.unobserve(entry.target);
@@ -75,12 +78,13 @@ const Skills = () => {
             { threshold: 0.1 }
         );
 
-        categoryRefs.current.forEach((ref) => {
+        const currentCategoryRefs = categoryRefs.current;
+        currentCategoryRefs.forEach((ref) => {
             if (ref) categoryObserver.observe(ref);
         });
 
         return () => {
-            categoryRefs.current.forEach((ref) => {
+            currentCategoryRefs.forEach((ref) => {
                 if (ref) categoryObserver.unobserve(ref);
             });
         };

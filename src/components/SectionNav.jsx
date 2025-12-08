@@ -1,19 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 
 const SectionNav = () => {
     const [activeSection, setActiveSection] = useState("");
+    const location = useLocation();
 
-    const sections = [
-        { id: "hero", label: "Home" },
-        { id: "about-hero", label: "About" },
-        { id: "featured-work", label: "Projects" },
-        { id: "services-header", label: "Services" },
-        { id: "skills", label: "Skills" },
-        { id: "timeline", label: "Timeline" },
-        { id: "contact", label: "Contact" },
-    ];
+    const sections = useMemo(
+        () => [
+            { id: "hero", label: "Home" },
+            { id: "about-hero", label: "About" },
+            { id: "featured-work", label: "Projects" },
+            { id: "services-header", label: "Services" },
+            { id: "skills", label: "Skills" },
+            { id: "timeline", label: "Timeline" },
+            { id: "contact", label: "Contact" },
+        ],
+        []
+    );
 
     useEffect(() => {
+        // Only set up observers on home page
+        if (location.pathname !== "/") {
+            return;
+        }
+
         const observerOptions = {
             root: null,
             rootMargin: "-50% 0px -50% 0px",
@@ -48,7 +58,7 @@ const SectionNav = () => {
                 }
             });
         };
-    }, []);
+    }, [sections, location.pathname]);
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
@@ -56,6 +66,11 @@ const SectionNav = () => {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
+
+    // Only show SectionNav on home page
+    if (location.pathname !== "/") {
+        return null;
+    }
 
     return (
         <nav className="section-nav">

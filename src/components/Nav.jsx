@@ -5,50 +5,48 @@ import gsap from "gsap";
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [scrollY, setScrollY] = useState(0);
     const location = useLocation();
 
     useEffect(() => {
         // Close menu on route change and ensure all styles are cleared
-        if (isMenuOpen) {
-            const navOverlay = document.querySelector(".nav-overlay");
-            const openLabel = document.querySelector(".open-label");
-            const closeLabel = document.querySelector(".close-label");
-            const navItems = document.querySelectorAll(".nav-item");
+        const navOverlay = document.querySelector(".nav-overlay");
+        const openLabel = document.querySelector(".open-label");
+        const closeLabel = document.querySelector(".close-label");
+        const navItems = document.querySelectorAll(".nav-item");
 
-            // Immediately clear html and body styles
-            const html = document.documentElement;
-            const body = document.body;
-            html.style.overflow = "";
-            body.style.overflow = "";
-            body.style.height = "";
+        // Immediately clear html and body styles
+        const html = document.documentElement;
+        const body = document.body;
+        html.style.overflow = "";
+        body.style.overflow = "";
+        body.style.height = "";
 
-            // Restart Lenis if it was stopped
-            if (window.lenis) {
-                window.lenis.start();
-            }
-
-            if (navOverlay) {
-                navOverlay.style.pointerEvents = "none";
-            }
-
-            // Reset menu UI
-            gsap.set(openLabel, { y: "0rem" });
-            gsap.set(closeLabel, { y: "0rem" });
-            if (navOverlay) {
-                gsap.set(navOverlay, { opacity: 0 });
-            }
-            gsap.set(
-                [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
-                {
-                    opacity: 0,
-                    y: "100%",
-                }
-            );
-
-            setIsMenuOpen(false);
-            setIsAnimating(false);
+        // Restart Lenis if it was stopped
+        if (window.lenis) {
+            window.lenis.start();
         }
+
+        if (navOverlay) {
+            navOverlay.style.pointerEvents = "none";
+        }
+
+        // Reset menu UI
+        gsap.set(openLabel, { y: "0rem" });
+        gsap.set(closeLabel, { y: "0rem" });
+        if (navOverlay) {
+            gsap.set(navOverlay, { opacity: 0 });
+        }
+        gsap.set(
+            [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
+            {
+                opacity: 0,
+                y: "100%",
+            }
+        );
+
+        setIsMenuOpen(false);
+        setIsAnimating(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.pathname]);
 
     const openMenu = () => {
@@ -62,12 +60,9 @@ const Nav = () => {
 
         navOverlay.style.pointerEvents = "all";
 
-        // Save scroll position and prevent scrolling
+        // Prevent scrolling
         if (window.lenis) {
-            setScrollY(window.lenis.scroll);
             window.lenis.stop();
-        } else {
-            setScrollY(window.scrollY);
         }
 
         // Prevent body scrolling

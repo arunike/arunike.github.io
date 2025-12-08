@@ -2,6 +2,26 @@ import React from "react";
 import Nav from "../components/Nav";
 import "../css/courses.css";
 
+import CS252 from "../assets/images/courses/compsci252.png";
+import CS300 from "../assets/images/courses/compsci300.png";
+import CS220 from "../assets/images/courses/compsci220.png";
+import CS400 from "../assets/images/courses/compsci400.png";
+import CS240 from "../assets/images/courses/compsci240.png";
+import CS354 from "../assets/images/courses/compsci354.png";
+import STAT240 from "../assets/images/courses/stat240.png";
+import CS537 from "../assets/images/courses/compsci537.png";
+import CS559 from "../assets/images/courses/compsci559.gif";
+import CS320 from "../assets/images/courses/compsci320.png";
+import CS506 from "../assets/images/courses/compsci506.png";
+import CS564 from "../assets/images/courses/compsci564.png";
+import CS579 from "../assets/images/courses/compsci579.gif";
+import CS407 from "../assets/images/courses/compsci407.png";
+import CS544 from "../assets/images/courses/compsci544.png";
+import CS571 from "../assets/images/courses/compsci571.gif";
+import STAT340 from "../assets/images/courses/stat340.png";
+import CS540 from "../assets/images/courses/compsci540.png";
+import CS577 from "../assets/images/courses/compsci577.png";
+
 const courses = [
     {
         id: "CS252",
@@ -10,7 +30,7 @@ const courses = [
         rating: 2,
         workload: 2,
         semester: "Fall 2020",
-        image: "/src/assets/images/courses/compsci252.png",
+        image: CS252,
         description:
             "Logic components built with transistors, rudimentary Boolean algebra, basic combinational logic design, basic synchronous sequential logic design, basic computer organization and design, introductory machine- and assembly-language programming.",
     },
@@ -21,7 +41,7 @@ const courses = [
         rating: 3,
         workload: 2,
         semester: "Fall 2020",
-        image: "/src/assets/images/courses/compsci300.png",
+        image: CS300,
         description:
             "The second course in a three-course sequence studying program design, algorithms, and data structures. Develop programs with multiple compilation units and manage them in Linux environments. Introduce abstract data types, design and efficiency of algorithms, lists, stacks, queues, priority queues, and dictionaries.",
     },
@@ -32,7 +52,7 @@ const courses = [
         rating: 3,
         workload: 2,
         semester: "Spring 2021",
-        image: "/src/assets/images/courses/compsci220.png",
+        image: CS220,
         description:
             "Data science programming using Python. Experience with several packages for data analysis and visualization. Principles underlying tools, including data structures and algorithms.",
     },
@@ -43,7 +63,7 @@ const courses = [
         rating: 4,
         workload: 3,
         semester: "Spring 2021",
-        image: "/src/assets/images/courses/compsci400.png",
+        image: CS400,
         description:
             "The third installment of the CS sequence. Explores abstract data types and their implementations, including trees, heaps, balanced trees, and graphs. Analyze time and space complexity of these structures and the algorithms that operate on them.",
     },
@@ -54,7 +74,7 @@ const courses = [
         rating: 4,
         workload: 3,
         semester: "Fall 2021",
-        image: "/src/assets/images/courses/compsci240.png",
+        image: CS240,
         description:
             "Propositional logic, set theory, functions, relations, sequences, induction, and counting. Applications to computer science including Boolean algebra, automata, and proving properties of programs.",
     },
@@ -65,7 +85,7 @@ const courses = [
         rating: 5,
         workload: 5,
         semester: "Fall 2021",
-        image: "/src/assets/images/courses/compsci354.png",
+        image: CS354,
         description:
             "Introduction to fundamental structures of computer systems and the C programming language. Topics include memory management, pointers, data representation, assembly programming, and performance optimization.",
     },
@@ -76,7 +96,7 @@ const courses = [
         rating: 3,
         workload: 4,
         semester: "Spring 2022",
-        image: "/src/assets/images/courses/stat240.png",
+        image: STAT240,
         description:
             "Statistical models and methods for data science. Topics include data visualization, simple and multiple regression, analysis of variance, and logistic regression using R programming.",
     },
@@ -87,7 +107,7 @@ const courses = [
         rating: 5,
         workload: 5,
         semester: "Spring 2022",
-        image: "/src/assets/images/courses/compsci537.png",
+        image: CS537,
         description:
             "Operating system concepts including process scheduling, memory management, file systems, and concurrency. Extensive C programming projects implementing key OS components.",
     },
@@ -98,7 +118,7 @@ const courses = [
         rating: 5,
         workload: 4,
         semester: "Fall 2022",
-        image: "/src/assets/images/courses/compsci559.gif",
+        image: CS559,
         description:
             "Fundamental concepts in computer graphics including 2D/3D transformations, viewing, shading, and texture mapping. Programming with WebGL and modern graphics APIs.",
     },
@@ -109,7 +129,7 @@ const courses = [
         rating: 4,
         workload: 4,
         semester: "Fall 2022",
-        image: "/src/assets/images/courses/compsci320.png",
+        image: CS320,
         description:
             "Big data systems, relational databases, SQL, cloud computing, and distributed systems. Building scalable data science applications using Docker and Kubernetes.",
     },
@@ -120,7 +140,7 @@ const courses = [
         rating: 4,
         workload: 4,
         semester: "Spring 2023",
-        image: "/src/assets/images/courses/compsci506.png",
+        image: CS506,
         description:
             "Software development lifecycle including requirements, design, implementation, testing, and maintenance. Team-based projects using modern development methodologies and tools.",
     },
@@ -131,7 +151,7 @@ const courses = [
         rating: 4,
         workload: 4,
         semester: "Spring 2023",
-        image: "/src/assets/images/courses/compsci564.png",
+        image: CS564,
         description:
             "Database design including entity-relationship models, relational models, relational algebra, Structured Query Language (SQL), query execution, and query optimization. Advanced topics like transactions, concurrency control, recovery, and NoSQL databases.",
     },
@@ -142,7 +162,7 @@ const courses = [
         rating: 5,
         workload: 3,
         semester: "Fall 2023",
-        image: "/src/assets/images/courses/compsci579.gif",
+        image: CS579,
         description:
             "Image processing, computer vision, and graphics techniques for computational photography. Topics include HDR imaging, panoramas, image denoising, and neural rendering.",
     },
@@ -153,7 +173,7 @@ const courses = [
         rating: 4,
         workload: 3,
         semester: "Fall 2023",
-        image: "/src/assets/images/courses/compsci407.png",
+        image: CS407,
         description:
             "Mobile application development for iOS and Android platforms. Topics include UI design, sensor integration, location services, and cloud backend integration.",
     },
@@ -164,7 +184,7 @@ const courses = [
         rating: 4,
         workload: 4,
         semester: "Spring 2024",
-        image: "/src/assets/images/courses/compsci544.png",
+        image: CS544,
         description:
             "Distributed computing systems for big data processing including MapReduce, Spark, and stream processing. Performance optimization and system design for large-scale data analysis.",
     },
@@ -175,7 +195,7 @@ const courses = [
         rating: 5,
         workload: 5,
         semester: "Spring 2024",
-        image: "/src/assets/images/courses/compsci571.gif",
+        image: CS571,
         description:
             "Survey of technologies for building rich, interactive user interfaces. Topics include HTML/CSS, JavaScript, web frameworks (React), mobile app development, responsive design, accessibility, and user experience principles.",
     },
@@ -186,7 +206,7 @@ const courses = [
         rating: 4,
         workload: 4,
         semester: "Fall 2024",
-        image: "/src/assets/images/courses/stat340.png",
+        image: STAT340,
         description:
             "Advanced statistical modeling and machine learning techniques. Topics include classification, clustering, regularization, cross-validation, and deep learning using Python.",
     },
@@ -197,7 +217,7 @@ const courses = [
         rating: 5,
         workload: 4,
         semester: "Fall 2024",
-        image: "/src/assets/images/courses/compsci540.png",
+        image: CS540,
         description:
             "Principles of knowledge-based search techniques, automatic deduction, knowledge representation using predicate logic, machine learning, probabilistic reasoning. Applications in tasks such as problem solving, data mining, game playing, natural language understanding, and robotics.",
     },
@@ -208,7 +228,7 @@ const courses = [
         rating: 5,
         workload: 5,
         semester: "Fall 2024",
-        image: "/src/assets/images/courses/compsci577.png",
+        image: CS577,
         description:
             "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
     },

@@ -2,13 +2,13 @@
 .about-hero {
     position: relative;
     width: 100vw;
-    height: 100svh;
-    padding: 8em 2em 6em 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 5em;
+    min-height: 100svh;
+    padding: clamp(4em, 8vh, 8em) 2em clamp(3em, 6vh, 6em) 2em;
+    display: grid;
+    grid-template-rows: minmax(auto, 20vh) minmax(auto, 1fr) minmax(auto, 30vh);
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: clamp(1em, 2vh, 2em);
     background-color: var(--bg);
     color: var(--fg);
     overflow: hidden;
@@ -16,32 +16,39 @@
 
 .about-hero .about-hero-header {
     text-align: center;
+    grid-row: 1;
+    align-self: start;
 }
 
 .about-hero .about-hero-header h1 {
-    font-size: 7.5rem;
-}
-
-.about-hero .about-hero-bio {
-    text-align: center;
-    width: 50%;
-    margin-top: 440px;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+    font-size: clamp(3rem, 7.5vw, 7.5rem);
+    line-height: 1.1;
 }
 
 .about-hero .about-hero-portrait {
-    position: absolute;
-    top: 57%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(10deg);
-    width: 15%;
+    grid-row: 2;
+    width: clamp(150px, 12vw, 280px);
     aspect-ratio: 5/7;
     border-radius: 1em;
     overflow: hidden;
     border: 0.25em solid var(--accent3);
     outline: 0.25em solid var(--accent1);
+    transform: rotate(10deg);
+    align-self: center;
+    margin-top: 15vw;
+    margin-left: 10vw;
+    margin-bottom: -10vw;
+}
+
+.about-hero .about-hero-bio {
+    text-align: center;
+    width: min(90%, 600px);
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1em, 2vh, 2em);
+    align-self: end;
+    padding-bottom: 1em;
 }
 
 /* about - about copy */

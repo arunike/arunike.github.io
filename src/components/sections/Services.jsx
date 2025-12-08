@@ -2,6 +2,11 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import BadgerIcon from "../../assets/images/badger_cs.png";
+import BackendImg from "../../assets/images/service/backend.png";
+import FrontendImg from "../../assets/images/service/frontend.png";
+import DevOpsImg from "../../assets/images/service/devops.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
@@ -108,8 +113,8 @@ const Services = () => {
                 <div className="services-header-content">
                     <div className="services-profile-icon" ref={profileIconRef}>
                         <img
-                            src="/src/assets/images/badger_cs.png"
-                            alt="Richie Zhou's Portrait"
+                            src={BadgerIcon}
+                            alt="badger cs logo"
                         />
                     </div>
                     <p>Your Vision. My Expertise.</p>
@@ -130,7 +135,7 @@ const Services = () => {
                         </div>
                         <div className="service-card-img">
                             <img
-                                src="/src/assets/images/service/backend.png"
+                                src={BackendImg}
                                 alt="Backend Development"
                             />
                         </div>
@@ -143,7 +148,7 @@ const Services = () => {
                         </div>
                         <div className="service-card-img">
                             <img
-                                src="/src/assets/images/service/frontend.png"
+                                src={FrontendImg}
                                 alt="Front-End Development"
                             />
                         </div>
@@ -156,7 +161,7 @@ const Services = () => {
                         </div>
                         <div className="service-card-img">
                             <img
-                                src="/src/assets/images/service/devops.png"
+                                src={DevOpsImg}
                                 alt="DevOps"
                             />
                         </div>

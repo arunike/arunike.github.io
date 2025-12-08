@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Symbols from "../assets/images/symbols/symbols.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
@@ -58,7 +60,7 @@ const Hero = () => {
                 </div>
                 <div className="hero-footer">
                     <div className="hero-footer-symbols">
-                        <img src="/images/global/symbols.png" alt="" />
+                        <img src={Symbols} alt="symbols" />
                     </div>
                     {/* <div className="hero-footer-scroll-down">
                         <p className="mn">

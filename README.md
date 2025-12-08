@@ -1,17 +1,22 @@
 # Richie Zhou's Portfolio
 
-A modern, interactive portfolio website showcasing my software engineering projects, skills, and professional journey. Built with React and featuring smooth animations, scroll-based interactions, and a clean, contemporary design.
+A modern, interactive portfolio website showcasing my software engineering projects, skills, and professional journey. 
+
+Built with:
+- JavaScript with React and featuring smooth animations, scroll-based interactions, and a clean, contemporary design.
 
 ## 🌟 Features
 
-- **Dynamic Home Section** - Eye-catching animated Home with cycling project images
-- **Interactive Navigation** - Smooth scrolling with a floating section navigator
-- **Featured Projects Showcase** - Scroll-triggered animations displaying key projects
-- **Services & Expertise** - Highlighting backend, frontend, data engineering, and DevOps skills
-- **Skills Timeline** - Visual representation of technical skills and professional journey
-- **Contact Form** - Interactive form for project inquiries and collaboration
-- **Responsive Design** - Optimized for desktop and mobile viewing
-- **Smooth Animations** - GSAP-powered scroll animations and transitions
+- **Dynamic Home Section** - Eye-catching animated Home with video.
+- **Interactive Navigation** - Smooth scrolling with a floating section navigator.
+- **Individual section components** - Modular React components for each section of the portfolio.
+- **Featured Projects Showcase** - Scroll-triggered animations displaying key projects.
+- **Course Taken Page** - Dedicated section for courses taken at university and included reviews for each course.
+- **Services & Expertise** - Highlighting backend, frontend, and DevOps skills.
+- **Skills Timeline** - Visual representation of technical skills and professional journey.
+- **Contact Form** - Interactive form for project inquiries and collaboration.
+- **Responsive Design** - Optimized for desktop and mobile viewing.
+- **Smooth Animations** - GSAP-powered scroll animations and transitions.
 
 ## 🚀 Getting Started
 

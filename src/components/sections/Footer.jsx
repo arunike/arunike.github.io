@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
+import SymbolSix from "../../assets/images/symbols/s6.png";
+
 const Footer = () => {
     const hasExplodedRef = useRef(false);
     const location = useLocation();
@@ -122,12 +124,12 @@ const Footer = () => {
         <footer>
             <div className="footer-container">
                 <div className="footer-symbols footer-symbols-1">
-                    <img src="/images/global/s6.png" alt="" />
-                    <img src="/images/global/s6.png" alt="" />
+                    <img src={SymbolSix} alt="Symbol 6" />
+                    <img src={SymbolSix} alt="Symbol 6" />
                 </div>
                 <div className="footer-symbols footer-symbols-2">
-                    <img src="/images/global/s6.png" alt="" />
-                    <img src="/images/global/s6.png" alt="" />
+                    <img src={SymbolSix} alt="Symbol 6" />
+                    <img src={SymbolSix} alt="Symbol 6" />
                 </div>
                 <div className="footer-header">
                     <h1>Richie Zhou</h1>

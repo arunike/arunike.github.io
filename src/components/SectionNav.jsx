@@ -19,7 +19,6 @@ const SectionNav = () => {
     );
 
     useEffect(() => {
-        // Only set up observers on home page
         if (location.pathname !== "/") {
             return;
         }
@@ -67,7 +66,6 @@ const SectionNav = () => {
         }
     };
 
-    // Only show SectionNav on home page
     if (location.pathname !== "/") {
         return null;
     }

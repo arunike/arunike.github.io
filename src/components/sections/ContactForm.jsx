@@ -21,8 +21,20 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you would normally send the form data to a backend
-        console.log("Form submitted:", formData);
+
+        const subject = `Project Inquiry: ${formData.projectType || "New Project"}`;
+        const body = `Name: ${formData.firstName} ${formData.lastName}
+            Email: ${formData.email}
+            Phone: ${formData.phone || "Not provided"}
+            Project Type: ${formData.projectType}
+
+            Message:
+            ${formData.message}`;
+
+        const mailtoLink = `mailto:richiezhouyjz@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.open(mailtoLink, "_self");
+
         setIsSubmitted(true);
         setTimeout(() => {
             setIsSubmitted(false);
@@ -47,8 +59,8 @@ const ContactForm = () => {
                         <p>
                             Got a project idea? Need a stunning website or a
                             robust app? Or just want to geek out over code and
-                            design? I'm all in. Drop me a line, and let's create
-                            something extraordinary together.
+                            design? I'm all in. Drop me a message, and let's
+                            create something extraordinary together!
                         </p>
                     </div>
                     <div className="contact-info">
@@ -57,7 +69,7 @@ const ContactForm = () => {
                             <p>
                                 <a
                                     href="mailto:richiezhouyjz@gmail.com"
-                                    target="_blank"
+                                    target="_self"
                                     rel="noopener noreferrer"
                                 >
                                     richiezhouyjz@gmail.com
@@ -70,7 +82,7 @@ const ContactForm = () => {
                     <div className="form-header">
                         <h2>Start a Project</h2>
                         <p>
-                            Tell me about your vision and let's make it reality
+                            Tell me about your vision and let's make it reality!
                         </p>
                     </div>
                     <form
@@ -130,39 +142,10 @@ const ContactForm = () => {
                             </div>
                         </div>
                         <div className="form-group full-width">
-                            <select
-                                id="projectType"
-                                name="projectType"
-                                value={formData.projectType}
-                                onChange={handleChange}
-                                required
-                            >
-                                <option value="">Select project type</option>
-                                <option value="website">
-                                    Website Development
-                                </option>
-                                <option value="webapp">Web Application</option>
-                                <option value="mobileapp">
-                                    Mobile Application
-                                </option>
-                                <option value="ecommerce">
-                                    E-commerce Platform
-                                </option>
-                                <option value="redesign">
-                                    Website Redesign
-                                </option>
-                                <option value="consultation">
-                                    Consultation
-                                </option>
-                                <option value="other">Other</option>
-                            </select>
-                            <label htmlFor="projectType">Project Type</label>
-                        </div>
-                        <div className="form-group full-width">
                             <textarea
                                 id="message"
                                 name="message"
-                                placeholder="Tell me about your project, goals, timeline, and budget..."
+                                placeholder="Describe your project..."
                                 value={formData.message}
                                 onChange={handleChange}
                                 required

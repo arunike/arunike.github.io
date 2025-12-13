@@ -8,13 +8,11 @@ const Nav = () => {
     const location = useLocation();
 
     useEffect(() => {
-        // Close menu on route change and ensure all styles are cleared
         const navOverlay = document.querySelector(".nav-overlay");
         const openLabel = document.querySelector(".open-label");
         const closeLabel = document.querySelector(".close-label");
         const navItems = document.querySelectorAll(".nav-item");
 
-        // Immediately clear html and body styles
         const html = document.documentElement;
         const body = document.body;
         html.style.overflow = "";
@@ -103,7 +101,6 @@ const Nav = () => {
 
         navOverlay.style.pointerEvents = "none";
 
-        // Clear html and body styles
         const html = document.documentElement;
         const body = document.body;
         html.style.overflow = "";

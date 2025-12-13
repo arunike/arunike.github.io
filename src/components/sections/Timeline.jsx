@@ -5,7 +5,6 @@ import NorthernTrustLogo from "../../assets/images/experience/NorthernTrust.png"
 import RockitcoinLogo from "../../assets/images/experience/Rockitcoin.png";
 import UNFCULogo from "../../assets/images/experience/UNFCU.png";
 
-// Function to extract dominant color from image
 const extractColorFromImage = (imageSrc) => {
     return new Promise((resolve) => {
         const img = new Image();
@@ -63,7 +62,7 @@ const extractColorFromImage = (imageSrc) => {
                         .slice(1)}`
                 );
             } else {
-                resolve("#000000"); // Fallback color
+                resolve("#000000");
             }
         };
 

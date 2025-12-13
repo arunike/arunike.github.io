@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 const FeaturedWork = () => {
     const scrollTriggerInstanceRef = useRef(null);
 
-    // Map of work items to their images
     const workImages = useMemo(
         () => [CS407, CS579, ResumeBuilder, VHR, CS506],
         []
@@ -57,7 +56,6 @@ const FeaturedWork = () => {
             const imagesContainer = document.querySelector(".featured-images");
             imagesContainer.innerHTML = "";
 
-            // Random positions centered around screen center (percentage based)
             const randomPositions = [
                 { x: 45, y: 45, rotation: -5 },
                 { x: 55, y: 40, rotation: 8 },
@@ -66,7 +64,6 @@ const FeaturedWork = () => {
                 { x: 50, y: 55, rotation: -4 },
             ];
 
-            // Create image cards with random positions
             for (let i = 0; i < workImages.length; i++) {
                 const featuredImgCard = document.createElement("div");
                 featuredImgCard.className = `featured-img-card featured-img-card-${
@@ -107,15 +104,12 @@ const FeaturedWork = () => {
                         x: xPosition,
                     });
 
-                    // Each image corresponds to a section
                     const numSections = workImages.length;
                     const progressPerSection = 1 / numSections;
 
                     featuredImgCards.forEach((featuredImgCard, index) => {
-                        // Calculate which section we're in
                         const sectionStart = index * progressPerSection;
 
-                        // Progress within this section (0 to 1)
                         let sectionProgress =
                             (self.progress - sectionStart) / progressPerSection;
                         sectionProgress = Math.max(

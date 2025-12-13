@@ -120,7 +120,7 @@ The optimized production build will be in the `dist/` directory.
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the
 
 ## 👤 Author
 

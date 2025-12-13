@@ -28,7 +28,6 @@ const Services = () => {
             });
             scrollTriggerInstancesRef.current = [];
 
-            // Profile icon animation
             if (profileIconRef.current) {
                 const profileAnimation = gsap.to(profileIconRef.current, {
                     scale: 1.2,

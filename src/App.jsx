@@ -28,7 +28,6 @@ function ScrollToTop() {
     const location = useLocation();
 
     useEffect(() => {
-        // Ensure html and body styles are completely clean
         const html = document.documentElement;
         const body = document.body;
 

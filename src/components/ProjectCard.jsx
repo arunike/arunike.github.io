@@ -47,7 +47,6 @@ const ProjectCard = ({
         };
     }, []);
 
-    // Update dropdown position when it opens
     useEffect(() => {
         if (isDropdownOpen && buttonRef.current) {
             const rect = buttonRef.current.getBoundingClientRect();

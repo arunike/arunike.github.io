@@ -24,14 +24,12 @@ const Footer = () => {
             resetDelay: 500,
         };
 
-        // Dynamically import all images from projects folder
         const projectImages = import.meta.glob(
             "/src/assets/images/projects/*.*",
             { eager: true, as: "url" }
         );
         const allProjectImages = Object.values(projectImages);
 
-        // Randomly select 10 images
         const shuffled = [...allProjectImages].sort(() => Math.random() - 0.5);
         const imagePaths = shuffled.slice(0, 10);
 

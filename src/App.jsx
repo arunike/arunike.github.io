@@ -7,8 +7,8 @@ import {
 import { useEffect } from "react";
 import Transition from "./components/Transition";
 import Home from "./pages/Home";
-import CourseTaken from "./pages/CourseTaken";
-import Projects from "./pages/Projects";
+import CourseTaken from "./pages/courses/CourseTaken";
+import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import "./css/transition.css";
 import "./css/fonts.css";

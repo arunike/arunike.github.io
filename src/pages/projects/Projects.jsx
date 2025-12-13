@@ -1,28 +1,29 @@
 import { useEffect, useRef } from "react";
-import Nav from "../components/Nav";
-import ProjectCard from "../components/ProjectCard";
-import Footer from "../components/sections/Footer";
+import Nav from "../../components/Nav";
+import ProjectCard from "../../components/ProjectCard";
+import Footer from "../../components/sections/Footer";
 
 // Import project images
-import MiasPortfolio from "../assets/images/projects/mias_portfolio.gif";
-import ResumeBuilder from "../assets/images/projects/resume_builder.png";
-import VHR from "../assets/images/projects/vhr.png";
-import Pacman from "../assets/images/projects/pacman.gif";
-import GoGame from "../assets/images/projects/go_game.gif";
-import SnakeGame from "../assets/images/projects/snake_game.gif";
-import PianoTiles from "../assets/images/projects/piano_tiles.gif";
-import Game2048 from "../assets/images/projects/2048_game.gif";
-import BlinnPhong from "../assets/images/projects/blinn_phong.gif";
-import LaTeXResume from "../assets/images/projects/latex_resume.png";
-import W2PDF from "../assets/images/projects/w2pdf.png";
-import LoginPage from "../assets/images/projects/login_page.png";
-import HTMLPortfolio from "../assets/images/projects/html_portfolio.png";
-import SongOfTheWind from "../assets/images/projects/song_of_the_wind_piano.png";
-import CS407 from "../assets/images/courses/compsci407.png";
-import CS571 from "../assets/images/courses/compsci571.gif";
-import CS506 from "../assets/images/courses/compsci506.png";
-import CS579 from "../assets/images/courses/compsci579.gif";
-import CS559 from "../assets/images/courses/compsci559.gif";
+import PortfolioOld from "../../assets/images/projects/portfolio_old.gif";
+import MiasPortfolio from "../../assets/images/projects/mias_portfolio.gif";
+import ResumeBuilder from "../../assets/images/projects/resume_builder.png";
+import VHR from "../../assets/images/projects/vhr.png";
+import Pacman from "../../assets/images/projects/pacman.gif";
+import GoGame from "../../assets/images/projects/go_game.gif";
+import SnakeGame from "../../assets/images/projects/snake_game.gif";
+import PianoTiles from "../../assets/images/projects/piano_tiles.gif";
+import Game2048 from "../../assets/images/projects/2048_game.gif";
+import BlinnPhong from "../../assets/images/projects/blinn_phong.gif";
+import LaTeXResume from "../../assets/images/projects/latex_resume.png";
+import W2PDF from "../../assets/images/projects/w2pdf.png";
+import LoginPage from "../../assets/images/projects/login_page.png";
+import HTMLPortfolio from "../../assets/images/projects/html_portfolio.png";
+import SongOfTheWind from "../../assets/images/projects/song_of_the_wind_piano.png";
+import CS407 from "../../assets/images/courses/compsci407.png";
+import CS571 from "../../assets/images/courses/compsci571.gif";
+import CS506 from "../../assets/images/courses/compsci506.png";
+import CS579 from "../../assets/images/courses/compsci579.gif";
+import CS559 from "../../assets/images/courses/compsci559.gif";
 
 const Projects = () => {
     const headerRef = useRef(null);
@@ -35,26 +36,32 @@ const Projects = () => {
 
     const projectsData = [
         {
-            id: 1,
+            imgPath: PortfolioOld,
+            title: "Portfolio React",
+            description:
+                "A old version of my portfolio website built with React.js.",
+            ghLink: "https://github.com/arunike/Portfolio-React",
+            demoLink: "https://cqawesome.github.io",
+            tags: ["React", "JavaScript", "CSS", "HTML"],
+        },
+        {
             imgPath: MiasPortfolio,
             title: "Mia's Portfolio",
             description:
                 "A beautiful and responsive portfolio website built with modern web technologies.",
             ghLink: "https://github.com/miaaamao/miaaamao.github.io",
-            demoLink: "https://miaaamao.github.io/",
-            tags: ["HTML", "CSS", "JavaScript"],
+            demoLink: "https://miaaamao.github.io",
+            tags: ["React", "JavaScript", "CSS", "HTML"],
         },
         {
-            id: 2,
             imgPath: CS407,
             title: "BlueDrop",
             description:
                 "Mobile application for water quality monitoring and community engagement.",
             ghLink: "https://github.com/arunike/BlueDrop",
-            tags: ["Android", "Java", "Firebase"],
+            tags: ["Android", "Kotlin", "Firebase"],
         },
         {
-            id: 3,
             imgPath: ResumeBuilder,
             title: "Resume Builder",
             description:
@@ -63,7 +70,6 @@ const Projects = () => {
             tags: ["React", "Node.js", "PDF.js"],
         },
         {
-            id: 4,
             imgPath: CS571,
             title: "COMP SCI 571",
             description:
@@ -86,7 +92,6 @@ const Projects = () => {
             tags: ["React", "React Native", "JavaScript", "Dialogflow"],
         },
         {
-            id: 5,
             imgPath: VHR,
             title: "VHR",
             description:
@@ -95,7 +100,6 @@ const Projects = () => {
             tags: ["Java", "Spring Boot", "Vue.js", "MySQL"],
         },
         {
-            id: 6,
             imgPath: CS506,
             title: "Five Course Bird Feeder",
             description:
@@ -104,16 +108,14 @@ const Projects = () => {
             tags: ["React", "Machine Learning", "Computer Vision", "YOLO"],
         },
         {
-            id: 7,
             imgPath: CS579,
             title: "Cyberpunk VR Racing Game",
             description:
                 "VR racing game focused on futuristic city and track design. Features towering skyscrapers, neon lights, and challenging tracks with twists, turns, and obstacles requiring skillful driving.",
-            tags: ["Unity", "C#", "VR"],
             demoLink: "https://youtu.be/K6kVYzrBCss",
+            tags: ["Unity", "C#", "VR"],
         },
         {
-            id: 8,
             imgPath: CS559,
             title: "COMP SCI 559",
             description:
@@ -132,7 +134,6 @@ const Projects = () => {
             tags: ["JavaScript", "WebGL", "Three.js"],
         },
         {
-            id: 9,
             imgPath: Pacman,
             title: "Pacman Game",
             description:
@@ -142,7 +143,6 @@ const Projects = () => {
             tags: ["JavaScript", "HTML", "CSS"],
         },
         {
-            id: 10,
             imgPath: GoGame,
             title: "Go Game AI",
             description:
@@ -151,7 +151,6 @@ const Projects = () => {
             tags: ["Python", "AI", "Game Theory"],
         },
         {
-            id: 11,
             imgPath: SnakeGame,
             title: "Snake Game",
             description:
@@ -160,7 +159,6 @@ const Projects = () => {
             tags: ["Python", "Pygame", "Game Dev"],
         },
         {
-            id: 12,
             imgPath: PianoTiles,
             title: "Piano Tiles Game",
             description:
@@ -170,7 +168,6 @@ const Projects = () => {
             tags: ["JavaScript", "HTML", "CSS"],
         },
         {
-            id: 13,
             imgPath: Game2048,
             title: "2048 Game",
             description:
@@ -180,7 +177,6 @@ const Projects = () => {
             tags: ["JavaScript", "HTML", "CSS"],
         },
         {
-            id: 14,
             imgPath: BlinnPhong,
             title: "Blinn-Phong Shading",
             description:
@@ -190,7 +186,6 @@ const Projects = () => {
             tags: ["JavaScript", "WebGL", "GLSL"],
         },
         {
-            id: 15,
             imgPath: LaTeXResume,
             title: "LaTeX Resume Template",
             description:
@@ -199,7 +194,6 @@ const Projects = () => {
             tags: ["LaTeX", "Document Design"],
         },
         {
-            id: 16,
             imgPath: W2PDF,
             title: "Word to PDF Converter",
             description:
@@ -208,7 +202,6 @@ const Projects = () => {
             tags: ["Python", "Tkinter", "GUI"],
         },
         {
-            id: 17,
             imgPath: LoginPage,
             title: "Login Page",
             description:
@@ -218,7 +211,6 @@ const Projects = () => {
             tags: ["HTML", "CSS", "UI Design"],
         },
         {
-            id: 18,
             imgPath: HTMLPortfolio,
             title: "HTML Portfolio Website",
             description:
@@ -228,7 +220,6 @@ const Projects = () => {
             tags: ["HTML", "CSS", "JavaScript"],
         },
         {
-            id: 19,
             imgPath: SongOfTheWind,
             title: "Song of the Wind Piano",
             description:
@@ -246,8 +237,8 @@ const Projects = () => {
                     <div className="projects-header" ref={headerRef}>
                         <h1 className="projects-heading">My Projects</h1>
                         <p className="projects-subtitle">
-                            A collection of my work spanning web development,
-                            mobile apps, games, and computer graphics
+                            A collection of my work spanning apps, websites,
+                            mobile, games, and computer graphics developments.
                         </p>
                         <div className="projects-stats">
                             <div className="stat-item">
@@ -270,9 +261,9 @@ const Projects = () => {
                     </div>
 
                     <div className="projects-grid">
-                        {projectsData.map((project) => (
+                        {projectsData.map((project, index) => (
                             <ProjectCard
-                                key={project.id}
+                                key={index}
                                 imgPath={project.imgPath}
                                 title={project.title}
                                 description={project.description}

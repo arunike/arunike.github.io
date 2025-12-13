@@ -1,26 +1,26 @@
 import React from "react";
-import Nav from "../components/Nav";
-import "../css/courses.css";
+import Nav from "../../components/Nav";
+import "../../css/courses.css";
 
-import CS252 from "../assets/images/courses/compsci252.png";
-import CS300 from "../assets/images/courses/compsci300.png";
-import CS220 from "../assets/images/courses/compsci220.png";
-import CS400 from "../assets/images/courses/compsci400.png";
-import CS240 from "../assets/images/courses/compsci240.png";
-import CS354 from "../assets/images/courses/compsci354.png";
-import STAT240 from "../assets/images/courses/stat240.png";
-import CS537 from "../assets/images/courses/compsci537.png";
-import CS559 from "../assets/images/courses/compsci559.gif";
-import CS320 from "../assets/images/courses/compsci320.png";
-import CS506 from "../assets/images/courses/compsci506.png";
-import CS564 from "../assets/images/courses/compsci564.png";
-import CS579 from "../assets/images/courses/compsci579.gif";
-import CS407 from "../assets/images/courses/compsci407.png";
-import CS544 from "../assets/images/courses/compsci544.png";
-import CS571 from "../assets/images/courses/compsci571.gif";
-import STAT340 from "../assets/images/courses/stat340.png";
-import CS540 from "../assets/images/courses/compsci540.png";
-import CS577 from "../assets/images/courses/compsci577.png";
+import CS252 from "../../assets/images/courses/compsci252.png";
+import CS300 from "../../assets/images/courses/compsci300.png";
+import CS220 from "../../assets/images/courses/compsci220.png";
+import CS400 from "../../assets/images/courses/compsci400.png";
+import CS240 from "../../assets/images/courses/compsci240.png";
+import CS354 from "../../assets/images/courses/compsci354.png";
+import STAT240 from "../../assets/images/courses/stat240.png";
+import CS537 from "../../assets/images/courses/compsci537.png";
+import CS559 from "../../assets/images/courses/compsci559.gif";
+import CS320 from "../../assets/images/courses/compsci320.png";
+import CS506 from "../../assets/images/courses/compsci506.png";
+import CS564 from "../../assets/images/courses/compsci564.png";
+import CS579 from "../../assets/images/courses/compsci579.gif";
+import CS407 from "../../assets/images/courses/compsci407.png";
+import CS544 from "../../assets/images/courses/compsci544.png";
+import CS571 from "../../assets/images/courses/compsci571.gif";
+import STAT340 from "../../assets/images/courses/stat340.png";
+import CS540 from "../../assets/images/courses/compsci540.png";
+import CS577 from "../../assets/images/courses/compsci577.png";
 
 const courses = [
     {

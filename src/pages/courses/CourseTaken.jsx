@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../components/Nav";
+import Footer from "../../components/sections/Footer";
 import "../../css/courses.css";
 
 import CS252 from "../../assets/images/courses/compsci252.png";
@@ -341,6 +342,7 @@ const CourseTaken = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

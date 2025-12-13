@@ -24,7 +24,7 @@ import CS571 from "../../assets/images/courses/compsci571.gif";
 import CS506 from "../../assets/images/courses/compsci506.png";
 import CS579 from "../../assets/images/courses/compsci579.gif";
 import CS559 from "../../assets/images/courses/compsci559.gif";
-import { FaGithub, FaGithubAlt, FaGithubSquare } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
 
 const Projects = () => {
     const headerRef = useRef(null);
@@ -226,7 +226,7 @@ const Projects = () => {
             description:
                 "Java implementation of a piano that plays 'Song of the Wind'. The wind symbolizes freedom in this musical piece.",
             ghLink: "https://github.com/arunike/Song-of-the-Wind-Piano",
-            tags: ["Java", "Music", "GUI"],
+            tags: ["Java"],
         },
     ];
 

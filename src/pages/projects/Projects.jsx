@@ -4,6 +4,7 @@ import ProjectCard from "../../components/ProjectCard";
 import Footer from "../../components/sections/Footer";
 
 // Import project images
+import BlackGoldPoker from "../../assets/images/projects/black_gold_poker.gif";
 import PortfolioOld from "../../assets/images/projects/portfolio_old.gif";
 import MiasPortfolio from "../../assets/images/projects/mias_portfolio.gif";
 import ResumeBuilder from "../../assets/images/projects/resume_builder.png";
@@ -36,6 +37,21 @@ const Projects = () => {
     }, []);
 
     const projectsData = [
+        {
+            imgPath: BlackGoldPoker,
+            title: "Black Gold Poker",
+            description:
+                "An immersive 3D tarot card experience controlled by hand gestures through your webcam. Experience mystical card readings with intuitive gesture controls and stunning visual effects.",
+            ghLink: "https://github.com/arunike/Black-Gold-Poker",
+            tags: [
+                "React",
+                "Typescript",
+                "Three.js",
+                "MediaPipe",
+                "WebGL",
+                "GLSL",
+            ],
+        },
         {
             imgPath: PortfolioOld,
             title: "Portfolio React",

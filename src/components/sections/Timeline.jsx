@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import TikTokLogo from "../../assets/images/experience/TikTok.png";
 import LumenLogo from "../../assets/images/experience/Lumen.png";
 import NorthernTrustLogo from "../../assets/images/experience/NorthernTrust.png";
@@ -76,6 +76,10 @@ const Timeline = () => {
     const [experienceColors, setExperienceColors] = useState({});
     const [showLeftFade, setShowLeftFade] = useState(false);
     const [showRightFade, setShowRightFade] = useState(true);
+    const [showIntro, setShowIntro] = useState(true);
+    const [showTimeline, setShowTimeline] = useState(false);
+    const [introWord, setIntroWord] = useState("");
+    const [introStage, setIntroStage] = useState("idle");
 
     const checkScroll = () => {
         if (!scrollContainerRef.current) return;
@@ -226,6 +230,85 @@ const Timeline = () => {
         };
     }, [experiences]);
 
+    const orderedExperiences = useMemo(() => {
+        return [...experiences].reverse();
+    }, [experiences]);
+
+    useEffect(() => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.style.scrollBehavior = "auto";
+            scrollContainerRef.current.scrollLeft =
+                scrollContainerRef.current.scrollWidth;
+            scrollContainerRef.current.style.scrollBehavior = "smooth";
+        }
+    }, [orderedExperiences]);
+
+    useEffect(() => {
+        if (showTimeline && scrollContainerRef.current) {
+            scrollContainerRef.current.scrollLeft =
+                scrollContainerRef.current.scrollWidth;
+            checkScroll();
+        }
+    }, [showTimeline]);
+
+    const featureWords = useMemo(() => {
+        const locations = [
+            ...new Set(
+                experiences.map((exp) => exp.location.split(",")[0].trim())
+            ),
+        ];
+        const techs = [
+            ...new Set(experiences.flatMap((exp) => exp.technologies)),
+        ];
+
+        const pool = [...locations, ...techs];
+        return pool.sort(() => 0.5 - Math.random()).slice(0, 4);
+    }, [experiences]);
+
+    const playIntroSequence = useCallback(async () => {
+        for (let i = 0; i < featureWords.length; i++) {
+            setIntroWord(featureWords[i]);
+            await new Promise((r) => setTimeout(r, 800));
+        }
+
+        setShowIntro(false);
+
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.style.scrollBehavior = "auto";
+            scrollContainerRef.current.scrollLeft =
+                scrollContainerRef.current.scrollWidth;
+            setTimeout(() => {
+                if (scrollContainerRef.current)
+                    scrollContainerRef.current.style.scrollBehavior = "smooth";
+            }, 50);
+        }
+
+        setTimeout(() => setShowTimeline(true), 100);
+    }, [featureWords]);
+
+    useEffect(() => {
+        const section = document.getElementById("timeline");
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (
+                    entries[0].isIntersecting &&
+                    showIntro &&
+                    introStage === "idle"
+                ) {
+                    setIntroStage("playing");
+                    playIntroSequence();
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        observer.observe(section);
+
+        return () => observer.disconnect();
+    }, [showIntro, introStage, playIntroSequence]);
+
     const addToRefs = (el) => {
         if (el && !timelineRef.current.includes(el)) {
             timelineRef.current.push(el);
@@ -242,258 +325,284 @@ const Timeline = () => {
                     </p>
                 </div>
 
-                <div className="timeline-scroll-wrapper">
+                {showIntro && (
                     <div
-                        className={`timeline-fade-left ${showLeftFade ? "visible" : ""}`}
-                        onClick={() => scrollBy(-300)}
+                        className={`timeline-intro-overlay ${introStage === "playing" ? "active" : ""}`}
                     >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </div>
-
-                    <div
-                        className={`timeline-fade-right ${showRightFade ? "visible" : ""}`}
-                        onClick={() => scrollBy(300)}
-                    >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </div>
-
-                    <div
-                        className="timeline-line-wrapper"
-                        ref={scrollContainerRef}
-                        onScroll={checkScroll}
-                    >
-                        <div className="timeline-track">
-                            <div className="timeline-line"></div>
-
-                            {experiences.map((exp, index) => {
-                                const expColor =
-                                    experienceColors[exp.id] || "#000000";
-
-                                const positionClass = exp.position
-                                    ? `timeline-${exp.position}`
-                                    : index % 2 === 0
-                                      ? "timeline-top"
-                                      : "timeline-bottom";
-
-                                return (
-                                    <div
-                                        key={exp.id}
-                                        ref={addToRefs}
-                                        className={`timeline-item ${positionClass}`}
-                                    >
-                                        <div className="timeline-content">
-                                            <div
-                                                className="timeline-card"
-                                                style={{
-                                                    borderLeft: `4px solid ${expColor}`,
-                                                    background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
-                                                }}
-                                            >
-                                                {/* Company Header */}
-                                                <div className="timeline-company-header">
-                                                    <div className="timeline-company-logo">
-                                                        <img
-                                                            src={exp.logo}
-                                                            alt={exp.company}
-                                                        />
-                                                    </div>
-                                                    <div className="timeline-company-info">
-                                                        <h3
-                                                            className="timeline-role"
-                                                            style={{
-                                                                color: expColor,
-                                                            }}
-                                                        >
-                                                            {exp.role}
-                                                        </h3>
-                                                        <h4 className="timeline-company">
-                                                            {exp.company}
-                                                        </h4>
-                                                    </div>
-                                                    {exp.isActive && (
-                                                        <span className="timeline-active-badge">
-                                                            Current
-                                                        </span>
-                                                    )}
-                                                </div>
-
-                                                {/* Department */}
-                                                <div
-                                                    className="timeline-department"
-                                                    style={{
-                                                        borderLeftColor:
-                                                            expColor,
-                                                    }}
-                                                >
-                                                    {exp.department}
-                                                </div>
-
-                                                {/* Location & Duration */}
-                                                <div className="timeline-meta">
-                                                    <span className="timeline-location">
-                                                        <svg
-                                                            width="16"
-                                                            height="16"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                        >
-                                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                                            <circle
-                                                                cx="12"
-                                                                cy="10"
-                                                                r="3"
-                                                            />
-                                                        </svg>
-                                                        {exp.location}
-                                                    </span>
-                                                    <span className="timeline-duration">
-                                                        <svg
-                                                            width="16"
-                                                            height="16"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                        >
-                                                            <rect
-                                                                x="3"
-                                                                y="4"
-                                                                width="18"
-                                                                height="18"
-                                                                rx="2"
-                                                                ry="2"
-                                                            />
-                                                            <line
-                                                                x1="16"
-                                                                y1="2"
-                                                                x2="16"
-                                                                y2="6"
-                                                            />
-                                                            <line
-                                                                x1="8"
-                                                                y1="2"
-                                                                x2="8"
-                                                                y2="6"
-                                                            />
-                                                            <line
-                                                                x1="3"
-                                                                y1="10"
-                                                                x2="21"
-                                                                y2="10"
-                                                            />
-                                                        </svg>
-                                                        {exp.duration}
-                                                    </span>
-                                                </div>
-
-                                                {/* Achievements */}
-                                                <div className="timeline-achievements">
-                                                    {exp.achievements.map(
-                                                        (achievement, idx) => (
-                                                            <p key={idx}>
-                                                                {achievement}
-                                                            </p>
-                                                        )
-                                                    )}
-                                                </div>
-
-                                                {/* Technologies */}
-                                                <div className="timeline-tech-stack">
-                                                    {exp.technologies.map(
-                                                        (tech, idx) => (
-                                                            <span
-                                                                key={idx}
-                                                                className="timeline-tech-tag"
-                                                                style={{
-                                                                    backgroundColor: `${expColor}20`,
-                                                                    color: expColor,
-                                                                    borderColor: `${expColor}40`,
-                                                                }}
-                                                            >
-                                                                {tech}
-                                                            </span>
-                                                        )
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Timeline Dot */}
-                                        <div
-                                            className="timeline-dot"
-                                            style={{ borderColor: expColor }}
-                                        >
-                                            <div
-                                                className="timeline-dot-inner"
-                                                style={{
-                                                    backgroundColor: expColor,
-                                                }}
-                                            ></div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                        <div key={introWord} className="intro-word">
+                            {introWord}
                         </div>
                     </div>
-                </div>
+                )}
 
-                {/* Stats Section */}
-                <div className="timeline-stats">
-                    <div className="timeline-stat-item">
-                        <span className="timeline-stat-number">
-                            {
-                                experiences.filter(
-                                    (exp) => exp.isActive !== false
-                                ).length
-                            }
-                        </span>
-                        <span className="timeline-stat-label">Experiences</span>
+                <div
+                    className={`timeline-content-wrapper ${showTimeline ? "visible" : "hidden"}`}
+                >
+                    <div className="timeline-scroll-wrapper">
+                        <div
+                            className={`timeline-fade-left ${showLeftFade ? "visible" : ""}`}
+                            onClick={() => scrollBy(-300)}
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                            >
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </div>
+
+                        <div
+                            className={`timeline-fade-right ${showRightFade ? "visible" : ""}`}
+                            onClick={() => scrollBy(300)}
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                            >
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </div>
+
+                        <div
+                            className="timeline-line-wrapper"
+                            ref={scrollContainerRef}
+                            onScroll={checkScroll}
+                        >
+                            <div className="timeline-track">
+                                <div className="timeline-line"></div>
+
+                                {orderedExperiences.map((exp, index) => {
+                                    const expColor =
+                                        experienceColors[exp.id] || "#000000";
+
+                                    const positionClass = exp.position
+                                        ? `timeline-${exp.position}`
+                                        : index % 2 === 0
+                                          ? "timeline-top"
+                                          : "timeline-bottom";
+
+                                    return (
+                                        <div
+                                            key={exp.id}
+                                            ref={addToRefs}
+                                            className={`timeline-item ${positionClass}`}
+                                        >
+                                            <div className="timeline-content">
+                                                <div
+                                                    className="timeline-card"
+                                                    style={{
+                                                        borderLeft: `4px solid ${expColor}`,
+                                                        background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
+                                                    }}
+                                                >
+                                                    {/* Company Header */}
+                                                    <div className="timeline-company-header">
+                                                        <div className="timeline-company-logo">
+                                                            <img
+                                                                src={exp.logo}
+                                                                alt={
+                                                                    exp.company
+                                                                }
+                                                            />
+                                                        </div>
+                                                        <div className="timeline-company-info">
+                                                            <h3
+                                                                className="timeline-role"
+                                                                style={{
+                                                                    color: expColor,
+                                                                }}
+                                                            >
+                                                                {exp.role}
+                                                            </h3>
+                                                            <h4 className="timeline-company">
+                                                                {exp.company}
+                                                            </h4>
+                                                        </div>
+                                                        {exp.isActive && (
+                                                            <span className="timeline-active-badge">
+                                                                Current
+                                                            </span>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Department */}
+                                                    <div
+                                                        className="timeline-department"
+                                                        style={{
+                                                            borderLeftColor:
+                                                                expColor,
+                                                        }}
+                                                    >
+                                                        {exp.department}
+                                                    </div>
+
+                                                    {/* Location & Duration */}
+                                                    <div className="timeline-meta">
+                                                        <span className="timeline-location">
+                                                            <svg
+                                                                width="16"
+                                                                height="16"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                            >
+                                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                                                <circle
+                                                                    cx="12"
+                                                                    cy="10"
+                                                                    r="3"
+                                                                />
+                                                            </svg>
+                                                            {exp.location}
+                                                        </span>
+                                                        <span className="timeline-duration">
+                                                            <svg
+                                                                width="16"
+                                                                height="16"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                            >
+                                                                <rect
+                                                                    x="3"
+                                                                    y="4"
+                                                                    width="18"
+                                                                    height="18"
+                                                                    rx="2"
+                                                                    ry="2"
+                                                                />
+                                                                <line
+                                                                    x1="16"
+                                                                    y1="2"
+                                                                    x2="16"
+                                                                    y2="6"
+                                                                />
+                                                                <line
+                                                                    x1="8"
+                                                                    y1="2"
+                                                                    x2="8"
+                                                                    y2="6"
+                                                                />
+                                                                <line
+                                                                    x1="3"
+                                                                    y1="10"
+                                                                    x2="21"
+                                                                    y2="10"
+                                                                />
+                                                            </svg>
+                                                            {exp.duration}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Achievements */}
+                                                    <div className="timeline-achievements">
+                                                        {exp.achievements.map(
+                                                            (
+                                                                achievement,
+                                                                idx
+                                                            ) => (
+                                                                <p key={idx}>
+                                                                    {
+                                                                        achievement
+                                                                    }
+                                                                </p>
+                                                            )
+                                                        )}
+                                                    </div>
+
+                                                    {/* Technologies */}
+                                                    <div className="timeline-tech-stack">
+                                                        {exp.technologies.map(
+                                                            (tech, idx) => (
+                                                                <span
+                                                                    key={idx}
+                                                                    className="timeline-tech-tag"
+                                                                    style={{
+                                                                        backgroundColor: `${expColor}20`,
+                                                                        color: expColor,
+                                                                        borderColor: `${expColor}40`,
+                                                                    }}
+                                                                >
+                                                                    {tech}
+                                                                </span>
+                                                            )
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                className="timeline-dot"
+                                                style={{
+                                                    borderColor: expColor,
+                                                }}
+                                            >
+                                                <div
+                                                    className="timeline-dot-inner"
+                                                    style={{
+                                                        backgroundColor:
+                                                            expColor,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     </div>
-                    <div className="timeline-stat-item">
-                        <span className="timeline-stat-number">
-                            {
-                                [
-                                    ...new Set(
-                                        experiences.flatMap(
-                                            (exp) => exp.technologies
-                                        )
-                                    ),
-                                ].length
-                            }
-                        </span>
-                        <span className="timeline-stat-label">
-                            Technologies
-                        </span>
-                    </div>
-                    <div className="timeline-stat-item">
-                        <span className="timeline-stat-number">
-                            {
-                                [
-                                    ...new Set(
-                                        experiences.map((exp) => exp.location)
-                                    ),
-                                ].length
-                            }
-                        </span>
-                        <span className="timeline-stat-label">Cities</span>
+
+                    <div className="timeline-stats">
+                        <div className="timeline-stat-item">
+                            <span className="timeline-stat-number">
+                                {
+                                    experiences.filter(
+                                        (exp) => exp.isActive !== false
+                                    ).length
+                                }
+                            </span>
+                            <span className="timeline-stat-label">
+                                Experiences
+                            </span>
+                        </div>
+                        <div className="timeline-stat-item">
+                            <span className="timeline-stat-number">
+                                {
+                                    [
+                                        ...new Set(
+                                            experiences.flatMap(
+                                                (exp) => exp.technologies
+                                            )
+                                        ),
+                                    ].length
+                                }
+                            </span>
+                            <span className="timeline-stat-label">
+                                Technologies
+                            </span>
+                        </div>
+                        <div className="timeline-stat-item">
+                            <span className="timeline-stat-number">
+                                {
+                                    [
+                                        ...new Set(
+                                            experiences.map(
+                                                (exp) => exp.location
+                                            )
+                                        ),
+                                    ].length
+                                }
+                            </span>
+                            <span className="timeline-stat-label">Cities</span>
+                        </div>
                     </div>
                 </div>
             </div>

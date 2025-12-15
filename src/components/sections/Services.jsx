@@ -113,7 +113,7 @@ const Services = () => {
                     <div className="services-profile-icon" ref={profileIconRef}>
                         <img src={BadgerIcon} alt="badger cs logo" />
                     </div>
-                    <p>Your Vision. My Expertise.</p>
+                    <p>My Vision. My Expertise.</p>
                     <div className="services-header-title">
                         <h1>Software Engineering</h1>
                         <h1>& Areas of Expertise</h1>

@@ -60,14 +60,17 @@ p,
 p.ss {
     font-family: "formula-narrow";
     font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.125;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
 }
 
 p.mn {
     text-transform: uppercase;
     font-family: "supply-mono";
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
     line-height: 1.125;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
 }

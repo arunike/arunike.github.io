@@ -52,12 +52,14 @@ const AboutMe = () => {
             <div className="about-hero-bio">
                 <p className="ss">
                     I bring a Day 1 mindset to every project: stay close to
-                    users, move fast, and keep raising the bar. I've built
-                    across frontend, backend, web, mobile, and analytics, and I
-                    take full ownership from design to delivery, including
-                    reliability, edge cases, and long term maintainability. I
-                    want to build customer obsessed products that scale and
-                    create measurable impact.
+                    users, move fast, and keep raising the bar.
+                </p>
+                <p className="ss">
+                    I've built across frontend, backend, web, mobile, and
+                    analytics, and I take full ownership from design to
+                    delivery, including reliability, edge cases, and long term
+                    maintainability. I want to build customer obsessed products
+                    that scale and create measurable impact.
                 </p>
                 <p className="mn">Code / Design / Craft / Repeat</p>
             </div>

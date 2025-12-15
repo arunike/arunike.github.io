@@ -61,10 +61,6 @@
 }
 
 .contact-card-header-main p {
-    font-family: "formula-narrow";
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.125;
     color: var(--fg);
     max-width: 90%;
 }
@@ -164,15 +160,6 @@
     color: var(--fg);
 }
 
-.form-header p {
-    font-family: "formula-narrow";
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.125;
-    color: var(--fg);
-    opacity: 0.8;
-}
-
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -181,7 +168,7 @@
 
 .form-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 0.5em;
     position: relative;
 }
@@ -355,12 +342,15 @@
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 0.4;
     }
+
     90% {
         opacity: 0.4;
     }
+
     100% {
         transform: translateY(-100px) rotate(360deg);
         opacity: 0;
@@ -371,9 +361,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -383,6 +375,7 @@
     0% {
         transform: translateX(-50%);
     }
+
     100% {
         transform: translateX(0%);
     }

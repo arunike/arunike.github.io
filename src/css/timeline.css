@@ -29,7 +29,6 @@
 }
 
 .timeline-subtitle {
-    font-size: 1.25rem;
     color: #666;
     margin: 0;
 }
@@ -357,7 +356,7 @@
 }
 
 .timeline-company-logo span {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
 }
@@ -367,14 +366,15 @@
 }
 
 .timeline-role {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 0.25rem 0;
     transition: color 0.3s ease;
 }
 
 .timeline-company {
-    font-size: 0.9rem;
+    font-family: "formula-narrow";
+    font-size: 1rem;
     font-weight: 500;
     color: var(--accent1);
     margin: 0;
@@ -388,6 +388,7 @@
     color: white;
     padding: 0.25rem 0.6rem;
     border-radius: 9999px;
+    font-family: "supply-mono";
     font-size: 0.7rem;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
@@ -406,7 +407,7 @@
 }
 
 .timeline-department {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #666;
     font-style: italic;
     margin-bottom: 1rem;
@@ -420,7 +421,8 @@
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1rem;
-    font-size: 0.8rem;
+    font-family: "supply-mono";
+    font-size: 0.9rem;
     color: #666;
 }
 
@@ -443,7 +445,7 @@
 }
 
 .timeline-achievements p {
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.5;
     color: var(--fg);
     margin-bottom: 0.4rem;
@@ -458,7 +460,8 @@
 .timeline-tech-tag {
     padding: 0.2rem 0.6rem;
     border-radius: 9999px;
-    font-size: 0.7rem;
+    font-family: "supply-mono";
+    font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid;
     transition: all 0.3s ease;

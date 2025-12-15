@@ -18,8 +18,8 @@ const Home = () => {
             <AboutMe />
             <FeaturedWork />
             <Services />
-            <Skills />
             <Timeline />
+            <Skills />
             <ContactForm />
             <Footer />
         </div>

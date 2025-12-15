@@ -3,21 +3,22 @@
     position: relative;
     width: 100vw;
     min-height: 100svh;
-    padding: clamp(4em, 8vh, 8em) 2em clamp(3em, 6vh, 6em) 2em;
+    padding: clamp(4em, 8vh, 8em) 4em clamp(3em, 6vh, 6em) 4em;
     display: grid;
-    grid-template-rows: minmax(auto, 20vh) minmax(auto, 1fr) minmax(auto, 30vh);
-    grid-template-columns: 1fr;
-    place-items: center;
-    gap: clamp(1em, 2vh, 2em);
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    gap: 3em 4em;
+    align-items: center;
     background-color: var(--bg);
     color: var(--fg);
     overflow: hidden;
 }
 
 .about-hero .about-hero-header {
-    text-align: center;
+    grid-column: 1;
     grid-row: 1;
-    align-self: start;
+    text-align: left;
+    margin-left: 6em;
 }
 
 .about-hero .about-hero-header h1 {
@@ -26,8 +27,9 @@
 }
 
 .about-hero .about-hero-portrait {
-    grid-row: 2;
-    width: clamp(150px, 12vw, 280px);
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: clamp(200px, 22vw, 320px);
     aspect-ratio: 5/7;
     border-radius: 1em;
     overflow: hidden;
@@ -35,16 +37,27 @@
     outline: 0.25em solid var(--accent1);
     transform: rotate(10deg);
     align-self: center;
-    margin-top: 6em;
+    justify-self: center;
+    margin-bottom: 12em;
+    margin-right: 6em;
+}
+
+.about-hero .about-hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .about-hero .about-hero-bio {
-    text-align: center;
-    width: min(90%, 650px);
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    margin-top: -4em;
+    max-width: 650px;
+    align-self: start;
+    margin-left: 6em;
 }
 
 /* about - about copy */
@@ -187,7 +200,16 @@
 @media (max-width: 1000px) {
     .about-hero {
         padding: 6em 1.5em 3em 1.5em;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
         gap: 2em;
+        place-items: center;
+    }
+
+    .about-hero .about-hero-header {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
     }
 
     .about-hero .about-hero-header h1 {
@@ -195,13 +217,18 @@
     }
 
     .about-hero .about-hero-portrait {
-        width: clamp(120px, 35vw, 200px);
-        margin-top: 2em;
+        grid-column: 1;
+        grid-row: 2;
+        width: clamp(150px, 40vw, 220px);
+        justify-self: center;
     }
 
     .about-hero .about-hero-bio {
+        grid-column: 1;
+        grid-row: 3;
         width: 100%;
-        margin-top: 0;
+        text-align: center;
+        align-self: start;
     }
 
     .about-copy {

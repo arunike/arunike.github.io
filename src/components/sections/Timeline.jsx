@@ -72,7 +72,34 @@ const extractColorFromImage = (imageSrc) => {
 
 const Timeline = () => {
     const timelineRef = useRef([]);
+    const scrollContainerRef = useRef(null);
     const [experienceColors, setExperienceColors] = useState({});
+    const [showLeftFade, setShowLeftFade] = useState(false);
+    const [showRightFade, setShowRightFade] = useState(true);
+
+    const checkScroll = () => {
+        if (!scrollContainerRef.current) return;
+
+        const { scrollLeft, scrollWidth, clientWidth } =
+            scrollContainerRef.current;
+        setShowLeftFade(scrollLeft > 20);
+        setShowRightFade(scrollLeft < scrollWidth - clientWidth - 20);
+    };
+
+    const scrollBy = (amount) => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: amount,
+                behavior: "smooth",
+            });
+        }
+    };
+
+    useEffect(() => {
+        checkScroll();
+        window.addEventListener("resize", checkScroll);
+        return () => window.removeEventListener("resize", checkScroll);
+    }, []);
 
     const experiences = useMemo(
         () => [
@@ -164,28 +191,38 @@ const Timeline = () => {
         };
 
         extractColors();
+    }, [experiences]);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("timeline-animated");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
+    useEffect(() => {
+        const observerOptions = {
+            root: scrollContainerRef.current,
+            rootMargin: "0px -20% 0px -20%",
+            threshold: 0.4,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("timeline-animated");
+                } else {
+                    entry.target.classList.remove("timeline-animated");
+                }
+            });
+        }, observerOptions);
 
         const currentTimelineRefs = timelineRef.current;
         currentTimelineRefs.forEach((ref) => {
             if (ref) observer.observe(ref);
         });
 
+        checkScroll();
+        window.addEventListener("resize", checkScroll);
+
         return () => {
             currentTimelineRefs.forEach((ref) => {
                 if (ref) observer.unobserve(ref);
             });
+            window.removeEventListener("resize", checkScroll);
         };
     }, [experiences]);
 
@@ -205,169 +242,217 @@ const Timeline = () => {
                     </p>
                 </div>
 
-                <div className="timeline-line-wrapper">
-                    <div className="timeline-line"></div>
+                <div className="timeline-scroll-wrapper">
+                    <div
+                        className={`timeline-fade-left ${showLeftFade ? "visible" : ""}`}
+                        onClick={() => scrollBy(-300)}
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </div>
 
-                    {experiences.map((exp, index) => {
-                        const expColor = experienceColors[exp.id] || "#000000";
+                    <div
+                        className={`timeline-fade-right ${showRightFade ? "visible" : ""}`}
+                        onClick={() => scrollBy(300)}
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </div>
 
-                        return (
-                            <div
-                                key={exp.id}
-                                ref={addToRefs}
-                                className={`timeline-item ${
-                                    index % 2 === 0
-                                        ? "timeline-left"
-                                        : "timeline-right"
-                                }`}
-                            >
-                                <div className="timeline-content">
+                    <div
+                        className="timeline-line-wrapper"
+                        ref={scrollContainerRef}
+                        onScroll={checkScroll}
+                    >
+                        <div className="timeline-track">
+                            <div className="timeline-line"></div>
+
+                            {experiences.map((exp, index) => {
+                                const expColor =
+                                    experienceColors[exp.id] || "#000000";
+
+                                const positionClass = exp.position
+                                    ? `timeline-${exp.position}`
+                                    : index % 2 === 0
+                                      ? "timeline-top"
+                                      : "timeline-bottom";
+
+                                return (
                                     <div
-                                        className="timeline-card"
-                                        style={{
-                                            borderLeft: `4px solid ${expColor}`,
-                                            background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
-                                        }}
+                                        key={exp.id}
+                                        ref={addToRefs}
+                                        className={`timeline-item ${positionClass}`}
                                     >
-                                        {/* Company Header */}
-                                        <div className="timeline-company-header">
-                                            <div className="timeline-company-logo">
-                                                <img
-                                                    src={exp.logo}
-                                                    alt={exp.company}
-                                                />
-                                            </div>
-                                            <div className="timeline-company-info">
-                                                <h3
-                                                    className="timeline-role"
-                                                    style={{ color: expColor }}
+                                        <div className="timeline-content">
+                                            <div
+                                                className="timeline-card"
+                                                style={{
+                                                    borderLeft: `4px solid ${expColor}`,
+                                                    background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
+                                                }}
+                                            >
+                                                {/* Company Header */}
+                                                <div className="timeline-company-header">
+                                                    <div className="timeline-company-logo">
+                                                        <img
+                                                            src={exp.logo}
+                                                            alt={exp.company}
+                                                        />
+                                                    </div>
+                                                    <div className="timeline-company-info">
+                                                        <h3
+                                                            className="timeline-role"
+                                                            style={{
+                                                                color: expColor,
+                                                            }}
+                                                        >
+                                                            {exp.role}
+                                                        </h3>
+                                                        <h4 className="timeline-company">
+                                                            {exp.company}
+                                                        </h4>
+                                                    </div>
+                                                    {exp.isActive && (
+                                                        <span className="timeline-active-badge">
+                                                            Current
+                                                        </span>
+                                                    )}
+                                                </div>
+
+                                                {/* Department */}
+                                                <div
+                                                    className="timeline-department"
+                                                    style={{
+                                                        borderLeftColor:
+                                                            expColor,
+                                                    }}
                                                 >
-                                                    {exp.role}
-                                                </h3>
-                                                <h4 className="timeline-company">
-                                                    {exp.company}
-                                                </h4>
-                                            </div>
-                                            {exp.isActive && (
-                                                <span className="timeline-active-badge">
-                                                    Current
-                                                </span>
-                                            )}
-                                        </div>
+                                                    {exp.department}
+                                                </div>
 
-                                        {/* Department */}
-                                        <div
-                                            className="timeline-department"
-                                            style={{
-                                                borderLeftColor: expColor,
-                                            }}
-                                        >
-                                            {exp.department}
-                                        </div>
-
-                                        {/* Location & Duration */}
-                                        <div className="timeline-meta">
-                                            <span className="timeline-location">
-                                                <svg
-                                                    width="16"
-                                                    height="16"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                                    <circle
-                                                        cx="12"
-                                                        cy="10"
-                                                        r="3"
-                                                    />
-                                                </svg>
-                                                {exp.location}
-                                            </span>
-                                            <span className="timeline-duration">
-                                                <svg
-                                                    width="16"
-                                                    height="16"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                >
-                                                    <rect
-                                                        x="3"
-                                                        y="4"
-                                                        width="18"
-                                                        height="18"
-                                                        rx="2"
-                                                        ry="2"
-                                                    />
-                                                    <line
-                                                        x1="16"
-                                                        y1="2"
-                                                        x2="16"
-                                                        y2="6"
-                                                    />
-                                                    <line
-                                                        x1="8"
-                                                        y1="2"
-                                                        x2="8"
-                                                        y2="6"
-                                                    />
-                                                    <line
-                                                        x1="3"
-                                                        y1="10"
-                                                        x2="21"
-                                                        y2="10"
-                                                    />
-                                                </svg>
-                                                {exp.duration}
-                                            </span>
-                                        </div>
-
-                                        {/* Achievements */}
-                                        <div className="timeline-achievements">
-                                            {exp.achievements.map(
-                                                (achievement, idx) => (
-                                                    <p key={idx}>
-                                                        {achievement}
-                                                    </p>
-                                                )
-                                            )}
-                                        </div>
-
-                                        {/* Technologies */}
-                                        <div className="timeline-tech-stack">
-                                            {exp.technologies.map(
-                                                (tech, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="timeline-tech-tag"
-                                                        style={{
-                                                            backgroundColor: `${expColor}20`,
-                                                            color: expColor,
-                                                            borderColor: `${expColor}40`,
-                                                        }}
-                                                    >
-                                                        {tech}
+                                                {/* Location & Duration */}
+                                                <div className="timeline-meta">
+                                                    <span className="timeline-location">
+                                                        <svg
+                                                            width="16"
+                                                            height="16"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                                            <circle
+                                                                cx="12"
+                                                                cy="10"
+                                                                r="3"
+                                                            />
+                                                        </svg>
+                                                        {exp.location}
                                                     </span>
-                                                )
-                                            )}
+                                                    <span className="timeline-duration">
+                                                        <svg
+                                                            width="16"
+                                                            height="16"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <rect
+                                                                x="3"
+                                                                y="4"
+                                                                width="18"
+                                                                height="18"
+                                                                rx="2"
+                                                                ry="2"
+                                                            />
+                                                            <line
+                                                                x1="16"
+                                                                y1="2"
+                                                                x2="16"
+                                                                y2="6"
+                                                            />
+                                                            <line
+                                                                x1="8"
+                                                                y1="2"
+                                                                x2="8"
+                                                                y2="6"
+                                                            />
+                                                            <line
+                                                                x1="3"
+                                                                y1="10"
+                                                                x2="21"
+                                                                y2="10"
+                                                            />
+                                                        </svg>
+                                                        {exp.duration}
+                                                    </span>
+                                                </div>
+
+                                                {/* Achievements */}
+                                                <div className="timeline-achievements">
+                                                    {exp.achievements.map(
+                                                        (achievement, idx) => (
+                                                            <p key={idx}>
+                                                                {achievement}
+                                                            </p>
+                                                        )
+                                                    )}
+                                                </div>
+
+                                                {/* Technologies */}
+                                                <div className="timeline-tech-stack">
+                                                    {exp.technologies.map(
+                                                        (tech, idx) => (
+                                                            <span
+                                                                key={idx}
+                                                                className="timeline-tech-tag"
+                                                                style={{
+                                                                    backgroundColor: `${expColor}20`,
+                                                                    color: expColor,
+                                                                    borderColor: `${expColor}40`,
+                                                                }}
+                                                            >
+                                                                {tech}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Timeline Dot */}
+                                        <div
+                                            className="timeline-dot"
+                                            style={{ borderColor: expColor }}
+                                        >
+                                            <div
+                                                className="timeline-dot-inner"
+                                                style={{
+                                                    backgroundColor: expColor,
+                                                }}
+                                            ></div>
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* Timeline Dot */}
-                                <div
-                                    className="timeline-dot"
-                                    style={{ borderColor: expColor }}
-                                >
-                                    <div
-                                        className="timeline-dot-inner"
-                                        style={{ backgroundColor: expColor }}
-                                    ></div>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Stats Section */}

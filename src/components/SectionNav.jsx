@@ -66,12 +66,31 @@ const SectionNav = () => {
         }
     };
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        let timeoutId;
+        const handleScroll = () => {
+            setIsVisible(true);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                setIsVisible(false);
+            }, 2000);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            clearTimeout(timeoutId);
+        };
+    }, []);
+
     if (location.pathname !== "/") {
         return null;
     }
 
     return (
-        <nav className="section-nav">
+        <nav className={`section-nav ${isVisible ? "visible" : ""}`}>
             <ul>
                 {sections.map((section) => (
                     <li

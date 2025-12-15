@@ -13,10 +13,15 @@
     padding: 1em 1.5em;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 60px;
+    opacity: 0;
     transition:
         width 0.3s ease,
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+        opacity 0.3s ease;
+}
+
+.section-nav.visible,
+.section-nav:hover {
+    opacity: 1;
 }
 
 /* Hide section nav when menu overlay is visible */
@@ -33,6 +38,7 @@ body:has(.nav-overlay[style*="pointer-events: all"]) .section-nav {
     visibility: hidden;
     pointer-events: none;
 }
+
 .section-nav:hover,
 .section-nav:has(.active) {
     width: 120px;

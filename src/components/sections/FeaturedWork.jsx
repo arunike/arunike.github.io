@@ -1,221 +1,193 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Import project images
-import CS407 from "../../assets/images/courses/compsci407.png";
-import CS579 from "../../assets/images/courses/compsci579.gif";
-import ResumeBuilder from "../../assets/images/projects/resume_builder.png";
+import BlueDrop from "../../assets/images/courses/compsci407.png";
+import VRGame from "../../assets/images/courses/compsci579.gif";
+import Resume from "../../assets/images/projects/resume_builder.png";
 import VHR from "../../assets/images/projects/vhr.png";
-import CS506 from "../../assets/images/courses/compsci506.png";
+import BirdFeeder from "../../assets/images/courses/compsci506.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedWork = () => {
-    const scrollTriggerInstanceRef = useRef(null);
+    const sectionRef = useRef(null);
+    const triggerRef = useRef(null);
 
-    const workImages = useMemo(
-        () => [CS407, CS579, ResumeBuilder, VHR, CS506],
+    const projects = useMemo(
+        () => [
+            {
+                id: 1,
+                title: "BlueDrop",
+                category: "Mobile App",
+                description:
+                    "Mobile application for water quality monitoring and community engagement. Empowering local communities to track and improve their water sources.",
+                tags: ["Android", "Kotlin", "Firebase"],
+                image: BlueDrop,
+            },
+            {
+                id: 2,
+                title: "Cyberpunk VR",
+                category: "Game Dev",
+                description:
+                    "Immersive VR racing game featuring neon-soaked skyscrapers and high-speed tracks. A thrill ride through a futuristic metropolis.",
+                tags: ["Unity", "C#", "VR"],
+                image: VRGame,
+            },
+            {
+                id: 3,
+                title: "Resume Builder",
+                category: "Web App",
+                description:
+                    "Interactive tool with real-time preview and PDF export. simplifying the job application process with clean, professional templates.",
+                tags: ["React", "Node.js", "PDF.js"],
+                image: Resume,
+            },
+            {
+                id: 4,
+                title: "VHR System",
+                category: "Enterprise",
+                description:
+                    "Comprehensive HR management system separating front and back end services. Handles payroll, employee data, and recruitment flows.",
+                tags: ["Java", "Spring Boot", "Vue.js"],
+                image: VHR,
+            },
+            {
+                id: 5,
+                title: "Smart Bird Feeder",
+                category: "AI / IoT",
+                description:
+                    "IoT device using machine learning to identify bird species in real-time. Features automated feeding schedules and live streaming.",
+                tags: ["React", "YOLO", "Computer Vision"],
+                image: BirdFeeder,
+            },
+        ],
         []
     );
 
+    const [progress, setProgress] = useState(0);
+
     useEffect(() => {
-        const initAnimations = () => {
-            if (window.innerWidth <= 1000) {
-                if (scrollTriggerInstanceRef.current) {
-                    scrollTriggerInstanceRef.current.kill();
-                    scrollTriggerInstanceRef.current = null;
-                }
-                return;
-            }
+        const totalSlides = projects.length;
 
-            if (scrollTriggerInstanceRef.current) {
-                scrollTriggerInstanceRef.current.kill();
-            }
-
-            const indicatorContainer = document.querySelector(
-                ".featured-work-indicator"
-            );
-            indicatorContainer.innerHTML = "";
-            for (let section = 1; section <= workImages.length; section++) {
-                const sectionNumber = document.createElement("p");
-                sectionNumber.className = "mn";
-                sectionNumber.textContent = `0${section}`;
-                indicatorContainer.appendChild(sectionNumber);
-                for (let i = 0; i < 10; i++) {
-                    const indicator = document.createElement("div");
-                    indicator.className = "indicator";
-                    indicatorContainer.appendChild(indicator);
-                }
-            }
-
-            const featuredTitles = document.querySelector(".featured-titles");
-            const moveDistance = window.innerWidth * (workImages.length - 1);
-
-            const imagesContainer = document.querySelector(".featured-images");
-            imagesContainer.innerHTML = "";
-
-            const randomPositions = [
-                { x: 45, y: 45, rotation: -5 },
-                { x: 55, y: 40, rotation: 8 },
-                { x: 48, y: 52, rotation: -7 },
-                { x: 52, y: 48, rotation: 6 },
-                { x: 50, y: 55, rotation: -4 },
-            ];
-
-            for (let i = 0; i < workImages.length; i++) {
-                const featuredImgCard = document.createElement("div");
-                featuredImgCard.className = `featured-img-card featured-img-card-${
-                    i + 1
-                }`;
-                const img = document.createElement("img");
-                img.src = workImages[i];
-                img.alt = `featured work image ${i + 1}`;
-                featuredImgCard.appendChild(img);
-
-                const pos = randomPositions[i];
-                // Position at random locations
-                gsap.set(featuredImgCard, {
-                    left: `${pos.x}%`,
-                    top: `${pos.y}%`,
-                    xPercent: -50,
-                    yPercent: -50,
-                    scale: 0,
-                    opacity: 0,
-                    rotation: 0,
-                    zIndex: i,
-                });
-                imagesContainer.appendChild(featuredImgCard);
-            }
-
-            const featuredImgCards =
-                document.querySelectorAll(".featured-img-card");
-
-            scrollTriggerInstanceRef.current = ScrollTrigger.create({
-                trigger: ".featured-work",
-                start: "top top",
-                end: `+=${window.innerHeight * workImages.length}px`,
-                pin: true,
-                scrub: 1,
-                onUpdate: (self) => {
-                    const xPosition = -moveDistance * self.progress;
-                    gsap.set(featuredTitles, {
-                        x: xPosition,
-                    });
-
-                    const numSections = workImages.length;
-                    const progressPerSection = 1 / numSections;
-
-                    featuredImgCards.forEach((featuredImgCard, index) => {
-                        const sectionStart = index * progressPerSection;
-
-                        let sectionProgress =
-                            (self.progress - sectionStart) / progressPerSection;
-                        sectionProgress = Math.max(
-                            0,
-                            Math.min(1, sectionProgress)
-                        );
-
-                        let scale, opacity, rotation;
-                        const pos = randomPositions[index];
-
-                        if (sectionProgress <= 0.5) {
-                            // First half: scale from 0 to 1
-                            scale = sectionProgress * 2;
-                            opacity = sectionProgress * 2;
-                            rotation = pos.rotation * (1 - sectionProgress * 2);
-                        } else {
-                            // Second half: scale from 1 to 0
-                            scale = (1 - sectionProgress) * 2;
-                            opacity = (1 - sectionProgress) * 2;
-                            rotation =
-                                pos.rotation * ((sectionProgress - 0.5) * 2);
-                        }
-
-                        gsap.set(featuredImgCard, {
-                            scale: scale,
-                            opacity: opacity,
-                            rotation: rotation,
-                        });
-                    });
-
-                    const indicators = document.querySelectorAll(".indicator");
-                    const totalIndicators = indicators.length;
-                    const progressPerIndicator = 1 / totalIndicators;
-                    indicators.forEach((indicator, index) => {
-                        const indicatorStart = index * progressPerIndicator;
-                        const indicatorOpacity =
-                            self.progress > indicatorStart ? 1 : 0.2;
-                        gsap.to(indicator, {
-                            opacity: indicatorOpacity,
-                            duration: 0.3,
-                        });
-                    });
+        const pin = gsap.fromTo(
+            sectionRef.current,
+            {
+                translateX: 0,
+            },
+            {
+                translateX: `-${(totalSlides - 1) * 100}vw`,
+                ease: "none",
+                duration: 1,
+                scrollTrigger: {
+                    trigger: triggerRef.current,
+                    start: "top top",
+                    end: "+=5000",
+                    scrub: 0.6,
+                    pin: true,
+                    onUpdate: (self) => {
+                        setProgress(Math.round(self.progress * 100));
+                    },
                 },
-            });
-        };
-
-        initAnimations();
-
-        const handleResize = () => {
-            initAnimations();
-        };
-
-        window.addEventListener("resize", handleResize);
+            }
+        );
 
         return () => {
-            window.removeEventListener("resize", handleResize);
-            if (scrollTriggerInstanceRef.current) {
-                scrollTriggerInstanceRef.current.kill();
-            }
+            pin.kill();
         };
-    }, [workImages]);
+    }, [projects.length]);
 
     return (
-        <section id="featured-work" className="featured-work">
-            <div className="featured-images"></div>
-            <div className="featured-titles">
-                <div className="featured-title-wrapper">
-                    <h1 className="featured-title">Featured Projects</h1>
-                </div>
-                <div className="featured-title-wrapper">
-                    <div className="featured-title-img">
-                        <img src={CS407} alt="BlueDrop" />
-                    </div>
-                    <h1 className="featured-title">BlueDrop</h1>
-                </div>
-                <div className="featured-title-wrapper">
-                    <div className="featured-title-img">
-                        <img src={CS579} alt="Cyberpunk VR Racing Game" />
-                    </div>
-                    <h1 className="featured-title">Cyberpunk VR Racing Game</h1>
-                </div>
-                <div className="featured-title-wrapper">
-                    <div className="featured-title-img">
-                        <img src={ResumeBuilder} alt="Resume Builder" />
-                    </div>
-                    <h1 className="featured-title">Resume Builder</h1>
-                </div>
-                <div className="featured-title-wrapper">
-                    <div className="featured-title-img">
-                        <img src={VHR} alt="VHR" />
-                    </div>
-                    <h1 className="featured-title">VHR</h1>
-                </div>
-                <div className="featured-title-wrapper">
-                    <div className="featured-title-img">
-                        <img src={CS506} alt="Five Course Bird Feeder" />
-                    </div>
-                    <h1 className="featured-title">Five Course Bird Feeder</h1>
-                </div>
+        <section className="featured-work-container" ref={triggerRef}>
+            {/* Custom Scroll Indicator (Left Side) */}
+            <div className="featured-progress-bar">
+                <div
+                    className="progress-fill"
+                    style={{ height: `${progress}%` }}
+                ></div>
             </div>
-            <div className="featured-work-indicator"></div>
+
+            <div className="featured-work-slider" ref={sectionRef}>
+                {/* Intro / Header Slide? Optional. Let's start with project 1 directly or having a header on top? 
+                    User wants "Narrative". Let's put a header on the first slide alongside the content or just start. 
+                    Let's stick to the plan: Projects + View All. 
+                */}
+
+                {projects.map((project, index) => (
+                    <div className="project-slide" key={index}>
+                        {/* Slide Content (Left) */}
+                        <div className="slide-content">
+                            <span className="project-watermark">
+                                {`0${index + 1}`}
+                            </span>
+                            <h3 className="project-cat">{project.category}</h3>
+                            <h2 className="project-title">{project.title}</h2>
+                            <p className="project-desc">
+                                {project.description}
+                            </p>
+
+                            <div className="project-tags">
+                                {project.tags.map((tag, i) => (
+                                    <span key={i} className="p-tag">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Slide Visual (Right) */}
+                        <div className="slide-visual">
+                            <div className="img-wrapper">
+                                <img src={project.image} alt={project.title} />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="featured-work-indicator">
+                {projects.map((_, index) => {
+                    return (
+                        <div key={index} className="indicator-group-vertical">
+                            <span
+                                className={`indicator-num ${progress > (index / projects.length) * 100 ? "active" : ""}`}
+                            >
+                                {`0${index + 1}`}
+                            </span>
+                            {[...Array(6)].map((__, i) => {
+                                const totalLinesPerSection = 6;
+                                const sectionStart =
+                                    (index / projects.length) * 100;
+                                const sectionEnd =
+                                    ((index + 1) / projects.length) * 100;
+                                const lineStep =
+                                    (sectionEnd - sectionStart) /
+                                    totalLinesPerSection;
+                                const lineThreshold =
+                                    sectionStart + i * lineStep;
+
+                                const isActive = progress > lineThreshold;
+
+                                return (
+                                    <div
+                                        key={i}
+                                        className="i-line"
+                                        style={{ opacity: isActive ? 1 : 0.2 }}
+                                    ></div>
+                                );
+                            })}
+                        </div>
+                    );
+                })}
+            </div>
+
             <div className="featured-work-footer">
                 <p className="mn">Project Portfolio</p>
                 <p className="mn">///////////////////</p>
                 <p className="mn">
-                    <a href="/projects">View All Projects</a>
+                    <a href="#/projects">View All Projects</a>
                 </p>
             </div>
         </section>

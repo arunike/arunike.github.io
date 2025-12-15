@@ -203,6 +203,19 @@ button.dropdown-toggle.active {
     height: 20px;
 }
 
+.project-link.demo-link {
+    background-color: var(--accent1);
+    color: var(--bg);
+    border: 1px solid var(--accent1);
+}
+
+.project-link.demo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(237, 106, 90, 0.4);
+    background-color: var(--accent1);
+    color: var(--bg);
+}
+
 /* Demo Links List */
 .demo-links-list {
     background-color: white;

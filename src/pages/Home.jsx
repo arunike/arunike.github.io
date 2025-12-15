@@ -3,7 +3,7 @@ import Hero from "../components/Main";
 import SectionNav from "../components/SectionNav";
 import AboutMe from "../components/sections/AboutMe";
 import FeaturedWork from "../components/sections/FeaturedWork";
-import Services from "../components/sections/Services";
+import Expertise from "../components/sections/Expertise";
 import Skills from "../components/sections/Skills";
 import Timeline from "../components/sections/Timeline";
 import ContactForm from "../components/sections/ContactForm";
@@ -17,7 +17,7 @@ const Home = ({ loaded }) => {
             <Hero loaded={loaded} />
             <AboutMe />
             <FeaturedWork />
-            <Services />
+            <Expertise />
             <Timeline />
             <Skills />
             <ContactForm />

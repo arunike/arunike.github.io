@@ -10,7 +10,7 @@ const SectionNav = () => {
             { id: "hero", label: "Home" },
             { id: "about-hero", label: "About" },
             { id: "featured-work", label: "Projects" },
-            { id: "services-header", label: "Services" },
+            { id: "expertise-header", label: "Expertise" },
             { id: "skills", label: "Skills" },
             { id: "timeline", label: "Timeline" },
             { id: "contact", label: "Contact" },

@@ -13,7 +13,7 @@ Built with:
 - **Individual section components** - Modular React components for each section of the portfolio.
 - **Featured Projects Showcase** - Scroll-triggered animations displaying key projects.
 - **Course Taken Page** - Dedicated section for courses taken at university and included reviews for each course.
-- **Services & Expertise** - Highlighting backend, frontend, and DevOps skills.
+- **Expertise** - Highlighting concentated areas of expertise.
 - **Skills Timeline** - Visual representation of technical skills and professional journey.
 - **Contact Form** - Interactive form for project inquiries and collaboration.
 - **Responsive Design** - Optimized for desktop and mobile viewing.
@@ -92,7 +92,7 @@ src/
 1. **Home** - Landing section with animated name and rotating project images
 2. **About** - Introduction with profile picture and bio
 3. **Featured Work** - Scroll-based showcase of top 5 projects
-4. **Services** - Areas of expertise with stacking card animations
+4. **Expertise** - Areas of expertise with stacking card animations
 5. **Skills** - Comprehensive tech stack display
 6. **Timeline** - Professional experience and education
 7. **Contact** - Form for reaching out

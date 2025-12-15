@@ -396,8 +396,8 @@
     transform: translateX(4px);
 }
 
-/* home - services header */
-.services-header {
+/* home - expertise header */
+.expertise-header {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -408,7 +408,7 @@
     text-align: center;
 }
 
-.services-header .services-profile-icon {
+.expertise-header .expertise-profile-icon {
     position: relative;
     width: 100px;
     height: 100px;
@@ -419,7 +419,7 @@
     overflow: hidden;
 }
 
-.services-header .services-header-content {
+.expertise-header .expertise-header-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -427,17 +427,17 @@
     gap: 1em;
 }
 
-.services-header .services-header-title {
+.expertise-header .expertise-header-title {
     margin-bottom: 6em;
 }
 
-/* home - services */
-.services .service-card {
+/* home - expertise */
+.expertise .expertise-card {
     position: relative;
     min-height: 300px;
 }
 
-.services .service-card-inner {
+.expertise .expertise-card-inner {
     position: relative;
     will-change: transform;
     width: calc(100vw - 4em);
@@ -450,33 +450,50 @@
     min-height: 500px;
 }
 
-.services .service-card-content {
+.expertise .expertise-card-content {
     flex: 3;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    justify-content: flex-start;
 }
 
-.services .service-card-img {
+.expertise .expertise-card-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-left: 1.5rem;
+    max-width: 600px;
+}
+
+.expertise .expertise-card-content li {
+    font-family: "formula-narrow";
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: black;
+    list-style-type: disc;
+}
+
+.expertise .expertise-card-img {
     flex: 1;
     aspect-ratio: 4/5;
     border-radius: 2em;
     overflow: hidden;
 }
 
-.services #service-card-1 .service-card-inner {
+.expertise #expertise-card-1 .expertise-card-inner {
     background-color: var(--accent1);
 }
 
-.services #service-card-2 .service-card-inner {
+.expertise #expertise-card-2 .expertise-card-inner {
     background-color: var(--accent2);
 }
 
-.services #service-card-3 .service-card-inner {
+.expertise #expertise-card-3 .expertise-card-inner {
     background-color: var(--accent3);
 }
 
-.services #service-card-4 .service-card-inner {
+.expertise #expertise-card-4 .expertise-card-inner {
     background-color: var(--fg);
     color: var(--bg);
 }
@@ -570,23 +587,23 @@
         display: none;
     }
 
-    .services-header {
+    .expertise-header {
         height: auto;
         padding: 4em 1.5em;
     }
 
-    .services-header .services-header-title h1 {
+    .expertise-header .expertise-header-title h1 {
         font-size: clamp(1.75rem, 6vw, 3rem);
     }
 
-    .services {
+    .expertise {
         display: flex;
         flex-direction: column;
         gap: 2em;
         padding: 2em 1.5em;
     }
 
-    .services .service-card-inner {
+    .expertise .expertise-card-inner {
         min-height: 0;
         flex-direction: column;
         justify-content: center;
@@ -597,11 +614,11 @@
         padding: 2em 1.5em;
     }
 
-    .services .service-card-inner h1 {
+    .expertise .expertise-card-inner h1 {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
     }
 
-    .services .service-card-img {
+    .expertise .expertise-card-img {
         aspect-ratio: 5/3;
         border: 0.2em solid var(--fg);
         border-radius: 1em;

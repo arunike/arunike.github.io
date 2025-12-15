@@ -4,7 +4,7 @@ import {
     Route,
     useLocation,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Transition from "./components/Transition";
 import Home from "./pages/Home";
 import CourseTaken from "./pages/courses/CourseTaken";
@@ -16,7 +16,6 @@ import "./css/globals.css";
 import "./css/menu.css";
 import "./css/home.css";
 import "./css/about.css";
-import "./css/work.css";
 import "./css/skills.css";
 import "./css/timeline.css";
 import "./css/projects.css";
@@ -62,13 +61,28 @@ function ScrollToTop() {
 
 function App() {
     useSmoothScroll();
+    const [loaded, setLoaded] = useState(false);
+
+    const handleTransitionComplete = useCallback(() => {
+        setLoaded(true);
+    }, []);
+
+    useEffect(() => {
+        if (loaded) {
+            document.body.style.overflow = "auto";
+            if (window.lenis) window.lenis.start();
+        } else {
+            document.body.style.overflow = "hidden";
+            if (window.lenis) window.lenis.stop();
+        }
+    }, [loaded]);
 
     return (
         <Router>
             <ScrollToTop />
-            <Transition />
+            <Transition onComplete={handleTransitionComplete} />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home loaded={loaded} />} />
                 <Route path="/courses" element={<CourseTaken />} />
                 <Route path="/projects" element={<Projects />} />
             </Routes>

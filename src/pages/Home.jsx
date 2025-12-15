@@ -9,12 +9,12 @@ import Timeline from "../components/sections/Timeline";
 import ContactForm from "../components/sections/ContactForm";
 import Footer from "../components/sections/Footer";
 
-const Home = () => {
+const Home = ({ loaded }) => {
     return (
         <div className="page home-page">
             <Nav />
             <SectionNav />
-            <Hero />
+            <Hero loaded={loaded} />
             <AboutMe />
             <FeaturedWork />
             <Services />

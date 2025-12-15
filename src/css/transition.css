@@ -1,5 +1,4 @@
 /* transition for preloader */
-
 .transition {
     position: fixed;
     top: 0;
@@ -10,33 +9,71 @@
     pointer-events: none;
 }
 
+/* Clip-Path Triangle Design */
 .transition-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scaleY(1);
-    transform-origin: top;
-    will-change: transform;
+    will-change: clip-path;
 }
 
 .transition-overlay.overlay-1 {
-    background-color: var(--fg);
+    background-color: var(--accent1);
+    /* Orange */
+    z-index: 6;
 }
 
 .transition-overlay.overlay-2 {
-    background-color: var(--accent1);
+    background-color: var(--accent3);
+    /* Teal */
+    z-index: 5;
 }
 
 .transition-overlay.overlay-3 {
     background-color: var(--accent2);
+    /* Pale Yellow */
+    z-index: 4;
 }
 
 .transition-overlay.overlay-4 {
-    background-color: var(--accent3);
+    background-color: var(--accent4);
+    /* Purple */
+    z-index: 3;
 }
 
 .transition-overlay.overlay-5 {
-    background-color: var(--accent4);
+    background-color: var(--fg);
+    /* Dark */
+    z-index: 2;
+}
+
+/* Text on top of everything */
+.transition-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    color: var(--bg);
+    width: 100%;
+    pointer-events: none;
+}
+
+.transition-text h1 {
+    font-family: "rader";
+    font-size: 5rem;
+    color: #141414;
+    margin-bottom: 1rem;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.transition-text p {
+    font-family: "formula-narrow";
+    font-size: 1rem;
+    color: #333;
+    opacity: 0.8;
 }

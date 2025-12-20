@@ -318,9 +318,9 @@ const Timeline = () => {
     return (
         <section id="timeline" className="timeline-section">
             <div className="timeline-container">
-                <div className="timeline-header">
-                    <h1>Professional Timeline</h1>
-                    <p className="timeline-subtitle">
+                <div className="timeline-header section-header">
+                    <h1 className="section-title">Professional Timeline</h1>
+                    <p className="timeline-subtitle section-subtitle">
                         My software engineer journey
                     </p>
                 </div>

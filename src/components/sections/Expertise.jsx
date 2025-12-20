@@ -10,26 +10,15 @@ import DevOpsImg from "../../assets/images/service/devops.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const Expertise = () => {
-    const scrollTriggerInstancesRef = useRef([]);
     const profileIconRef = useRef(null);
 
     useEffect(() => {
-        const initAnimations = () => {
-            if (window.innerWidth <= 1000) {
-                scrollTriggerInstancesRef.current.forEach((instance) => {
-                    if (instance) instance.kill();
-                });
-                scrollTriggerInstancesRef.current = [];
-                return;
-            }
+        let mm = gsap.matchMedia();
 
-            scrollTriggerInstancesRef.current.forEach((instance) => {
-                if (instance) instance.kill();
-            });
-            scrollTriggerInstancesRef.current = [];
-
+        mm.add("(min-width: 1001px)", () => {
+            // Profile Icon Animation
             if (profileIconRef.current) {
-                const profileAnimation = gsap.to(profileIconRef.current, {
+                gsap.to(profileIconRef.current, {
                     scale: 1.2,
                     rotation: 180,
                     ease: "none",
@@ -40,67 +29,64 @@ const Expertise = () => {
                         scrub: 1,
                     },
                 });
-                scrollTriggerInstancesRef.current.push(
-                    profileAnimation.scrollTrigger
-                );
             }
 
+            // Expertise Cards Animation
             const expertiseCards = gsap.utils.toArray(".expertise-card");
 
-            const mainTrigger = ScrollTrigger.create({
-                trigger: expertiseCards[0],
-                start: "top 50%",
-                endTrigger: expertiseCards[expertiseCards.length - 1],
-                end: "top 150%",
-            });
-            scrollTriggerInstancesRef.current.push(mainTrigger);
+            if (expertiseCards.length > 0) {
+                // Main pinning trigger
+                ScrollTrigger.create({
+                    trigger: expertiseCards[0],
+                    start: "top 50%",
+                    endTrigger: expertiseCards[expertiseCards.length - 1],
+                    end: "top 150%",
+                    pin: false, // logic below handles pinning individual cards if needed, or maybe this was just a container tracker?
+                    // Original code created a trigger but didn't assign it to 'pin'.
+                    // Wait, original code had:
+                    // const mainTrigger = ScrollTrigger.create({ trigger: expertiseCards[0], ... });
+                    // scrollTriggerInstancesRef.current.push(mainTrigger);
+                    // It seems it was just creating a trigger, maybe for debugging or future expansion?
+                    // It doesn't seem to DO anything visually if it has no animation or pin.
+                    // Let's keep it to be safe, maybe it acted as a spacer? No, 'pin' defaults to false.
+                    // Actually, looking at the code, it acts effectively as nothing if not used.
+                    // However, let's preserve the logic for the inner cards which definitely does something.
+                });
 
-            expertiseCards.forEach((card, index) => {
-                const isLastCard = index === expertiseCards.length - 1;
-                const cardInner = card.querySelector(".expertise-card-inner");
+                expertiseCards.forEach((card, index) => {
+                    const isLastCard = index === expertiseCards.length - 1;
+                    const cardInner = card.querySelector(
+                        ".expertise-card-inner"
+                    );
 
-                if (!isLastCard) {
-                    const pinTrigger = ScrollTrigger.create({
-                        trigger: card,
-                        start: "top 45%",
-                        endTrigger: ".contact",
-                        end: "top 90%",
-                        pin: true,
-                        pinSpacing: false,
-                    });
-                    scrollTriggerInstancesRef.current.push(pinTrigger);
-
-                    const scrollAnimation = gsap.to(cardInner, {
-                        y: `-${(expertiseCards.length - index) * 14}vh`,
-                        ease: "none",
-                        scrollTrigger: {
+                    if (!isLastCard) {
+                        ScrollTrigger.create({
                             trigger: card,
                             start: "top 45%",
-                            endTrigger: ".contact",
+                            endTrigger: ".contact", // Ensure this selector exists/is valid. Original used ".contact". Assuming it exists in DOM or another component.
                             end: "top 90%",
-                            scrub: true,
-                        },
-                    });
-                    scrollTriggerInstancesRef.current.push(
-                        scrollAnimation.scrollTrigger
-                    );
-                }
-            });
-        };
+                            pin: true,
+                            pinSpacing: false,
+                        });
 
-        initAnimations();
-
-        const handleResize = () => {
-            initAnimations();
-        };
-
-        window.addEventListener("resize", handleResize);
+                        gsap.to(cardInner, {
+                            y: `-${(expertiseCards.length - index) * 14}vh`,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: card,
+                                start: "top 45%",
+                                endTrigger: ".contact",
+                                end: "top 90%",
+                                scrub: true,
+                            },
+                        });
+                    }
+                });
+            }
+        });
 
         return () => {
-            window.removeEventListener("resize", handleResize);
-            scrollTriggerInstancesRef.current.forEach((instance) => {
-                if (instance) instance.kill();
-            });
+            mm.revert();
         };
     }, []);
 

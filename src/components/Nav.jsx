@@ -141,13 +141,27 @@ const Nav = () => {
         }
     };
 
+    const handleLogoClick = () => {
+        if (window.lenis) {
+            window.lenis.scrollTo(0);
+        } else {
+            window.scrollTo(0, 0);
+        }
+
+        if (isMenuOpen) {
+            closeMenu();
+        }
+    };
+
     return (
         <>
             <nav>
                 <div className="logo">
                     <div className="logo-container">
                         <p className="mn">
-                            <Link to="/">R // Z</Link>
+                            <Link to="/" onClick={handleLogoClick}>
+                                R // Z
+                            </Link>
                         </p>
                     </div>
                 </div>
@@ -172,7 +186,9 @@ const Nav = () => {
                         }`}
                     >
                         <p>
-                            <Link to="/">Home</Link>
+                            <Link to="/" onClick={handleLogoClick}>
+                                Home
+                            </Link>
                         </p>
                     </div>
                     <div

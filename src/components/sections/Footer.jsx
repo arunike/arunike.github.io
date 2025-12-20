@@ -186,7 +186,6 @@ const Footer = () => {
                     <p className="mn">
                         Copyright © - Richie Zhou // 2025 - {currentYear}
                     </p>
-                    <p className="mn"></p>
                 </div>
                 <div className="explosion-container"></div>
             </div>

@@ -1,4 +1,3 @@
-/* footer */
 footer {
     position: relative;
     width: 100vw;
@@ -56,8 +55,7 @@ footer .footer-col p {
     margin: 0;
 }
 
-footer .footer-col a,
-footer .copyright-info a {
+footer .footer-col a {
     color: var(--bg);
 }
 
@@ -71,8 +69,7 @@ footer .copyright-info {
     display: flex;
     justify-content: center;
     gap: 2em;
-    padding-top: 1.5em;
-    padding-bottom: 0.5em;
+    padding-bottom: 4em;
 }
 
 footer .copyright-info p {
@@ -126,7 +123,7 @@ footer .explosion-particle-img {
 
 @media (max-width: 1000px) {
     footer {
-        height: 1000px;
+        height: 600px;
     }
 
     footer .copyright-info {

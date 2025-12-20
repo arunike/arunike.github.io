@@ -1,4 +1,3 @@
-/* home - hero */
 .hero {
     position: relative;
     width: 100vw;
@@ -47,7 +46,7 @@
     height: 1rem;
 }
 
-/* home - hero img holder */
+/* Img holder */
 .hero-img-holder {
     position: relative;
     width: 100vw;
@@ -78,12 +77,23 @@
     border: none;
 }
 
-/* featured work */
+/* Featured work */
 .featured-work-container {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     background-color: var(--bg);
+    position: relative;
+}
+
+.featured-header {
+    text-align: center;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    pointer-events: none;
 }
 
 .featured-work-slider {
@@ -111,7 +121,7 @@
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 60%;
+    height: 40%;
     background: rgba(0, 0, 0, 0.05);
 }
 
@@ -181,7 +191,7 @@
     line-height: 0.8;
 }
 
-/* Restored Numbered Indicator */
+/* Numbered Indicator */
 .featured-work-indicator {
     position: absolute;
     right: 3rem;
@@ -316,20 +326,26 @@
         overflow: visible;
     }
 
+
+    .featured-header {
+        position: relative;
+        top: auto;
+        padding: 0 1.5em;
+        margin-bottom: 2rem;
+    }
+
     .featured-work-slider {
         display: flex;
         flex-direction: column;
         width: 100vw;
         height: auto;
         transform: none !important;
-        /* Disable GSAP transform on mobile */
     }
 
     .project-slide {
         width: 100vw;
         height: auto;
         flex-direction: column-reverse;
-        /* Image top, text bottom */
         padding: 4rem 1.5rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         border-right: none;
@@ -360,7 +376,7 @@
     }
 }
 
-.featured-work .featured-work-footer p a {
+.featured-work-container .featured-work-footer p a {
     position: relative;
     font-family: "formula-narrow";
     font-size: 1rem;
@@ -378,13 +394,13 @@
     background: transparent;
 }
 
-.featured-work .featured-work-footer p a::after {
+.featured-work-container .featured-work-footer p a::after {
     content: "→";
     display: inline-block;
     transition: transform 0.3s ease;
 }
 
-.featured-work .featured-work-footer p a:hover {
+.featured-work-container .featured-work-footer p a:hover {
     color: var(--bg);
     border-color: var(--accent1);
     background: var(--accent1);
@@ -392,11 +408,11 @@
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-.featured-work .featured-work-footer p a:hover::after {
+.featured-work-container .featured-work-footer p a:hover::after {
     transform: translateX(4px);
 }
 
-/* home - expertise header */
+/* Expertise header */
 .expertise-header {
     position: relative;
     width: 100vw;
@@ -431,7 +447,7 @@
     margin-bottom: 6em;
 }
 
-/* home - expertise */
+/* Expertise */
 .expertise .expertise-card {
     position: relative;
     min-height: 300px;
@@ -535,12 +551,12 @@
         border-radius: 1em;
     }
 
-    .featured-work {
+    .featured-work-container {
         padding: 3em 0;
         height: auto;
     }
 
-    .featured-work .featured-titles {
+    .featured-work-container .featured-titles {
         width: 100vw;
         height: auto;
         flex-direction: column;
@@ -548,15 +564,15 @@
         padding: 0 1.5em;
     }
 
-    .featured-work .featured-title-wrapper {
+    .featured-work-container .featured-title-wrapper {
         gap: 1em;
     }
 
-    .featured-work .featured-title-wrapper:nth-child(1) {
+    .featured-work-container .featured-title-wrapper:nth-child(1) {
         margin-bottom: 1em;
     }
 
-    .featured-work .featured-title-wrapper h1 {
+    .featured-work-container .featured-title-wrapper h1 {
         transform: translateY(0);
         width: 100%;
         font-size: clamp(2rem, 8vw, 4rem);
@@ -567,23 +583,23 @@
         width: 100%;
     }
 
-    .featured-work .featured-work-footer {
+    .featured-work-container .featured-work-footer {
         position: relative;
         margin-top: 3em;
         justify-content: center;
         padding: 0 1.5em;
     }
 
-    .featured-work .featured-work-footer p:nth-child(1),
-    .featured-work .featured-work-footer p:nth-child(2) {
+    .featured-work-container .featured-work-footer p:nth-child(1),
+    .featured-work-container .featured-work-footer p:nth-child(2) {
         display: none;
     }
 
-    .featured-work .featured-work-indicator {
+    .featured-work-container .featured-work-indicator {
         display: none;
     }
 
-    .featured-work .featured-images {
+    .featured-work-container .featured-images {
         display: none;
     }
 

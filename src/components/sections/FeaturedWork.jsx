@@ -3,12 +3,7 @@ import { useEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Import project images
-import BlueDrop from "../../assets/images/courses/compsci407.png";
-import VRGame from "../../assets/images/courses/compsci579.gif";
-import Resume from "../../assets/images/projects/resume_builder.png";
-import VHR from "../../assets/images/projects/vhr.png";
-import BirdFeeder from "../../assets/images/courses/compsci506.png";
+import { projects } from "../../pages/projects/component/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,91 +11,54 @@ const FeaturedWork = () => {
     const sectionRef = useRef(null);
     const triggerRef = useRef(null);
 
-    const projects = useMemo(
-        () => [
-            {
-                id: 1,
-                title: "BlueDrop",
-                category: "Mobile App",
-                description:
-                    "Mobile application for water quality monitoring and community engagement. Empowering local communities to track and improve their water sources.",
-                tags: ["Android", "Kotlin", "Firebase"],
-                image: BlueDrop,
-            },
-            {
-                id: 2,
-                title: "Cyberpunk VR",
-                category: "Game Dev",
-                description:
-                    "Immersive VR racing game featuring neon-soaked skyscrapers and high-speed tracks. A thrill ride through a futuristic metropolis.",
-                tags: ["Unity", "C#", "VR"],
-                image: VRGame,
-            },
-            {
-                id: 3,
-                title: "Resume Builder",
-                category: "Web App",
-                description:
-                    "Interactive tool with real-time preview and PDF export. simplifying the job application process with clean, professional templates.",
-                tags: ["React", "Node.js", "PDF.js"],
-                image: Resume,
-            },
-            {
-                id: 4,
-                title: "VHR System",
-                category: "Enterprise",
-                description:
-                    "Comprehensive HR management system separating front and back end services. Handles payroll, employee data, and recruitment flows.",
-                tags: ["Java", "Spring Boot", "Vue.js"],
-                image: VHR,
-            },
-            {
-                id: 5,
-                title: "Smart Bird Feeder",
-                category: "AI / IoT",
-                description:
-                    "IoT device using machine learning to identify bird species in real-time. Features automated feeding schedules and live streaming.",
-                tags: ["React", "YOLO", "Computer Vision"],
-                image: BirdFeeder,
-            },
-        ],
+    const featuredProjects = useMemo(
+        () => projects.filter((p) => p.isFeatured),
         []
     );
 
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        const totalSlides = projects.length;
+        const totalSlides = featuredProjects.length;
+        let mm = gsap.matchMedia();
 
-        const pin = gsap.fromTo(
-            sectionRef.current,
-            {
-                translateX: 0,
-            },
-            {
-                translateX: `-${(totalSlides - 1) * 100}vw`,
-                ease: "none",
-                duration: 1,
-                scrollTrigger: {
-                    trigger: triggerRef.current,
-                    start: "top top",
-                    end: "+=5000",
-                    scrub: 0.6,
-                    pin: true,
-                    onUpdate: (self) => {
-                        setProgress(Math.round(self.progress * 100));
-                    },
+        mm.add("(min-width: 1001px)", () => {
+            gsap.fromTo(
+                sectionRef.current,
+                {
+                    translateX: 0,
                 },
-            }
-        );
+                {
+                    translateX: `-${(totalSlides - 1) * 100}vw`,
+                    ease: "none",
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: triggerRef.current,
+                        start: "top top",
+                        end: "+=5000",
+                        scrub: 0.6,
+                        pin: true,
+                        onUpdate: (self) => {
+                            setProgress(Math.round(self.progress * 100));
+                        },
+                    },
+                }
+            );
+        });
 
         return () => {
-            pin.kill();
+            mm.revert();
         };
-    }, [projects.length]);
+    }, [featuredProjects.length]);
 
     return (
         <section className="featured-work-container" ref={triggerRef}>
+            <div className="featured-header section-header">
+                <h1 className="section-title">Featured Work</h1>
+                <p className="featured-subtitle section-subtitle">
+                    Selected projects & experiments
+                </p>
+            </div>
             {/* Custom Scroll Indicator (Left Side) */}
             <div className="featured-progress-bar">
                 <div
@@ -115,7 +73,7 @@ const FeaturedWork = () => {
                     Let's stick to the plan: Projects + View All. 
                 */}
 
-                {projects.map((project, index) => (
+                {featuredProjects.map((project, index) => (
                     <div className="project-slide" key={index}>
                         {/* Slide Content (Left) */}
                         <div className="slide-content">
@@ -148,11 +106,11 @@ const FeaturedWork = () => {
             </div>
 
             <div className="featured-work-indicator">
-                {projects.map((_, index) => {
+                {featuredProjects.map((_, index) => {
                     return (
                         <div key={index} className="indicator-group-vertical">
                             <span
-                                className={`indicator-num ${progress > (index / projects.length) * 100 ? "active" : ""}`}
+                                className={`indicator-num ${progress > (index / featuredProjects.length) * 100 ? "active" : ""}`}
                             >
                                 {`0${index + 1}`}
                             </span>

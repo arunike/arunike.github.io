@@ -74,3 +74,29 @@ p.mn {
     letter-spacing: 0.15em;
     opacity: 0.6;
 }
+
+/* Shared Section Headers */
+.section-header {
+    text-align: center;
+    z-index: 20;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--fg);
+    margin-bottom: 1rem;
+    font-family: "Supply Mono", monospace;
+}
+
+.section-subtitle {
+    color: #666;
+    margin: 0;
+    font-family: "Supply Mono", monospace;
+}
+
+@media (max-width: 1000px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+}

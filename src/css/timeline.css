@@ -130,11 +130,13 @@
     top: 50%;
     height: 4px;
     width: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            var(--accent1),
-            var(--accent1),
-            transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent1),
+        var(--accent1),
+        transparent
+    );
     transform: translateY(-50%);
     z-index: 0;
 }
@@ -354,7 +356,6 @@
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
@@ -469,7 +470,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-
     .timeline-line-wrapper {
         flex-direction: column;
         overflow-x: hidden;
@@ -493,11 +493,13 @@
         top: 0;
         bottom: 0;
         transform: none;
-        background: linear-gradient(180deg,
-                var(--bg) 0%,
-                var(--accent1) 5%,
-                var(--accent1) 95%,
-                var(--bg) 100%);
+        background: linear-gradient(
+            180deg,
+            var(--bg) 0%,
+            var(--accent1) 5%,
+            var(--accent1) 95%,
+            var(--bg) 100%
+        );
     }
 
     .timeline-item {

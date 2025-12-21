@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
-import TikTokLogo from "../../assets/images/experience/TikTok.png";
 import LumenLogo from "../../assets/images/experience/Lumen.png";
 import NorthernTrustLogo from "../../assets/images/experience/NorthernTrust.png";
 import RockitcoinLogo from "../../assets/images/experience/Rockitcoin.png";
@@ -108,21 +107,6 @@ const Timeline = () => {
     const experiences = useMemo(
         () => [
             {
-                id: "tiktok",
-                company: "TikTok",
-                role: "Software Engineer",
-                department:
-                    "Global Monetization and Platform - Ads Interface and Platform",
-                location: "San Jose, CA",
-                duration: "January 2025 - Present",
-                achievements: [
-                    "Integrated proprietary off-platform top-up system for iOS advertisers in the U.S. using Go, implementing secure payment flows and recharge APIs to reduce platform fees.",
-                ],
-                technologies: ["Go", "Redis", "Kafka", "SQL"],
-                isActive: true,
-                logo: TikTokLogo,
-            },
-            {
                 id: "lumen",
                 company: "Lumen Technologies",
                 role: "Software Engineer Intern",
@@ -132,7 +116,8 @@ const Timeline = () => {
                 achievements: [
                     "Architected fault-tolerant messaging system using Kafka, implementing message deduplication and partition management to reliably process Millions EMP protocol messages per hour and improve throughput.",
                 ],
-                technologies: ["Groovy", "Kafka", "AWS"],
+                technologies: ["Groovy", "Java", "Kafka", "AWS"],
+                isActive: true,
                 logo: LumenLogo,
             },
             {
@@ -145,7 +130,15 @@ const Timeline = () => {
                 achievements: [
                     "Designed sophisticated algorithms for risk assessment and portfolio optimization on a client-centric wealth management platform in Java, providing clients with customizable investment plan recommendations.",
                 ],
-                technologies: ["Spring Boot", "Java", "C++", "Azure"],
+                technologies: [
+                    "Spring Boot",
+                    "Java",
+                    "C++",
+                    "SQL",
+                    "Azure",
+                    "Snowflake",
+                ],
+                isActive: true,
                 logo: NorthernTrustLogo,
             },
             {
@@ -158,7 +151,14 @@ const Timeline = () => {
                 achievements: [
                     "Revamped authentication microservices in Node.js, implementing JWT token-based authentication and HTTP-only cookies, preventing credential exposure and reducing unauthorized access attempts.",
                 ],
-                technologies: ["React", "TypeScript", "Node.js", "Firebase"],
+                technologies: [
+                    "React",
+                    "TypeScript",
+                    "Node.js",
+                    "Firebase",
+                    "AWS",
+                ],
+                isActive: true,
                 logo: RockitcoinLogo,
             },
             {
@@ -176,8 +176,10 @@ const Timeline = () => {
                     "React",
                     "Node.js",
                     "Python",
+                    "AWS",
                     "MySQL",
                 ],
+                isActive: true,
                 logo: UNFCULogo,
             },
         ],
@@ -185,7 +187,6 @@ const Timeline = () => {
     );
 
     useEffect(() => {
-        // Extract colors from logos
         const extractColors = async () => {
             const colors = {};
             for (const exp of experiences) {
@@ -232,7 +233,9 @@ const Timeline = () => {
     }, [experiences]);
 
     const orderedExperiences = useMemo(() => {
-        return [...experiences].reverse();
+        return [...experiences]
+            .filter((exp) => exp.isActive !== false)
+            .reverse();
     }, [experiences]);
 
     useEffect(() => {
@@ -404,7 +407,6 @@ const Timeline = () => {
                                                         background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
                                                     }}
                                                 >
-                                                    {/* Company Header */}
                                                     <div className="timeline-company-header">
                                                         <div className="timeline-company-logo">
                                                             <img
@@ -427,14 +429,17 @@ const Timeline = () => {
                                                                 {exp.company}
                                                             </h4>
                                                         </div>
-                                                        {exp.isActive && (
+                                                        {exp.duration
+                                                            .toLowerCase()
+                                                            .includes(
+                                                                "present"
+                                                            ) && (
                                                             <span className="timeline-active-badge">
                                                                 Current
                                                             </span>
                                                         )}
                                                     </div>
 
-                                                    {/* Department */}
                                                     <div
                                                         className="timeline-department"
                                                         style={{
@@ -445,7 +450,6 @@ const Timeline = () => {
                                                         {exp.department}
                                                     </div>
 
-                                                    {/* Location & Duration */}
                                                     <div className="timeline-meta">
                                                         <span className="timeline-location">
                                                             <svg
@@ -503,7 +507,6 @@ const Timeline = () => {
                                                         </span>
                                                     </div>
 
-                                                    {/* Achievements */}
                                                     <div className="timeline-achievements">
                                                         {exp.achievements.map(
                                                             (
@@ -519,7 +522,6 @@ const Timeline = () => {
                                                         )}
                                                     </div>
 
-                                                    {/* Technologies */}
                                                     <div className="timeline-tech-stack">
                                                         {exp.technologies.map(
                                                             (tech, idx) => (

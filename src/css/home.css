@@ -348,6 +348,18 @@
         padding: 4rem 1.5rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         border-right: none;
+
+        /* Mobile Animation Initial State */
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease;
+    }
+
+    .project-slide.project-slide-animated {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .slide-visual {
@@ -368,10 +380,6 @@
 
     .project-watermark {
         display: none;
-    }
-
-    .view-all-content h1 {
-        font-size: 4rem;
     }
 }
 
@@ -555,33 +563,6 @@
         height: auto;
     }
 
-    .featured-work-container .featured-titles {
-        width: 100vw;
-        height: auto;
-        flex-direction: column;
-        gap: 2em;
-        padding: 0 1.5em;
-    }
-
-    .featured-work-container .featured-title-wrapper {
-        gap: 1em;
-    }
-
-    .featured-work-container .featured-title-wrapper:nth-child(1) {
-        margin-bottom: 1em;
-    }
-
-    .featured-work-container .featured-title-wrapper h1 {
-        transform: translateY(0);
-        width: 100%;
-        font-size: clamp(2rem, 8vw, 4rem);
-    }
-
-    .featured-title-img {
-        display: block;
-        width: 100%;
-    }
-
     .featured-work-container .featured-work-footer {
         position: relative;
         margin-top: 3em;
@@ -595,10 +576,6 @@
     }
 
     .featured-work-container .featured-work-indicator {
-        display: none;
-    }
-
-    .featured-work-container .featured-images {
         display: none;
     }
 
@@ -616,6 +593,19 @@
         flex-direction: column;
         gap: 2em;
         padding: 2em 1.5em;
+    }
+
+    .expertise .expertise-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease;
+    }
+
+    .expertise .expertise-card.expertise-card-animated {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .expertise .expertise-card-inner {

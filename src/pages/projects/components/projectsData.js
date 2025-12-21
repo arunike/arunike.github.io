@@ -1,4 +1,3 @@
-// Import project images
 import BlackGoldPoker from "../../../assets/images/projects/black_gold_poker.gif";
 import PortfolioOld from "../../../assets/images/projects/portfolio_old.gif";
 import MiasPortfolio from "../../../assets/images/projects/mias_portfolio.gif";

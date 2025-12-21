@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import BadgerIcon from "../../assets/images/badger_cs.png";
-import BackendImg from "../../assets/images/service/backend.png";
-import FrontendImg from "../../assets/images/service/frontend.png";
-import DevOpsImg from "../../assets/images/service/devops.png";
+import BadgerIcon from "../../../assets/images/badger_cs.png";
+import BackendImg from "../../../assets/images/service/backend.png";
+import FrontendImg from "../../../assets/images/service/frontend.png";
+import DevOpsImg from "../../../assets/images/service/devops.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,6 @@ const Expertise = () => {
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 1001px)", () => {
-            // Profile Icon Animation
             if (profileIconRef.current) {
                 gsap.to(profileIconRef.current, {
                     scale: 1.2,
@@ -31,26 +30,15 @@ const Expertise = () => {
                 });
             }
 
-            // Expertise Cards Animation
             const expertiseCards = gsap.utils.toArray(".expertise-card");
 
             if (expertiseCards.length > 0) {
-                // Main pinning trigger
                 ScrollTrigger.create({
                     trigger: expertiseCards[0],
                     start: "top 50%",
                     endTrigger: expertiseCards[expertiseCards.length - 1],
                     end: "top 150%",
-                    pin: false, // logic below handles pinning individual cards if needed, or maybe this was just a container tracker?
-                    // Original code created a trigger but didn't assign it to 'pin'.
-                    // Wait, original code had:
-                    // const mainTrigger = ScrollTrigger.create({ trigger: expertiseCards[0], ... });
-                    // scrollTriggerInstancesRef.current.push(mainTrigger);
-                    // It seems it was just creating a trigger, maybe for debugging or future expansion?
-                    // It doesn't seem to DO anything visually if it has no animation or pin.
-                    // Let's keep it to be safe, maybe it acted as a spacer? No, 'pin' defaults to false.
-                    // Actually, looking at the code, it acts effectively as nothing if not used.
-                    // However, let's preserve the logic for the inner cards which definitely does something.
+                    pin: false,
                 });
 
                 expertiseCards.forEach((card, index) => {
@@ -63,7 +51,7 @@ const Expertise = () => {
                         ScrollTrigger.create({
                             trigger: card,
                             start: "top 45%",
-                            endTrigger: ".contact", // Ensure this selector exists/is valid. Original used ".contact". Assuming it exists in DOM or another component.
+                            endTrigger: ".contact",
                             end: "top 90%",
                             pin: true,
                             pinSpacing: false,
@@ -83,6 +71,29 @@ const Expertise = () => {
                     }
                 });
             }
+        });
+
+        mm.add("(max-width: 1000px)", () => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "expertise-card-animated"
+                            );
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            const cards = document.querySelectorAll(".expertise-card");
+            cards.forEach((card) => observer.observe(card));
+
+            return () => {
+                cards.forEach((card) => observer.unobserve(card));
+            };
         });
 
         return () => {

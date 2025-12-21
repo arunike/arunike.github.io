@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import SymbolSix from "../../assets/images/symbols/s6.png";
+import SymbolSix from "../../../assets/images/symbols/s6.png";
 
 const Footer = () => {
     const hasExplodedRef = useRef(false);

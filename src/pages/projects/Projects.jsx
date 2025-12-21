@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 import Nav from "../../components/Nav";
 import ProjectCard from "../../components/ProjectCard";
-import Footer from "../../components/sections/Footer";
+import Footer from "../../components/sections/footer/Footer";
 
-// Import project images
-import { projects } from "./component/projects";
+import { projects } from "./components/projectsData";
 import { FaGithubAlt } from "react-icons/fa";
 
 const Projects = () => {

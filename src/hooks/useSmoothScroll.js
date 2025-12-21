@@ -43,7 +43,6 @@ const useSmoothScroll = () => {
 
         let lenis = new Lenis(scrollSettings);
 
-        // Make lenis globally accessible
         window.lenis = lenis;
 
         lenis.on("scroll", ScrollTrigger.update);
@@ -97,7 +96,6 @@ const useSmoothScroll = () => {
 
                 lenis = new Lenis(newScrollSettings);
 
-                // Update global reference
                 window.lenis = lenis;
 
                 lenis.on("scroll", ScrollTrigger.update);

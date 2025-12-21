@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { useEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { projects } from "../../pages/projects/component/projects";
+import { projects } from "../../../pages/projects/components/projectsData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,6 +45,29 @@ const FeaturedWork = () => {
             );
         });
 
+        mm.add("(max-width: 1000px)", () => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "project-slide-animated"
+                            );
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            const slides = document.querySelectorAll(".project-slide");
+            slides.forEach((slide) => observer.observe(slide));
+
+            return () => {
+                slides.forEach((slide) => observer.unobserve(slide));
+            };
+        });
+
         return () => {
             mm.revert();
         };
@@ -59,7 +81,6 @@ const FeaturedWork = () => {
                     Selected projects & experiments
                 </p>
             </div>
-            {/* Custom Scroll Indicator (Left Side) */}
             <div className="featured-progress-bar">
                 <div
                     className="progress-fill"
@@ -68,14 +89,8 @@ const FeaturedWork = () => {
             </div>
 
             <div className="featured-work-slider" ref={sectionRef}>
-                {/* Intro / Header Slide? Optional. Let's start with project 1 directly or having a header on top? 
-                    User wants "Narrative". Let's put a header on the first slide alongside the content or just start. 
-                    Let's stick to the plan: Projects + View All. 
-                */}
-
                 {featuredProjects.map((project, index) => (
                     <div className="project-slide" key={index}>
-                        {/* Slide Content (Left) */}
                         <div className="slide-content">
                             <span className="project-watermark">
                                 {`0${index + 1}`}
@@ -95,7 +110,6 @@ const FeaturedWork = () => {
                             </div>
                         </div>
 
-                        {/* Slide Visual (Right) */}
                         <div className="slide-visual">
                             <div className="img-wrapper">
                                 <img src={project.image} alt={project.title} />
@@ -107,35 +121,46 @@ const FeaturedWork = () => {
 
             <div className="featured-work-indicator">
                 {featuredProjects.map((_, index) => {
+                    const totalScrollDistance =
+                        featuredProjects.length - 1 || 1;
+                    const threshold = (index / totalScrollDistance) * 100;
+                    const isNumActive = progress >= threshold;
+
                     return (
                         <div key={index} className="indicator-group-vertical">
                             <span
-                                className={`indicator-num ${progress > (index / featuredProjects.length) * 100 ? "active" : ""}`}
+                                className={`indicator-num ${
+                                    isNumActive ? "active" : ""
+                                }`}
                             >
                                 {`0${index + 1}`}
                             </span>
-                            {[...Array(6)].map((__, i) => {
-                                const totalLinesPerSection = 6;
-                                const sectionStart =
-                                    (index / projects.length) * 100;
-                                const sectionEnd =
-                                    ((index + 1) / projects.length) * 100;
-                                const lineStep =
-                                    (sectionEnd - sectionStart) /
-                                    totalLinesPerSection;
-                                const lineThreshold =
-                                    sectionStart + i * lineStep;
+                            {index < featuredProjects.length - 1 &&
+                                [...Array(6)].map((__, i) => {
+                                    const totalLinesPerSection = 6;
+                                    const sectionStart =
+                                        (index / totalScrollDistance) * 100;
+                                    const sectionEnd =
+                                        ((index + 1) / totalScrollDistance) *
+                                        100;
+                                    const lineStep =
+                                        (sectionEnd - sectionStart) /
+                                        totalLinesPerSection;
+                                    const lineThreshold =
+                                        sectionStart + i * lineStep;
 
-                                const isActive = progress > lineThreshold;
+                                    const isActive = progress > lineThreshold;
 
-                                return (
-                                    <div
-                                        key={i}
-                                        className="i-line"
-                                        style={{ opacity: isActive ? 1 : 0.2 }}
-                                    ></div>
-                                );
-                            })}
+                                    return (
+                                        <div
+                                            key={i}
+                                            className="i-line"
+                                            style={{
+                                                opacity: isActive ? 1 : 0.2,
+                                            }}
+                                        ></div>
+                                    );
+                                })}
                         </div>
                     );
                 })}

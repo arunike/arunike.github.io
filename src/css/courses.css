@@ -15,6 +15,16 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.courses-header.courses-header-animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .courses-header h1 {
@@ -27,40 +37,39 @@
 .university-badge-container {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     background-color: white;
     border-radius: 0.75rem;
-    padding: 1rem;
+    padding: 2rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
+    position: relative;
+    min-width: 300px;
 }
 
 .undergraduate-badge {
-    padding: 0.25rem 1rem;
+    position: absolute;
+    top: -0.75rem;
+    right: -1rem;
+    padding: 0.25rem 0.75rem;
     background-color: #60a5fa;
     color: white;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     border-radius: 9999px;
     font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .university-info {
     text-align: left;
 }
 
-.university-info .title {
-    color: #dc2626;
-    font-weight: 600;
-    font-size: 1.125rem;
-    margin-bottom: 0.25rem;
-}
-
-.university-info .subtitle {
-    color: #6b7280;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0;
+.university-logo {
+    height: 6rem;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 /* Courses List */
@@ -83,6 +92,17 @@
     border: 1px solid #e5e7eb;
     overflow: hidden;
     transition: box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        box-shadow 0.3s ease;
+}
+
+.course-card.course-card-animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .course-card:hover {
@@ -241,6 +261,10 @@
     .university-badge-container {
         flex-direction: column;
         text-align: center;
+        margin-top: 1rem;
+        margin-right: 0;
+        max-width: 80%;
+        min-width: auto;
     }
 
     .university-info {

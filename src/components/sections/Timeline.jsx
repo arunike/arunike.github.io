@@ -198,10 +198,11 @@ const Timeline = () => {
     }, [experiences]);
 
     useEffect(() => {
+        const isMobile = window.innerWidth <= 768;
         const observerOptions = {
-            root: scrollContainerRef.current,
-            rootMargin: "0px -20% 0px -20%",
-            threshold: 0.4,
+            root: isMobile ? null : scrollContainerRef.current,
+            rootMargin: isMobile ? "-10% 0px" : "0px -20% 0px -20%",
+            threshold: isMobile ? 0.2 : 0.4,
         };
 
         const observer = new IntersectionObserver((entries) => {

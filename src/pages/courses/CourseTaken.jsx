@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/sections/Footer";
 import "../../css/courses.css";
@@ -22,6 +22,8 @@ import CS571 from "../../assets/images/courses/compsci571.gif";
 import STAT340 from "../../assets/images/courses/stat340.png";
 import CS540 from "../../assets/images/courses/compsci540.png";
 import CS577 from "../../assets/images/courses/compsci577.png";
+
+import UWMadison from "../../assets/images/uw-madison_cs.png";
 
 const courses = [
     {
@@ -244,12 +246,41 @@ const renderStars = (count) => {
 };
 
 const CourseTaken = () => {
+    const headerRef = useRef(null);
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        if (headerRef.current) {
+            headerRef.current.classList.add("courses-header-animated");
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("course-card-animated");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        cardsRef.current.forEach((card) => {
+            if (card) observer.observe(card);
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
     return (
         <>
             <Nav />
             <div className="courses-page">
                 {/* Header */}
-                <div className="courses-header">
+                <div className="courses-header" ref={headerRef}>
                     <h1>Courses Taken</h1>
 
                     <div className="university-badge-container">
@@ -257,21 +288,24 @@ const CourseTaken = () => {
                             Undergraduate
                         </span>
                         <div className="university-info">
-                            <div className="title">
-                                University of Wisconsin-Madison
-                            </div>
-                            <p className="subtitle">Computer Sciences</p>
+                            <img
+                                src={UWMadison}
+                                alt="University of Wisconsin-Madison Computer Sciences"
+                                className="university-logo"
+                            />
                         </div>
                     </div>
                 </div>
 
-                {/* Courses List */}
                 <div className="courses-container">
                     <div className="courses-list">
-                        {courses.map((course) => (
-                            <div key={course.id} className="course-card">
+                        {courses.map((course, index) => (
+                            <div
+                                key={course.id}
+                                className="course-card"
+                                ref={(el) => (cardsRef.current[index] = el)}
+                            >
                                 <div className="course-card-inner">
-                                    {/* Left: Image Area */}
                                     <div className="course-image-section">
                                         <span className="semester-badge">
                                             {course.semester}
@@ -283,7 +317,6 @@ const CourseTaken = () => {
                                         />
                                     </div>
 
-                                    {/* Right: Course Details */}
                                     <div className="course-details-section">
                                         <h2 className="course-title">
                                             {course.title}
@@ -329,7 +362,6 @@ const CourseTaken = () => {
                         ))}
                     </div>
 
-                    {/* Footer Stats */}
                     <div className="courses-footer">
                         <div className="courses-stats">
                             <p>

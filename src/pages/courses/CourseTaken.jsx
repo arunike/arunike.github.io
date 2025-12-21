@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/sections/footer/Footer";
-import "../../css/courses.css";
 
 import UWMadison from "../../assets/images/uw-madison_cs.png";
 import { courses } from "./components/coursesData";

@@ -10,18 +10,27 @@ import Home from "./pages/Home";
 import CourseTaken from "./pages/courses/CourseTaken";
 import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
+
+// CSS
 import "./css/transition.css";
 import "./css/fonts.css";
 import "./css/globals.css";
 import "./css/menu.css";
 import "./css/home.css";
-import "./css/about.css";
-import "./css/skills.css";
-import "./css/timeline.css";
-import "./css/projects.css";
-import "./css/contact.css";
-import "./css/footer.css";
 import "./css/section-nav.css";
+
+// Sections CSS
+import "./css/sections/about.css";
+import "./css/sections/skills.css";
+import "./css/sections/timeline.css";
+import "./css/sections/contact.css";
+import "./css/sections/footer.css";
+import "./css/sections/featured-work.css";
+import "./css/sections/expertise.css";
+
+// Pages CSS
+import "./css/pages/projects.css";
+import "./css/pages/courses.css";
 
 function ScrollToTop() {
     const location = useLocation();

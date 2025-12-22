@@ -73,10 +73,15 @@ const CourseTaken = () => {
                                 className="course-card"
                                 ref={(el) => (cardsRef.current[index] = el)}
                             >
+                                <span className="courses-semester-tag">
+                                    {course.semester}
+                                </span>
                                 <div className="course-card-inner">
                                     <div className="course-image-section">
-                                        <span className="semester-badge">
-                                            {course.semester}
+                                        <span
+                                            className={`course-type-badge ${(course.type || "").toLowerCase()}`}
+                                        >
+                                            {course.type}
                                         </span>
                                         <img
                                             src={course.image}
@@ -91,6 +96,15 @@ const CourseTaken = () => {
                                         </h2>
 
                                         <div className="course-meta">
+                                            <div className="meta-item">
+                                                <span className="meta-label">
+                                                    Major:
+                                                </span>
+                                                <span className="meta-value">
+                                                    {course.major}
+                                                </span>
+                                            </div>
+
                                             <div className="meta-item">
                                                 <span className="meta-label">
                                                     Professor:

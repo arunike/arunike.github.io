@@ -98,6 +98,7 @@
         opacity 0.6s ease,
         transform 0.6s ease,
         box-shadow 0.3s ease;
+    position: relative;
 }
 
 .course-card.course-card-animated {
@@ -105,8 +106,17 @@
     transform: translateY(0);
 }
 
-.course-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.courses-semester-tag {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #f3f4f6;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    z-index: 10;
 }
 
 .course-card-inner {
@@ -126,16 +136,23 @@
     position: relative;
 }
 
-.semester-badge {
+.course-type-badge {
     position: absolute;
     top: 1rem;
     right: 1rem;
     padding: 0.25rem 0.75rem;
-    background-color: #1f2937;
     color: white;
     font-size: 0.75rem;
     border-radius: 9999px;
     font-weight: 500;
+}
+
+.course-type-badge.required {
+    background-color: #ef4444;
+}
+
+.course-type-badge.elective {
+    background-color: #3b82f6;
 }
 
 .course-image-placeholder {

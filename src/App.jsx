@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import CourseTaken from "./pages/courses/CourseTaken";
 import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 // CSS
 import "./css/transition.css";
@@ -89,6 +90,7 @@ function App() {
     return (
         <Router>
             <ScrollToTop />
+            <AnalyticsTracker />
             <Transition onComplete={handleTransitionComplete} />
             <Routes>
                 <Route path="/" element={<Home loaded={loaded} />} />

@@ -6,7 +6,7 @@ import Symbols from "../assets/images/symbols/symbols.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+const Hero = ({ loaded }) => {
     const heroImgRef = useRef(null);
     const scrollTriggerInstanceRef = useRef(null);
 
@@ -39,6 +39,8 @@ const Hero = () => {
                     rotation: 0,
                 });
             }
+
+            ScrollTrigger.refresh();
         };
 
         initAnimations();
@@ -55,7 +57,7 @@ const Hero = () => {
                 scrollTriggerInstanceRef.current.kill();
             }
         };
-    }, []);
+    }, [loaded]);
 
     return (
         <>

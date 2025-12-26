@@ -32,8 +32,13 @@ const Nav = () => {
         gsap.set(openLabel, { y: "0rem" });
         gsap.set(closeLabel, { y: "0rem" });
         if (navOverlay) {
-            gsap.set(navOverlay, { opacity: 0 });
+            // Set initial state for push-down animation
+            gsap.set(navOverlay, { y: "-100%", opacity: 1 });
         }
+
+        // Reset page content position
+        gsap.set(".page-content", { y: "0%" });
+
         gsap.set(
             [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
             {
@@ -71,11 +76,22 @@ const Nav = () => {
 
         gsap.to(openLabel, { y: "-1rem", duration: 0.3 });
         gsap.to(closeLabel, { y: "-1rem", duration: 0.3 });
+
+        // Push down animation - overlay
         gsap.to(navOverlay, {
-            opacity: 1,
-            duration: 0.3,
+            y: "0%",
+            duration: 1,
+            ease: "power4.inOut",
             onComplete: () => setIsAnimating(false),
         });
+
+        // Push down animation - page content
+        gsap.to(".page-content", {
+            y: "100vh",
+            duration: 1,
+            ease: "power4.inOut",
+        });
+
         gsap.to(
             [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
             {
@@ -83,6 +99,7 @@ const Nav = () => {
                 y: "0%",
                 duration: 0.75,
                 stagger: 0.075,
+                delay: 0.2,
                 ease: "power4.out",
             }
         );
@@ -114,11 +131,22 @@ const Nav = () => {
 
         gsap.to(openLabel, { y: "0rem", duration: 0.3 });
         gsap.to(closeLabel, { y: "0rem", duration: 0.3 });
+
+        // Push up animation - overlay
         gsap.to(navOverlay, {
-            opacity: 0,
-            duration: 0.3,
+            y: "-100%",
+            duration: 1,
+            ease: "power4.inOut",
             onComplete: () => setIsAnimating(false),
         });
+
+        // Push up animation - page content
+        gsap.to(".page-content", {
+            y: "0%",
+            duration: 1,
+            ease: "power4.inOut",
+        });
+
         gsap.to(
             [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
             {

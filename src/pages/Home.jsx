@@ -14,14 +14,16 @@ const Home = ({ loaded }) => {
         <div className="page home-page">
             <Nav />
             <SectionNav />
-            <Hero loaded={loaded} />
-            <AboutMe />
-            <FeaturedWork />
-            <Expertise />
-            <Timeline />
-            <Skills />
-            <ContactForm />
-            <Footer />
+            <main className="page-content">
+                <Hero loaded={loaded} />
+                <AboutMe />
+                <FeaturedWork />
+                <Expertise />
+                <Timeline />
+                <Skills />
+                <ContactForm />
+                <Footer />
+            </main>
         </div>
     );
 };

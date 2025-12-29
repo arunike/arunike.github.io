@@ -83,11 +83,6 @@ function App() {
         if (loaded && !isMenuOpen) {
             document.body.style.overflow = "auto";
             if (window.lenis) window.lenis.start();
-        } else if (isMenuOpen) {
-            // Let Nav handle scroll locking or do it here.
-            // Nav currently handles it.
-            // But we might want to coordinate.
-            // Leaving it to Nav for now as per previous logic, but Nav affects body style.
         } else {
             document.body.style.overflow = "hidden";
             if (window.lenis) window.lenis.stop();

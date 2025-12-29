@@ -27,7 +27,7 @@ export const projects = [
         title: "BlueDrop",
         category: "Mobile App",
         description:
-            "Mobile application for water quality monitoring and community engagement. Empowering local communities to track and improve their water sources.",
+            "BlueDrop was a project built in my COMP SCI 407 course. Using the power of WIFI, BlueDrop makes file sharing as simple as a tap. We want to bring this essential to Android users to let them share a comparable experience, like using AirDrop seamlessly and easily. This tool is revolutionary useful if people are tired of using the internet to transfer files, which would cost a lot of effort and time. In our app, you can share your file just a tap away.",
         ghLink: "https://github.com/arunike/BlueDrop",
         tags: ["Android", "Kotlin", "Firebase"],
         isFeatured: true,
@@ -38,7 +38,7 @@ export const projects = [
         title: "Cyberpunk VR",
         category: "Game Dev",
         description:
-            "Immersive VR racing game featuring neon-soaked skyscrapers and high-speed tracks. A thrill ride through a futuristic metropolis.",
+            "Cyberpunk VR Racing Game was a project built in my COMP SCI 579 course, it is VR racing game, that focuses on the details of the futuristic city and track design. As a team, we created a city that has a distinct cyberpunk aesthetic, with towering skyscrapers, neon lights, and gritty, industrial elements. The track is challenging, with twists, turns, and obstacles that require skillful driving to navigate. The game appeal to fans of both cyberpunk and racing games.",
         demoLink: "https://youtu.be/K6kVYzrBCss",
         tags: ["Unity", "C#", "VR"],
         isFeatured: true,
@@ -49,7 +49,7 @@ export const projects = [
         title: "Resume Builder",
         category: "Web App",
         description:
-            "Interactive tool with real-time preview and PDF export. simplifying the job application process with clean, professional templates.",
+            "A simple resume builder application built with Next.js and Tailwind CSS. The application allows users to create a resume by filling out a form. The resume can be downloaded as a PDF file.",
         ghLink: "https://github.com/arunike/resume-builder",
         tags: ["React", "Node.js", "PDF.js"],
         isFeatured: true,
@@ -60,7 +60,7 @@ export const projects = [
         title: "VHR System",
         category: "Enterprise",
         description:
-            "Comprehensive HR management system separating front and back end services. Handles payroll, employee data, and recruitment flows.",
+            "VHR is a human resources management system that separates front and back end services. Implemented job management and title management, employee basic information management, advance search, generate excel sheet, send emails, payroll management, employee account setup, online chat, & system notifications.",
         ghLink: "https://github.com/arunike/vhr",
         tags: ["Java", "Spring Boot", "Vue.js", "MySQL"],
         isFeatured: true,
@@ -71,7 +71,7 @@ export const projects = [
         title: "Smart Bird Feeder",
         category: "AI / IoT",
         description:
-            "IoT device using machine learning to identify bird species in real-time. Features automated feeding schedules and live streaming.",
+            "Five Course Bird Feeder was a project built in my COMP SCI 506 course and is designed to directly combat all of the issues that come with a normal bird feeder. It uses machine learning to detect and track what types of creatures visit the feeder and allows the user to control food types and availability based on that information. This allows the user to feed certain birds at certain times, keep pests from stealing birdseed, and can rotate between different bird seeds for different species of birds. This feeder will also record each bird, so even if you miss it live, you can still check out what birds visited. There will be an associated webpage that you will be able to log into and link to your feeder. This website will allow the user to view a livestream of their feeder from anywhere, display recent bird appearances that the user may have missed, and present interesting statistics about the user's feeder (when birds are visiting, which species) to allow the user to customize their feeder's settings.",
         ghLink: "https://github.com/arunike/Five-Course-Bird-Feeder-Frontend",
         tags: ["React", "YOLO", "Computer Vision"],
         isFeatured: true,
@@ -168,7 +168,7 @@ export const projects = [
         image: GoGame,
         title: "Go Game AI",
         description:
-            "Ancient board game Go designed with competitive AI opponent. Go is an abstract strategy board game where the aim is to surround more territory than the opponent, invented in China over 2,500 years ago.",
+            "Ancient board game Go designed with competitive AI opponent. Go is an abstract strategy board game where the aim is to surround more territory than the opponent.",
         ghLink: "https://github.com/arunike/Go",
         tags: ["Python", "AI", "Game Theory"],
         isFeatured: false,

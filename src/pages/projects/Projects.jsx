@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import Nav from "../../components/Nav";
 import ProjectCard from "../../components/ProjectCard";
 import Footer from "../../components/sections/footer/Footer";
 
@@ -17,7 +16,6 @@ const Projects = () => {
 
     return (
         <div className="page projects-page">
-            <Nav />
             <section className="projects-section">
                 <div className="projects-container">
                     <div className="projects-header" ref={headerRef}>

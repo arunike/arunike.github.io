@@ -2,17 +2,11 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
-const Nav = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Nav = ({ isOpen, setIsOpen }) => {
     const [isAnimating, setIsAnimating] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
-        const navOverlay = document.querySelector(".nav-overlay");
-        const openLabel = document.querySelector(".open-label");
-        const closeLabel = document.querySelector(".close-label");
-        const navItems = document.querySelectorAll(".nav-item");
-
         const html = document.documentElement;
         const body = document.body;
         html.style.overflow = "";
@@ -24,16 +18,20 @@ const Nav = () => {
             window.lenis.start();
         }
 
+        const navOverlay = document.querySelector(".nav-overlay");
+        const openLabel = document.querySelector(".open-label");
+        const closeLabel = document.querySelector(".close-label");
+        const navItems = document.querySelectorAll(".nav-item");
+
         if (navOverlay) {
             navOverlay.style.pointerEvents = "none";
+            gsap.set(navOverlay, { y: "-100%", opacity: 1 });
         }
 
         // Reset menu UI
         gsap.set(openLabel, { y: "0rem" });
         gsap.set(closeLabel, { y: "0rem" });
-        if (navOverlay) {
-            gsap.set(navOverlay, { opacity: 0 });
-        }
+
         gsap.set(
             [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
             {
@@ -42,102 +40,92 @@ const Nav = () => {
             }
         );
 
-        setIsMenuOpen(false);
+        setIsOpen(false);
         setIsAnimating(false);
-    }, [location.pathname]);
+    }, [location.pathname, setIsOpen]);
 
-    const openMenu = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-
+    useEffect(() => {
         const navOverlay = document.querySelector(".nav-overlay");
         const openLabel = document.querySelector(".open-label");
         const closeLabel = document.querySelector(".close-label");
         const navItems = document.querySelectorAll(".nav-item");
 
-        navOverlay.style.pointerEvents = "all";
+        if (isOpen) {
+            // OPENING
+            setIsAnimating(true);
+            navOverlay.style.pointerEvents = "all";
 
-        // Prevent scrolling
-        if (window.lenis) {
-            window.lenis.stop();
-        }
+            // Prevent scrolling
+            if (window.lenis) window.lenis.stop();
 
-        // Prevent body scrolling
-        const html = document.documentElement;
-        const body = document.body;
-        html.style.overflow = "hidden";
-        body.style.overflow = "hidden";
-        body.style.height = "100vh";
+            const html = document.documentElement;
+            const body = document.body;
+            html.style.overflow = "hidden";
+            body.style.overflow = "hidden";
+            body.style.height = "100vh";
 
-        gsap.to(openLabel, { y: "-1rem", duration: 0.3 });
-        gsap.to(closeLabel, { y: "-1rem", duration: 0.3 });
-        gsap.to(navOverlay, {
-            opacity: 1,
-            duration: 0.3,
-            onComplete: () => setIsAnimating(false),
-        });
-        gsap.to(
-            [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
-            {
-                opacity: 1,
+            gsap.to(openLabel, { y: "-1rem", duration: 0.3 });
+            gsap.to(closeLabel, { y: "-1rem", duration: 0.3 });
+
+            // Slide in from top
+            gsap.to(navOverlay, {
                 y: "0%",
-                duration: 0.75,
-                stagger: 0.075,
-                ease: "power4.out",
-            }
-        );
+                duration: 1,
+                ease: "power4.inOut",
+                onComplete: () => setIsAnimating(false),
+            });
 
-        setIsMenuOpen(true);
-    };
+            gsap.to(
+                [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
+                {
+                    opacity: 1,
+                    y: "0%",
+                    duration: 0.75,
+                    stagger: 0.075,
+                    delay: 0.3,
+                    ease: "power4.out",
+                }
+            );
+        } else {
+            // CLOSING
+            setIsAnimating(true);
+            navOverlay.style.pointerEvents = "none";
 
-    const closeMenu = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
+            const html = document.documentElement;
+            const body = document.body;
+            html.style.overflow = "";
+            body.style.overflow = "";
+            body.style.height = "";
 
-        const navOverlay = document.querySelector(".nav-overlay");
-        const openLabel = document.querySelector(".open-label");
-        const closeLabel = document.querySelector(".close-label");
-        const navItems = document.querySelectorAll(".nav-item");
+            if (window.lenis) window.lenis.start();
 
-        navOverlay.style.pointerEvents = "none";
+            gsap.to(openLabel, { y: "0rem", duration: 0.3 });
+            gsap.to(closeLabel, { y: "0rem", duration: 0.3 });
 
-        const html = document.documentElement;
-        const body = document.body;
-        html.style.overflow = "";
-        body.style.overflow = "";
-        body.style.height = "";
+            // Slide out to top
+            gsap.to(navOverlay, {
+                y: "-100%",
+                duration: 1,
+                ease: "power4.inOut",
+                onComplete: () => setIsAnimating(false),
+            });
 
-        // Restart Lenis
-        if (window.lenis) {
-            window.lenis.start();
+            gsap.to(
+                [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
+                {
+                    opacity: 0,
+                    y: "100%",
+                    duration: 0.6,
+                    stagger: -0.075,
+                    ease: "power4.in",
+                }
+            );
         }
-
-        gsap.to(openLabel, { y: "0rem", duration: 0.3 });
-        gsap.to(closeLabel, { y: "0rem", duration: 0.3 });
-        gsap.to(navOverlay, {
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => setIsAnimating(false),
-        });
-        gsap.to(
-            [navItems, ".nav-footer-item-header", ".nav-footer-item-copy"],
-            {
-                opacity: 0,
-                y: "100%",
-                duration: 0.6,
-                stagger: -0.075,
-                ease: "power4.in",
-            }
-        );
-
-        setIsMenuOpen(false);
-    };
+    }, [isOpen]);
 
     const handleToggle = () => {
-        if (isMenuOpen) {
-            closeMenu();
-        } else {
-            openMenu();
+        if (!isAnimating) {
+            setIsOpen(!isOpen);
         }
     };
 
@@ -148,8 +136,8 @@ const Nav = () => {
             window.scrollTo(0, 0);
         }
 
-        if (isMenuOpen) {
-            closeMenu();
+        if (isOpen) {
+            setIsOpen(false);
         }
     };
 
@@ -166,9 +154,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <div
-                    className={`menu-toggle-btn ${
-                        isMenuOpen ? "menu-open" : ""
-                    }`}
+                    className={`menu-toggle-btn ${isOpen ? "menu-open" : ""}`}
                     onClick={handleToggle}
                 >
                     <div className="menu-toggle-btn-wrapper">

@@ -11,6 +11,7 @@ import CourseTaken from "./pages/courses/CourseTaken";
 import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import AnalyticsTracker from "./components/AnalyticsTracker";
+import Nav from "./components/Nav";
 
 // CSS
 import "./css/transition.css";
@@ -72,31 +73,76 @@ function ScrollToTop() {
 function App() {
     useSmoothScroll();
     const [loaded, setLoaded] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleTransitionComplete = useCallback(() => {
         setLoaded(true);
     }, []);
 
     useEffect(() => {
-        if (loaded) {
+        if (loaded && !isMenuOpen) {
             document.body.style.overflow = "auto";
             if (window.lenis) window.lenis.start();
+        } else if (isMenuOpen) {
+            // Let Nav handle scroll locking or do it here.
+            // Nav currently handles it.
+            // But we might want to coordinate.
+            // Leaving it to Nav for now as per previous logic, but Nav affects body style.
         } else {
             document.body.style.overflow = "hidden";
             if (window.lenis) window.lenis.stop();
         }
-    }, [loaded]);
+    }, [loaded, isMenuOpen]);
+
+    // Push Page Down Animation
+    useEffect(() => {
+        const pageContent = document.querySelector(".page-content");
+        if (!pageContent) return;
+
+        if (isMenuOpen) {
+            // Push down
+            import("gsap").then(({ default: gsap }) => {
+                gsap.to(pageContent, {
+                    y: "100vh",
+                    duration: 1,
+                    ease: "power4.inOut",
+                });
+            });
+        } else {
+            // Pull up
+            import("gsap").then(({ default: gsap }) => {
+                gsap.to(pageContent, {
+                    y: "0px",
+                    duration: 1,
+                    ease: "power4.inOut",
+                    onComplete: () => {
+                        gsap.set(pageContent, { clearProps: "transform" });
+                    },
+                });
+            });
+        }
+    }, [isMenuOpen]);
 
     return (
         <Router>
             <ScrollToTop />
             <AnalyticsTracker />
+            <Nav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
             <Transition onComplete={handleTransitionComplete} />
-            <Routes>
-                <Route path="/" element={<Home loaded={loaded} />} />
-                <Route path="/courses" element={<CourseTaken />} />
-                <Route path="/projects" element={<Projects />} />
-            </Routes>
+
+            <div
+                className="page-content"
+                style={{
+                    position: "relative",
+                    width: "100%",
+                }}
+            >
+                <Routes>
+                    <Route path="/" element={<Home loaded={loaded} />} />
+                    <Route path="/courses" element={<CourseTaken />} />
+                    <Route path="/projects" element={<Projects />} />
+                </Routes>
+            </div>
         </Router>
     );
 }

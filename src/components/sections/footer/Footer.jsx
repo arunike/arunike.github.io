@@ -142,10 +142,10 @@ const Footer = () => {
                             <a href="/">Home</a>
                         </p>
                         <p>
-                            <a href="/projects">Projects</a>
+                            <a href="#projects">Projects</a>
                         </p>
                         <p>
-                            <a href="/courses">Courses</a>
+                            <a href="#courses">Courses</a>
                         </p>
                     </div>
                     <div className="footer-col">

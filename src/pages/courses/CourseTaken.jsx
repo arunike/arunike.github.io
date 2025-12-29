@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import Nav from "../../components/Nav";
 import Footer from "../../components/sections/footer/Footer";
 
 import UWMadison from "../../assets/images/uw-madison_cs.png";
@@ -45,7 +44,6 @@ const CourseTaken = () => {
 
     return (
         <>
-            <Nav />
             <div className="courses-page">
                 {/* Header */}
                 <div className="courses-header" ref={headerRef}>

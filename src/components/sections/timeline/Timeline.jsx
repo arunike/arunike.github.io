@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { experiences } from "./components/timelineData";
 
 const extractColorFromImage = (imageSrc) => {
@@ -72,10 +72,6 @@ const Timeline = () => {
     const [experienceColors, setExperienceColors] = useState({});
     const [showLeftFade, setShowLeftFade] = useState(false);
     const [showRightFade, setShowRightFade] = useState(true);
-    const [showIntro, setShowIntro] = useState(true);
-    const [showTimeline, setShowTimeline] = useState(false);
-    const [introWord, setIntroWord] = useState("");
-    const [introStage, setIntroStage] = useState("idle");
 
     const checkScroll = () => {
         if (!scrollContainerRef.current) return;
@@ -165,70 +161,12 @@ const Timeline = () => {
     }, [orderedExperiences]);
 
     useEffect(() => {
-        if (showTimeline && scrollContainerRef.current) {
+        if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollLeft =
                 scrollContainerRef.current.scrollWidth;
             checkScroll();
         }
-    }, [showTimeline]);
-
-    const featureWords = useMemo(() => {
-        const locations = [
-            ...new Set(
-                experiences.map((exp) => exp.location.split(",")[0].trim())
-            ),
-        ];
-        const techs = [
-            ...new Set(experiences.flatMap((exp) => exp.technologies)),
-        ];
-
-        const pool = [...locations, ...techs];
-        return pool.sort(() => 0.5 - Math.random()).slice(0, 4);
     }, []);
-
-    const playIntroSequence = useCallback(async () => {
-        for (let i = 0; i < featureWords.length; i++) {
-            setIntroWord(featureWords[i]);
-            await new Promise((r) => setTimeout(r, 800));
-        }
-
-        setShowIntro(false);
-
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.style.scrollBehavior = "auto";
-            scrollContainerRef.current.scrollLeft =
-                scrollContainerRef.current.scrollWidth;
-            setTimeout(() => {
-                if (scrollContainerRef.current)
-                    scrollContainerRef.current.style.scrollBehavior = "smooth";
-            }, 50);
-        }
-
-        setTimeout(() => setShowTimeline(true), 100);
-    }, [featureWords]);
-
-    useEffect(() => {
-        const section = document.getElementById("timeline");
-        if (!section) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (
-                    entries[0].isIntersecting &&
-                    showIntro &&
-                    introStage === "idle"
-                ) {
-                    setIntroStage("playing");
-                    playIntroSequence();
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        observer.observe(section);
-
-        return () => observer.disconnect();
-    }, [showIntro, introStage, playIntroSequence]);
 
     const addToRefs = (el) => {
         if (el && !timelineRef.current.includes(el)) {
@@ -246,19 +184,7 @@ const Timeline = () => {
                     </p>
                 </div>
 
-                {showIntro && (
-                    <div
-                        className={`timeline-intro-overlay ${introStage === "playing" ? "active" : ""}`}
-                    >
-                        <div key={introWord} className="intro-word">
-                            {introWord}
-                        </div>
-                    </div>
-                )}
-
-                <div
-                    className={`timeline-content-wrapper ${showTimeline ? "visible" : "hidden"}`}
-                >
+                <div className="timeline-content-wrapper visible">
                     <div className="timeline-scroll-wrapper">
                         <div
                             className={`timeline-fade-left ${showLeftFade ? "visible" : ""}`}

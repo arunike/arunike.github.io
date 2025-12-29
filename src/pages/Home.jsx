@@ -1,4 +1,3 @@
-import Nav from "../components/Nav";
 import Hero from "../components/Main";
 import SectionNav from "../components/SectionNav";
 import AboutMe from "../components/sections/aboutMe/AboutMe";
@@ -12,7 +11,6 @@ import Footer from "../components/sections/footer/Footer";
 const Home = ({ loaded }) => {
     return (
         <div className="page home-page">
-            <Nav />
             <SectionNav />
             <Hero loaded={loaded} />
             <AboutMe />

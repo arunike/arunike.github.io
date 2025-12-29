@@ -7,7 +7,7 @@
     height: 100vh;
     height: 100dvh;
     z-index: 100000;
-    pointer-events: none;
+    pointer-events: all;
 }
 
 /* Clip-Path Triangle Design */

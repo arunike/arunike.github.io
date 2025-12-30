@@ -12,6 +12,7 @@ const ProjectCard = ({
 }) => {
     const cardRef = useRef(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
     const buttonRef = useRef(null);
     const [dropdownPosition, setDropdownPosition] = useState({
         top: 0,
@@ -189,7 +190,25 @@ const ProjectCard = ({
                 <div className="project-content">
                     <h3 className="project-title">{title}</h3>
                     {description && (
-                        <p className="project-description">{description}</p>
+                        <>
+                            <div
+                                className={`project-description-container ${
+                                    isExpanded ? "expanded" : "collapsed"
+                                }`}
+                            >
+                                <p className="project-description">
+                                    {description}
+                                </p>
+                            </div>
+                            {description.length > 100 && (
+                                <button
+                                    className="read-more-btn"
+                                    onClick={() => setIsExpanded(!isExpanded)}
+                                >
+                                    {isExpanded ? "Show Less" : "Read More"}
+                                </button>
+                            )}
+                        </>
                     )}
                     {tags && tags.length > 0 && (
                         <div className="project-tags">

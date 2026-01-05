@@ -1,4 +1,4 @@
-import Hero from "../components/Main";
+import Landing from "../components/Landing";
 import SectionNav from "../components/SectionNav";
 import AboutMe from "../components/sections/aboutMe/AboutMe";
 import FeaturedWork from "../components/sections/featuredWork/FeaturedWork";
@@ -12,7 +12,7 @@ const Home = ({ loaded }) => {
     return (
         <div className="page home-page">
             <SectionNav />
-            <Hero loaded={loaded} />
+            <Landing loaded={loaded} />
             <AboutMe />
             <FeaturedWork />
             <Expertise />

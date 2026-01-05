@@ -82,6 +82,10 @@
     max-width: 500px;
     margin-bottom: 2rem;
     color: #444;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-tags {

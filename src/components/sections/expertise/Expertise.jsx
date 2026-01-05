@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,8 +11,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Expertise = () => {
     const profileIconRef = useRef(null);
+    const [layoutVersion, setLayoutVersion] = useState(0);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        const handleUpdate = () => {
+            setLayoutVersion((v) => v + 1);
+        };
+        window.addEventListener("featured-work-updated", handleUpdate);
+        return () =>
+            window.removeEventListener("featured-work-updated", handleUpdate);
+    }, []);
+
+    useLayoutEffect(() => {
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 1001px)", () => {
@@ -99,7 +109,7 @@ const Expertise = () => {
         return () => {
             mm.revert();
         };
-    }, []);
+    }, [layoutVersion]);
 
     return (
         <>

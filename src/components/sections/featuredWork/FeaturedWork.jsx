@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo, useState } from "react";
+import { useLayoutEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,12 +12,13 @@ const FeaturedWork = () => {
 
     const featuredProjects = useMemo(
         () => projects.filter((p) => p.isFeatured),
-        []
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [projects]
     );
 
     const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const totalSlides = featuredProjects.length;
         let mm = gsap.matchMedia();
 
@@ -43,6 +44,10 @@ const FeaturedWork = () => {
                     },
                 }
             );
+
+            // Dispatch event to notify Expertise component to re-calculate layout
+            // This ensures Expertise rebuilds its ScrollTrigger after FeaturedWork pin is set
+            window.dispatchEvent(new Event("featured-work-updated"));
         });
 
         mm.add("(max-width: 1000px)", () => {
@@ -71,7 +76,7 @@ const FeaturedWork = () => {
         return () => {
             mm.revert();
         };
-    }, [featuredProjects.length]);
+    }, [featuredProjects]);
 
     return (
         <section className="featured-work-container" ref={triggerRef}>

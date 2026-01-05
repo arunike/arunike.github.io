@@ -6,7 +6,6 @@ const Transition = ({ onComplete }) => {
         const revealTransition = () => {
             const tl = gsap.timeline({
                 onComplete: () => {
-                    if (onComplete) onComplete();
                     gsap.set(".transition", { display: "none" });
                 },
             });
@@ -30,22 +29,28 @@ const Transition = ({ onComplete }) => {
                 .to(
                     ".transition-text h1",
                     { opacity: 1, y: 0, duration: 0.8 },
-                    "<+=0.3"
+                    ">-1.7" // Text appears after background covers screen
                 );
 
             // Fade out text slightly before the overlay dissolves
             tl.to(".transition-text", {
                 opacity: 0,
                 duration: 0.5,
-                delay: 0.2,
             });
 
             // Dissolve the whole transition container
-            tl.to(".transition", {
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.inOut",
-            });
+            tl.to(
+                ".transition",
+                {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.inOut",
+                    onStart: () => {
+                        if (onComplete) onComplete();
+                    },
+                },
+                "<"
+            );
         };
 
         // Trigger reveal transition on mount
@@ -61,7 +66,7 @@ const Transition = ({ onComplete }) => {
             <div className="transition-overlay overlay-5"></div>
 
             <div className="transition-text">
-                <h1>RICHIE ZHOU</h1>
+                <h1>RICHIE</h1>
             </div>
         </div>
     );

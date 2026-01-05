@@ -115,8 +115,49 @@ const FeaturedWork = () => {
                             </div>
                         </div>
 
-                        <div className="slide-visual">
-                            <div className="img-wrapper">
+                        <div
+                            className="slide-visual"
+                            onMouseMove={(e) => {
+                                const rect =
+                                    e.currentTarget.getBoundingClientRect();
+                                const x =
+                                    e.clientX - rect.left - rect.width / 2;
+                                const y =
+                                    e.clientY - rect.top - rect.height / 2;
+
+                                const imgWrapper =
+                                    e.currentTarget.querySelector(
+                                        ".img-wrapper"
+                                    );
+
+                                gsap.to(imgWrapper, {
+                                    x: x * 0.1,
+                                    y: y * 0.1,
+                                    rotationY: x * 0.05,
+                                    rotationX: -y * 0.05,
+                                    duration: 0.5,
+                                    ease: "power2.out",
+                                });
+                            }}
+                            onMouseLeave={(e) => {
+                                const imgWrapper =
+                                    e.currentTarget.querySelector(
+                                        ".img-wrapper"
+                                    );
+                                gsap.to(imgWrapper, {
+                                    x: 0,
+                                    y: 0,
+                                    rotationY: 0,
+                                    rotationX: 0,
+                                    duration: 0.5,
+                                    ease: "power2.out",
+                                });
+                            }}
+                        >
+                            <div
+                                className="img-wrapper"
+                                style={{ perspective: "1000px" }}
+                            >
                                 <img src={project.image} alt={project.title} />
                             </div>
                         </div>

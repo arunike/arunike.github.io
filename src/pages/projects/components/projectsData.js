@@ -13,6 +13,7 @@ import SongOfTheWind from "../../../assets/images/projects/song_of_the_wind_pian
 import ACMAlgorithms from "../../../assets/images/projects/acm_algorithms.png";
 import WorkOps from "../../../assets/images/projects/workops.png";
 import ResumeStack from "../../../assets/images/projects/resume_stack.png";
+import RealTimeFraudDetection from "../../../assets/images/projects/real_time_fraud_detection.png";
 
 import CS407 from "../../../assets/images/courses/compsci407.png";
 import CS571 from "../../../assets/images/courses/compsci571.gif";
@@ -21,6 +22,27 @@ import CS579 from "../../../assets/images/courses/compsci579.gif";
 import CS559 from "../../../assets/images/courses/compsci559.gif";
 
 export const projects = [
+    {
+        id: "real-time-fraud-detection",
+        image: RealTimeFraudDetection,
+        title: "Real-Time Fraud Detection",
+        category: "Machine Learning Web Platform",
+        description:
+            "An enterprise-grade streaming analytics platform designed to detect payment fraud in real-time using Machine Learning, Geo-Velocity Analysis, and a Data Lakehouse Architecture.",
+        ghLink: "https://github.com/arunike/Resume-Stack",
+        tags: [
+            "Kafka",
+            "Spark",
+            "Delta Lake",
+            "Redis",
+            "Python",
+            "Airflow",
+            "Kubernetes",
+            "PostgreSQL",
+        ],
+        isFeatured: true,
+        dateAdded: "2026-01-11",
+    },
     {
         id: "resume-stack",
         image: ResumeStack,

@@ -31,6 +31,9 @@ import Snowflake from "../../../../assets/images/techstack/databases/snowflake.p
 import MySQL from "../../../../assets/images/techstack/databases/mysql.png";
 import Firebase from "../../../../assets/images/techstack/databases/firebase.png";
 import SQL_Server from "../../../../assets/images/techstack/databases/sql_server.png";
+import PostgreSQL from "../../../../assets/images/techstack/databases/postgresql.png";
+import MongoDB from "../../../../assets/images/techstack/databases/mongodb.png";
+import BigQuery from "../../../../assets/images/techstack/databases/bigquery.png";
 
 // Tools & Technologies
 import Docker from "../../../../assets/images/techstack/tools/docker.png";
@@ -41,12 +44,13 @@ import Kafka from "../../../../assets/images/techstack/tools/kafka.png";
 import HDFS from "../../../../assets/images/techstack/tools/hdfs.png";
 import Latex from "../../../../assets/images/techstack/tools/latex.png";
 import Redis from "../../../../assets/images/techstack/tools/redis.png";
+import Airflow from "../../../../assets/images/techstack/tools/airflow.png";
 
-// Other
-import Linux from "../../../../assets/images/techstack/other/linux.png";
-import Android from "../../../../assets/images/techstack/other/android.png";
-import GCP from "../../../../assets/images/techstack/other/gcp.png";
-import Azure from "../../../../assets/images/techstack/other/azure.png";
+// Cloud & Platforms
+import Linux from "../../../../assets/images/techstack/cloud_platforms/linux.png";
+import Android from "../../../../assets/images/techstack/cloud_platforms/android.png";
+import GCP from "../../../../assets/images/techstack/cloud_platforms/gcp.png";
+import Azure from "../../../../assets/images/techstack/cloud_platforms/azure.png";
 
 export const skillCategories = [
     {
@@ -90,9 +94,12 @@ export const skillCategories = [
         title: "Databases",
         skills: [
             { name: "MySQL", icon: MySQL },
-            { name: "Firebase", icon: Firebase },
             { name: "SQL Server", icon: SQL_Server },
+            { name: "PostgreSQL", icon: PostgreSQL },
+            { name: "Firebase", icon: Firebase },
             { name: "Snowflake", icon: Snowflake },
+            { name: "BigQuery", icon: BigQuery },
+            { name: "MongoDB", icon: MongoDB },
         ],
     },
     {
@@ -101,6 +108,7 @@ export const skillCategories = [
             { name: "LaTeX", icon: Latex },
             { name: "Docker", icon: Docker },
             { name: "Kubernetes", icon: Kubernetes },
+            { name: "Airflow", icon: Airflow },
             { name: "Cassandra", icon: Cassandra },
             { name: "HDFS", icon: HDFS },
             { name: "Spark", icon: Spark },

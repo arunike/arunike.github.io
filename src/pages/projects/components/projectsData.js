@@ -1,7 +1,6 @@
 import BlackGoldPoker from "../../../assets/images/projects/black_gold_poker.gif";
 import PortfolioOld from "../../../assets/images/projects/portfolio_old.gif";
 import MiasPortfolio from "../../../assets/images/projects/mias_portfolio.gif";
-import ResumeBuilder from "../../../assets/images/projects/resume_builder.png";
 import Pacman from "../../../assets/images/projects/pacman.gif";
 import GoGame from "../../../assets/images/projects/go_game.gif";
 import SnakeGame from "../../../assets/images/projects/snake_game.gif";
@@ -178,17 +177,6 @@ export const projects = [
         demoLink: "https://miaaamao.github.io",
         tags: ["React", "JavaScript", "CSS", "HTML"],
         isFeatured: false,
-    },
-    {
-        id: "resume-builder",
-        image: ResumeBuilder,
-        title: "Resume Builder",
-        category: "Resume Builder Web App",
-        description:
-            "A simple resume builder application built with Next.js and Tailwind CSS. The application allows users to create a resume by filling out a form. The resume can be downloaded as a PDF file.",
-        ghLink: "https://github.com/arunike/resume-builder",
-        tags: ["React", "Node.js", "PDF.js"],
-        isFeatured: true,
     },
     {
         id: "piano-tiles",

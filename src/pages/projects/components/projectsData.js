@@ -13,6 +13,7 @@ import HTMLPortfolio from "../../../assets/images/projects/html_portfolio.png";
 import SongOfTheWind from "../../../assets/images/projects/song_of_the_wind_piano.png";
 import ACMAlgorithms from "../../../assets/images/projects/acm_algorithms.png";
 import WorkOps from "../../../assets/images/projects/workops.png";
+import ResumeStack from "../../../assets/images/projects/resume_stack.png";
 
 import CS407 from "../../../assets/images/courses/compsci407.png";
 import CS571 from "../../../assets/images/courses/compsci571.gif";
@@ -22,12 +23,24 @@ import CS559 from "../../../assets/images/courses/compsci559.gif";
 
 export const projects = [
     {
+        id: "resume-stack",
+        image: ResumeStack,
+        title: "Resume Stack",
+        category: "Resume Builder Web Platform",
+        description:
+            "A client-side resume builder application built with modern web technologies. It empowers users to design, customize, and export their resumes without compromising their data privacy. Unlike other platforms, Resume Stack runs entirely in your browser—your data stays with you.",
+        ghLink: "https://github.com/arunike/Resume-Stack",
+        tags: ["React", "TypeScript", "Tailwind CSS"],
+        isFeatured: true,
+        dateAdded: "2026-01-10",
+    },
+    {
         id: "workops",
         image: WorkOps,
         title: "WorkOps",
         category: "HR Management Web Platform",
         description:
-            "A comprehensive Human Resources management system designed to streamline employee administration, visualize organizational structure, and foster company culture through social features.",
+            "A modern web application that transforms standard HR tasks into an interactive and data-driven experience. It combines traditional employee management with social recognition features and powerful analytics.",
         ghLink: "https://github.com/arunike/WorkOps-Frontend",
         tags: ["React", "JavaScript", "Go", "MySQL"],
         isFeatured: true,
@@ -116,9 +129,9 @@ export const projects = [
         isFeatured: true,
     },
     {
-        id: "smart-bird-feeder",
+        id: "five-course-bird-feeder",
         image: CS506,
-        title: "Smart Bird Feeder",
+        title: "Five Course Bird Feeder",
         category: "AI Computer Vision Web App",
         description:
             "Five Course Bird Feeder was a project built in my COMP SCI 506 course and is a modern web application that transforms backyard bird watching into an intelligent, data-driven experience. Using computer vision and machine learning, the system automatically detects, identifies, and tracks bird species visiting your feeder in real-time.",

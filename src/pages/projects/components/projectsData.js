@@ -52,7 +52,7 @@ export const projects = [
             "A client-side resume builder application built with modern web technologies. It empowers users to design, customize, and export their resumes without compromising their data privacy. Unlike other platforms, Resume Stack runs entirely in your browser—your data stays with you.",
         ghLink: "https://github.com/arunike/Resume-Stack",
         tags: ["React", "TypeScript", "Tailwind CSS"],
-        demoLink: "https://richiez28.github.io",
+        demoLink: "https://richiez28.github.io/projects/resume-stack/",
         isFeatured: true,
         dateAdded: "2026-01-10",
     },
@@ -76,6 +76,7 @@ export const projects = [
         description:
             "An immersive 3D tarot card experience controlled by hand gestures through your webcam. Experience mystical card readings with intuitive gesture controls and stunning visual effects.",
         ghLink: "https://github.com/arunike/Black-Gold-Poker",
+        demoLink: "https://richiez28.github.io/projects/poker",
         tags: ["React", "Typescript", "Three.js", "MediaPipe", "WebGL", "GLSL"],
         isFeatured: false,
         dateAdded: "2025-12-14",

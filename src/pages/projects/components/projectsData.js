@@ -132,7 +132,6 @@ export const projects = [
             "https://github.com/arunike/CS571/tree/main/Homework%2007",
             "https://github.com/arunike/CS571/tree/main/Homework%2008",
             "https://github.com/arunike/CS571/tree/main/Homework%2009",
-            "https://github.com/arunike/CS571/tree/main/Homework%2010",
             "https://github.com/arunike/CS571/tree/main/Homework%2011",
             "https://github.com/arunike/CS571/tree/main/Homework%2012",
         ],

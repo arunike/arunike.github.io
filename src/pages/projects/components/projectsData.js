@@ -52,6 +52,7 @@ export const projects = [
             "A client-side resume builder application built with modern web technologies. It empowers users to design, customize, and export their resumes without compromising their data privacy. Unlike other platforms, Resume Stack runs entirely in your browser—your data stays with you.",
         ghLink: "https://github.com/arunike/Resume-Stack",
         tags: ["React", "TypeScript", "Tailwind CSS"],
+        demoLink: "https://richiez28.github.io",
         isFeatured: true,
         dateAdded: "2026-01-10",
     },
@@ -302,8 +303,9 @@ export const projects = [
         description:
             "Portfolio website using HTML, CSS, and JavaScript. Features about me, skills, projects, experience timeline, contact sections, and a dedicated projects page.",
         ghLink: "https://github.com/arunike/Portfolio-HTML",
-        demoLink: "https://richiez28.github.io",
+        demoLink: "https://richiez28.github.io/legacy/index.html",
         tags: ["HTML", "CSS", "JavaScript"],
         isFeatured: false,
+        dateAdded: "2023-04-22",
     },
 ];

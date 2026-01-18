@@ -15,11 +15,15 @@ const Expertise = () => {
 
     useLayoutEffect(() => {
         const handleUpdate = () => {
+            // Force a re-render to update the layout
             setLayoutVersion((v) => v + 1);
         };
+
         window.addEventListener("featured-work-updated", handleUpdate);
-        return () =>
+
+        return () => {
             window.removeEventListener("featured-work-updated", handleUpdate);
+        };
     }, []);
 
     useLayoutEffect(() => {

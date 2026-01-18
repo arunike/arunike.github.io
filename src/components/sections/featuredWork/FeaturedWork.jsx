@@ -38,6 +38,7 @@ const FeaturedWork = () => {
                         end: "+=5000",
                         scrub: 0.6,
                         pin: true,
+                        invalidateOnRefresh: true,
                         onUpdate: (self) => {
                             setProgress(Math.round(self.progress * 100));
                         },
@@ -47,7 +48,14 @@ const FeaturedWork = () => {
 
             // Dispatch event to notify Expertise component to re-calculate layout
             // This ensures Expertise rebuilds its ScrollTrigger after FeaturedWork pin is set
-            window.dispatchEvent(new Event("featured-work-updated"));
+            // Longer timeout to allow the DOM to fully settle (e.g. after transitions)
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    ScrollTrigger.sort();
+                    ScrollTrigger.refresh(true);
+                    window.dispatchEvent(new Event("featured-work-updated"));
+                });
+            }, 800);
         });
 
         mm.add("(max-width: 1000px)", () => {

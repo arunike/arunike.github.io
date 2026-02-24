@@ -4,7 +4,9 @@ import {
     Route,
     useLocation,
 } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Transition from "./components/Transition";
 import Home from "./pages/Home";
 import CourseTaken from "./pages/courses/CourseTaken";
@@ -12,6 +14,8 @@ import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import Nav from "./components/Nav";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // CSS
 import "./css/transition.css";
@@ -34,10 +38,15 @@ import "./css/sections/expertise.css";
 import "./css/pages/projects.css";
 import "./css/pages/courses.css";
 
-function ScrollToTop() {
+function ScrollToTop({ start, scrollTo }) {
     const location = useLocation();
+    const prevPathnameRef = useRef(location.pathname);
 
     useEffect(() => {
+        if (typeof document === "undefined") {
+            return;
+        }
+
         const html = document.documentElement;
         const body = document.body;
 
@@ -51,27 +60,51 @@ function ScrollToTop() {
         body.style.overflow = "";
         body.style.height = "";
 
-        // Force Lenis to restart
-        if (window.lenis) {
-            window.lenis.start();
-            // Force scroll to top
-            requestAnimationFrame(() => {
-                window.lenis.scrollTo(0, {
-                    immediate: true,
-                    force: true,
-                    lock: true,
-                });
-            });
-        } else {
+        const prevPathname = prevPathnameRef.current;
+        prevPathnameRef.current = location.pathname;
+
+        if (prevPathname === "/" && location.pathname !== "/") {
+            ScrollTrigger.getAll().forEach((t) => t.kill(true));
+            ScrollTrigger.clearScrollMemory();
+        }
+
+        if (start) {
+            start();
+        }
+
+        const didScroll = scrollTo
+            ? scrollTo(0, {
+                  immediate: true,
+                  force: true,
+                  lock: true,
+              })
+            : false;
+
+        if (!didScroll && typeof window !== "undefined") {
             window.scrollTo(0, 0);
         }
-    }, [location.pathname]);
+
+        const refresh = () => {
+            ScrollTrigger.sort();
+            ScrollTrigger.refresh(true);
+        };
+
+        const rafId = requestAnimationFrame(refresh);
+        const timeoutId = setTimeout(refresh, 300);
+        const timeoutId2 = setTimeout(refresh, 900);
+
+        return () => {
+            cancelAnimationFrame(rafId);
+            clearTimeout(timeoutId);
+            clearTimeout(timeoutId2);
+        };
+    }, [location.pathname, start, scrollTo]);
 
     return null;
 }
 
 function App() {
-    useSmoothScroll();
+    const { start, stop, scrollTo } = useSmoothScroll();
     const [loaded, setLoaded] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -80,17 +113,29 @@ function App() {
     }, []);
 
     useEffect(() => {
+        if (typeof document === "undefined") {
+            return;
+        }
+
         if (loaded && !isMenuOpen) {
             document.body.style.overflow = "auto";
-            if (window.lenis) window.lenis.start();
+            if (start) {
+                start();
+            }
         } else {
             document.body.style.overflow = "hidden";
-            if (window.lenis) window.lenis.stop();
+            if (stop) {
+                stop();
+            }
         }
-    }, [loaded, isMenuOpen]);
+    }, [loaded, isMenuOpen, start, stop]);
 
     // Push Page Down Animation
     useEffect(() => {
+        if (typeof document === "undefined") {
+            return;
+        }
+
         const pageContent = document.querySelector(".page-content");
         if (!pageContent) return;
 
@@ -120,9 +165,15 @@ function App() {
 
     return (
         <Router>
-            <ScrollToTop />
+            <ScrollToTop start={start} scrollTo={scrollTo} />
             <AnalyticsTracker />
-            <Nav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+            <Nav
+                isOpen={isMenuOpen}
+                setIsOpen={setIsMenuOpen}
+                scrollTo={scrollTo}
+                start={start}
+                stop={stop}
+            />
             <Transition onComplete={handleTransitionComplete} />
 
             <div

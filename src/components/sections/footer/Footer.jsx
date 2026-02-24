@@ -44,6 +44,8 @@ const Footer = () => {
                 const particle = document.createElement("img");
                 particle.src = path;
                 particle.classList.add("explosion-particle-img");
+                particle.loading = "lazy";
+                particle.decoding = "async";
                 particle.style.width = `${config.imageSize}px`;
                 explosionContainer.appendChild(particle);
             });
@@ -125,12 +127,32 @@ const Footer = () => {
         <footer>
             <div className="footer-container">
                 <div className="footer-symbols footer-symbols-1">
-                    <img src={SymbolSix} alt="Symbol 6" />
-                    <img src={SymbolSix} alt="Symbol 6" />
+                    <img
+                        src={SymbolSix}
+                        alt="Symbol 6"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <img
+                        src={SymbolSix}
+                        alt="Symbol 6"
+                        loading="lazy"
+                        decoding="async"
+                    />
                 </div>
                 <div className="footer-symbols footer-symbols-2">
-                    <img src={SymbolSix} alt="Symbol 6" />
-                    <img src={SymbolSix} alt="Symbol 6" />
+                    <img
+                        src={SymbolSix}
+                        alt="Symbol 6"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <img
+                        src={SymbolSix}
+                        alt="Symbol 6"
+                        loading="lazy"
+                        decoding="async"
+                    />
                 </div>
                 <div className="footer-header">
                     <h1>Richie Zhou</h1>

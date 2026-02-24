@@ -1,6 +1,5 @@
 .skills-section {
-    min-height: 100vh;
-    padding: 8rem 2rem;
+    padding-top: 160px;
     background-color: var(--bg);
     position: relative;
 }
@@ -8,6 +7,7 @@
 .skills-container {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
 
 .skills-heading {

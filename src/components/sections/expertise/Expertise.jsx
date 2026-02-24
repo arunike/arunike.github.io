@@ -1,30 +1,34 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import BadgerIcon from "../../../assets/images/badger_cs.png";
-import BackendImg from "../../../assets/images/service/backend.png";
-import FrontendImg from "../../../assets/images/service/frontend.png";
-import DevOpsImg from "../../../assets/images/service/devops.png";
+import ExpertiseCard from "./components/ExpertiseCard";
+import { expertiseCards } from "./components/expertiseData";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Expertise = () => {
     const profileIconRef = useRef(null);
-    const [layoutVersion, setLayoutVersion] = useState(0);
+    const pointerStartRef = useRef(null);
 
-    useLayoutEffect(() => {
-        const handleUpdate = () => {
-            // Force a re-render to update the layout
-            setLayoutVersion((v) => v + 1);
-        };
+    const totalCards = expertiseCards.length;
+    const [activeIndex, setActiveIndex] = useState(0);
 
-        window.addEventListener("featured-work-updated", handleUpdate);
+    const safeActiveIndex = useMemo(() => {
+        if (totalCards <= 0) return 0;
+        return ((activeIndex % totalCards) + totalCards) % totalCards;
+    }, [activeIndex, totalCards]);
 
-        return () => {
-            window.removeEventListener("featured-work-updated", handleUpdate);
-        };
-    }, []);
+    const goPrev = () => {
+        if (totalCards <= 1) return;
+        setActiveIndex((prev) => (prev - 1 + totalCards) % totalCards);
+    };
+
+    const goNext = () => {
+        if (totalCards <= 1) return;
+        setActiveIndex((prev) => (prev + 1) % totalCards);
+    };
 
     useLayoutEffect(() => {
         let mm = gsap.matchMedia();
@@ -41,48 +45,6 @@ const Expertise = () => {
                         end: "bottom top",
                         scrub: 1,
                     },
-                });
-            }
-
-            const expertiseCards = gsap.utils.toArray(".expertise-card");
-
-            if (expertiseCards.length > 0) {
-                ScrollTrigger.create({
-                    trigger: expertiseCards[0],
-                    start: "top 50%",
-                    endTrigger: expertiseCards[expertiseCards.length - 1],
-                    end: "top 150%",
-                    pin: false,
-                });
-
-                expertiseCards.forEach((card, index) => {
-                    const isLastCard = index === expertiseCards.length - 1;
-                    const cardInner = card.querySelector(
-                        ".expertise-card-inner"
-                    );
-
-                    if (!isLastCard) {
-                        ScrollTrigger.create({
-                            trigger: card,
-                            start: "top 45%",
-                            endTrigger: ".contact",
-                            end: "top 90%",
-                            pin: true,
-                            pinSpacing: false,
-                        });
-
-                        gsap.to(cardInner, {
-                            y: `-${(expertiseCards.length - index) * 14}vh`,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: card,
-                                start: "top 45%",
-                                endTrigger: ".contact",
-                                end: "top 90%",
-                                scrub: true,
-                            },
-                        });
-                    }
                 });
             }
         });
@@ -113,7 +75,7 @@ const Expertise = () => {
         return () => {
             mm.revert();
         };
-    }, [layoutVersion]);
+    }, []);
 
     return (
         <>
@@ -123,7 +85,12 @@ const Expertise = () => {
                         className="expertise-profile-icon"
                         ref={profileIconRef}
                     >
-                        <img src={BadgerIcon} alt="badger cs logo" />
+                        <img
+                            src={BadgerIcon}
+                            alt="badger cs logo"
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
                     <p>My Vision. My Expertise.</p>
                     <div className="expertise-header-title">
@@ -135,108 +102,113 @@ const Expertise = () => {
                     </div>
                 </div>
             </section>
-            <section className="expertise">
-                <div className="expertise-card" id="expertise-card-1">
-                    <div className="expertise-card-inner">
-                        <div className="expertise-card-content">
-                            <h1>Backend Development</h1>
-                            <ul>
-                                <li>
-                                    Design and implement scalable APIs and
-                                    microservices (Golang, Node.js, Django,
-                                    Spring Boot) with clean contracts and
-                                    versioning.
-                                </li>
-                                <li>
-                                    Build secure authentication and
-                                    authorization (OAuth, JWT, session
-                                    management) and harden systems against
-                                    abuse.
-                                </li>
-                                <li>
-                                    Improve latency and throughput with caching
-                                    (Redis), async processing, and careful
-                                    database query design.
-                                </li>
-                                <li>
-                                    Implement robust reliability patterns:
-                                    retries, idempotency, rate limiting, circuit
-                                    breakers, and graceful degradation
-                                </li>
-                            </ul>
+            <section
+                className="expertise"
+                tabIndex={0}
+                aria-label="Expertise cards"
+                onKeyDown={(e) => {
+                    if (e.key === "ArrowLeft") {
+                        e.preventDefault();
+                        goPrev();
+                    }
+                    if (e.key === "ArrowRight") {
+                        e.preventDefault();
+                        goNext();
+                    }
+                }}
+                onPointerDown={(e) => {
+                    pointerStartRef.current = {
+                        x: e.clientX,
+                        y: e.clientY,
+                    };
+                }}
+                onPointerUp={(e) => {
+                    const start = pointerStartRef.current;
+                    pointerStartRef.current = null;
+                    if (!start || totalCards <= 1) return;
+
+                    const dx = e.clientX - start.x;
+                    const dy = e.clientY - start.y;
+                    const absX = Math.abs(dx);
+                    const absY = Math.abs(dy);
+
+                    if (absX < 60) return;
+                    if (absX < absY * 1.2) return;
+
+                    if (dx < 0) {
+                        goNext();
+                    } else {
+                        goPrev();
+                    }
+                }}
+                onPointerCancel={() => {
+                    pointerStartRef.current = null;
+                }}
+            >
+                {expertiseCards.map((card, index) => {
+                    const order =
+                        totalCards <= 0
+                            ? 0
+                            : (index - safeActiveIndex + totalCards) %
+                              totalCards;
+
+                    const style = {
+                        "--stack-offset": `${order * 36}px`,
+                        zIndex: totalCards + 1 - order,
+                    };
+
+                    return (
+                        <ExpertiseCard
+                            key={card.id}
+                            card={card}
+                            style={style}
+                            isActive={index === safeActiveIndex}
+                            onActivate={() => setActiveIndex(index)}
+                        />
+                    );
+                })}
+
+                {totalCards > 1 && (
+                    <div className="expertise-controls">
+                        <button
+                            type="button"
+                            className="expertise-nav-btn"
+                            aria-label="Previous expertise card"
+                            onClick={goPrev}
+                        >
+                            &#8592;
+                        </button>
+                        <div
+                            className="expertise-dots"
+                            aria-label="Expertise card position"
+                        >
+                            {expertiseCards.map((c, i) => (
+                                <button
+                                    key={c.id}
+                                    type="button"
+                                    className={`expertise-dot ${
+                                        i === safeActiveIndex ? "active" : ""
+                                    }`}
+                                    aria-label={`Go to card ${i + 1}`}
+                                    aria-current={
+                                        i === safeActiveIndex
+                                            ? "true"
+                                            : undefined
+                                    }
+                                    onClick={() => setActiveIndex(i)}
+                                ></button>
+                            ))}
                         </div>
-                        <div className="expertise-card-img">
-                            <img src={BackendImg} alt="Backend Development" />
-                        </div>
+                        <button
+                            type="button"
+                            className="expertise-nav-btn"
+                            aria-label="Next expertise card"
+                            onClick={goNext}
+                        >
+                            &#8594;
+                        </button>
                     </div>
-                </div>
-                <div className="expertise-card" id="expertise-card-2">
-                    <div className="expertise-card-inner">
-                        <div className="expertise-card-content">
-                            <h1>Frontend Development </h1>
-                            <ul>
-                                <li>
-                                    Build responsive, accessible UIs in React
-                                    and Next.js, turning Figma designs into
-                                    polished user experiences.
-                                </li>
-                                <li>
-                                    Optimize performance (SSR, code splitting,
-                                    caching) to improve load time and conversion
-                                    funnels.
-                                </li>
-                                <li>
-                                    Integrate REST/WebSocket data flows for
-                                    real-time dashboards and interactive
-                                    workflows.
-                                </li>
-                                <li>
-                                    Add analytics instrumentation and run A/B
-                                    experiments to validate product
-                                    improvements.
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="expertise-card-img">
-                            <img
-                                src={FrontendImg}
-                                alt="Front-End Development"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="expertise-card" id="expertise-card-3">
-                    <div className="expertise-card-inner">
-                        <div className="expertise-card-content">
-                            <h1>DevOps</h1>
-                            <ul>
-                                <li>
-                                    Containerize services with Docker and set up
-                                    CI/CD pipelines for safe, repeatable
-                                    deployments.
-                                </li>
-                                <li>
-                                    Operate services in cloud environments (AWS,
-                                    GCP), including environment configuration
-                                    and secrets management.
-                                </li>
-                                <li>
-                                    Improve observability with logging, metrics,
-                                    alerts, and dashboards to catch issues
-                                    early.
-                                </li>
-                                <li>
-                                    Strengthen security and reliability with
-                                    automated checks, rollout strategies, and
-                                    incident-friendly tooling
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="expertise-card-img">
-                            <img src={DevOpsImg} alt="DevOps" />
-                        </div>
-                    </div>
-                </div>
+                )}
             </section>
         </>
     );

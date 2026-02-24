@@ -47,7 +47,12 @@ const AboutMe = () => {
                 <h1>Richie</h1>
             </div>
             <div className="about-hero-portrait" ref={portraitRef}>
-                <img src={ProfilePicture} alt="profile picture" />
+                <img
+                    src={ProfilePicture}
+                    alt="Portrait of Richie"
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
             <div className="about-hero-bio">
                 <p className="ss">

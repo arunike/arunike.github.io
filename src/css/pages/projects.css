@@ -36,9 +36,18 @@
 
 .projects-subtitle {
     font-size: 1.25rem;
-    color: #666;
+    color: var(--muted);
     max-width: 600px;
     margin: 0 auto 2rem auto;
+}
+
+.projects-filter-summary {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: -0.5rem auto 1.5rem auto;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: "Supply Mono", monospace;
 }
 
 .projects-stats {
@@ -46,6 +55,93 @@
     gap: 3rem;
     justify-content: center;
     margin-top: 2rem;
+}
+
+.projects-filters {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(240px, 520px);
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0 3rem 0;
+}
+
+.filter-select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+}
+
+.filter-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    font-family: "Supply Mono", monospace;
+}
+
+.projects-select-wrapper {
+    position: relative;
+}
+
+.projects-tag-select,
+.projects-search {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-family: "Supply Mono", monospace;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--fg);
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.projects-tag-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+
+.projects-select-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--fg);
+    transform: translateY(-40%);
+    pointer-events: none;
+}
+
+.projects-tag-select:focus,
+.projects-search:focus {
+    border-color: var(--accent1);
+    box-shadow: 0 0 0 3px rgba(237, 106, 90, 0.2);
+}
+
+.projects-empty {
+    text-align: center;
+    padding: 3rem 1rem 5rem;
+}
+
+.projects-empty p {
+    font-size: 1.1rem;
+    color: var(--muted);
 }
 
 .stat-item {
@@ -63,7 +159,7 @@
 
 .stat-label {
     font-size: 1rem;
-    color: #666;
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -79,15 +175,29 @@
 /* Project Card */
 .project-card {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px) rotateX(4deg) rotateZ(-1.2deg);
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
 }
 
 .project-card.project-card-animated {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotateX(0) rotateZ(0);
+}
+
+.projects-grid .project-card:nth-child(3n + 1) {
+    transition-delay: 0ms;
+}
+
+.projects-grid .project-card:nth-child(3n + 2) {
+    transition-delay: 120ms;
+}
+
+.projects-grid .project-card:nth-child(3n) {
+    transition-delay: 240ms;
 }
 
 .project-card-inner {
@@ -262,7 +372,7 @@ button.dropdown-toggle.active {
 
 .project-description {
     font-size: 0.95rem;
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
     margin-bottom: 1rem;
     margin-bottom: 0.5rem;
@@ -350,7 +460,7 @@ button.dropdown-toggle.active {
 
 .github-cta p {
     font-size: 1rem;
-    color: #666;
+    color: var(--muted);
     margin-bottom: 1.25rem;
 }
 
@@ -394,6 +504,7 @@ button.dropdown-toggle.active {
 
     .projects-stats {
         gap: 2rem;
+        flex-direction: column;
     }
 
     .stat-number {
@@ -403,6 +514,15 @@ button.dropdown-toggle.active {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .projects-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-tag-select,
+    .projects-search {
+        width: 100%;
     }
 
     .project-image-wrapper {

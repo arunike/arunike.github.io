@@ -1,16 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Footer from "../../components/sections/footer/Footer";
 
 import UWMadison from "../../assets/images/uw-madison_cs.png";
+import CourseCard from "./components/CourseCard";
 import { courses } from "./components/coursesData";
-
-const renderStars = (count) => {
-    return Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className="star" style={{ opacity: i < count ? 1 : 0.3 }}>
-            ★
-        </span>
-    ));
-};
 
 const CourseTaken = () => {
     const headerRef = useRef(null);
@@ -66,79 +59,11 @@ const CourseTaken = () => {
                 <div className="courses-container">
                     <div className="courses-list">
                         {courses.map((course, index) => (
-                            <div
+                            <CourseCard
                                 key={course.id}
-                                className="course-card"
+                                course={course}
                                 ref={(el) => (cardsRef.current[index] = el)}
-                            >
-                                <span className="courses-semester-tag">
-                                    {course.semester}
-                                </span>
-                                <div className="course-card-inner">
-                                    <div className="course-image-section">
-                                        <span
-                                            className={`course-type-badge ${(course.type || "").toLowerCase()}`}
-                                        >
-                                            {course.type}
-                                        </span>
-                                        <img
-                                            src={course.image}
-                                            alt={course.title}
-                                            className="course-image"
-                                        />
-                                    </div>
-
-                                    <div className="course-details-section">
-                                        <h2 className="course-title">
-                                            {course.title}
-                                        </h2>
-
-                                        <div className="course-meta">
-                                            <div className="meta-item">
-                                                <span className="meta-label">
-                                                    Major:
-                                                </span>
-                                                <span className="meta-value">
-                                                    {course.major}
-                                                </span>
-                                            </div>
-
-                                            <div className="meta-item">
-                                                <span className="meta-label">
-                                                    Professor:
-                                                </span>
-                                                <span className="meta-value">
-                                                    {course.professor}
-                                                </span>
-                                            </div>
-
-                                            <div className="meta-item">
-                                                <span className="meta-label">
-                                                    Rating:
-                                                </span>
-                                                <div className="rating-stars">
-                                                    {renderStars(course.rating)}
-                                                </div>
-                                            </div>
-
-                                            <div className="meta-item">
-                                                <span className="meta-label">
-                                                    Workload:
-                                                </span>
-                                                <div className="workload-stars">
-                                                    {renderStars(
-                                                        course.workload
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <p className="course-description">
-                                            {course.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            />
                         ))}
                     </div>
 

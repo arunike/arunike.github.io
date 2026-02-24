@@ -48,7 +48,12 @@ const Landing = ({ loaded }) => {
             </div>
             <div className="landing-footer">
                 <div className="landing-footer-symbols">
-                    <img src={Symbols} alt="symbols" />
+                    <img
+                        src={Symbols}
+                        alt="symbols"
+                        loading="lazy"
+                        decoding="async"
+                    />
                 </div>
                 <div className="landing-footer-tags">
                     <p className="mn">Showcase Mode: ON </p>

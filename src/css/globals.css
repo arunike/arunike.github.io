@@ -6,6 +6,18 @@
     --accent2: #f4f1bb;
     --accent3: #9bc1bc;
     --accent4: #5d576b;
+    --muted: #666;
+}
+
+[data-theme="dark"] {
+    --bg: #0f1113;
+    --bg2: #1a1d21;
+    --fg: #f2f2f2;
+    --accent1: #ed6a5a;
+    --accent2: #f4f1bb;
+    --accent3: #9bc1bc;
+    --accent4: #8b83a2;
+    --muted: #b3b3b3;
 }
 
 * {
@@ -90,7 +102,7 @@ p.mn {
 }
 
 .section-subtitle {
-    color: #666;
+    color: var(--muted);
     margin: 0;
     font-family: "Supply Mono", monospace;
 }

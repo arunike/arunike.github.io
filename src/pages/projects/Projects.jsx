@@ -1,12 +1,57 @@
-import { useEffect, useRef } from "react";
-import ProjectCard from "../../components/ProjectCard";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "../../components/sections/footer/Footer";
 
 import { projects } from "./components/projectsData";
 import { FaGithubAlt } from "react-icons/fa";
+import ProjectsFilters from "./components/ProjectsFilters";
+import ProjectsGrid from "./components/ProjectsGrid";
 
 const Projects = () => {
     const headerRef = useRef(null);
+    const [selectedTag, setSelectedTag] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const tagOptions = useMemo(() => {
+        const tags = new Set(projects.flatMap((project) => project.tags));
+        return ["All", ...Array.from(tags).sort()];
+    }, []);
+
+    const totalTechnologies = useMemo(() => {
+        return new Set(projects.flatMap((project) => project.tags)).size;
+    }, []);
+
+    const filteredProjects = useMemo(() => {
+        const normalizedSearch = searchTerm.trim().toLowerCase();
+        const normalizedTag = selectedTag.trim() || "All";
+        return projects.filter((project) => {
+            const tagMatch =
+                normalizedTag === "All" || project.tags.includes(normalizedTag);
+            if (!tagMatch) {
+                return false;
+            }
+
+            if (!normalizedSearch) {
+                return true;
+            }
+
+            const searchableText = [
+                project.title,
+                project.description,
+                project.category,
+                project.tags.join(" "),
+            ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
+
+            return searchableText.includes(normalizedSearch);
+        });
+    }, [selectedTag, searchTerm]);
+
+    const handleClearFilters = () => {
+        setSelectedTag("All");
+        setSearchTerm("");
+    };
 
     useEffect(() => {
         if (headerRef.current) {
@@ -27,36 +72,32 @@ const Projects = () => {
                         <div className="projects-stats">
                             <div className="stat-item">
                                 <span className="stat-number">
-                                    {projects.length}
+                                    {filteredProjects.length}
                                 </span>
                                 <span className="stat-label">Projects</span>
                             </div>
                             <div className="stat-item">
                                 <span className="stat-number">
-                                    {
-                                        new Set(projects.flatMap((p) => p.tags))
-                                            .size
-                                    }
+                                    {totalTechnologies}
                                 </span>
                                 <span className="stat-label">Technologies</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="projects-grid">
-                        {projects.map((project, index) => (
-                            <ProjectCard
-                                key={index}
-                                imgPath={project.image}
-                                title={project.title}
-                                description={project.description}
-                                ghLink={project.ghLink}
-                                demoLink={project.demoLink}
-                                demoLinks={project.demoLinks}
-                                tags={project.tags}
-                            />
-                        ))}
-                    </div>
+                    <ProjectsFilters
+                        tagOptions={tagOptions}
+                        selectedTag={selectedTag}
+                        onTagChange={setSelectedTag}
+                        searchTerm={searchTerm}
+                        onSearchChange={setSearchTerm}
+                        onClear={handleClearFilters}
+                        isClearDisabled={
+                            selectedTag === "All" && !searchTerm.trim()
+                        }
+                    />
+
+                    <ProjectsGrid projects={filteredProjects} />
 
                     <div className="github-cta">
                         <p>Check out my GitHub for more projects</p>

@@ -74,6 +74,8 @@ const Skills = () => {
                                                 src={skill.icon}
                                                 alt={skill.name}
                                                 className="tech-icon-image"
+                                                loading="lazy"
+                                                decoding="async"
                                             />
                                         )}
                                         <span className="tech-icon-name">

@@ -10,7 +10,7 @@ const Transition = ({ onComplete }) => {
                 },
             });
 
-            // Initial state: Start as a tiny point in Bottom-Right
+            // Start as a tiny point in Bottom-Right
             const startClip =
                 "polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%)";
             const fullClip = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";

@@ -1,10 +1,16 @@
 /* Featured work */
 .featured-work-container {
     width: 100vw;
+    position: relative;
+}
+
+.featured-work-pin {
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     background-color: var(--bg);
-    position: relative;
+    top: 0;
+    position: sticky;
 }
 
 .featured-header {
@@ -284,8 +290,15 @@
 @media (max-width: 1000px) {
     .featured-work-container {
         padding: 3em 0;
+        height: auto !important;
+        overflow: visible;
+    }
+
+    .featured-work-pin {
         height: auto;
         overflow: visible;
+        position: relative;
+        top: auto;
     }
 
     .featured-header {
@@ -333,6 +346,12 @@
     .slide-content {
         width: 100%;
         padding-left: 0;
+        text-align: center;
+    }
+
+    .project-desc {
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
     }
 

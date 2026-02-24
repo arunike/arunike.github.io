@@ -1,8 +1,9 @@
 .contact {
     position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    padding: 4em 1.5em;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: clamp(1.25rem, 4vw, 3rem);
+    padding-right: clamp(1.25rem, 4vw, 3rem);
     display: flex;
     justify-content: center;
     align-items: center;

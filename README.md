@@ -5,6 +5,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
 
 ## 📋 Table of Contents
+
 - [Overview](#-overview)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
@@ -15,10 +16,12 @@ A modern, interactive portfolio website showcasing software engineering projects
 - [Author](#-author)
 
 ## 🌟 Overview
+
 A dynamic portfolio website built with modern web technologies to showcase professional software engineering work. Features high-performance GSAP animations, smooth scrolling with Lenis, and responsive design optimized for all devices.
 
 **Key Capabilities:**
-- 🎬 **Professional Animations**: GSAP ScrollTrigger for smooth, performant scroll-based animations
+
+- 🎬 **Professional Animations**: GSAP-powered motion, including scroll-based interactions
 - 📱 **Adaptive Design**: Device-specific animation behaviors for optimal mobile and desktop experiences
 - 🎯 **Interactive Navigation**: Floating section navigator with smooth scrolling
 - 🌌 **Video Backgrounds**: Eye-catching animated hero section with video elements
@@ -29,19 +32,22 @@ A dynamic portfolio website built with modern web technologies to showcase profe
 ## ✨ Features
 
 ### 🏗️ Core Sections
+
 - **Dynamic Home Section**: Eye-catching animated hero with video background
 - **About Me**: Personal introduction and profile with scroll animations
-- **Featured Work**: Scroll-triggered project showcase with "slide-up" entry effects
+- **Featured Work**: Desktop sticky “scrollytelling” (vertical scroll → horizontal slider), mobile slide-in list
 - **Contact Form**: Interactive form for project inquiries and collaboration
 
 ### 🎨 Interactive Components
+
 - **Section Navigator**: Floating navigation for quick section jumping
-- **Expertise Display**: Core competencies with stacking card animations (desktop) and slide-in animations (mobile)
+- **Expertise Display**: Desktop stacking cards with click/keyboard/swipe navigation, mobile slide-in animations
 - **Skills Timeline**: Interactive timeline of professional experience with custom mobile animations
 - **Course Reviews**: Dedicated page for university courses with ratings and starry visualizers
 - **Gravity Footer**: Playful "gravity" effect on footer images
 
 ### 🛠️ Advanced Features
+
 - **High-Performance Animations**: GSAP ScrollTrigger for 60fps scroll animations
 - **Smooth Scrolling**: Lenis integration for normalized, buttery-smooth scrolling
 - **Responsive Design**: Device-specific animation behaviors optimized for mobile, tablet, and desktop
@@ -50,18 +56,22 @@ A dynamic portfolio website built with modern web technologies to showcase profe
 ## 🛠 Tech Stack
 
 ### Core Framework
+
 - **React 18** - UI library
 - **Vite** - Fast build tool and development server
 - **React Router** - Client-side routing
 
 ### Animation & Interaction
+
 - **GSAP** - Professional animation library with ScrollTrigger
 - **Lenis** - Smooth scroll normalization
 
 ### Styling
+
 - **CSS3** - Custom styling with modern responsive features
 
 ### Development Tools
+
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 - **Husky** - Git hooks for pre-commit actions
@@ -70,41 +80,47 @@ A dynamic portfolio website built with modern web technologies to showcase profe
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v16.0+ recommended)
 - npm
 
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/arunike/arunike.github.io
-   ```
+
+    ```bash
+    git clone https://github.com/arunike/arunike.github.io
+    ```
 
 2. **Navigate to project directory**
-   ```bash
-   cd arunike.github.io
-   ```
+
+    ```bash
+    cd arunike.github.io
+    ```
 
 3. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+
+    ```bash
+    npm install
+    ```
 
 4. **Start the Development Server**
-   ```bash
-   npm run dev
-   ```
+
+    ```bash
+    npm run dev
+    ```
 
 5. **Open Your Browser**
    Navigate to `http://localhost:3000` (or the port shown in your terminal)
 
 ### Available Scripts
+
 - `npm run dev` - Start the development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview the production build
 - `npm run host` - Start dev server accessible on local network
 
-## � Project Structure
+## 📁 Project Structure
 
 ```
 src/
@@ -135,8 +151,8 @@ src/
 
 1. **Home** - Landing section with video background and animated intro
 2. **About** - Personal introduction and profile
-3. **Featured Work** - Showcase of select projects with detailed hover effects
-4. **Expertise** - Technical domains highlighted with tailored animations
+3. **Featured Work** - Desktop sticky horizontal showcase mapped from vertical scroll
+4. **Expertise** - Stacking card experience with consistent headers and navigation controls
 5. **Skills** - Categorized display of technical skills and tools
 6. **Timeline** - Chronological professional journey with company logos
 7. **Contact** - Direct messaging interface
@@ -144,6 +160,7 @@ src/
 ## 🔧 Development
 
 ### Code Quality
+
 This project maintains high code quality through:
 
 - **ESLint**: Code linting with React-specific rules

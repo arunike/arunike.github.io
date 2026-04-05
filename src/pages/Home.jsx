@@ -1,3 +1,12 @@
+import "../css/home.css";
+import "../css/section-nav.css";
+import "../css/sections/about.css";
+import "../css/sections/skills.css";
+import "../css/sections/timeline.css";
+import "../css/sections/contact.css";
+import "../css/sections/featured-work.css";
+import "../css/sections/expertise.css";
+
 import Landing from "../components/Landing";
 import SectionNav from "../components/SectionNav";
 import AboutMe from "../components/sections/aboutMe/AboutMe";

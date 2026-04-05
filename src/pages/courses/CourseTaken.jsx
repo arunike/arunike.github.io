@@ -1,3 +1,5 @@
+import "../../css/pages/courses.css";
+
 import { useRef, useEffect } from "react";
 import Footer from "../../components/sections/footer/Footer";
 

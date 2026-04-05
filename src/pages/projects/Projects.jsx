@@ -1,3 +1,5 @@
+import "../../css/pages/projects.css";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "../../components/sections/footer/Footer";
 

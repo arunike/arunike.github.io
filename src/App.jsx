@@ -4,39 +4,33 @@ import {
     Route,
     useLocation,
 } from "react-router-dom";
-import { useEffect, useState, useCallback, useRef } from "react";
+import {
+    useEffect,
+    useState,
+    useCallback,
+    useRef,
+    lazy,
+    Suspense,
+} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Transition from "./components/Transition";
-import Home from "./pages/Home";
-import CourseTaken from "./pages/courses/CourseTaken";
-import Projects from "./pages/projects/Projects";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import Nav from "./components/Nav";
 
+const Home = lazy(() => import("./pages/Home"));
+const CourseTaken = lazy(() => import("./pages/courses/CourseTaken"));
+const Projects = lazy(() => import("./pages/projects/Projects"));
+
 gsap.registerPlugin(ScrollTrigger);
 
-// CSS
+// Global CSS
 import "./css/transition.css";
 import "./css/fonts.css";
 import "./css/globals.css";
 import "./css/menu.css";
-import "./css/home.css";
-import "./css/section-nav.css";
-
-// Sections CSS
-import "./css/sections/about.css";
-import "./css/sections/skills.css";
-import "./css/sections/timeline.css";
-import "./css/sections/contact.css";
 import "./css/sections/footer.css";
-import "./css/sections/featured-work.css";
-import "./css/sections/expertise.css";
-
-// Pages CSS
-import "./css/pages/projects.css";
-import "./css/pages/courses.css";
 
 function ScrollToTop({ start, scrollTo }) {
     const location = useLocation();
@@ -140,25 +134,19 @@ function App() {
         if (!pageContent) return;
 
         if (isMenuOpen) {
-            // Push down
-            import("gsap").then(({ default: gsap }) => {
-                gsap.to(pageContent, {
-                    y: "100vh",
-                    duration: 1,
-                    ease: "power4.inOut",
-                });
+            gsap.to(pageContent, {
+                y: "100vh",
+                duration: 1,
+                ease: "power4.inOut",
             });
         } else {
-            // Pull up
-            import("gsap").then(({ default: gsap }) => {
-                gsap.to(pageContent, {
-                    y: "0px",
-                    duration: 1,
-                    ease: "power4.inOut",
-                    onComplete: () => {
-                        gsap.set(pageContent, { clearProps: "transform" });
-                    },
-                });
+            gsap.to(pageContent, {
+                y: "0px",
+                duration: 1,
+                ease: "power4.inOut",
+                onComplete: () => {
+                    gsap.set(pageContent, { clearProps: "transform" });
+                },
             });
         }
     }, [isMenuOpen]);
@@ -183,11 +171,18 @@ function App() {
                     width: "100%",
                 }}
             >
-                <Routes>
-                    <Route path="/" element={<Home loaded={loaded} />} />
-                    <Route path="/courses" element={<CourseTaken />} />
-                    <Route path="/projects" element={<Projects />} />
-                </Routes>
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <Home loaded={loaded} scrollTo={scrollTo} />
+                            }
+                        />
+                        <Route path="/courses" element={<CourseTaken />} />
+                        <Route path="/projects" element={<Projects />} />
+                    </Routes>
+                </Suspense>
             </div>
         </Router>
     );

@@ -5,8 +5,17 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
     plugins: [react()],
     build: {
-        chunkSizeWarningLimit: 1600,
+        chunkSizeWarningLimit: 500,
         outDir: "dist",
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    "vendor-react": ["react", "react-dom", "react-router-dom"],
+                    "vendor-gsap": ["gsap"],
+                    "vendor-lenis": ["lenis"],
+                },
+            },
+        },
     },
     server: {
         port: 3000,

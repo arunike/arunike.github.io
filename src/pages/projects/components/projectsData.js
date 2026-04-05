@@ -29,7 +29,7 @@ export const projects = [
         category: "Machine Learning Web Platform",
         description:
             "An enterprise-grade streaming analytics platform designed to detect payment fraud in real-time using Machine Learning, Geo-Velocity Analysis, and a Data Lakehouse Architecture.",
-        ghLink: "https://github.com/arunike/Resume-Stack",
+        ghLink: "https://github.com/arunike/Real-Time-Fraud-Detection",
         tags: [
             "Kafka",
             "Spark",

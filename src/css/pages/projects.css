@@ -78,6 +78,40 @@
     gap: 0.75rem;
 }
 
+.projects-search-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.projects-search-row .projects-search {
+    flex: 1;
+}
+
+.projects-clear-btn {
+    flex-shrink: 0;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-family: "Supply Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.projects-clear-btn:hover {
+    border-color: var(--accent1);
+    color: var(--accent1);
+    background: rgba(237, 106, 90, 0.05);
+}
+
 .filter-label {
     font-size: 0.75rem;
     text-transform: uppercase;

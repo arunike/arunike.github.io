@@ -4,6 +4,8 @@ const ProjectsFilters = ({
     onTagChange,
     searchTerm,
     onSearchChange,
+    onClear,
+    isClearDisabled,
 }) => {
     return (
         <div className="projects-filters">
@@ -31,15 +33,26 @@ const ProjectsFilters = ({
                 <label className="filter-label" htmlFor="projects-search">
                     Search projects
                 </label>
-                <input
-                    id="projects-search"
-                    type="search"
-                    className="projects-search"
-                    placeholder="Search projects..."
-                    value={searchTerm}
-                    onChange={(event) => onSearchChange(event.target.value)}
-                    aria-label="Search projects"
-                />
+                <div className="projects-search-row">
+                    <input
+                        id="projects-search"
+                        type="search"
+                        className="projects-search"
+                        placeholder="Search projects..."
+                        value={searchTerm}
+                        onChange={(event) => onSearchChange(event.target.value)}
+                        aria-label="Search projects"
+                    />
+                    {!isClearDisabled && (
+                        <button
+                            className="projects-clear-btn"
+                            onClick={onClear}
+                            aria-label="Clear filters"
+                        >
+                            Clear
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

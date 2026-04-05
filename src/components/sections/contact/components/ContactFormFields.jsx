@@ -58,6 +58,18 @@ const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
                     </div>
                 </div>
                 <div className="form-group full-width">
+                    <input
+                        type="text"
+                        id="projectType"
+                        name="projectType"
+                        placeholder="e.g. Web App, Mobile, Machine Learning..."
+                        value={formData.projectType}
+                        onChange={onChange}
+                        required
+                    />
+                    <label htmlFor="projectType">Project Type</label>
+                </div>
+                <div className="form-group full-width">
                     <textarea
                         id="message"
                         name="message"

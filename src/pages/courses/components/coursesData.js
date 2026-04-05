@@ -81,7 +81,7 @@ export const courses = [
         semester: "Fall 2021",
         image: CS240,
         description:
-            "In this course, you'll dive deep into the core structures of computer systems, emphasizing their intricate relationships and impacts on performance using C. Unpack the complexities of virtual address spaces, dynamic memory management, memory hierarchies, and the nuances of assembly language.",
+            "In this course, you'll build the mathematical foundations that underpin all of computer science. Explore the core pillars of logic and proof techniques, sets, relations, and functions, combinatorics, and graph theory. Sharpen your abstract reasoning through rigorous practice with induction, recursion, and number theory.",
     },
     {
         id: "STAT240",
@@ -107,7 +107,7 @@ export const courses = [
         semester: "Spring 2022",
         image: CS577,
         description:
-            "In this course, you'll immerse yourself in reproducible data modeling and statistical analysis. Explore the integrated statistical computing environment, the intricacies of data wrangling, and the versatility of R. Dive into captivating data visuals and foundational probability concepts.",
+            "In this course, you'll navigate the fundamental strategies for crafting and analyzing proficient algorithms. Dive into crucial paradigms such as graphs, greedy, divide and conquer, dynamic programming, network flow, intractability, and randomization.",
     },
     {
         id: "STAT340",

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import SymbolSix from "../../../assets/images/symbols/s6.png";
 
@@ -161,13 +161,13 @@ const Footer = () => {
                     <div className="footer-col">
                         <p>Explore</p>
                         <p>
-                            <a href="/">Home</a>
+                            <Link to="/">Home</Link>
                         </p>
                         <p>
-                            <a href="#projects">Projects</a>
+                            <Link to="/projects">Projects</Link>
                         </p>
                         <p>
-                            <a href="#courses">Courses</a>
+                            <Link to="/courses">Courses</Link>
                         </p>
                     </div>
                     <div className="footer-col">

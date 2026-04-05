@@ -1,6 +1,6 @@
-const FeaturedWorkIndicator = ({ total, progress }) => {
+const FeaturedProjectsIndicator = ({ total, progress }) => {
     return (
-        <div className="featured-work-indicator">
+        <div className="featured-projects-indicator">
             {Array.from({ length: total }).map((_, index) => {
                 const totalScrollDistance = total - 1 || 1;
                 const threshold = (index / totalScrollDistance) * 100;
@@ -47,4 +47,4 @@ const FeaturedWorkIndicator = ({ total, progress }) => {
     );
 };
 
-export default FeaturedWorkIndicator;
+export default FeaturedProjectsIndicator;

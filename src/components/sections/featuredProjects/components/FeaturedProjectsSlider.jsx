@@ -1,8 +1,8 @@
 import gsap from "gsap";
 
-const FeaturedWorkSlider = ({ projects, sectionRef }) => {
+const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
     return (
-        <div className="featured-work-slider" ref={sectionRef}>
+        <div className="featured-projects-slider" ref={sectionRef}>
             {projects.map((project, index) => (
                 <div className="project-slide" key={index}>
                     <div className="slide-content">
@@ -73,4 +73,4 @@ const FeaturedWorkSlider = ({ projects, sectionRef }) => {
     );
 };
 
-export default FeaturedWorkSlider;
+export default FeaturedProjectsSlider;

@@ -12,18 +12,12 @@
     padding: 1em 1.5em;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 60px;
-    opacity: 0;
+    opacity: 1;
     transition:
         width 0.3s ease,
         opacity 0.3s ease;
 }
 
-.section-nav.visible,
-.section-nav:hover {
-    opacity: 1;
-}
-
-/* Hide section nav when menu overlay is visible */
 .nav-overlay[style*="opacity: 1"] ~ * .section-nav,
 body:has(.nav-overlay[style*="pointer-events: all"]) .section-nav {
     opacity: 0;
@@ -31,11 +25,13 @@ body:has(.nav-overlay[style*="pointer-events: all"]) .section-nav {
     pointer-events: none;
 }
 
-/* Hide section nav when on hero section */
 .section-nav:has(li:first-child.active) {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 .section-nav:hover,

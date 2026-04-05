@@ -6,6 +6,7 @@ import Footer from "../../components/sections/footer/Footer";
 import UWMadison from "../../assets/images/uw-madison_cs.png";
 import CourseCard from "./components/CourseCard";
 import { courses } from "./components/coursesData";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 const CourseTaken = () => {
     const headerRef = useRef(null);
@@ -61,11 +62,12 @@ const CourseTaken = () => {
                 <div className="courses-container">
                     <div className="courses-list">
                         {courses.map((course, index) => (
-                            <CourseCard
-                                key={course.id}
-                                course={course}
-                                ref={(el) => (cardsRef.current[index] = el)}
-                            />
+                            <ErrorBoundary key={course.id}>
+                                <CourseCard
+                                    course={course}
+                                    ref={(el) => (cardsRef.current[index] = el)}
+                                />
+                            </ErrorBoundary>
                         ))}
                     </div>
 

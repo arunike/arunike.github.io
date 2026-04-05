@@ -18,6 +18,8 @@ import Transition from "./components/Transition";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import Nav from "./components/Nav";
+import SectionNav from "./components/SectionNav";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const CourseTaken = lazy(() => import("./pages/courses/CourseTaken"));
@@ -31,6 +33,7 @@ import "./css/fonts.css";
 import "./css/globals.css";
 import "./css/menu.css";
 import "./css/sections/footer.css";
+import "./css/section-nav.css";
 
 function ScrollToTop({ start, scrollTo }) {
     const location = useLocation();
@@ -163,6 +166,7 @@ function App() {
                 stop={stop}
             />
             <Transition onComplete={handleTransitionComplete} />
+            <SectionNav scrollTo={scrollTo} loaded={loaded} />
 
             <div
                 className="page-content"
@@ -171,18 +175,18 @@ function App() {
                     width: "100%",
                 }}
             >
-                <Suspense fallback={null}>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <Home loaded={loaded} scrollTo={scrollTo} />
-                            }
-                        />
-                        <Route path="/courses" element={<CourseTaken />} />
-                        <Route path="/projects" element={<Projects />} />
-                    </Routes>
-                </Suspense>
+                <ErrorBoundary>
+                    <Suspense fallback={null}>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={<Home loaded={loaded} />}
+                            />
+                            <Route path="/courses" element={<CourseTaken />} />
+                            <Route path="/projects" element={<Projects />} />
+                        </Routes>
+                    </Suspense>
+                </ErrorBoundary>
             </div>
         </Router>
     );

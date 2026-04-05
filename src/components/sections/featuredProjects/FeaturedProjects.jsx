@@ -2,10 +2,10 @@ import { useLayoutEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
 
 import { projects } from "../../../pages/projects/components/projectsData";
-import FeaturedWorkIndicator from "./components/FeaturedWorkIndicator";
-import FeaturedWorkSlider from "./components/FeaturedWorkSlider";
+import FeaturedProjectsIndicator from "./components/FeaturedProjectsIndicator";
+import FeaturedProjectsSlider from "./components/FeaturedProjectsSlider";
 
-const FeaturedWork = () => {
+const FeaturedProjects = () => {
     const sectionRef = useRef(null);
     const triggerRef = useRef(null);
     const pinRef = useRef(null);
@@ -103,15 +103,16 @@ const FeaturedWork = () => {
 
     return (
         <section
-            className="featured-work-container"
+            id="featured-projects"
+            className="featured-projects-container"
             ref={triggerRef}
             style={{
                 height: `calc(100vh + 5000px)`,
             }}
         >
-            <div className="featured-work-pin" ref={pinRef}>
+            <div className="featured-projects-pin" ref={pinRef}>
                 <div className="featured-header section-header">
-                    <h1 className="section-title">Featured Work</h1>
+                    <h1 className="section-title">Featured Projects</h1>
                     <p className="featured-subtitle section-subtitle">
                         Selected projects & experiments
                     </p>
@@ -123,17 +124,17 @@ const FeaturedWork = () => {
                     ></div>
                 </div>
 
-                <FeaturedWorkSlider
+                <FeaturedProjectsSlider
                     projects={featuredProjects}
                     sectionRef={sectionRef}
                 />
 
-                <FeaturedWorkIndicator
+                <FeaturedProjectsIndicator
                     total={featuredProjects.length}
                     progress={progress}
                 />
 
-                <div className="featured-work-footer">
+                <div className="featured-projects-footer">
                     <p className="mn">Project Portfolio</p>
                     <p className="mn">///////////////////</p>
                     <p className="mn">
@@ -145,4 +146,4 @@ const FeaturedWork = () => {
     );
 };
 
-export default FeaturedWork;
+export default FeaturedProjects;

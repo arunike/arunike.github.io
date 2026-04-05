@@ -35,7 +35,7 @@ A dynamic portfolio website built with modern web technologies to showcase profe
 
 - **Dynamic Home Section**: Eye-catching animated hero with video background
 - **About Me**: Personal introduction and profile with scroll animations
-- **Featured Work**: Desktop sticky “scrollytelling” (vertical scroll → horizontal slider), mobile slide-in list
+- **Featured Projects**: Desktop sticky “scrollytelling” (vertical scroll → horizontal slider), mobile slide-in list
 - **Contact Form**: Interactive form for project inquiries and collaboration
 
 ### 🎨 Interactive Components
@@ -151,7 +151,7 @@ src/
 
 1. **Home** - Landing section with video background and animated intro
 2. **About** - Personal introduction and profile
-3. **Featured Work** - Desktop sticky horizontal showcase mapped from vertical scroll
+3. **Featured Projects** - Desktop sticky horizontal showcase mapped from vertical scroll
 4. **Expertise** - Stacking card experience with consistent headers and navigation controls
 5. **Skills** - Categorized display of technical skills and tools
 6. **Timeline** - Chronological professional journey with company logos

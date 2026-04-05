@@ -1,25 +1,25 @@
 import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
-const SectionNav = () => {
+const SectionNav = ({ scrollTo, loaded }) => {
     const [activeSection, setActiveSection] = useState("");
     const location = useLocation();
 
     const sections = useMemo(
         () => [
-            { id: "hero", label: "Home" },
+            { id: "landing", label: "Home" },
             { id: "about-hero", label: "About" },
-            { id: "featured-work", label: "Projects" },
+            { id: "featured-projects", label: "Projects" },
             { id: "expertise-header", label: "Expertise" },
-            { id: "skills", label: "Skills" },
             { id: "timeline", label: "Timeline" },
+            { id: "skills", label: "Skills" },
             { id: "contact", label: "Contact" },
         ],
         []
     );
 
     useEffect(() => {
-        if (location.pathname !== "/") {
+        if (location.pathname !== "/" || !loaded) {
             return;
         }
 
@@ -50,47 +50,26 @@ const SectionNav = () => {
         });
 
         return () => {
-            sections.forEach((section) => {
-                const element = document.getElementById(section.id);
-                if (element) {
-                    observer.unobserve(element);
-                }
-            });
+            observer.disconnect();
         };
-    }, [sections, location.pathname]);
+    }, [sections, location.pathname, loaded]);
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
-        if (element) {
+        if (!element) return;
+        if (scrollTo) {
+            scrollTo(element, { duration: 1.2 });
+        } else {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        let timeoutId;
-        const handleScroll = () => {
-            setIsVisible(true);
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-                setIsVisible(false);
-            }, 2000);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            clearTimeout(timeoutId);
-        };
-    }, []);
 
     if (location.pathname !== "/") {
         return null;
     }
 
     return (
-        <nav className={`section-nav ${isVisible ? "visible" : ""}`}>
+        <nav className="section-nav">
             <ul>
                 {sections.map((section) => (
                     <li

@@ -7,12 +7,30 @@
         <title>Richie Zhou | Portfolio</title>
         <meta
             name="description"
-            content="Richie Zhou's Software engineer personal portfolio"
+            content="Richie Zhou — Software Engineer specializing in full-stack development, machine learning, and scalable systems. Explore my projects, experience, and courses."
         />
+
         <link rel="canonical" href="https://arunike.github.io/" />
         <link rel="icon" href="/assets/logo-CI24yRKp.png" />
-      <script type="module" crossorigin src="/assets/index-CHG9yfBZ.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-CRxtaQUX.css">
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (theme !== "light" && theme !== "dark") {
+                    theme =
+                        window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches
+                            ? "dark"
+                            : "light";
+                }
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
+      <script type="module" crossorigin src="/assets/index-BvOl1xse.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/vendor-react-B10Ny-p3.js">
+      <link rel="modulepreload" crossorigin href="/assets/vendor-gsap-CH_iu5NA.js">
+      <link rel="modulepreload" crossorigin href="/assets/vendor-lenis-DmOnhAnd.js">
+      <link rel="stylesheet" crossorigin href="/assets/index-eRmVhGPt.css">
     </head>
     <body>
         <div id="root"></div>

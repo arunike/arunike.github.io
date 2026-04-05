@@ -7,10 +7,25 @@
         <title>Richie Zhou | Portfolio</title>
         <meta
             name="description"
-            content="Richie Zhou's Software engineer personal portfolio"
+            content="Richie Zhou — Software Engineer specializing in full-stack development, machine learning, and scalable systems. Explore my projects, experience, and courses."
         />
+
         <link rel="canonical" href="https://arunike.github.io/" />
         <link rel="icon" href="/src/assets/logos/logo.png" />
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (theme !== "light" && theme !== "dark") {
+                    theme =
+                        window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches
+                            ? "dark"
+                            : "light";
+                }
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
     </head>
     <body>
         <div id="root"></div>

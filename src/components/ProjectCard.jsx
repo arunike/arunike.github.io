@@ -10,6 +10,7 @@ const ProjectCard = ({
     demoLink,
     demoLinks,
     tags,
+    index = 0,
 }) => {
     const cardRef = useRef(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -78,7 +79,11 @@ const ProjectCard = ({
     };
 
     return (
-        <div className="project-card" ref={cardRef}>
+        <div
+            className="project-card"
+            ref={cardRef}
+            style={{ "--stagger-delay": `${Math.min(index * 70, 490)}ms` }}
+        >
             <div
                 className={`project-card-inner ${
                     isDropdownOpen ? "dropdown-open" : ""

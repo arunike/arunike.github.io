@@ -12,7 +12,7 @@ const ProjectsGrid = ({ projects }) => {
 
     return (
         <div className="projects-grid">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
                 <ErrorBoundary key={project.id}>
                     <ProjectCard
                         imgPath={project.image}
@@ -22,6 +22,7 @@ const ProjectsGrid = ({ projects }) => {
                         demoLink={project.demoLink}
                         demoLinks={project.demoLinks}
                         tags={project.tags}
+                        index={index}
                     />
                 </ErrorBoundary>
             ))}

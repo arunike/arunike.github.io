@@ -19,6 +19,7 @@ import useSmoothScroll from "./hooks/useSmoothScroll";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import Nav from "./components/Nav";
 import SectionNav from "./components/SectionNav";
+import BackToTop from "./components/BackToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -167,6 +168,7 @@ function App() {
             />
             <Transition onComplete={handleTransitionComplete} />
             <SectionNav scrollTo={scrollTo} loaded={loaded} />
+            <BackToTop scrollTo={scrollTo} />
 
             <div
                 className="page-content"

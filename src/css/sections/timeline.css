@@ -460,6 +460,11 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Tap hint — hidden on desktop, shown on mobile */
+.timeline-tap-hint {
+    display: none;
+}
+
 /* Stats Section */
 .timeline-stats {
     display: flex;
@@ -671,5 +676,59 @@
         flex-direction: column;
         gap: 2rem;
         padding: 2rem;
+    }
+
+    /* Tap hint */
+    .timeline-tap-hint {
+        display: block;
+        font-size: 0.7rem;
+        color: var(--muted);
+        font-family: "supply-mono";
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        text-align: right;
+        padding: 0.5rem 0 0 0;
+        opacity: 0.7;
+    }
+
+    /* Hide redundant company header in back face (front face already shows it) */
+    .timeline-card-back .timeline-company-header {
+        display: none;
+    }
+
+    /* Accordion: disable 3D flip, stack front + back vertically */
+    .timeline-card-flip {
+        transform-style: flat !important;
+        display: flex !important;
+        flex-direction: column !important;
+        transform: none !important;
+        height: auto !important;
+    }
+
+    .timeline-card-flip.flipped {
+        transform: none !important;
+    }
+
+    .timeline-card-face {
+        grid-area: unset !important;
+        backface-visibility: visible !important;
+    }
+
+    .timeline-card-back {
+        transform: none !important;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 2rem !important;
+        border-top: 1px solid transparent;
+        transition:
+            max-height 0.4s ease,
+            padding 0.35s ease,
+            border-color 0.3s ease;
+    }
+
+    .timeline-card-flip.flipped .timeline-card-back {
+        max-height: 600px;
+        padding: 1.25rem 2rem 1.5rem !important;
+        border-top-color: rgba(0, 0, 0, 0.08);
     }
 }

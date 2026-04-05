@@ -18,9 +18,10 @@ const ProjectMedia = ({
             <img
                 src={imgPath}
                 alt={title}
-                className="project-image"
+                className="project-image img-fade"
                 loading="lazy"
                 decoding="async"
+                onLoad={(e) => e.currentTarget.classList.add("img-loaded")}
             />
             <div
                 className={`project-overlay ${isDropdownOpen ? "keep-visible" : ""}`}

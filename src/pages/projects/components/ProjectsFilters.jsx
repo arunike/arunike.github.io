@@ -4,6 +4,8 @@ const ProjectsFilters = ({
     onTagChange,
     searchTerm,
     onSearchChange,
+    sortBy,
+    onSortChange,
     onClear,
     isClearDisabled,
 }) => {
@@ -26,6 +28,25 @@ const ProjectsFilters = ({
                                 {tag}
                             </option>
                         ))}
+                    </select>
+                </div>
+            </div>
+            <div className="filter-select">
+                <label className="filter-label" htmlFor="projects-sort">
+                    Sort by
+                </label>
+                <div className="projects-select-wrapper">
+                    <select
+                        id="projects-sort"
+                        className="projects-tag-select"
+                        value={sortBy}
+                        onChange={(event) => onSortChange(event.target.value)}
+                        aria-label="Sort projects"
+                    >
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                        <option value="az">A → Z</option>
+                        <option value="za">Z → A</option>
                     </select>
                 </div>
             </div>

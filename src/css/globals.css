@@ -87,6 +87,16 @@ p.mn {
     opacity: 0.6;
 }
 
+/* Project card title */
+.project-title {
+    font-size: 1.5rem;
+    font-family: "Supply Mono", monospace;
+    font-style: normal;
+    text-transform: none;
+    line-height: normal;
+    font-weight: bold;
+}
+
 /* Shared Section Headers */
 .section-header {
     text-align: center;
@@ -111,4 +121,68 @@ p.mn {
     .section-title {
         font-size: 2.5rem;
     }
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.9em 1.75em;
+    background-color: var(--fg);
+    color: var(--bg);
+    border: none;
+    border-radius: 2em;
+    font-family: "supply-mono";
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.2s ease;
+}
+
+.back-to-top--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .back-to-top span {
+        display: none;
+    }
+
+    .back-to-top {
+        padding: 0.7em;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+/* Image fade-in on load */
+.img-fade {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.img-fade.img-loaded {
+    opacity: 1;
 }

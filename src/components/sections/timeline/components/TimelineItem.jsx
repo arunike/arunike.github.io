@@ -102,6 +102,9 @@ const TimelineItem = ({ exp, expColor, positionClass, addToRefs }) => {
                                     {exp.duration}
                                 </span>
                             </div>
+                            <div className="timeline-tap-hint">
+                                {isFlipped ? "↑ Collapse" : "Tap for details →"}
+                            </div>
                         </div>
 
                         <div className="timeline-card-face timeline-card-back">

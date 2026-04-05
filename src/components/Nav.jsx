@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
+import ReactGA from "react-ga4";
+import ResumePdf from "../assets/resume/Richies_Resume.pdf";
 
 const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
     const [isAnimating, setIsAnimating] = useState(false);
@@ -356,6 +358,21 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
                                     rel="noopener noreferrer"
                                 >
                                     LinkedIn
+                                </a>
+                            </p>
+                            <p className="mn">
+                                <a
+                                    href={ResumePdf}
+                                    download="Richie_Zhou_Resume.pdf"
+                                    onClick={() =>
+                                        ReactGA.event({
+                                            category: "Resume",
+                                            action: "download",
+                                            label: "Nav Menu",
+                                        })
+                                    }
+                                >
+                                    Resume
                                 </a>
                             </p>
                         </div>

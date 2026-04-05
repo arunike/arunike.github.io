@@ -62,8 +62,12 @@ const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                loading="lazy"
+                                loading={index === 0 ? "eager" : "lazy"}
                                 decoding="async"
+                                className="img-fade"
+                                onLoad={(e) =>
+                                    e.currentTarget.classList.add("img-loaded")
+                                }
                             />
                         </div>
                     </div>

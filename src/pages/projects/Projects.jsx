@@ -2,6 +2,7 @@ import "../../css/pages/projects.css";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "../../components/sections/footer/Footer";
+import useCountUp from "../../hooks/useCountUp";
 
 import { projects } from "./components/projectsData";
 import { FaGithubAlt } from "react-icons/fa";
@@ -12,6 +13,7 @@ const Projects = () => {
     const headerRef = useRef(null);
     const [selectedTag, setSelectedTag] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("newest");
 
     const tagOptions = useMemo(() => {
         const tags = new Set(projects.flatMap((project) => project.tags));
@@ -25,16 +27,12 @@ const Projects = () => {
     const filteredProjects = useMemo(() => {
         const normalizedSearch = searchTerm.trim().toLowerCase();
         const normalizedTag = selectedTag.trim() || "All";
-        return projects.filter((project) => {
+
+        const filtered = projects.filter((project) => {
             const tagMatch =
                 normalizedTag === "All" || project.tags.includes(normalizedTag);
-            if (!tagMatch) {
-                return false;
-            }
-
-            if (!normalizedSearch) {
-                return true;
-            }
+            if (!tagMatch) return false;
+            if (!normalizedSearch) return true;
 
             const searchableText = [
                 project.title,
@@ -48,11 +46,28 @@ const Projects = () => {
 
             return searchableText.includes(normalizedSearch);
         });
-    }, [selectedTag, searchTerm]);
+
+        return [...filtered].sort((a, b) => {
+            if (sortBy === "newest")
+                return (b.dateAdded || "").localeCompare(a.dateAdded || "");
+            if (sortBy === "oldest")
+                return (a.dateAdded || "").localeCompare(b.dateAdded || "");
+            if (sortBy === "az") return a.title.localeCompare(b.title);
+            if (sortBy === "za") return b.title.localeCompare(a.title);
+            return 0;
+        });
+    }, [selectedTag, searchTerm, sortBy]);
+
+    const [projectCount, projectCountRef] = useCountUp(
+        filteredProjects.length,
+        1000
+    );
+    const [techCount, techCountRef] = useCountUp(totalTechnologies, 1200);
 
     const handleClearFilters = () => {
         setSelectedTag("All");
         setSearchTerm("");
+        setSortBy("newest");
     };
 
     useEffect(() => {
@@ -73,14 +88,20 @@ const Projects = () => {
                         </p>
                         <div className="projects-stats">
                             <div className="stat-item">
-                                <span className="stat-number">
-                                    {filteredProjects.length}
+                                <span
+                                    className="stat-number"
+                                    ref={projectCountRef}
+                                >
+                                    {projectCount}
                                 </span>
                                 <span className="stat-label">Projects</span>
                             </div>
                             <div className="stat-item">
-                                <span className="stat-number">
-                                    {totalTechnologies}
+                                <span
+                                    className="stat-number"
+                                    ref={techCountRef}
+                                >
+                                    {techCount}
                                 </span>
                                 <span className="stat-label">Technologies</span>
                             </div>
@@ -93,9 +114,13 @@ const Projects = () => {
                         onTagChange={setSelectedTag}
                         searchTerm={searchTerm}
                         onSearchChange={setSearchTerm}
+                        sortBy={sortBy}
+                        onSortChange={setSortBy}
                         onClear={handleClearFilters}
                         isClearDisabled={
-                            selectedTag === "All" && !searchTerm.trim()
+                            selectedTag === "All" &&
+                            !searchTerm.trim() &&
+                            sortBy === "newest"
                         }
                     />
 

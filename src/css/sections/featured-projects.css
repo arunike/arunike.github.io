@@ -128,8 +128,10 @@
     right: 3rem;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--fg);
-    color: var(--bg);
+    background: rgba(20, 20, 18, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #f0ede8;
     padding: 2rem 0.8rem;
     border-radius: 50px;
     display: flex;
@@ -137,7 +139,20 @@
     align-items: center;
     gap: 0.5rem;
     z-index: 10;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .featured-projects-indicator {
+    background: var(--fg);
+    color: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .i-line {
+    background: var(--bg);
+    opacity: 0.4;
 }
 
 .indicator-group-vertical {
@@ -172,7 +187,8 @@
 .i-line {
     width: 16px;
     height: 1px;
-    background: var(--bg);
+    background: #f0ede8;
+    opacity: 0.35;
     transition: opacity 0.1s linear;
 }
 

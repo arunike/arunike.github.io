@@ -13,12 +13,25 @@ nav {
 
 nav .logo {
     padding: 0.5em 0.65em;
-    background-color: var(--fg);
+    background-color: rgba(20, 20, 18, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
 }
 
 nav .logo a {
-    color: var(--bg);
+    color: #f0ede8;
     user-select: none;
+}
+
+[data-theme="dark"] nav .logo {
+    background-color: var(--fg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+[data-theme="dark"] nav .logo a {
+    color: var(--bg);
 }
 
 nav .menu-toggle-btn {

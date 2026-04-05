@@ -137,8 +137,10 @@ p.mn {
     align-items: center;
     gap: 0.4em;
     padding: 0.9em 1.75em;
-    background-color: var(--fg);
-    color: var(--bg);
+    background-color: rgba(20, 20, 18, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #f0ede8;
     border: none;
     border-radius: 2em;
     font-family: "supply-mono";
@@ -165,8 +167,16 @@ p.mn {
 
 .back-to-top:hover {
     background-color: var(--accent1);
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .back-to-top {
+    background-color: var(--fg);
+    color: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 @media (max-width: 768px) {

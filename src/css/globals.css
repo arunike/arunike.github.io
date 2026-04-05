@@ -7,17 +7,21 @@
     --accent3: #9bc1bc;
     --accent4: #5d576b;
     --muted: #666;
+    --nav-pill-bg: rgba(20, 20, 20, 0.07);
+    --nav-pill-border: rgba(20, 20, 20, 0.1);
 }
 
 [data-theme="dark"] {
     --bg: #0f1113;
-    --bg2: #1a1d21;
-    --fg: #f2f2f2;
+    --bg2: #1c1f24;
+    --fg: #d0cdc8;
     --accent1: #ed6a5a;
     --accent2: #f4f1bb;
     --accent3: #9bc1bc;
     --accent4: #8b83a2;
-    --muted: #b3b3b3;
+    --muted: #a09e9a;
+    --nav-pill-bg: rgba(255, 255, 255, 0.07);
+    --nav-pill-border: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -185,4 +189,38 @@ p.mn {
 
 .img-fade.img-loaded {
     opacity: 1;
+}
+
+/* Dark mode */
+[data-theme="dark"] .timeline-card {
+    background-color: var(--bg2) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-theme="dark"] .project-card-inner {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+[data-theme="dark"] .timeline-stats,
+[data-theme="dark"] .github-cta {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-theme="dark"] .demo-links-list {
+    background-color: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .demo-link-item {
+    color: var(--fg);
+    border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .projects-tag-select,
+[data-theme="dark"] .projects-search {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--fg);
 }

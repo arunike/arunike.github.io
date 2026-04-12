@@ -167,7 +167,11 @@ function App() {
                 stop={stop}
             />
             <Transition onComplete={handleTransitionComplete} />
-            <SectionNav scrollTo={scrollTo} loaded={loaded} />
+            <SectionNav
+                scrollTo={scrollTo}
+                loaded={loaded}
+                isMenuOpen={isMenuOpen}
+            />
             <BackToTop scrollTo={scrollTo} />
 
             <div

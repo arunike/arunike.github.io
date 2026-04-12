@@ -12,26 +12,34 @@
     padding: 1em 1.5em;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 60px;
+    visibility: visible;
     opacity: 1;
     transition:
         width 0.3s ease,
-        opacity 0.3s ease;
+        opacity 0.3s ease,
+        transform 0.45s ease,
+        visibility 0s linear;
 }
 
-.nav-overlay[style*="opacity: 1"] ~ * .section-nav,
-body:has(.nav-overlay[style*="pointer-events: all"]) .section-nav {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.section-nav:has(li:first-child.active) {
+.section-nav--blocked {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition:
         opacity 0.3s ease,
-        visibility 0.3s ease;
+        transform 0.3s ease,
+        visibility 0s linear 0.3s;
+}
+
+.section-nav--idle-hidden {
+    transform: translate(calc(-100% - 2rem), -50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.45s ease,
+        visibility 0s linear 0.45s;
 }
 
 .section-nav:hover,

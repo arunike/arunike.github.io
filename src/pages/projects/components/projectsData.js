@@ -14,6 +14,7 @@ import ACMAlgorithms from "../../../assets/images/projects/acm_algorithms.png";
 import WorkOps from "../../../assets/images/projects/workops.png";
 import ResumeStack from "../../../assets/images/projects/resume_stack.png";
 import RealTimeFraudDetection from "../../../assets/images/projects/real_time_fraud_detection.png";
+import CareerHub from "../../../assets/images/projects/careerhub.png";
 
 import CS407 from "../../../assets/images/courses/compsci407.png";
 import CS571 from "../../../assets/images/courses/compsci571.gif";
@@ -22,6 +23,25 @@ import CS579 from "../../../assets/images/courses/compsci579.gif";
 import CS559 from "../../../assets/images/courses/compsci559.gif";
 
 export const projects = [
+    {
+        id: "careerhub",
+        image: CareerHub,
+        title: "CareerHub",
+        category: "AI Job Search Platform",
+        description:
+            "A full-stack career management platform for tracking applications, comparing offers, managing interview availability, organizing documents, and using AI tools for JD matching, cover letter generation, and negotiation support. It combines a React + TypeScript frontend with a Django REST API, Redis-powered real-time features, and flexible import/export workflows.",
+        ghLink: "https://github.com/arunike/CareerHub-Frontend",
+        tags: [
+            "React",
+            "TypeScript",
+            "Django",
+            "Python",
+            "Redis",
+            "Tailwind CSS",
+        ],
+        isFeatured: true,
+        dateAdded: "2026-04-11",
+    },
     {
         id: "real-time-fraud-detection",
         image: RealTimeFraudDetection,
@@ -148,7 +168,7 @@ export const projects = [
             "Cyberpunk VR Racing Game was a project built in my COMP SCI 579 course, it is VR racing game, that focuses on the details of the futuristic city and track design. As a team, we created a city that has a distinct cyberpunk aesthetic, with towering skyscrapers, neon lights, and gritty, industrial elements. The track is challenging, with twists, turns, and obstacles that require skillful driving to navigate. The game appeal to fans of both cyberpunk and racing games.",
         demoLink: "https://youtu.be/K6kVYzrBCss",
         tags: ["Unity", "C#", "VR"],
-        isFeatured: true,
+        isFeatured: false,
     },
     {
         id: "five-course-bird-feeder",

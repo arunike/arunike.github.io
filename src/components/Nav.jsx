@@ -251,25 +251,38 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
                             }`}
                         ></span>
                     </button>
-                    <div
+                    <button
+                        type="button"
                         className={`menu-toggle-btn ${
                             isOpen ? "menu-open" : ""
                         }`}
                         onClick={handleToggle}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
+                        aria-controls="site-menu"
+                        disabled={isAnimating}
                     >
                         <div className="menu-toggle-btn-wrapper">
-                            <p className="mn open-label" ref={openLabelRef}>
+                            <span className="mn open-label" ref={openLabelRef}>
                                 Menu
-                            </p>
-                            <p className="mn close-label" ref={closeLabelRef}>
+                            </span>
+                            <span
+                                className="mn close-label"
+                                ref={closeLabelRef}
+                            >
                                 Close
-                            </p>
+                            </span>
                         </div>
-                    </div>
+                    </button>
                 </div>
             </nav>
 
-            <div className="nav-overlay" ref={navOverlayRef}>
+            <div
+                id="site-menu"
+                className="nav-overlay"
+                ref={navOverlayRef}
+                aria-hidden={!isOpen}
+            >
                 <div className="nav-items">
                     <div
                         className={`nav-item ${

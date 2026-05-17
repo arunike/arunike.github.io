@@ -1,9 +1,23 @@
-const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
+const ContactFormFields = ({
+    formData,
+    submissionState,
+    statusMessage,
+    webmailLink,
+    onChange,
+    onSubmit,
+    onCopyDraft,
+    onOpenWebmail,
+}) => {
+    const isSubmitting = submissionState === "sending";
+    const showCopyAction =
+        submissionState === "fallback" || submissionState === "error";
+    const showWebmailAction = showCopyAction && webmailLink;
+
     return (
         <div className="contact-form-container">
             <div className="form-header">
-                <h2>Start a Project</h2>
-                <p>Tell me about your vision and let's make it reality!</p>
+                <h2>Start a Conversation</h2>
+                <p>Share the role, team, or opportunity you have in mind.</p>
             </div>
             <form className="contact-form" id="contactForm" onSubmit={onSubmit}>
                 <div className="form-row">
@@ -16,8 +30,11 @@ const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
                             value={formData.firstName}
                             onChange={onChange}
                             required
+                            aria-required="true"
                         />
-                        <label htmlFor="firstName">First Name</label>
+                        <label htmlFor="firstName">
+                            First Name <span aria-hidden="true">*</span>
+                        </label>
                     </div>
                     <div className="form-group">
                         <input
@@ -28,8 +45,11 @@ const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
                             value={formData.lastName}
                             onChange={onChange}
                             required
+                            aria-required="true"
                         />
-                        <label htmlFor="lastName">Last Name</label>
+                        <label htmlFor="lastName">
+                            Last Name <span aria-hidden="true">*</span>
+                        </label>
                     </div>
                 </div>
                 <div className="form-row">
@@ -42,15 +62,18 @@ const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
                             value={formData.email}
                             onChange={onChange}
                             required
+                            aria-required="true"
                         />
-                        <label htmlFor="email">Email Address</label>
+                        <label htmlFor="email">
+                            Email Address <span aria-hidden="true">*</span>
+                        </label>
                     </div>
                     <div className="form-group">
                         <input
                             type="tel"
                             id="phone"
                             name="phone"
-                            placeholder="+1 (555) 123-4567"
+                            placeholder="+1 (123) 456-7890"
                             value={formData.phone}
                             onChange={onChange}
                         />
@@ -62,33 +85,60 @@ const ContactFormFields = ({ formData, isSubmitted, onChange, onSubmit }) => {
                         type="text"
                         id="projectType"
                         name="projectType"
-                        placeholder="e.g. Web App, Mobile, Machine Learning..."
+                        placeholder="e.g. Software Engineer role, AI product team, etc.."
                         value={formData.projectType}
                         onChange={onChange}
                         required
+                        aria-required="true"
                     />
-                    <label htmlFor="projectType">Project Type</label>
+                    <label htmlFor="projectType">
+                        Opportunity Type <span aria-hidden="true">*</span>
+                    </label>
                 </div>
                 <div className="form-group full-width">
                     <textarea
                         id="message"
                         name="message"
-                        placeholder="Describe your project..."
+                        placeholder="Tell me about the role, team, timeline, or why you think I could be a fit..."
                         value={formData.message}
                         onChange={onChange}
                         required
+                        aria-required="true"
                     ></textarea>
-                    <label htmlFor="message">Project Details</label>
+                    <label htmlFor="message">
+                        Message <span aria-hidden="true">*</span>
+                    </label>
                 </div>
-                <button type="submit" className="submit-btn">
-                    Send Message
+                <button
+                    type="submit"
+                    className="submit-btn"
+                    disabled={isSubmitting}
+                >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
-                {isSubmitted && (
-                    <div className="success-message" id="successMessage">
-                        <p>
-                            Thanks! Your message has been sent. I'll get back to
-                            you within 24 hours.
-                        </p>
+                {statusMessage && (
+                    <div
+                        className={`form-status form-status-${submissionState}`}
+                        id="contactStatus"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        <p>{statusMessage}</p>
+                        {showCopyAction && (
+                            <div className="form-status-actions">
+                                {showWebmailAction && (
+                                    <button
+                                        type="button"
+                                        onClick={onOpenWebmail}
+                                    >
+                                        {webmailLink.label}
+                                    </button>
+                                )}
+                                <button type="button" onClick={onCopyDraft}>
+                                    Copy message
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
             </form>

@@ -38,6 +38,8 @@ nav .menu-toggle-btn {
     padding: 0.6em 0.65em 0.65em 0.65em;
     background-color: var(--bg2);
     color: var(--fg);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    font: inherit;
 }
 
 nav .menu-toggle-btn.menu-open {
@@ -45,8 +47,21 @@ nav .menu-toggle-btn.menu-open {
     color: var(--bg);
 }
 
-nav .menu-toggle-btn p {
+nav .menu-toggle-btn .mn {
+    display: block;
+    text-transform: uppercase;
+    font-family: "supply-mono";
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.125;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
     user-select: none;
+}
+
+nav .menu-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent1);
+    outline-offset: 2px;
 }
 
 nav .logo,

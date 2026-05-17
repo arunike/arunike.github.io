@@ -157,6 +157,9 @@ function App() {
 
     return (
         <Router>
+            <a className="skip-link" href="#main-content">
+                Skip to content
+            </a>
             <ScrollToTop start={start} scrollTo={scrollTo} />
             <AnalyticsTracker />
             <Nav
@@ -174,8 +177,10 @@ function App() {
             />
             <BackToTop scrollTo={scrollTo} />
 
-            <div
+            <main
+                id="main-content"
                 className="page-content"
+                tabIndex="-1"
                 style={{
                     position: "relative",
                     width: "100%",
@@ -193,7 +198,7 @@ function App() {
                         </Routes>
                     </Suspense>
                 </ErrorBoundary>
-            </div>
+            </main>
         </Router>
     );
 }

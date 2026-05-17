@@ -31,6 +31,7 @@ export const projects = [
         description:
             "A full-stack career management platform for tracking applications, comparing offers, managing interview availability, organizing documents, and using AI tools for JD matching, cover letter generation, and negotiation support. It combines a React + TypeScript frontend with a Django REST API, Redis-powered real-time features, and flexible import/export workflows.",
         ghLink: "https://github.com/arunike/CareerHub-Frontend",
+        demoLink: "https://careerhub-frontend-eight.vercel.app",
         tags: [
             "React",
             "TypeScript",

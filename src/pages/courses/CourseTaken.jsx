@@ -7,6 +7,7 @@ import UWMadison from "../../assets/images/uw-madison_cs.png";
 import CourseCard from "./components/CourseCard";
 import { courses } from "./components/coursesData";
 import ErrorBoundary from "../../components/ErrorBoundary";
+import { MOTION } from "../../utils/motion";
 
 const CourseTaken = () => {
     const headerRef = useRef(null);
@@ -26,7 +27,10 @@ const CourseTaken = () => {
                     }
                 });
             },
-            { threshold: 0.1 }
+            {
+                rootMargin: MOTION.reveal.rootMargin,
+                threshold: MOTION.reveal.threshold,
+            }
         );
 
         cardsRef.current.forEach((card) => {

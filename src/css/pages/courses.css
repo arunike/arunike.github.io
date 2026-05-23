@@ -16,10 +16,10 @@
     margin-right: auto;
     padding: 0 2rem;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(var(--motion-reveal-distance));
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity var(--motion-duration-base) var(--motion-ease),
+        transform var(--motion-duration-base) var(--motion-ease);
 }
 
 .courses-header.courses-header-animated {
@@ -93,10 +93,10 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(var(--motion-reveal-distance));
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
+        opacity var(--motion-duration-base) var(--motion-ease),
+        transform var(--motion-duration-base) var(--motion-ease),
         box-shadow 0.3s ease;
     position: relative;
 }

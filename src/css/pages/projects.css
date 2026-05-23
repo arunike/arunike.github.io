@@ -15,10 +15,10 @@
     text-align: center;
     margin-bottom: 4rem;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(var(--motion-reveal-distance));
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity var(--motion-duration-base) var(--motion-ease),
+        transform var(--motion-duration-base) var(--motion-ease);
 }
 
 .projects-header.projects-header-animated {
@@ -230,10 +230,11 @@
     --media-shift-x: 0px;
     --media-shift-y: 0px;
     opacity: 0;
-    transform: translateY(40px) rotateX(4deg) rotateZ(-1.2deg);
+    transform: translateY(var(--motion-reveal-distance)) rotateX(3deg)
+        rotateZ(-0.8deg);
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity var(--motion-duration-base) var(--motion-ease),
+        transform var(--motion-duration-base) var(--motion-ease);
     transform-origin: center bottom;
     will-change: transform, opacity;
 }

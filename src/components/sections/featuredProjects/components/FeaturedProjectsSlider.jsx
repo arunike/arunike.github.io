@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { MOTION } from "../../../../utils/motion";
 
 const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
     return (
@@ -47,8 +48,8 @@ const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
                                 y: y * 0.1,
                                 rotationY: x * 0.05,
                                 rotationX: -y * 0.05,
-                                duration: 0.5,
-                                ease: "power2.out",
+                                duration: MOTION.duration.base,
+                                ease: MOTION.ease,
                             });
                         }}
                         onMouseLeave={(e) => {
@@ -59,8 +60,8 @@ const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
                                 y: 0,
                                 rotationY: 0,
                                 rotationX: 0,
-                                duration: 0.5,
-                                ease: "power2.out",
+                                duration: MOTION.duration.base,
+                                ease: MOTION.ease,
                             });
                         }}
                     >

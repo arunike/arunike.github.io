@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import ProjectDetails from "./project/ProjectDetails";
 import ProjectMedia from "./project/ProjectMedia";
+import { MOTION } from "../utils/motion";
 
 const ProjectCard = ({
     imgPath,
@@ -32,7 +33,10 @@ const ProjectCard = ({
                     }
                 });
             },
-            { threshold: 0.1 }
+            {
+                rootMargin: MOTION.reveal.rootMargin,
+                threshold: MOTION.reveal.threshold,
+            }
         );
 
         const currentCard = cardRef.current;
@@ -108,7 +112,12 @@ const ProjectCard = ({
         <div
             className="project-card"
             ref={cardRef}
-            style={{ "--stagger-delay": `${Math.min(index * 70, 490)}ms` }}
+            style={{
+                "--stagger-delay": `${Math.min(
+                    index * MOTION.stagger.cssBaseMs,
+                    MOTION.stagger.cssMaxMs
+                )}ms`,
+            }}
             onPointerMove={handlePointerMove}
             onPointerLeave={handlePointerLeave}
         >

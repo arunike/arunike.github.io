@@ -436,10 +436,10 @@
 
         /* Mobile Animation Initial State */
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(var(--motion-reveal-distance));
         transition:
-            opacity 0.6s ease,
-            transform 0.6s ease;
+            opacity var(--motion-duration-base) var(--motion-ease),
+            transform var(--motion-duration-base) var(--motion-ease);
     }
 
     .project-slide.project-slide-animated {

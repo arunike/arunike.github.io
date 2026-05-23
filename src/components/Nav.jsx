@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import ReactGA from "react-ga4";
 import ResumePdf from "../assets/resume/Richies_Resume.pdf";
+import { MOTION } from "../utils/motion";
 
 const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
     const [isAnimating, setIsAnimating] = useState(false);
@@ -140,14 +141,22 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
             body.style.overflow = "hidden";
             body.style.height = "100vh";
 
-            gsap.to(openLabel, { y: "-1rem", duration: 0.3 });
-            gsap.to(closeLabel, { y: "-1rem", duration: 0.3 });
+            gsap.to(openLabel, {
+                y: "-1rem",
+                duration: MOTION.duration.fast,
+                ease: MOTION.ease,
+            });
+            gsap.to(closeLabel, {
+                y: "-1rem",
+                duration: MOTION.duration.fast,
+                ease: MOTION.ease,
+            });
 
             // Slide in from top
             gsap.to(navOverlay, {
                 y: "0%",
-                duration: 1,
-                ease: "power4.inOut",
+                duration: MOTION.duration.slow,
+                ease: MOTION.easeInOut,
                 onComplete: () => setIsAnimating(false),
             });
 
@@ -155,10 +164,10 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
                 gsap.to(animatedItems, {
                     opacity: 1,
                     y: "0%",
-                    duration: 0.75,
-                    stagger: 0.075,
+                    duration: MOTION.duration.base,
+                    stagger: MOTION.stagger.base,
                     delay: 0.3,
-                    ease: "power4.out",
+                    ease: MOTION.ease,
                 });
             }
         } else {
@@ -175,14 +184,22 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
                 start();
             }
 
-            gsap.to(openLabel, { y: "0rem", duration: 0.3 });
-            gsap.to(closeLabel, { y: "0rem", duration: 0.3 });
+            gsap.to(openLabel, {
+                y: "0rem",
+                duration: MOTION.duration.fast,
+                ease: MOTION.ease,
+            });
+            gsap.to(closeLabel, {
+                y: "0rem",
+                duration: MOTION.duration.fast,
+                ease: MOTION.ease,
+            });
 
             // Slide out to top
             gsap.to(navOverlay, {
                 y: "-100%",
-                duration: 1,
-                ease: "power4.inOut",
+                duration: MOTION.duration.slow,
+                ease: MOTION.easeInOut,
                 onComplete: () => setIsAnimating(false),
             });
 
@@ -190,9 +207,9 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
                 gsap.to(animatedItems, {
                     opacity: 0,
                     y: "100%",
-                    duration: 0.6,
-                    stagger: -0.075,
-                    ease: "power4.in",
+                    duration: MOTION.duration.base,
+                    stagger: -MOTION.stagger.base,
+                    ease: MOTION.easeIn,
                 });
             }
         }

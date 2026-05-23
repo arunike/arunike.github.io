@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import gsap from "gsap";
+import { MOTION } from "../utils/motion";
 
 const Transition = ({ onComplete }) => {
     useEffect(() => {
@@ -21,21 +22,27 @@ const Transition = ({ onComplete }) => {
 
             tl.to(".transition-overlay", {
                 clipPath: fullClip,
-                duration: 1.0,
-                stagger: { each: 0.3, from: "end" }, // Dark -> Orange
-                ease: "expo.inOut",
+                duration: MOTION.duration.slow,
+                stagger: { each: MOTION.stagger.relaxed, from: "end" }, // Dark -> Orange
+                ease: MOTION.easeInOut,
             })
                 // Text appears gracefully during the build-up
                 .to(
                     ".transition-text h1",
-                    { opacity: 1, y: 0, duration: 0.8 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: MOTION.duration.base,
+                        ease: MOTION.ease,
+                    },
                     ">-1.7" // Text appears after background covers screen
                 );
 
             // Fade out text slightly before the overlay dissolves
             tl.to(".transition-text", {
                 opacity: 0,
-                duration: 0.5,
+                duration: MOTION.duration.fast,
+                ease: MOTION.easeIn,
             });
 
             // Dissolve the whole transition container
@@ -43,8 +50,8 @@ const Transition = ({ onComplete }) => {
                 ".transition",
                 {
                     opacity: 0,
-                    duration: 0.5,
-                    ease: "power2.inOut",
+                    duration: MOTION.duration.fast,
+                    ease: MOTION.easeInOut,
                     onStart: () => {
                         if (onComplete) onComplete();
                     },

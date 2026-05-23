@@ -9,6 +9,13 @@
     --muted: #666;
     --nav-pill-bg: rgba(20, 20, 20, 0.07);
     --nav-pill-border: rgba(20, 20, 20, 0.1);
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-duration-fast: 280ms;
+    --motion-duration-base: 640ms;
+    --motion-duration-slow: 900ms;
+    --motion-reveal-distance: 28px;
+    --motion-stagger: 75ms;
 }
 
 [data-theme="dark"] {

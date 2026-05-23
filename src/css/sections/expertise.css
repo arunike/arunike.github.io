@@ -267,11 +267,11 @@
         top: auto;
         left: auto;
         width: 100%;
-        transform: translateY(30px);
+        transform: translateY(var(--motion-reveal-distance));
         opacity: 0;
         transition:
-            opacity 0.6s ease,
-            transform 0.6s ease;
+            opacity var(--motion-duration-base) var(--motion-ease),
+            transform var(--motion-duration-base) var(--motion-ease);
         cursor: default;
         height: auto;
         overflow: visible;

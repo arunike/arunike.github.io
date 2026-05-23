@@ -21,6 +21,7 @@ import Nav from "./components/Nav";
 import SectionNav from "./components/SectionNav";
 import BackToTop from "./components/BackToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { MOTION } from "./utils/motion";
 
 const Home = lazy(() => import("./pages/Home"));
 const CourseTaken = lazy(() => import("./pages/courses/CourseTaken"));
@@ -140,14 +141,14 @@ function App() {
         if (isMenuOpen) {
             gsap.to(pageContent, {
                 y: "100vh",
-                duration: 1,
-                ease: "power4.inOut",
+                duration: MOTION.duration.slow,
+                ease: MOTION.easeInOut,
             });
         } else {
             gsap.to(pageContent, {
                 y: "0px",
-                duration: 1,
-                ease: "power4.inOut",
+                duration: MOTION.duration.slow,
+                ease: MOTION.easeInOut,
                 onComplete: () => {
                     gsap.set(pageContent, { clearProps: "transform" });
                 },

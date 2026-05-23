@@ -4,12 +4,13 @@ import extractColorFromImage from "./components/extractColorFromImage";
 import TimelineStats from "./components/TimelineStats";
 import TimelineScrollArea from "./components/TimelineScrollArea";
 import TimelineTrack from "./components/TimelineTrack";
+import { MOTION } from "../../../utils/motion";
 
 const MOBILE_BREAKPOINT = 768;
 const MOBILE_ROOT_MARGIN = "-10% 0px";
 const DESKTOP_ROOT_MARGIN = "0px -20% 0px -20%";
-const MOBILE_THRESHOLD = 0.2;
-const DESKTOP_THRESHOLD = 0.4;
+const MOBILE_THRESHOLD = MOTION.reveal.threshold;
+const DESKTOP_THRESHOLD = MOTION.reveal.threshold;
 const MONTHS = {
     january: 0,
     february: 1,

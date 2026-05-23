@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Symbols from "../assets/images/symbols/symbols.png";
+import { MOTION } from "../utils/motion";
 
 const Landing = ({ loaded }) => {
     const landingRef = useRef(null);
@@ -13,9 +14,9 @@ const Landing = ({ loaded }) => {
 
             tl.from(".landing-header h1 .char", {
                 y: "110%",
-                duration: 1,
-                ease: "power4.out",
-                stagger: 0.05,
+                duration: MOTION.duration.slow,
+                ease: MOTION.ease,
+                stagger: MOTION.stagger.tight,
                 delay: 0,
             });
         }, landingRef);

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import BadgerIcon from "../../../assets/images/badger_cs.png";
 import ExpertiseCard from "./components/ExpertiseCard";
 import { expertiseCards } from "./components/expertiseData";
+import { MOTION } from "../../../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +62,10 @@ const Expertise = () => {
                         }
                     });
                 },
-                { threshold: 0.1 }
+                {
+                    rootMargin: MOTION.reveal.rootMargin,
+                    threshold: MOTION.reveal.threshold,
+                }
             );
 
             const cards = document.querySelectorAll(".expertise-card");

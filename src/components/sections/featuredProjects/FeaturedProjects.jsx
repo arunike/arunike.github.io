@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { projects } from "../../../pages/projects/components/projectsData";
 import FeaturedProjectsIndicator from "./components/FeaturedProjectsIndicator";
 import FeaturedProjectsSlider from "./components/FeaturedProjectsSlider";
+import { MOTION } from "../../../utils/motion";
 
 const FeaturedProjects = () => {
     const sectionRef = useRef(null);
@@ -132,7 +133,10 @@ const FeaturedProjects = () => {
                         }
                     });
                 },
-                { threshold: 0.1 }
+                {
+                    rootMargin: MOTION.reveal.rootMargin,
+                    threshold: MOTION.reveal.threshold,
+                }
             );
 
             const slides = document.querySelectorAll(".project-slide");

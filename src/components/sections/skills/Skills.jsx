@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import { skillCategories } from "./components/skillsData";
+import { MOTION } from "../../../utils/motion";
 
 const Skills = () => {
     const categoryRefs = useRef([]);
@@ -19,7 +20,7 @@ const Skills = () => {
                                 () => {
                                     icon.classList.add("skills-animated");
                                 },
-                                100 + index * 100
+                                100 + index * MOTION.stagger.cssBaseMs
                             );
                         });
 
@@ -27,7 +28,10 @@ const Skills = () => {
                     }
                 });
             },
-            { threshold: 0.1 }
+            {
+                rootMargin: MOTION.reveal.rootMargin,
+                threshold: MOTION.reveal.threshold,
+            }
         );
 
         const currentCategoryRefs = categoryRefs.current;

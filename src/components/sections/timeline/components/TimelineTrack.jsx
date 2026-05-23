@@ -1,6 +1,11 @@
 import TimelineItem from "./TimelineItem";
 
-const TimelineTrack = ({ experiences, experienceColors, addToRefs }) => {
+const TimelineTrack = ({
+    experiences,
+    experienceColors,
+    addToRefs,
+    mostRecentExperienceId,
+}) => {
     return (
         <div className="timeline-track">
             <div className="timeline-line"></div>
@@ -21,6 +26,7 @@ const TimelineTrack = ({ experiences, experienceColors, addToRefs }) => {
                         expColor={expColor}
                         positionClass={positionClass}
                         addToRefs={addToRefs}
+                        isMostRecent={exp.id === mostRecentExperienceId}
                     />
                 );
             })}

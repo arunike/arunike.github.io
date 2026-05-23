@@ -1,7 +1,60 @@
 import { useState } from "react";
 
-const TimelineItem = ({ exp, expColor, positionClass, addToRefs }) => {
+const MONTHS = {
+    january: 0,
+    february: 1,
+    march: 2,
+    april: 3,
+    may: 4,
+    june: 5,
+    july: 6,
+    august: 7,
+    september: 8,
+    october: 9,
+    november: 10,
+    december: 11,
+};
+
+const parseMonthYear = (value) => {
+    const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+    if (!match) return null;
+
+    const month = MONTHS[match[1].toLowerCase()];
+    const year = Number(match[2]);
+
+    if (month === undefined || Number.isNaN(year)) return null;
+
+    return { month, year };
+};
+
+const getMonthsWorkedLabel = (duration) => {
+    const [startValue, endValue] = duration.split(/\s+-\s+/);
+    const start = parseMonthYear(startValue || "");
+    const end =
+        endValue?.toLowerCase() === "present"
+            ? {
+                  month: new Date().getMonth(),
+                  year: new Date().getFullYear(),
+              }
+            : parseMonthYear(endValue || "");
+
+    if (!start || !end) return null;
+
+    const months = (end.year - start.year) * 12 + end.month - start.month + 1;
+    if (months <= 0) return null;
+
+    return months === 1 ? "1 month" : `${months} months`;
+};
+
+const TimelineItem = ({
+    exp,
+    expColor,
+    positionClass,
+    addToRefs,
+    isMostRecent,
+}) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const monthsWorkedLabel = getMonthsWorkedLabel(exp.duration);
 
     const handleToggle = () => {
         setIsFlipped((prev) => !prev);
@@ -11,11 +64,16 @@ const TimelineItem = ({ exp, expColor, positionClass, addToRefs }) => {
         <div
             key={exp.id}
             ref={addToRefs}
-            className={`timeline-item ${positionClass}`}
+            data-experience-id={exp.id}
+            className={`timeline-item ${positionClass} ${
+                isMostRecent ? "timeline-item-most-recent" : ""
+            }`}
         >
             <div className="timeline-content">
                 <div
-                    className="timeline-card"
+                    className={`timeline-card ${
+                        isMostRecent ? "timeline-card-most-recent" : ""
+                    }`}
                     style={{
                         borderLeft: `4px solid ${expColor}`,
                         background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
@@ -101,6 +159,21 @@ const TimelineItem = ({ exp, expColor, positionClass, addToRefs }) => {
                                     </svg>
                                     {exp.duration}
                                 </span>
+                                {monthsWorkedLabel && (
+                                    <span className="timeline-months-worked">
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                        >
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 2" />
+                                        </svg>
+                                        {monthsWorkedLabel}
+                                    </span>
+                                )}
                             </div>
                             <div className="timeline-tap-hint">
                                 {isFlipped ? "↑ Collapse" : "Tap for details →"}
@@ -157,6 +230,9 @@ const TimelineItem = ({ exp, expColor, positionClass, addToRefs }) => {
             </div>
 
             <div className="timeline-dot" style={{ borderColor: expColor }}>
+                {isMostRecent && (
+                    <span className="timeline-dot-label">Latest</span>
+                )}
                 <div
                     className="timeline-dot-inner"
                     style={{ backgroundColor: expColor }}

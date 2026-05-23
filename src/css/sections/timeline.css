@@ -115,6 +115,7 @@
 }
 
 .timeline-track {
+    --timeline-progress: 1;
     display: flex;
     align-items: center;
     position: relative;
@@ -135,12 +136,28 @@
     background: linear-gradient(
         90deg,
         transparent,
-        var(--accent1),
-        var(--accent1),
+        rgba(237, 106, 90, 0.16),
+        rgba(237, 106, 90, 0.16),
         transparent
     );
     transform: translateY(-50%);
     z-index: 0;
+}
+
+.timeline-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent1) 8%,
+        var(--accent3) 72%,
+        transparent
+    );
+    transform: scaleX(var(--timeline-progress));
+    transform-origin: left center;
+    transition: transform 0.16s linear;
 }
 
 /* Timeline Items */
@@ -243,6 +260,25 @@
     transform: translate(-50%, -50%);
 }
 
+.timeline-dot-label {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.65rem);
+    transform: translateX(-50%);
+    color: var(--accent1);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(237, 106, 90, 0.2);
+    border-radius: 999px;
+    padding: 0.28rem 0.55rem;
+    font-family: "supply-mono";
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
 /* Remove old positioning styles */
 .timeline-top {
     transform: none;
@@ -283,6 +319,22 @@
 .timeline-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-card-most-recent {
+    border-color: rgba(104, 128, 138, 0.18);
+    box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(104, 128, 138, 0.08);
+}
+
+.timeline-card-most-recent::before {
+    background: linear-gradient(
+        90deg,
+        rgba(104, 128, 138, 0.5),
+        rgba(237, 106, 90, 0.32)
+    );
+    opacity: 0.8;
 }
 
 .timeline-card-flip {
@@ -415,17 +467,27 @@
 }
 
 .timeline-location,
-.timeline-duration {
+.timeline-duration,
+.timeline-months-worked {
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 
 .timeline-location svg,
-.timeline-duration svg {
+.timeline-duration svg,
+.timeline-months-worked svg {
     flex-shrink: 0;
     width: 14px;
     height: 14px;
+}
+
+.timeline-months-worked {
+    color: var(--fg);
+    background: rgba(237, 106, 90, 0.08);
+    border: 1px solid rgba(237, 106, 90, 0.18);
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
 }
 
 .timeline-achievements {
@@ -532,6 +594,17 @@
             var(--accent1) 95%,
             var(--bg) 100%
         );
+    }
+
+    .timeline-line::after {
+        background: linear-gradient(
+            180deg,
+            var(--accent1),
+            var(--accent3),
+            var(--accent1)
+        );
+        transform: scaleY(var(--timeline-progress));
+        transform-origin: top center;
     }
 
     .timeline-item {

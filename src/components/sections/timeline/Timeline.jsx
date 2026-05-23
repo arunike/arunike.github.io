@@ -10,6 +10,45 @@ const MOBILE_ROOT_MARGIN = "-10% 0px";
 const DESKTOP_ROOT_MARGIN = "0px -20% 0px -20%";
 const MOBILE_THRESHOLD = 0.2;
 const DESKTOP_THRESHOLD = 0.4;
+const MONTHS = {
+    january: 0,
+    february: 1,
+    march: 2,
+    april: 3,
+    may: 4,
+    june: 5,
+    july: 6,
+    august: 7,
+    september: 8,
+    october: 9,
+    november: 10,
+    december: 11,
+};
+
+const parseMonthYear = (value) => {
+    const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+    if (!match) return null;
+
+    const month = MONTHS[match[1].toLowerCase()];
+    const year = Number(match[2]);
+
+    if (month === undefined || Number.isNaN(year)) return null;
+
+    return { month, year };
+};
+
+const getExperienceEndTime = (duration) => {
+    const endValue = duration.split(/\s+-\s+/)[1];
+
+    if (endValue?.toLowerCase() === "present") {
+        return Number.POSITIVE_INFINITY;
+    }
+
+    const end = parseMonthYear(endValue || "");
+    if (!end) return Number.NEGATIVE_INFINITY;
+
+    return end.year * 12 + end.month;
+};
 
 const Timeline = () => {
     const timelineRef = useRef([]);
@@ -27,6 +66,15 @@ const Timeline = () => {
             scrollContainerRef.current;
         setShowLeftFade(scrollLeft > 20);
         setShowRightFade(scrollLeft < scrollWidth - clientWidth - 20);
+
+        const maxScroll = Math.max(scrollWidth - clientWidth, 1);
+        const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1);
+        const track =
+            scrollContainerRef.current.querySelector(".timeline-track");
+
+        if (track) {
+            track.style.setProperty("--timeline-progress", progress);
+        }
     };
 
     const scrollBy = (amount) => {
@@ -103,8 +151,14 @@ const Timeline = () => {
     const orderedExperiences = useMemo(() => {
         return [...experiences]
             .filter((exp) => exp.isActive !== false)
-            .reverse();
+            .sort(
+                (first, second) =>
+                    getExperienceEndTime(first.duration) -
+                    getExperienceEndTime(second.duration)
+            );
     }, []);
+    const mostRecentExperienceId =
+        orderedExperiences[orderedExperiences.length - 1]?.id;
 
     const experienceStats = useMemo(() => {
         const activeExperiences = experiences.filter(
@@ -124,13 +178,21 @@ const Timeline = () => {
 
     useEffect(() => {
         if (scrollContainerRef.current) {
+            const targetItem = timelineRef.current.find(
+                (item) => item?.dataset.experienceId === mostRecentExperienceId
+            );
+
             scrollContainerRef.current.style.scrollBehavior = "auto";
-            scrollContainerRef.current.scrollLeft =
-                scrollContainerRef.current.scrollWidth;
+            scrollContainerRef.current.scrollLeft = targetItem
+                ? targetItem.offsetLeft -
+                  (scrollContainerRef.current.clientWidth -
+                      targetItem.offsetWidth) /
+                      2
+                : scrollContainerRef.current.scrollWidth;
             scrollContainerRef.current.style.scrollBehavior = "smooth";
             checkScroll();
         }
-    }, [orderedExperiences]);
+    }, [mostRecentExperienceId, orderedExperiences]);
 
     const addToRefs = (el) => {
         if (el && !timelineRef.current.includes(el)) {
@@ -160,6 +222,7 @@ const Timeline = () => {
                             experiences={orderedExperiences}
                             experienceColors={experienceColors}
                             addToRefs={addToRefs}
+                            mostRecentExperienceId={mostRecentExperienceId}
                         />
                     </TimelineScrollArea>
 

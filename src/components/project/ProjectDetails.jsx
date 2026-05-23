@@ -21,7 +21,11 @@ const ProjectDetails = ({ title, description, tags, isExpanded, onToggle }) => {
             {tags && tags.length > 0 && (
                 <div className="project-tags">
                     {tags.map((tag, index) => (
-                        <span key={index} className="project-tag">
+                        <span
+                            key={index}
+                            className="project-tag"
+                            style={{ "--tag-index": index }}
+                        >
                             {tag}
                         </span>
                     ))}

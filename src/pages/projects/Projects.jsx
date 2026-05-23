@@ -58,6 +58,11 @@ const Projects = () => {
         });
     }, [selectedTag, searchTerm, sortBy]);
 
+    const gridAnimationKey = useMemo(
+        () => `${selectedTag}-${searchTerm.trim().toLowerCase()}-${sortBy}`,
+        [selectedTag, searchTerm, sortBy]
+    );
+
     const [projectCount, projectCountRef] = useCountUp(
         filteredProjects.length,
         1000
@@ -124,7 +129,10 @@ const Projects = () => {
                         }
                     />
 
-                    <ProjectsGrid projects={filteredProjects} />
+                    <ProjectsGrid
+                        projects={filteredProjects}
+                        animationKey={gridAnimationKey}
+                    />
 
                     <div className="github-cta">
                         <p>Check out my GitHub for more projects</p>

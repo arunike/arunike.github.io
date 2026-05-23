@@ -174,6 +174,7 @@
 .projects-empty {
     text-align: center;
     padding: 3rem 1rem 5rem;
+    animation: projects-results-enter 0.35s ease both;
 }
 
 .projects-empty p {
@@ -207,10 +208,27 @@
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+    animation: projects-results-enter 0.35s ease both;
+}
+
+@keyframes projects-results-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Project Card */
 .project-card {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    --media-shift-x: 0px;
+    --media-shift-y: 0px;
     opacity: 0;
     transform: translateY(40px) rotateX(4deg) rotateZ(-1.2deg);
     transition:
@@ -240,16 +258,25 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    isolation: isolate;
+    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+        translateY(0);
+    will-change: transform;
 }
 
 .project-card-inner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+        translateY(-6px);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
+    border-color: rgba(0, 0, 0, 0.16);
 }
 
 .project-card-inner.dropdown-open {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+        translateY(-6px);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
+    border-color: rgba(0, 0, 0, 0.16);
 }
 
 /* Project Image */
@@ -260,6 +287,7 @@
     overflow: hidden;
     background-color: #f5f5f5;
     border-radius: 1rem 1rem 0 0;
+    transform: translateZ(0);
 }
 
 .project-image {
@@ -267,11 +295,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.3s ease;
+    transform: translate3d(var(--media-shift-x), var(--media-shift-y), 0)
+        scale(1.03);
+    transition: transform 0.22s ease;
+    will-change: transform;
 }
 
 .project-card-inner:hover .project-image {
-    transform: scale(1.05);
+    transform: translate3d(var(--media-shift-x), var(--media-shift-y), 0)
+        scale(1.08);
 }
 
 /* Project Overlay */
@@ -308,6 +340,13 @@
     gap: 1rem;
     z-index: 50;
     position: relative;
+    transform: translateY(10px);
+    transition: transform 0.24s ease;
+}
+
+.project-card-inner:hover .project-links,
+.project-overlay.keep-visible .project-links {
+    transform: translateY(0);
 }
 
 .project-link {
@@ -468,6 +507,21 @@ button.dropdown-toggle.active {
     font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid rgba(237, 106, 90, 0.2);
+    opacity: 0.84;
+    transform: translateY(0);
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        background-color 0.22s ease,
+        border-color 0.22s ease;
+    transition-delay: calc(var(--tag-index, 0) * 18ms);
+}
+
+.project-card-inner:hover .project-tag {
+    opacity: 1;
+    transform: translateY(-3px);
+    background-color: rgba(237, 106, 90, 0.16);
+    border-color: rgba(237, 106, 90, 0.34);
 }
 
 /* GitHub CTA */

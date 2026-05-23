@@ -78,11 +78,39 @@ const ProjectCard = ({
         setIsDropdownOpen((prev) => !prev);
     };
 
+    const handlePointerMove = (event) => {
+        const card = cardRef.current;
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const centerX = x / rect.width - 0.5;
+        const centerY = y / rect.height - 0.5;
+
+        card.style.setProperty("--tilt-x", `${centerY * -5}deg`);
+        card.style.setProperty("--tilt-y", `${centerX * 6}deg`);
+        card.style.setProperty("--media-shift-x", `${centerX * 10}px`);
+        card.style.setProperty("--media-shift-y", `${centerY * 10}px`);
+    };
+
+    const handlePointerLeave = () => {
+        const card = cardRef.current;
+        if (!card) return;
+
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+        card.style.setProperty("--media-shift-x", "0px");
+        card.style.setProperty("--media-shift-y", "0px");
+    };
+
     return (
         <div
             className="project-card"
             ref={cardRef}
             style={{ "--stagger-delay": `${Math.min(index * 70, 490)}ms` }}
+            onPointerMove={handlePointerMove}
+            onPointerLeave={handlePointerLeave}
         >
             <div
                 className={`project-card-inner ${

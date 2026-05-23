@@ -1,17 +1,17 @@
 import ProjectCard from "../../../components/ProjectCard";
 import ErrorBoundary from "../../../components/ErrorBoundary";
 
-const ProjectsGrid = ({ projects }) => {
+const ProjectsGrid = ({ projects, animationKey }) => {
     if (!projects.length) {
         return (
-            <div className="projects-empty">
+            <div className="projects-empty" key={`empty-${animationKey}`}>
                 <p>No projects match that filter yet.</p>
             </div>
         );
     }
 
     return (
-        <div className="projects-grid">
+        <div className="projects-grid" key={animationKey}>
             {projects.map((project, index) => (
                 <ErrorBoundary key={project.id}>
                     <ProjectCard

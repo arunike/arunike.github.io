@@ -2,9 +2,18 @@ import gsap from "gsap";
 
 const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
     return (
-        <div className="featured-projects-slider" ref={sectionRef}>
+        <div
+            className="featured-projects-slider"
+            ref={sectionRef}
+            style={{ "--featured-slider-width": `${projects.length * 100}vw` }}
+        >
             {projects.map((project, index) => (
-                <div className="project-slide" key={index}>
+                <div
+                    className={`project-slide ${
+                        index === 0 ? "project-slide-active" : ""
+                    }`}
+                    key={project.id || index}
+                >
                     <div className="slide-content">
                         <span className="project-watermark">
                             {`0${index + 1}`}
@@ -59,6 +68,7 @@ const FeaturedProjectsSlider = ({ projects, sectionRef }) => {
                             className="img-wrapper"
                             style={{ perspective: "1000px" }}
                         >
+                            <div className="project-media-glow"></div>
                             <img
                                 src={project.image}
                                 alt={project.title}

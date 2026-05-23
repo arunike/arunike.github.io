@@ -10,6 +10,7 @@ const FeaturedProjects = () => {
     const triggerRef = useRef(null);
     const pinRef = useRef(null);
     const rafIdRef = useRef(null);
+    const progressRef = useRef(0);
 
     const featuredProjects = useMemo(
         () => projects.filter((p) => p.isFeatured),
@@ -24,6 +25,46 @@ const FeaturedProjects = () => {
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 1001px)", () => {
+            const syncSlideDepth = (nextProgress) => {
+                const slides = sectionRef.current?.children;
+                if (!slides?.length) return;
+
+                const totalSteps = Math.max(slides.length - 1, 1);
+                const stepSize = 1 / totalSteps;
+
+                Array.from(slides).forEach((slide, index) => {
+                    const slideProgress = index * stepSize;
+                    const rawDistance =
+                        stepSize > 0
+                            ? (nextProgress - slideProgress) / stepSize
+                            : 0;
+                    const distance = Math.abs(rawDistance);
+                    const clampedDistance = Math.min(Math.max(distance, 0), 1);
+                    const focus = 1 - clampedDistance;
+                    const direction = Math.min(Math.max(rawDistance, -1), 1);
+
+                    slide.style.setProperty("--slide-focus", focus);
+                    slide.style.setProperty(
+                        "--slide-distance",
+                        clampedDistance
+                    );
+                    slide.style.setProperty("--slide-direction", direction);
+                    slide.style.setProperty(
+                        "--media-parallax",
+                        `${direction * -32}px`
+                    );
+                    slide.style.setProperty("--media-scale", 1 + focus * 0.04);
+                    slide.style.setProperty(
+                        "--copy-y",
+                        `${clampedDistance * 18}px`
+                    );
+                    slide.classList.toggle(
+                        "project-slide-active",
+                        distance < 0.55
+                    );
+                });
+            };
+
             const update = () => {
                 if (!triggerRef.current || !sectionRef.current) return;
 
@@ -42,7 +83,13 @@ const FeaturedProjects = () => {
                 );
 
                 sectionRef.current.style.transform = `translateX(${translateX}vw)`;
-                setProgress(Math.round(nextProgress * 100));
+                syncSlideDepth(nextProgress);
+
+                const roundedProgress = Math.round(nextProgress * 100);
+                if (progressRef.current !== roundedProgress) {
+                    progressRef.current = roundedProgress;
+                    setProgress(roundedProgress);
+                }
             };
 
             const scheduleUpdate = () => {

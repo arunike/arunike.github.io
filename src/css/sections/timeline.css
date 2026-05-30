@@ -308,6 +308,12 @@
     overflow: visible !important;
 }
 
+[data-theme="dark"] .timeline-card {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
 .timeline-card::before {
     display: none !important; /* hide top gradient line on desktop card wrapper */
 }
@@ -698,6 +704,7 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
         overflow: hidden !important;
         transform: none !important;
+        padding: 0 !important; /* Let faces fill the card space entirely */
     }
 
     .timeline-card-most-recent {
@@ -708,8 +715,6 @@
             0 0 0 1px rgba(104, 128, 138, 0.08) !important;
     }
 
-    /* Removed top gradient bar for most recent card on mobile */
-
     /* Mobile Dark Mode override for card wrapper */
     [data-theme="dark"] .timeline-card {
         background-color: var(--bg2) !important;
@@ -717,18 +722,20 @@
         border-left-color: var(--exp-color) !important;
     }
 
-    .timeline-card-face {
+    /* Override all desktop specificity rules on mobile */
+    .timeline-card-face,
+    .timeline-card-most-recent .timeline-card-face {
         background: transparent !important;
-        border-left: none !important;
-        box-shadow: none !important;
         border: none !important;
+        box-shadow: none !important;
         border-radius: 0 !important;
         overflow: visible !important;
         padding: 1.5rem !important;
     }
 
     /* Mobile Dark Mode override for card face */
-    [data-theme="dark"] .timeline-card-face {
+    [data-theme="dark"] .timeline-card-face,
+    [data-theme="dark"] .timeline-card-most-recent .timeline-card-face {
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
@@ -799,7 +806,7 @@
     /* 4. Card: Slides in and fades active */
     .timeline-card {
         width: 100% !important;
-        padding: 1.5rem;
+        padding: 0 !important;
         opacity: 0;
         transform: translateX(var(--motion-reveal-distance));
         transition:
@@ -846,8 +853,68 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
         text-align: right;
-        padding: 0.5rem 0 0 0;
+        padding: 0;
+        margin-top: 0.5rem;
+        position: relative;
+        height: 1rem;
+        overflow: hidden;
+    }
+
+    .timeline-tap-hint .hint-text {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+            opacity 0.35s ease;
+    }
+
+    .timeline-tap-hint .hint-front {
         opacity: 0.7;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .timeline-tap-hint .hint-front.hidden {
+        opacity: 0;
+        transform: translateY(-100%);
+        pointer-events: none;
+    }
+
+    .timeline-tap-hint .hint-back {
+        opacity: 0;
+        transform: translateY(100%);
+        pointer-events: none;
+    }
+
+    .timeline-tap-hint .hint-back.active {
+        opacity: 0.7;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .timeline-tap-hint .hint-text .arrow {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes arrow-bounce {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(4px);
+        }
+    }
+
+    .timeline-card-flip:not(.flipped) .timeline-tap-hint .hint-front .arrow {
+        animation: arrow-bounce 1.6s infinite ease-in-out;
     }
 
     /* Hide redundant company header in back face (front face already shows it) */
@@ -873,21 +940,37 @@
         backface-visibility: visible !important;
     }
 
-    .timeline-card-back {
+    .timeline-card-back,
+    .timeline-card-most-recent .timeline-card-back {
         transform: none !important;
-        max-height: 0;
-        overflow: hidden;
+        display: grid !important;
+        grid-template-rows: 0fr;
+        overflow: hidden !important;
         padding: 0 2rem !important;
         border-top: 1px solid transparent;
         transition:
-            max-height 0.4s ease,
-            padding 0.35s ease,
+            grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+            padding 0.4s cubic-bezier(0.25, 1, 0.5, 1),
             border-color 0.3s ease;
     }
 
-    .timeline-card-flip.flipped .timeline-card-back {
-        max-height: 600px;
+    .timeline-card-flip.flipped .timeline-card-back,
+    .timeline-card-most-recent .timeline-card-flip.flipped .timeline-card-back {
+        grid-template-rows: 1fr;
         padding: 1.25rem 2rem 1.5rem !important;
         border-top-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .timeline-card-back-inner {
+        min-height: 0;
+        width: 100%;
+    }
+
+    [data-theme="dark"] .timeline-card-flip.flipped .timeline-card-back,
+    [data-theme="dark"]
+        .timeline-card-most-recent
+        .timeline-card-flip.flipped
+        .timeline-card-back {
+        border-top-color: rgba(255, 255, 255, 0.08) !important;
     }
 }

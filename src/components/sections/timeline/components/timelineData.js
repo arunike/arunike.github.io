@@ -7,7 +7,7 @@ export const experiences = [
     {
         id: "lumen",
         company: "Lumen Technologies",
-        role: "Software Engineer Intern",
+        role: "Software Developer Intern",
         department: "Virtual Network Platform - IP Engineering",
         location: "New York, NY",
         duration: "May 2024 - August 2024",

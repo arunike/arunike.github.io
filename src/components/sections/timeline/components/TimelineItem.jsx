@@ -183,53 +183,67 @@ const TimelineItem = ({
                                 )}
                             </div>
                             <div className="timeline-tap-hint">
-                                {isFlipped ? "↑ Collapse" : "Tap for details →"}
+                                <span
+                                    className={`hint-text hint-front ${isFlipped ? "hidden" : ""}`}
+                                >
+                                    Tap for details{" "}
+                                    <span className="arrow">→</span>
+                                </span>
+                                <span
+                                    className={`hint-text hint-back ${isFlipped ? "active" : ""}`}
+                                >
+                                    <span className="arrow">↑</span> Collapse
+                                </span>
                             </div>
                         </div>
 
                         <div className="timeline-card-face timeline-card-back">
-                            <div className="timeline-company-header">
-                                <div className="timeline-company-logo">
-                                    <img
-                                        src={exp.logo}
-                                        alt={exp.company}
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
+                            <div className="timeline-card-back-inner">
+                                <div className="timeline-company-header">
+                                    <div className="timeline-company-logo">
+                                        <img
+                                            src={exp.logo}
+                                            alt={exp.company}
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                    <div className="timeline-company-info">
+                                        <h3
+                                            className="timeline-role"
+                                            style={{ color: expColor }}
+                                        >
+                                            {exp.role}
+                                        </h3>
+                                        <h4 className="timeline-company">
+                                            {exp.company}
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div className="timeline-company-info">
-                                    <h3
-                                        className="timeline-role"
-                                        style={{ color: expColor }}
-                                    >
-                                        {exp.role}
-                                    </h3>
-                                    <h4 className="timeline-company">
-                                        {exp.company}
-                                    </h4>
+
+                                <div className="timeline-achievements">
+                                    {exp.achievements.map(
+                                        (achievement, idx) => (
+                                            <p key={idx}>{achievement}</p>
+                                        )
+                                    )}
                                 </div>
-                            </div>
 
-                            <div className="timeline-achievements">
-                                {exp.achievements.map((achievement, idx) => (
-                                    <p key={idx}>{achievement}</p>
-                                ))}
-                            </div>
-
-                            <div className="timeline-tech-stack">
-                                {exp.technologies.map((tech, idx) => (
-                                    <span
-                                        key={idx}
-                                        className="timeline-tech-tag"
-                                        style={{
-                                            backgroundColor: `${expColor}20`,
-                                            color: expColor,
-                                            borderColor: `${expColor}40`,
-                                        }}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
+                                <div className="timeline-tech-stack">
+                                    {exp.technologies.map((tech, idx) => (
+                                        <span
+                                            key={idx}
+                                            className="timeline-tech-tag"
+                                            style={{
+                                                backgroundColor: `${expColor}20`,
+                                                color: expColor,
+                                                borderColor: `${expColor}40`,
+                                            }}
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

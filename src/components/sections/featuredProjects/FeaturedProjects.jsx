@@ -23,19 +23,6 @@ const FeaturedProjects = () => {
         []
     );
 
-    const cardDirections = useMemo(() => {
-        return featuredProjects.map(() => {
-            const angle = -Math.PI * 0.41 + Math.random() * Math.PI * 0.82;
-            const distance = 1.0 + Math.random() * 0.4;
-            const randomSignRot = Math.random() < 0.5 ? -1 : 1;
-            return {
-                xMultiplier: Math.cos(angle) * distance,
-                yMultiplier: Math.sin(angle) * distance,
-                rotateMultiplier: randomSignRot * (40 + Math.random() * 50),
-            };
-        });
-    }, [featuredProjects]);
-
     const [progress, setProgress] = useState(0);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -94,24 +81,15 @@ const FeaturedProjects = () => {
                         : clamp((nextProgress - exitStart) / cardExitDuration);
                     const exitEase = easeIn(exitProgress);
 
-                    const dir = cardDirections[index] || {
-                        xMultiplier: 0.5,
-                        yMultiplier: -1.1,
-                        rotateMultiplier: 45,
-                    };
-                    const flyX = interpolate(
-                        0,
-                        window.innerWidth * dir.xMultiplier,
-                        exitEase
-                    );
                     const flyY = interpolate(
                         0,
-                        window.innerHeight * dir.yMultiplier,
+                        -window.innerHeight * 1.25,
                         exitEase
                     );
+                    const flyX = interpolate(0, 100, exitEase);
                     const flyRotate = interpolate(
                         0,
-                        dir.rotateMultiplier,
+                        centeredIndex * 5,
                         exitEase
                     );
 
@@ -226,7 +204,7 @@ const FeaturedProjects = () => {
         return () => {
             mm.revert();
         };
-    }, [featuredProjects, cardDirections]);
+    }, [featuredProjects]);
 
     return (
         <section

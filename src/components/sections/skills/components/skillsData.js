@@ -45,6 +45,7 @@ import HDFS from "../../../../assets/images/techstack/tools/hdfs.png";
 import Latex from "../../../../assets/images/techstack/tools/latex.png";
 import Redis from "../../../../assets/images/techstack/tools/redis.png";
 import Airflow from "../../../../assets/images/techstack/tools/airflow.png";
+import Elasticsearch from "../../../../assets/images/techstack/tools/elastic_search.png";
 
 // Cloud & Platforms
 import Linux from "../../../../assets/images/techstack/cloud_platforms/linux.png";
@@ -56,8 +57,8 @@ export const skillCategories = [
     {
         title: "Programming Languages",
         skills: [
-            { name: "Python", icon: Python },
             { name: "Go", icon: GoLanguage },
+            { name: "Python", icon: Python },
             { name: "Java", icon: Java },
             { name: "SQL", icon: SQL },
             { name: "Kotlin", icon: Kotlin },
@@ -71,8 +72,8 @@ export const skillCategories = [
     {
         title: "Web Development",
         skills: [
-            { name: "JavaScript", icon: Javascript },
             { name: "TypeScript", icon: Typescript },
+            { name: "JavaScript", icon: Javascript },
             { name: "HTML5", icon: HTML },
             { name: "CSS3", icon: CSS },
         ],
@@ -80,13 +81,13 @@ export const skillCategories = [
     {
         title: "Frameworks & Libraries",
         skills: [
-            { name: "React", icon: React_Image },
-            { name: "React Native", icon: React_Native },
-            { name: "Node.js", icon: Nodejs },
-            { name: "Vue.js", icon: Vue },
-            { name: "Next.js", icon: Nextjs },
-            { name: "Spring Boot", icon: Spring_Boot },
             { name: "Django", icon: Django },
+            { name: "Spring Boot", icon: Spring_Boot },
+            { name: "Node.js", icon: Nodejs },
+            { name: "React", icon: React_Image },
+            { name: "Vue.js", icon: Vue },
+            { name: "React Native", icon: React_Native },
+            { name: "Next.js", icon: Nextjs },
             { name: "Three.js", icon: Threejs },
         ],
     },
@@ -94,9 +95,9 @@ export const skillCategories = [
         title: "Databases",
         skills: [
             { name: "MySQL", icon: MySQL },
-            { name: "SQL Server", icon: SQL_Server },
             { name: "PostgreSQL", icon: PostgreSQL },
             { name: "Firebase", icon: Firebase },
+            { name: "SQL Server", icon: SQL_Server },
             { name: "Snowflake", icon: Snowflake },
             { name: "BigQuery", icon: BigQuery },
             { name: "MongoDB", icon: MongoDB },
@@ -105,15 +106,16 @@ export const skillCategories = [
     {
         title: "Tools & Technologies",
         skills: [
-            { name: "LaTeX", icon: Latex },
+            { name: "Kafka", icon: Kafka },
+            { name: "Redis", icon: Redis },
+            { name: "Elasticsearch", icon: Elasticsearch },
             { name: "Docker", icon: Docker },
             { name: "Kubernetes", icon: Kubernetes },
-            { name: "Airflow", icon: Airflow },
             { name: "Cassandra", icon: Cassandra },
             { name: "HDFS", icon: HDFS },
             { name: "Spark", icon: Spark },
-            { name: "Kafka", icon: Kafka },
-            { name: "Redis", icon: Redis },
+            { name: "LaTeX", icon: Latex },
+            { name: "Airflow", icon: Airflow },
         ],
     },
     {

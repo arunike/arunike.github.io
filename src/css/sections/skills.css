@@ -15,8 +15,18 @@
     font-weight: bold;
     color: var(--fg);
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 0.75rem;
     font-family: "Supply Mono", monospace;
+}
+
+.skills-subheading {
+    max-width: 520px;
+    margin: 0 auto 4rem;
+    color: color-mix(in srgb, var(--fg), transparent 28%);
+    font-family: "Supply Mono", monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
 }
 
 .skills-grid {
@@ -42,6 +52,11 @@
 .skill-category.skills-animated {
     opacity: 1;
     transform: translateY(0);
+}
+
+.skill-category.skills-animated .tech-icon {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .category-title {
@@ -91,6 +106,10 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
+.skill-category.skills-animated .tech-icon:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
 .tech-icon-emoji {
     font-size: 2rem;
 }
@@ -108,9 +127,50 @@
     text-align: center;
 }
 
+.skills-toggle {
+    display: block;
+    margin: 1.25rem auto 0;
+    padding: 0.65rem 1.1rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--accent1);
+    font-family: "Supply Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color var(--motion-duration-fast) var(--motion-ease),
+        border-color var(--motion-duration-fast) var(--motion-ease),
+        color var(--motion-duration-fast) var(--motion-ease),
+        transform var(--motion-duration-fast) var(--motion-ease),
+        box-shadow var(--motion-duration-fast) var(--motion-ease);
+}
+
+.skills-toggle:hover {
+    background-color: white;
+    border-color: var(--accent1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.skills-toggle:active {
+    transform: translateY(0);
+}
+
+.skills-toggle:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--accent1), transparent 55%);
+    outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
     .skills-heading {
         font-size: 2.5rem;
+    }
+
+    .skills-subheading {
+        margin-bottom: 2.75rem;
+        font-size: 0.8rem;
     }
 
     .skills-grid {
@@ -133,5 +193,9 @@
 
     .tech-icon-emoji {
         font-size: 1.5rem;
+    }
+
+    .skills-toggle {
+        margin-top: 1rem;
     }
 }

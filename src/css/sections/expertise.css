@@ -1,329 +1,550 @@
-/* Expertise header */
-.expertise-header {
+/* Expertise Layout & Container */
+.expertise-container {
     position: relative;
-    display: flex;
-    padding-top: 160px;
-    padding-bottom: 160px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.expertise-header .expertise-profile-icon {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 1em;
-    margin-bottom: 2em;
-    outline: 0.25rem solid var(--accent3);
-    border: 0.25rem solid var(--fg);
-    overflow: hidden;
-}
-
-.expertise-header .expertise-header-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-}
-
-.expertise-header .expertise-header-arrow-icon {
-    animation: expertise-float 3s ease-in-out infinite;
-}
-
-@keyframes expertise-float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Expertise Content */
-.expertise {
-    background-color: var(--bg);
-    overflow: visible;
-    position: relative;
-    padding-bottom: 540px;
-    touch-action: pan-y;
-}
-
-.expertise .expertise-card {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    background-color: var(--bg);
-    overflow: hidden;
-    width: min(1200px, calc(100vw - 4em));
-    cursor: pointer;
-    outline: none;
-    transform: translateX(-50%) translateY(calc(var(--stack-offset, 0) * -1));
-    transition: transform 0.4s ease;
-    border-radius: 2em;
-}
-
-.expertise .expertise-card-inner {
-    position: relative;
-    will-change: transform;
     width: 100%;
-    height: 100%;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-radius: 2em;
-    z-index: 2;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-    overflow: hidden;
-}
-
-.expertise .expertise-card-inner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateY(18px);
-    border-radius: 2em;
-    background-color: inherit;
-    opacity: 0.25;
-    z-index: -1;
-}
-
-.expertise .expertise-card.active {
-    transform: translateX(-50%) translateY(0);
-    height: auto;
+    background-color: var(--bg);
     overflow: visible;
 }
 
-.expertise .expertise-card.active .expertise-card-inner {
-    transform: translateY(0) scale(1.02);
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.18);
-}
-
-.expertise .expertise-card-header {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.5rem 2rem;
-}
-
-.expertise .expertise-card-title {
-    margin: 0;
-    font-family: "rader";
-    font-style: italic;
-    text-transform: uppercase;
-    line-height: 1;
-    font-size: clamp(1.25rem, 3.2vw, 2.6rem);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.expertise .expertise-card-body {
-    display: flex;
-    gap: 4em;
-    padding: 0 2em 2em 2em;
-}
-
-.expertise .expertise-card:not(.active) .expertise-card-body {
-    display: none;
-}
-
-.expertise .expertise-card-content {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25em;
-    justify-content: flex-start;
-}
-
-.expertise .expertise-card-content ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    padding-left: 1.5rem;
-    max-width: 600px;
-}
-
-.expertise .expertise-card-content li {
-    font-family: "formula-narrow";
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: black;
-    list-style-type: disc;
-}
-
-.expertise .expertise-card-img {
-    flex: 1;
-    aspect-ratio: 4/5;
-    border-radius: 2em;
-    overflow: hidden;
-}
-
-.expertise .expertise-controls {
-    position: absolute;
-    left: 50%;
-    bottom: 2vh;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    z-index: 30;
-}
-
-.expertise .expertise-nav-btn {
-    appearance: none;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    background: rgba(255, 255, 255, 0.35);
-    color: var(--fg);
-    width: 44px;
-    height: 44px;
-    border-radius: 9999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.expertise .expertise-nav-btn:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 2px;
-}
-
-.expertise .expertise-dots {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.expertise .expertise-dot {
-    appearance: none;
-    border: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 9999px;
-    background: rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-}
-
-.expertise .expertise-dot.active {
-    background: rgba(0, 0, 0, 0.75);
-}
-
-.expertise .expertise-dot:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 2px;
-}
-
-.expertise #expertise-card-1 .expertise-card-inner {
-    background-color: var(--accent1);
-}
-
-.expertise #expertise-card-2 .expertise-card-inner {
-    background-color: var(--accent2);
-}
-
-.expertise #expertise-card-3 .expertise-card-inner {
-    background-color: var(--accent3);
-}
-
-.expertise #expertise-card-4 .expertise-card-inner {
-    background-color: var(--fg);
-    color: var(--bg);
-}
-
-@media (max-width: 1000px) {
-    .expertise-header {
-        height: auto;
-        padding: 4em 1.5em;
-    }
-
-    .expertise-header .expertise-header-title h1 {
-        font-size: clamp(1.75rem, 6vw, 3rem);
-    }
-
-    .expertise {
+/* Desktop Pinned Layout */
+@media (min-width: 1001px) {
+    .expertise-pin {
         display: flex;
         flex-direction: column;
-        gap: 2em;
-        padding: 2em 1.5em;
-        min-height: auto;
+        height: 100vh;
+        width: 100%;
+        padding: 3vh 5vw 2vh;
+        overflow: hidden;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
     }
 
-    .expertise .expertise-card {
-        position: relative;
-        top: auto;
-        left: auto;
+    .expertise-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 1.5vh;
+        z-index: 20;
+    }
+
+    .expertise-header-logo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    .expertise-profile-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--fg);
+        background-color: var(--bg2);
+    }
+
+    .expertise-profile-icon img {
         width: 100%;
-        transform: translateY(var(--motion-reveal-distance));
-        opacity: 0;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .expertise-kicker {
+        font-family: "supply-mono", monospace;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--fg);
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .expertise-header .section-title {
+        font-size: clamp(2rem, 3.8vh, 3.2rem);
+        margin-bottom: 0;
+        line-height: 1.1;
+        font-family: "rader", sans-serif;
+        font-style: normal;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+
+    .expertise-header .section-title.italic-title {
+        font-family: "rader", sans-serif;
+        font-style: italic;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+
+    /* 3D Stacking Deck Stage */
+    .expertise-deck-stage {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .expertise-cards-stack {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        perspective: 2000px;
+        perspective-origin: 50% 35%;
+        overflow: visible;
+    }
+
+    .expertise-card-3d {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 28px;
+        border: 3px solid var(--fg);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        color: #141414;
+        overflow: hidden;
+    }
+
+    /* Topbar inside cards */
+    .expertise-card-topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2.5rem;
+        border-bottom: 3px solid var(--fg);
+        height: 64px;
+    }
+
+    .expertise-card-kicker {
+        font-family: "supply-mono", monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .expertise-card-index {
+        font-family: "supply-mono", monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+
+    /* Card Body & Layout */
+    .expertise-card-body {
+        display: flex;
+        flex-direction: row;
+        padding: 2.2rem 2.5rem;
+        gap: 3.5rem;
+        height: calc(100% - 64px);
+        align-items: stretch;
+    }
+
+    .expertise-card-left {
+        flex: 1.25;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .expertise-card-right {
+        flex: 0.85;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .expertise-card-headline {
+        font-family: "rader", sans-serif;
+        font-size: clamp(1.4rem, 2.8vh, 2.2rem);
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+        font-style: normal;
+        text-transform: none;
+        font-weight: 700;
+        color: #141414;
+    }
+
+    .expertise-card-para {
+        font-family: "formula-narrow", sans-serif;
+        font-size: clamp(0.95rem, 1.8vh, 1.1rem);
+        line-height: 1.5;
+        color: #242424;
+        margin-bottom: 1rem;
+    }
+
+    /* Bullets only visible on mobile */
+    .expertise-card-bullets {
+        display: none;
+    }
+
+    /* Testimonial Quote */
+    .expertise-card-testimonial {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-top: 2px solid rgba(20, 20, 20, 0.12);
+        padding-top: 16px;
+        margin-top: auto;
+    }
+
+    .expertise-card-quote {
+        font-family: "formula-narrow", sans-serif;
+        font-style: italic;
+        font-size: clamp(0.85rem, 1.65vh, 1rem);
+        line-height: 1.45;
+        color: #2c2c2c;
+    }
+
+    /* Illustration styles inside card */
+    .expertise-card-illustration-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 1.5rem; /* Prevent border clipping during transform scale */
+    }
+
+    .expertise-card-illustration {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 20px;
+        border: 3px solid var(--fg);
+        background-color: rgba(255, 255, 255, 0.45);
+        box-shadow:
+            0 8px 24px -12px rgba(20, 20, 20, 0.12),
+            0 4px 10px -8px rgba(20, 20, 20, 0.06);
         transition:
-            opacity var(--motion-duration-base) var(--motion-ease),
-            transform var(--motion-duration-base) var(--motion-ease);
-        cursor: default;
+            transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.6s ease;
+    }
+
+    .expertise-card-3d:hover .expertise-card-illustration {
+        transform: scale(1.03) translateY(-4px);
+        box-shadow:
+            0 24px 44px -20px rgba(20, 20, 20, 0.22),
+            0 10px 20px -12px rgba(20, 20, 20, 0.12);
+    }
+
+    /* Card background colors */
+    #expertise-card-1 {
+        background-color: var(--accent1);
+    }
+
+    #expertise-card-2 {
+        background-color: var(--accent2);
+    }
+
+    #expertise-card-3 {
+        background-color: var(--accent3);
+    }
+
+    /* Scroll progress indicator line */
+    .expertise-scroll-dash {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-family: "supply-mono", monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-top: 2vh;
+        color: var(--fg);
+        z-index: 20;
+    }
+
+    .expertise-scroll-track {
+        width: 140px;
+        height: 2px;
+        background: color-mix(in srgb, var(--fg), transparent 80%);
+        position: relative;
+        border-radius: 2px;
+    }
+
+    .expertise-scroll-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: var(--fg);
+        width: var(--expertise-progress, 0%);
+        transition: width 0.05s linear;
+    }
+
+    .expertise-scroll-percent {
+        color: var(--fg);
+        min-width: 45px;
+        text-align: right;
+    }
+}
+
+/* Mobile Screen Layout */
+@media (max-width: 1000px) {
+    .expertise-container {
+        padding: 6rem 1.5rem 4rem;
         height: auto;
         overflow: visible;
     }
 
-    .expertise .expertise-card.expertise-card-animated {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .expertise .expertise-card-inner {
-        min-height: 0;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1em;
-        text-align: center;
-        border: 0.2em solid var(--fg);
-        border-radius: 1em;
-        padding: 2em 1.5em;
-    }
-
-    .expertise .expertise-card-header {
+    .expertise-pin {
         height: auto;
-        padding: 0;
+        width: 100%;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75em;
-        margin-bottom: 1em;
-    }
-
-    .expertise .expertise-card-title {
-        font-size: clamp(1.5rem, 5vw, 2.5rem);
-        white-space: normal;
-        text-overflow: clip;
-    }
-
-    .expertise .expertise-card-body {
-        display: flex !important;
-        flex-direction: column;
-        gap: 1em;
+        justify-content: flex-start;
         padding: 0;
+        overflow: visible;
     }
 
-    .expertise .expertise-card-img {
-        aspect-ratio: 5/3;
-        border: 0.2em solid var(--fg);
-        border-radius: 1em;
+    .expertise-header {
+        text-align: center;
+        margin-bottom: 3rem;
         width: 100%;
     }
 
-    .expertise .expertise-controls {
-        display: none;
+    .expertise-header-logo-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .expertise-profile-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--fg);
+        background-color: var(--bg2);
+    }
+
+    .expertise-profile-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .expertise-kicker {
+        font-family: "supply-mono", monospace;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--fg);
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .expertise-header .section-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+    }
+
+    .expertise-header .section-title.italic-title {
+        font-style: italic;
+    }
+
+    /* Stage becomes a static block flow container */
+    .expertise-deck-stage {
+        perspective: none;
+        display: block;
+        overflow: visible;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .expertise-cards-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        height: auto;
+        transform-style: flat;
+        overflow: visible;
+    }
+
+    /* Cards stack one below the other on mobile */
+    .expertise-card-3d {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: translateY(28px) !important;
+        opacity: 0;
+        transition:
+            opacity var(--motion-duration-base) var(--motion-ease),
+            transform var(--motion-duration-base) var(--motion-ease);
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 20px;
+        border: 3px solid var(--fg);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        color: #141414;
+        overflow: hidden;
+    }
+
+    /* Trigger reveal on scroll via intersection observer */
+    .expertise-card-3d.expertise-card-3d-animated {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Card Topbar */
+    .expertise-card-topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+        border-bottom: 3px solid var(--fg);
+        height: 56px;
+    }
+
+    .expertise-card-kicker {
+        font-family: "supply-mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .expertise-card-index {
+        font-family: "supply-mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+    }
+
+    /* Mobile vertical layout */
+    .expertise-card-body {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+        height: auto !important;
+    }
+
+    .expertise-card-left {
+        width: 100% !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .expertise-card-right {
+        width: 100% !important;
+        height: auto !important;
+        border-top: 2px dashed rgba(20, 20, 20, 0.15);
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .expertise-card-headline {
+        font-family: "rader", sans-serif;
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+        font-style: normal;
+        text-transform: none;
+        font-weight: 700;
+    }
+
+    .expertise-card-para {
+        font-family: "formula-narrow", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #242424;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Bullets shown on mobile */
+    .expertise-card-bullets {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-left: 1.25rem;
+        margin-bottom: 2rem;
+        color: #242424;
+    }
+
+    .expertise-card-bullets li {
+        font-family: "formula-narrow", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        list-style-type: disc;
+    }
+
+    /* Testimonial Quote */
+    .expertise-card-testimonial {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-top: 2px solid rgba(20, 20, 20, 0.12);
+        padding-top: 1.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .expertise-card-quote {
+        font-family: "formula-narrow", sans-serif;
+        font-style: italic;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        color: #2c2c2c;
+    }
+
+    /* Illustration styles inside card on mobile */
+    .expertise-card-illustration-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 1rem; /* Prevent border clipping on mobile */
+    }
+
+    .expertise-card-illustration {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        aspect-ratio: 5/4;
+        object-fit: contain;
+        border-radius: 16px;
+        border: 3px solid var(--fg);
+        background-color: rgba(255, 255, 255, 0.45);
+        box-shadow:
+            0 10px 25px -15px rgba(20, 20, 20, 0.12),
+            0 4px 10px -8px rgba(20, 20, 20, 0.06);
+    }
+
+    #expertise-card-1 {
+        background-color: var(--accent1);
+    }
+
+    #expertise-card-2 {
+        background-color: var(--accent2);
+    }
+
+    #expertise-card-3 {
+        background-color: var(--accent3);
+    }
+
+    .expertise-scroll-dash {
+        display: none !important;
     }
 }

@@ -1,42 +1,54 @@
-import BackendImg from "../../../../assets/images/service/backend.png";
+import BackendProductImg from "../../../../assets/images/service/backend_product.png";
+import BackendInfrastructureImg from "../../../../assets/images/service/backend_infra.png";
 import FrontendImg from "../../../../assets/images/service/frontend.png";
-import DevOpsImg from "../../../../assets/images/service/devops.png";
 
 export const expertiseCards = [
     {
         id: "expertise-card-1",
-        title: "Backend Development",
+        title: "Backend Product Development",
+        headline:
+            "Crafting scalable microservices & feature-rich application backends.",
+        para: "I build clean, versioned APIs and modular backend logic using modern frameworks. Focused on database efficiency, domain-driven design, and robust business pipelines to ship user-facing capabilities rapidly and safely.",
+        quote: "Product engineering is about translating business domain complexity into simple, performant, and reliable application workflows.",
         items: [
-            "Design and implement scalable APIs and microservices (Golang, Node.js, Django, Spring Boot) with clean contracts and versioning.",
-            "Build secure authentication and authorization (OAuth, JWT, session management) and harden systems against abuse.",
-            "Improve latency and throughput with caching (Redis), async processing, and careful database query design.",
-            "Implement robust reliability patterns: retries, idempotency, rate limiting, circuit breakers, and graceful degradation",
+            "Design and implement scalable REST/gRPC APIs and microservices (Golang, Python, Node.js, Spring Boot) with clean versioned contracts.",
+            "Build secure business workflows, user authentication (JWT, OAuth2), and optimized relational/non-relational database schemas.",
+            "Integrate third-party API services, payment systems, and event brokers (Redis, RabbitMQ) for real-time application features.",
+            "Optimize SQL queries, transaction isolation levels, and application state memory usage to maximize business logic throughput.",
         ],
-        image: BackendImg,
-        imageAlt: "Backend Development",
+        image: BackendProductImg,
+        imageAlt: "Backend Product Development",
     },
     {
         id: "expertise-card-2",
-        title: "Frontend Development",
+        title: "Backend Infrastructure Development",
+        headline:
+            "Architecting highly reliable distributed systems & data platforms.",
+        para: "I design the foundations that keep services scaling, including container orchestration, message brokers, and automated infrastructure pipelines. Focused on system resilience, high observability, and data streaming platforms.",
+        quote: "Infrastructure is the silent engine of software; the best infrastructure is the one that scales gracefully without anyone noticing.",
         items: [
-            "Build responsive, accessible UIs in React and Next.js, turning Figma designs into polished user experiences.",
-            "Optimize performance (SSR, code splitting, caching) to improve load time and conversion funnels.",
-            "Integrate REST/WebSocket data flows for real-time dashboards and interactive workflows.",
-            "Add analytics instrumentation and run A/B experiments to validate product improvements.",
+            "Orchestrate high-availability microservices using Docker containers and Kubernetes cluster deployments.",
+            "Build high-throughput message streaming architectures (Kafka) and distributed data processing pipelines (Spark).",
+            "Manage cloud environments (GCP, AWS) using Terraform Infrastructure as Code (IaC) and secure vault secrets management.",
+            "Establish complete system visibility through structured logging, Prometheus metrics, Grafana alerts, and APM tracing tools.",
         ],
-        image: FrontendImg,
-        imageAlt: "Front-End Development",
+        image: BackendInfrastructureImg,
+        imageAlt: "Backend Infrastructure Development",
     },
     {
         id: "expertise-card-3",
-        title: "DevOps",
+        title: "Frontend Development",
+        headline:
+            "Translating mockups into pixel-perfect, accessible user experiences.",
+        para: "I specialize in creating fluid, reactive user interfaces in React and Next.js. I optimize client-side performance, code splitting, and state synchronization to eliminate load lag and deliver polished transitions.",
+        quote: "Interfaces are the bridge between algorithms and humans. A smooth interaction design speaks louder than a thousand manuals.",
         items: [
-            "Containerize services with Docker and set up CI/CD pipelines for safe, repeatable deployments.",
-            "Operate services in cloud environments (AWS, GCP), including environment configuration and secrets management.",
-            "Improve observability with logging, metrics, alerts, and dashboards to catch issues early.",
-            "Strengthen security and reliability with automated checks, rollout strategies, and incident-friendly tooling",
+            "Develop fluid, responsive interfaces in React and Next.js, translating design prototypes into semantic, accessible web apps.",
+            "Optimize web performance through Server-Side Rendering (SSR), bundle code-splitting, dynamic imports, and asset caching.",
+            "Establish real-time data binding and state management flows utilizing WebSockets, React Query, and lightweight client state store libraries.",
+            "Implement interactive 3D visualizations, physics engines, and smooth scroll animations using Three.js, GSAP, and Canvas API.",
         ],
-        image: DevOpsImg,
-        imageAlt: "DevOps",
+        image: FrontendImg,
+        imageAlt: "Frontend Development",
     },
 ];

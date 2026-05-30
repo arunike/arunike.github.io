@@ -23,6 +23,19 @@ const FeaturedProjects = () => {
         []
     );
 
+    const cardDirections = useMemo(() => {
+        return featuredProjects.map(() => {
+            const angle = -Math.PI * 0.41 + Math.random() * Math.PI * 0.82;
+            const distance = 1.0 + Math.random() * 0.4;
+            const randomSignRot = Math.random() < 0.5 ? -1 : 1;
+            return {
+                xMultiplier: Math.cos(angle) * distance,
+                yMultiplier: Math.sin(angle) * distance,
+                rotateMultiplier: randomSignRot * (40 + Math.random() * 50),
+            };
+        });
+    }, [featuredProjects]);
+
     const [progress, setProgress] = useState(0);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -69,24 +82,39 @@ const FeaturedProjects = () => {
 
                 cards.forEach((card, index) => {
                     const centeredIndex = index - (totalCards - 1) / 2;
-                    const side = centeredIndex < 0 ? -1 : 1;
                     const distance = Math.abs(centeredIndex);
                     const fanRotate = centeredIndex * 8.5;
                     const fanX = centeredIndex * 72;
                     const fanY = distance * 18;
                     const fanLift = -distance * 5;
                     const exitStart = exitStartBase + index * stepSize;
-                    const exitProgress = clamp(
-                        (nextProgress - exitStart) / cardExitDuration
-                    );
+                    const isLastCard = index === totalCards - 1;
+                    const exitProgress = isLastCard
+                        ? 0
+                        : clamp((nextProgress - exitStart) / cardExitDuration);
                     const exitEase = easeIn(exitProgress);
-                    const flyX = side * interpolate(220, 520, exitEase);
-                    const flyY = interpolate(
+
+                    const dir = cardDirections[index] || {
+                        xMultiplier: 0.5,
+                        yMultiplier: -1.1,
+                        rotateMultiplier: 45,
+                    };
+                    const flyX = interpolate(
                         0,
-                        -window.innerHeight * 1.08,
+                        window.innerWidth * dir.xMultiplier,
                         exitEase
                     );
-                    const flyRotate = side * interpolate(18, 72, exitEase);
+                    const flyY = interpolate(
+                        0,
+                        window.innerHeight * dir.yMultiplier,
+                        exitEase
+                    );
+                    const flyRotate = interpolate(
+                        0,
+                        dir.rotateMultiplier,
+                        exitEase
+                    );
+
                     const frontness = clamp(
                         1 -
                             Math.abs(
@@ -98,11 +126,10 @@ const FeaturedProjects = () => {
                     );
 
                     gsap.set(card, {
-                        x: interpolate(0, fanX, fanProgress) + flyX * exitEase,
+                        x: interpolate(0, fanX, fanProgress) + flyX,
                         y: interpolate(0, fanY + fanLift, fanProgress) + flyY,
                         rotate:
-                            interpolate(0, fanRotate, fanProgress) +
-                            flyRotate * exitEase,
+                            interpolate(0, fanRotate, fanProgress) + flyRotate,
                         scale:
                             interpolate(0.94, 1, fanProgress) -
                             exitEase * 0.07 +
@@ -199,7 +226,7 @@ const FeaturedProjects = () => {
         return () => {
             mm.revert();
         };
-    }, [featuredProjects]);
+    }, [featuredProjects, cardDirections]);
 
     return (
         <section

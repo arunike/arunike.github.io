@@ -9,12 +9,12 @@
 .featured-projects-pin {
     width: 100vw;
     min-height: 100dvh;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     display: grid;
     place-items: center stretch;
-    padding: clamp(7rem, 13vh, 8.5rem) clamp(3rem, 5vw, 6rem)
-        clamp(4.5rem, 8vh, 6rem);
+    padding: clamp(5rem, 9vh, 7rem) clamp(3rem, 5vw, 6rem)
+        clamp(2.5rem, 5vh, 4.5rem);
 }
 
 .featured-header {
@@ -64,7 +64,7 @@
     align-items: center;
     gap: clamp(3.5rem, 7vw, 8rem);
     position: relative;
-    margin: clamp(4.5rem, 10vh, 7rem) auto 0;
+    margin: clamp(2rem, 5vh, 4rem) auto 0;
 }
 
 .featured-copy-rail {
@@ -213,7 +213,8 @@
 }
 
 .featured-projects-slider {
-    width: min(520px, 34vw);
+    width: min(520px, 34vw, 50vh);
+    max-height: 100%;
     aspect-ratio: 0.78;
     position: relative;
     justify-self: center;

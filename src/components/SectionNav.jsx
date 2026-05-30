@@ -79,8 +79,23 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
             return;
         }
 
-        const handleWindowInteraction = () => {
-            resetIdleTimer();
+        const handleWindowInteraction = (event) => {
+            const clientX =
+                event && event.clientX
+                    ? event.clientX
+                    : event && event.touches && event.touches[0]
+                      ? event.touches[0].clientX
+                      : null;
+
+            if (
+                clientX !== null &&
+                clientX > 100 &&
+                !isNavInteractingRef.current
+            ) {
+                setIsIdleHidden(true);
+            } else {
+                resetIdleTimer();
+            }
         };
 
         window.addEventListener("pointermove", handleWindowInteraction);

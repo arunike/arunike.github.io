@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     height: 100dvh;
+    background-color: var(--fg);
     z-index: 100000;
     pointer-events: all;
 }

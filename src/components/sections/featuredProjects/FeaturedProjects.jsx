@@ -1,16 +1,21 @@
 import { useLayoutEffect, useRef, useMemo, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { projects } from "../../../pages/projects/components/projectsData";
-import FeaturedProjectsIndicator from "./components/FeaturedProjectsIndicator";
 import FeaturedProjectsSlider from "./components/FeaturedProjectsSlider";
 import { MOTION } from "../../../utils/motion";
 
+gsap.registerPlugin(ScrollTrigger);
+
+const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+const interpolate = (from, to, progress) => from + (to - from) * progress;
+const easeOut = (value) => 1 - Math.pow(1 - clamp(value), 3);
+const easeIn = (value) => Math.pow(clamp(value), 3);
+
 const FeaturedProjects = () => {
-    const sectionRef = useRef(null);
+    const stackRef = useRef(null);
     const triggerRef = useRef(null);
-    const pinRef = useRef(null);
-    const rafIdRef = useRef(null);
     const progressRef = useRef(0);
 
     const featuredProjects = useMemo(
@@ -19,106 +24,150 @@ const FeaturedProjects = () => {
     );
 
     const [progress, setProgress] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     useLayoutEffect(() => {
-        const totalSlides = featuredProjects.length;
-        const scrollDistance = 5000;
-        let mm = gsap.matchMedia();
+        const totalCards = featuredProjects.length;
+        const scrollDistance = Math.max(3600, totalCards * 840);
+        const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        const mm = gsap.matchMedia();
 
         mm.add("(min-width: 1001px)", () => {
-            const syncSlideDepth = (nextProgress) => {
-                const slides = sectionRef.current?.children;
-                if (!slides?.length) return;
+            const cards = gsap.utils.toArray(".fan-project-card");
+            const copyPanels = gsap.utils.toArray(".featured-copy-card");
+            const progressDash = document.querySelector(
+                ".featured-scroll-dash"
+            );
 
-                const totalSteps = Math.max(slides.length - 1, 1);
-                const stepSize = 1 / totalSteps;
+            if (!cards.length || !triggerRef.current) return undefined;
 
-                Array.from(slides).forEach((slide, index) => {
-                    const slideProgress = index * stepSize;
-                    const rawDistance =
-                        stepSize > 0
-                            ? (nextProgress - slideProgress) / stepSize
-                            : 0;
-                    const distance = Math.abs(rawDistance);
-                    const clampedDistance = Math.min(Math.max(distance, 0), 1);
-                    const focus = 1 - clampedDistance;
-                    const direction = Math.min(Math.max(rawDistance, -1), 1);
+            gsap.set(cards, {
+                transformOrigin: "50% 82%",
+                force3D: true,
+            });
 
-                    slide.style.setProperty("--slide-focus", focus);
-                    slide.style.setProperty(
-                        "--slide-distance",
-                        clampedDistance
+            const renderCards = (nextProgress) => {
+                const fanProgress = easeOut(clamp(nextProgress / 0.22));
+                const exitWindow = 0.62;
+                const exitStartBase = 0.27;
+                const stepSize = exitWindow / Math.max(totalCards, 1);
+                const cardExitDuration = 0.22;
+                const copySwitchAt = 0.78;
+                let nextActiveIndex = 0;
+
+                for (let index = 0; index < totalCards - 1; index += 1) {
+                    const exitStart = exitStartBase + index * stepSize;
+                    const switchPoint =
+                        exitStart + cardExitDuration * copySwitchAt;
+
+                    if (nextProgress >= switchPoint) {
+                        nextActiveIndex = index + 1;
+                    }
+                }
+
+                cards.forEach((card, index) => {
+                    const centeredIndex = index - (totalCards - 1) / 2;
+                    const side = centeredIndex < 0 ? -1 : 1;
+                    const distance = Math.abs(centeredIndex);
+                    const fanRotate = centeredIndex * 8.5;
+                    const fanX = centeredIndex * 72;
+                    const fanY = distance * 18;
+                    const fanLift = -distance * 5;
+                    const exitStart = exitStartBase + index * stepSize;
+                    const exitProgress = clamp(
+                        (nextProgress - exitStart) / cardExitDuration
                     );
-                    slide.style.setProperty("--slide-direction", direction);
-                    slide.style.setProperty(
-                        "--media-parallax",
-                        `${direction * -32}px`
+                    const exitEase = easeIn(exitProgress);
+                    const flyX = side * interpolate(220, 520, exitEase);
+                    const flyY = interpolate(
+                        0,
+                        -window.innerHeight * 1.08,
+                        exitEase
                     );
-                    slide.style.setProperty("--media-scale", 1 + focus * 0.04);
-                    slide.style.setProperty(
-                        "--copy-y",
-                        `${clampedDistance * 18}px`
+                    const flyRotate = side * interpolate(18, 72, exitEase);
+                    const frontness = clamp(
+                        1 -
+                            Math.abs(
+                                (nextProgress - exitStartBase) /
+                                    Math.max(exitWindow, 0.1) -
+                                    index / Math.max(totalCards - 1, 1)
+                            ) *
+                                1.8
                     );
-                    slide.classList.toggle(
-                        "project-slide-active",
-                        distance < 0.55
+
+                    gsap.set(card, {
+                        x: interpolate(0, fanX, fanProgress) + flyX * exitEase,
+                        y: interpolate(0, fanY + fanLift, fanProgress) + flyY,
+                        rotate:
+                            interpolate(0, fanRotate, fanProgress) +
+                            flyRotate * exitEase,
+                        scale:
+                            interpolate(0.94, 1, fanProgress) -
+                            exitEase * 0.07 +
+                            frontness * 0.025,
+                        opacity: 1 - clamp((exitProgress - 0.72) / 0.28),
+                        zIndex: totalCards - index,
+                    });
+
+                    card.classList.toggle(
+                        "fan-project-card-active",
+                        index === nextActiveIndex && exitProgress < 0.9
+                    );
+                    card.style.setProperty("--card-focus", frontness);
+                });
+
+                copyPanels.forEach((panel, index) => {
+                    const isActive = index === nextActiveIndex;
+                    gsap.set(panel, {
+                        autoAlpha: isActive ? 1 : 0,
+                        y: isActive ? 0 : 18,
+                        filter: isActive ? "blur(0px)" : "blur(8px)",
+                    });
+                    panel.classList.toggle(
+                        "featured-copy-card-active",
+                        isActive
                     );
                 });
-            };
 
-            const update = () => {
-                if (!triggerRef.current || !sectionRef.current) return;
-
-                const rect = triggerRef.current.getBoundingClientRect();
-                const scrolled = Math.min(
-                    Math.max(-rect.top, 0),
-                    scrollDistance
-                );
-                const nextProgress = scrollDistance
-                    ? scrolled / scrollDistance
-                    : 0;
-                const translateX = -(
-                    nextProgress *
-                    Math.max(totalSlides - 1, 0) *
-                    100
-                );
-
-                sectionRef.current.style.transform = `translateX(${translateX}vw)`;
-                syncSlideDepth(nextProgress);
+                if (progressDash) {
+                    progressDash.style.setProperty(
+                        "--featured-progress",
+                        `${Math.round(nextProgress * 100)}%`
+                    );
+                }
 
                 const roundedProgress = Math.round(nextProgress * 100);
                 if (progressRef.current !== roundedProgress) {
                     progressRef.current = roundedProgress;
                     setProgress(roundedProgress);
                 }
+
+                setActiveIndex((current) =>
+                    current === nextActiveIndex ? current : nextActiveIndex
+                );
             };
 
-            const scheduleUpdate = () => {
-                if (rafIdRef.current) return;
-                rafIdRef.current = requestAnimationFrame(() => {
-                    rafIdRef.current = null;
-                    update();
-                });
-            };
+            if (reducedMotion) {
+                renderCards(0.16);
+                return undefined;
+            }
 
-            const onResize = () => {
-                update();
-            };
+            renderCards(0);
 
-            update();
-            window.addEventListener("scroll", scheduleUpdate, {
-                passive: true,
+            const trigger = ScrollTrigger.create({
+                trigger: triggerRef.current,
+                start: "top top",
+                end: `+=${scrollDistance}`,
+                pin: ".featured-projects-pin",
+                anticipatePin: 1,
+                scrub: true,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => renderCards(self.progress),
             });
-            window.addEventListener("resize", onResize);
 
-            return () => {
-                window.removeEventListener("scroll", scheduleUpdate);
-                window.removeEventListener("resize", onResize);
-                if (rafIdRef.current) {
-                    cancelAnimationFrame(rafIdRef.current);
-                    rafIdRef.current = null;
-                }
-            };
+            return () => trigger.kill();
         });
 
         mm.add("(max-width: 1000px)", () => {
@@ -157,40 +206,32 @@ const FeaturedProjects = () => {
             id="featured-projects"
             className="featured-projects-container"
             ref={triggerRef}
-            style={{
-                height: `calc(100vh + 5000px)`,
-            }}
         >
-            <div className="featured-projects-pin" ref={pinRef}>
+            <div className="featured-projects-pin">
                 <div className="featured-header section-header">
+                    <p className="featured-kicker">Portfolio Selection</p>
                     <h1 className="section-title">Featured Projects</h1>
                     <p className="featured-subtitle section-subtitle">
-                        Selected projects & experiments
+                        Product platforms, data tools, and interactive web
+                        experiences.
                     </p>
-                </div>
-                <div className="featured-progress-bar">
-                    <div
-                        className="progress-fill"
-                        style={{ height: `${progress}%` }}
-                    ></div>
                 </div>
 
                 <FeaturedProjectsSlider
                     projects={featuredProjects}
-                    sectionRef={sectionRef}
+                    stackRef={stackRef}
+                    activeIndex={activeIndex}
                 />
 
-                <FeaturedProjectsIndicator
-                    total={featuredProjects.length}
-                    progress={progress}
-                />
-
-                <div className="featured-projects-footer">
-                    <p className="mn">Project Portfolio</p>
-                    <p className="mn">///////////////////</p>
-                    <p className="mn">
-                        <a href="#/projects">View All Projects</a>
-                    </p>
+                <div className="featured-scroll-dash" aria-hidden="true">
+                    <span>{String(activeIndex + 1).padStart(2, "0")}</span>
+                    <div className="featured-scroll-track">
+                        <div className="featured-scroll-fill"></div>
+                    </div>
+                    <span>
+                        {String(featuredProjects.length).padStart(2, "0")}
+                    </span>
+                    <span className="featured-scroll-percent">{progress}%</span>
                 </div>
             </div>
         </section>

@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState, useMemo } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "./components/timelineData";
 import extractColorFromImage from "./components/extractColorFromImage";
 import TimelineStats from "./components/TimelineStats";
 import TimelineScrollArea from "./components/TimelineScrollArea";
 import TimelineTrack from "./components/TimelineTrack";
 import { MOTION } from "../../../utils/motion";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MOBILE_BREAKPOINT = 768;
 const MOBILE_ROOT_MARGIN = "-10% 0px";
@@ -194,6 +198,136 @@ const Timeline = () => {
             checkScroll();
         }
     }, [mostRecentExperienceId, orderedExperiences]);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+        if (mediaQuery.matches) return;
+
+        const ctx = gsap.context(() => {
+            const section = document.getElementById("timeline");
+            if (!section) return;
+
+            const header = section.querySelector(".timeline-header");
+            const line = section.querySelector(".timeline-line");
+            const dots = section.querySelectorAll(".timeline-dot");
+            const contentWrapper = section.querySelector(
+                ".timeline-content-wrapper"
+            );
+            const stats = section.querySelector(".timeline-stats");
+
+            const mm = gsap.matchMedia();
+
+            mm.add("(min-width: 769px)", () => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                    },
+                });
+
+                if (header) {
+                    tl.fromTo(
+                        header,
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+                    );
+                }
+
+                if (line) {
+                    tl.fromTo(
+                        line,
+                        { scaleX: 0, transformOrigin: "left center" },
+                        { scaleX: 1, duration: 1.2, ease: "power2.inOut" },
+                        "-=0.4"
+                    );
+                }
+
+                if (dots.length > 0) {
+                    tl.fromTo(
+                        dots,
+                        { scale: 0 },
+                        {
+                            scale: 1,
+                            duration: 0.6,
+                            ease: "back.out(1.7)",
+                            stagger: 0.15,
+                        },
+                        "-=1.0"
+                    );
+                }
+
+                if (contentWrapper) {
+                    tl.fromTo(
+                        contentWrapper,
+                        { opacity: 0, y: 45 },
+                        { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" },
+                        "-=1.0"
+                    );
+                }
+
+                if (stats) {
+                    tl.fromTo(
+                        stats,
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+                        "-=0.6"
+                    );
+                }
+            });
+
+            mm.add("(max-width: 768px)", () => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                });
+
+                if (header) {
+                    tl.fromTo(
+                        header,
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+                    );
+                }
+
+                if (line) {
+                    tl.fromTo(
+                        line,
+                        { scaleY: 0, transformOrigin: "top center" },
+                        { scaleY: 1, duration: 1.2, ease: "power2.inOut" },
+                        "-=0.3"
+                    );
+                }
+
+                if (contentWrapper) {
+                    tl.fromTo(
+                        contentWrapper,
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+                        "-=0.8"
+                    );
+                }
+
+                if (stats) {
+                    tl.fromTo(
+                        stats,
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+                        "-=0.4"
+                    );
+                }
+            });
+        });
+
+        return () => {
+            ctx.revert();
+        };
+    }, []);
 
     const addToRefs = (el) => {
         if (el && !timelineRef.current.includes(el)) {

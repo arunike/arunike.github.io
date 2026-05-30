@@ -75,14 +75,21 @@ const TimelineItem = ({
                         isMostRecent ? "timeline-card-most-recent" : ""
                     }`}
                     style={{
-                        borderLeft: `4px solid ${expColor}`,
-                        background: `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
+                        "--exp-color": expColor,
+                        "--exp-bg-gradient": `linear-gradient(135deg, ${expColor}08 0%, ${expColor}18 100%)`,
                     }}
                 >
-                    <button
-                        type="button"
+                    <div
+                        role="button"
+                        tabIndex={0}
                         className={`timeline-card-flip ${isFlipped ? "flipped" : ""}`}
                         onClick={handleToggle}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                handleToggle();
+                            }
+                        }}
                         aria-expanded={isFlipped}
                         aria-label="Toggle experience details"
                     >
@@ -225,7 +232,7 @@ const TimelineItem = ({
                                 ))}
                             </div>
                         </div>
-                    </button>
+                    </div>
                 </div>
             </div>
 

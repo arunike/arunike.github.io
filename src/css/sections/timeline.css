@@ -297,47 +297,38 @@
 /* Timeline Card */
 .timeline-card {
     width: 100%;
-    background-color: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     position: relative;
-    overflow: hidden;
     text-align: left;
-    perspective: 1200px;
+    perspective: 1500px;
+    background: transparent !important;
+    border-left: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
 }
 
 .timeline-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: inherit;
-    opacity: 0.5;
+    display: none !important; /* hide top gradient line on desktop card wrapper */
 }
 
 .timeline-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-card:hover .timeline-card-face {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-card-most-recent:hover .timeline-card-face {
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.16),
+        0 0 0 1px rgba(104, 128, 138, 0.12);
 }
 
 .timeline-card-most-recent {
-    border-color: rgba(104, 128, 138, 0.18);
-    box-shadow:
-        0 14px 36px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(104, 128, 138, 0.08);
-}
-
-.timeline-card-most-recent::before {
-    background: linear-gradient(
-        90deg,
-        rgba(104, 128, 138, 0.5),
-        rgba(237, 106, 90, 0.32)
-    );
-    opacity: 0.8;
+    border-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .timeline-card-flip {
@@ -350,7 +341,7 @@
     text-align: left;
     cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-card-flip.flipped {
@@ -360,9 +351,54 @@
 .timeline-card-face {
     grid-area: 1 / 1;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--exp-color);
+    background-image: var(--exp-bg-gradient);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Dark Mode Desktop face overrides */
+[data-theme="dark"] .timeline-card-face {
+    background-color: var(--bg2) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    border-left-color: var(--exp-color) !important;
+}
+
+[data-theme="dark"] .timeline-card-most-recent .timeline-card-face {
+    border-color: rgba(104, 128, 138, 0.3) !important;
+    border-left-color: var(--exp-color) !important;
+}
+
+[data-theme="dark"] .timeline-card:hover .timeline-card-face {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .timeline-card-most-recent:hover .timeline-card-face {
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.48),
+        0 0 0 1px rgba(104, 128, 138, 0.25) !important;
+}
+
+.timeline-card-most-recent .timeline-card-face {
+    border-color: rgba(104, 128, 138, 0.18);
+    border-left-color: var(--exp-color);
+    box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(104, 128, 138, 0.08);
 }
 
 .timeline-card-back {
@@ -654,6 +690,52 @@
 
     .timeline-card {
         width: 100% !important;
+        background-color: white !important;
+        border-radius: 1.5rem !important;
+        border: 2px solid rgba(0, 0, 0, 0.05) !important;
+        border-left: 4px solid var(--exp-color) !important;
+        background-image: var(--exp-bg-gradient) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+        overflow: hidden !important;
+        transform: none !important;
+    }
+
+    .timeline-card-most-recent {
+        border-color: rgba(104, 128, 138, 0.18) !important;
+        border-left-color: var(--exp-color) !important;
+        box-shadow:
+            0 14px 36px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(104, 128, 138, 0.08) !important;
+    }
+
+    /* Removed top gradient bar for most recent card on mobile */
+
+    /* Mobile Dark Mode override for card wrapper */
+    [data-theme="dark"] .timeline-card {
+        background-color: var(--bg2) !important;
+        border-color: rgba(255, 255, 255, 0.06) !important;
+        border-left-color: var(--exp-color) !important;
+    }
+
+    .timeline-card-face {
+        background: transparent !important;
+        border-left: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        padding: 1.5rem !important;
+    }
+
+    /* Mobile Dark Mode override for card face */
+    [data-theme="dark"] .timeline-card-face {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .timeline-card-most-recent .timeline-card-face::before {
+        display: none !important;
     }
 
     .timeline-top .timeline-content,
@@ -664,7 +746,6 @@
     }
 
     /* Mobile Animation: Sequenced "Snapping" */
-
     /* 1. Container: Just handles opacity/visibility */
     .timeline-item {
         opacity: 0;

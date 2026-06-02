@@ -1,16 +1,25 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import {
+    FiBriefcase,
+    FiClock,
+    FiCode,
+    FiCpu,
+    FiHome,
+    FiMail,
+    FiUser,
+} from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 
 const IDLE_HIDE_DELAY = 3000;
 
 const sections = [
-    { id: "landing", label: "Home" },
-    { id: "about-hero", label: "About" },
-    { id: "featured-projects", label: "Projects" },
-    { id: "expertise-header", label: "Expertise" },
-    { id: "timeline", label: "Timeline" },
-    { id: "skills", label: "Skills" },
-    { id: "contact", label: "Contact" },
+    { id: "landing", label: "Home", Icon: FiHome },
+    { id: "about-hero", label: "About", Icon: FiUser },
+    { id: "featured-projects", label: "Projects", Icon: FiBriefcase },
+    { id: "expertise", label: "Expertise", Icon: FiCpu },
+    { id: "timeline", label: "Timeline", Icon: FiClock },
+    { id: "skills", label: "Skills", Icon: FiCode },
+    { id: "contact", label: "Contact", Icon: FiMail },
 ];
 
 const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
@@ -191,9 +200,13 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
         const element = document.getElementById(sectionId);
         if (!element) return;
         if (scrollTo) {
-            scrollTo(element, { duration: 1.2 });
+            scrollTo(element, {
+                immediate: true,
+                force: true,
+                lock: true,
+            });
         } else {
-            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            element.scrollIntoView({ behavior: "auto", block: "start" });
         }
     };
 
@@ -253,8 +266,15 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
                         <button
                             onClick={() => scrollToSection(section.id)}
                             aria-label={`Navigate to ${section.label}`}
+                            aria-current={
+                                activeSection === section.id
+                                    ? "location"
+                                    : undefined
+                            }
                         >
-                            <span className="nav-dot"></span>
+                            <span className="nav-icon" aria-hidden="true">
+                                <section.Icon />
+                            </span>
                             <span className="nav-label">{section.label}</span>
                         </button>
                     </li>

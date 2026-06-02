@@ -1,50 +1,5 @@
 import { useState } from "react";
-
-const MONTHS = {
-    january: 0,
-    february: 1,
-    march: 2,
-    april: 3,
-    may: 4,
-    june: 5,
-    july: 6,
-    august: 7,
-    september: 8,
-    october: 9,
-    november: 10,
-    december: 11,
-};
-
-const parseMonthYear = (value) => {
-    const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
-    if (!match) return null;
-
-    const month = MONTHS[match[1].toLowerCase()];
-    const year = Number(match[2]);
-
-    if (month === undefined || Number.isNaN(year)) return null;
-
-    return { month, year };
-};
-
-const getMonthsWorkedLabel = (duration) => {
-    const [startValue, endValue] = duration.split(/\s+-\s+/);
-    const start = parseMonthYear(startValue || "");
-    const end =
-        endValue?.toLowerCase() === "present"
-            ? {
-                  month: new Date().getMonth(),
-                  year: new Date().getFullYear(),
-              }
-            : parseMonthYear(endValue || "");
-
-    if (!start || !end) return null;
-
-    const months = (end.year - start.year) * 12 + end.month - start.month + 1;
-    if (months <= 0) return null;
-
-    return months === 1 ? "1 month" : `${months} months`;
-};
+import { getMonthsWorkedLabel } from "./timelineData";
 
 const TimelineItem = ({
     exp,
@@ -65,6 +20,7 @@ const TimelineItem = ({
             key={exp.id}
             ref={addToRefs}
             data-experience-id={exp.id}
+            data-experience-key={exp.timelineKey}
             className={`timeline-item ${positionClass} ${
                 isMostRecent ? "timeline-item-most-recent" : ""
             }`}

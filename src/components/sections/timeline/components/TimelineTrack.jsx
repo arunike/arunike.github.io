@@ -4,7 +4,7 @@ const TimelineTrack = ({
     experiences,
     experienceColors,
     addToRefs,
-    mostRecentExperienceId,
+    latestExperienceKey,
 }) => {
     return (
         <div className="timeline-track">
@@ -21,12 +21,12 @@ const TimelineTrack = ({
 
                 return (
                     <TimelineItem
-                        key={exp.id}
+                        key={exp.timelineKey}
                         exp={exp}
                         expColor={expColor}
                         positionClass={positionClass}
                         addToRefs={addToRefs}
-                        isMostRecent={exp.id === mostRecentExperienceId}
+                        isMostRecent={exp.timelineKey === latestExperienceKey}
                     />
                 );
             })}

@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { experiences } from "./components/timelineData";
+import {
+    experiences,
+    getLatestExperienceKey,
+    getSortedExperiences,
+} from "./components/timelineData";
 import extractColorFromImage from "./components/extractColorFromImage";
 import TimelineStats from "./components/TimelineStats";
 import TimelineScrollArea from "./components/TimelineScrollArea";
@@ -15,45 +19,6 @@ const MOBILE_ROOT_MARGIN = "-10% 0px";
 const DESKTOP_ROOT_MARGIN = "0px -20% 0px -20%";
 const MOBILE_THRESHOLD = MOTION.reveal.threshold;
 const DESKTOP_THRESHOLD = MOTION.reveal.threshold;
-const MONTHS = {
-    january: 0,
-    february: 1,
-    march: 2,
-    april: 3,
-    may: 4,
-    june: 5,
-    july: 6,
-    august: 7,
-    september: 8,
-    october: 9,
-    november: 10,
-    december: 11,
-};
-
-const parseMonthYear = (value) => {
-    const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
-    if (!match) return null;
-
-    const month = MONTHS[match[1].toLowerCase()];
-    const year = Number(match[2]);
-
-    if (month === undefined || Number.isNaN(year)) return null;
-
-    return { month, year };
-};
-
-const getExperienceEndTime = (duration) => {
-    const endValue = duration.split(/\s+-\s+/)[1];
-
-    if (endValue?.toLowerCase() === "present") {
-        return Number.POSITIVE_INFINITY;
-    }
-
-    const end = parseMonthYear(endValue || "");
-    if (!end) return Number.NEGATIVE_INFINITY;
-
-    return end.year * 12 + end.month;
-};
 
 const Timeline = () => {
     const timelineRef = useRef([]);
@@ -153,38 +118,32 @@ const Timeline = () => {
         };
     }, []);
 
-    const orderedExperiences = useMemo(() => {
-        return [...experiences]
-            .filter((exp) => exp.isActive !== false)
-            .sort(
-                (first, second) =>
-                    getExperienceEndTime(first.duration) -
-                    getExperienceEndTime(second.duration)
-            );
-    }, []);
-    const mostRecentExperienceId =
-        orderedExperiences[orderedExperiences.length - 1]?.id;
+    const orderedExperiences = useMemo(() => getSortedExperiences(), []);
+    const latestExperienceKey = useMemo(
+        () => getLatestExperienceKey(orderedExperiences),
+        [orderedExperiences]
+    );
 
     const experienceStats = useMemo(() => {
-        const activeExperiences = experiences.filter(
-            (exp) => exp.isActive !== false
-        );
+        const activeExperiences = orderedExperiences;
         const uniqueTechnologies = new Set(
-            experiences.flatMap((exp) => exp.technologies)
+            activeExperiences.flatMap((exp) => exp.technologies)
         );
-        const uniqueLocations = new Set(experiences.map((exp) => exp.location));
+        const uniqueLocations = new Set(
+            activeExperiences.map((exp) => exp.location)
+        );
 
         return {
             activeCount: activeExperiences.length,
             techCount: uniqueTechnologies.size,
             locationCount: uniqueLocations.size,
         };
-    }, []);
+    }, [orderedExperiences]);
 
     useEffect(() => {
         if (scrollContainerRef.current) {
             const targetItem = timelineRef.current.find(
-                (item) => item?.dataset.experienceId === mostRecentExperienceId
+                (item) => item?.dataset.experienceKey === latestExperienceKey
             );
 
             scrollContainerRef.current.style.scrollBehavior = "auto";
@@ -197,7 +156,7 @@ const Timeline = () => {
             scrollContainerRef.current.style.scrollBehavior = "smooth";
             checkScroll();
         }
-    }, [mostRecentExperienceId, orderedExperiences]);
+    }, [latestExperienceKey, orderedExperiences]);
 
     useEffect(() => {
         const mediaQuery = window.matchMedia(
@@ -357,7 +316,7 @@ const Timeline = () => {
                             experiences={orderedExperiences}
                             experienceColors={experienceColors}
                             addToRefs={addToRefs}
-                            mostRecentExperienceId={mostRecentExperienceId}
+                            latestExperienceKey={latestExperienceKey}
                         />
                     </TimelineScrollArea>
 

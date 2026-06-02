@@ -25,7 +25,11 @@ const sections = [
 const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
     const [activeSection, setActiveSection] = useState("landing");
     const [isIdleHidden, setIsIdleHidden] = useState(false);
+    const [isTimelineControlOverlapping, setIsTimelineControlOverlapping] =
+        useState(false);
     const location = useLocation();
+    const navRef = useRef(null);
+    const lastVisibleNavRectRef = useRef(null);
     const idleTimeoutRef = useRef(null);
     const isNavInteractingRef = useRef(false);
 
@@ -161,6 +165,89 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
     );
 
     useEffect(() => {
+        if (
+            typeof window === "undefined" ||
+            typeof document === "undefined" ||
+            location.pathname !== "/"
+        ) {
+            setIsTimelineControlOverlapping(false);
+            return;
+        }
+
+        const timelineLeftControl = document.querySelector(
+            ".timeline-fade-left"
+        );
+        const timelineLeftIcon = timelineLeftControl?.querySelector("svg");
+
+        if (!timelineLeftControl || !timelineLeftIcon) {
+            setIsTimelineControlOverlapping(false);
+            return;
+        }
+
+        const updateControlOverlap = () => {
+            if (activeSection !== "timeline") {
+                setIsTimelineControlOverlapping(false);
+                return;
+            }
+
+            const navRect = navRef.current?.getBoundingClientRect();
+            const navIsMeasurable =
+                navRect && navRect.width > 0 && navRect.height > 0;
+
+            if (
+                navIsMeasurable &&
+                !isTimelineControlOverlapping &&
+                !isIdleHidden
+            ) {
+                lastVisibleNavRectRef.current = navRect;
+            }
+
+            const compareRect = lastVisibleNavRectRef.current || navRect;
+            const controlRect = timelineLeftIcon.getBoundingClientRect();
+            const controlIsVisible =
+                timelineLeftControl.classList.contains("visible") &&
+                controlRect.width > 0 &&
+                controlRect.height > 0;
+
+            if (!compareRect || !controlIsVisible) {
+                setIsTimelineControlOverlapping(false);
+                return;
+            }
+
+            setIsTimelineControlOverlapping(
+                !(
+                    controlRect.right < compareRect.left ||
+                    controlRect.left > compareRect.right ||
+                    controlRect.bottom < compareRect.top ||
+                    controlRect.top > compareRect.bottom
+                )
+            );
+        };
+
+        updateControlOverlap();
+
+        const observer = new MutationObserver(updateControlOverlap);
+        observer.observe(timelineLeftControl, {
+            attributeFilter: ["class"],
+            attributes: true,
+        });
+        window.addEventListener("resize", updateControlOverlap);
+        window.addEventListener("scroll", updateControlOverlap);
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener("resize", updateControlOverlap);
+            window.removeEventListener("scroll", updateControlOverlap);
+        };
+    }, [
+        activeSection,
+        isIdleHidden,
+        isTimelineControlOverlapping,
+        loaded,
+        location.pathname,
+    ]);
+
+    useEffect(() => {
         if (location.pathname !== "/" || !loaded) {
             return;
         }
@@ -218,6 +305,9 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
         "section-nav",
         activeSection === "landing" || isMenuOpen ? "section-nav--blocked" : "",
         isIdleHidden ? "section-nav--idle-hidden" : "",
+        isTimelineControlOverlapping
+            ? "section-nav--timeline-control-overlap"
+            : "",
     ]
         .filter(Boolean)
         .join(" ");
@@ -250,6 +340,7 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
 
     return (
         <nav
+            ref={navRef}
             className={sectionNavClassName}
             onMouseEnter={handleNavMouseEnter}
             onMouseLeave={handleNavMouseLeave}

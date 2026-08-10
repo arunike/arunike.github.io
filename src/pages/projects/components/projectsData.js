@@ -29,7 +29,7 @@ export const projects = [
         title: "CareerHub",
         category: "AI Job Search Platform",
         description:
-            "A full-stack career management platform for tracking applications, comparing offers, managing interview availability, organizing documents, and using AI tools for JD matching, cover letter generation, and negotiation support. It combines a React + TypeScript frontend with a Django REST API, Redis-powered real-time features, and flexible import/export workflows.",
+            "A full-stack career management platform for the entire job search: application tracking with stage timelines, offer comparison with tax-adjusted four-year projections and a weighted decision scorecard, a contacts relationship graph, work history earnings breakdowns, a versioned document vault, and interview availability booking. AI tools cover JD matching, cover letters, negotiation advice, and analytics widgets, built on React + TypeScript and a Django REST API.",
         ghLink: "https://github.com/arunike/CareerHub-Frontend",
         demoLink: "https://careerhub-frontend-eight.vercel.app",
         tags: [
@@ -39,6 +39,7 @@ export const projects = [
             "Python",
             "Redis",
             "Tailwind CSS",
+            "Ant Design",
         ],
         isFeatured: true,
         dateAdded: "2026-04-11",

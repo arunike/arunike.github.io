@@ -269,3 +269,44 @@ p.mn {
     border-color: rgba(255, 255, 255, 0.1);
     color: var(--fg);
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .skill-category,
+    .tech-icon,
+    .courses-header,
+    .course-card,
+    .projects-header,
+    .project-card,
+    .expertise-card-3d,
+    .fan-project-card,
+    .timeline-item,
+    .timeline-card {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    .floating-element,
+    .submit-btn,
+    .submit-btn::before,
+    .timeline-active-badge,
+    .timeline-tap-hint .hint-front .arrow {
+        animation: none !important;
+    }
+
+    .submit-btn {
+        background: var(--accent1);
+        background-size: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+}

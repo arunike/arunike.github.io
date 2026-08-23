@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import ProjectDetails from "./project/ProjectDetails";
 import ProjectMedia from "./project/ProjectMedia";
 import { MOTION } from "../utils/motion";
+import { prefersReducedMotion } from "../utils/prefersReducedMotion";
 
 const ProjectCard = ({
     imgPath,
@@ -84,7 +85,7 @@ const ProjectCard = ({
 
     const handlePointerMove = (event) => {
         const card = cardRef.current;
-        if (!card) return;
+        if (!card || prefersReducedMotion()) return;
 
         const rect = card.getBoundingClientRect();
         const x = event.clientX - rect.left;

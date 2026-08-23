@@ -45,7 +45,7 @@
         visibility 0s linear 0.45s;
 }
 
-.section-nav--timeline-control-overlap {
+.section-nav--collision-hidden {
     transform: translate(calc(-100% - 2rem), -50%);
     opacity: 0;
     visibility: hidden;

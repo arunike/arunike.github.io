@@ -288,3 +288,47 @@
         text-align: center;
     }
 }
+
+[data-theme="dark"] .courses-header h1 {
+    color: var(--fg);
+}
+
+[data-theme="dark"] .course-card,
+[data-theme="dark"] .courses-stats {
+    background-color: var(--bg2);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .university-badge-container {
+    background-color: #ebe8e3;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .courses-semester-tag {
+    color: var(--muted);
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .course-image-section {
+    background-color: #ebe8e3;
+}
+
+[data-theme="dark"] .course-title {
+    color: var(--fg);
+}
+
+[data-theme="dark"] .meta-label,
+[data-theme="dark"] .courses-count {
+    color: #7ea8f8;
+}
+
+[data-theme="dark"] .meta-value,
+[data-theme="dark"] .courses-stats p {
+    color: var(--fg);
+}
+
+[data-theme="dark"] .course-description {
+    color: color-mix(in srgb, var(--fg), transparent 18%);
+}

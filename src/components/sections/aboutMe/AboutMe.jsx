@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ProfilePicture from "../../../assets/images/profile_picture.png";
+import { prefersReducedMotion } from "../../../utils/prefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +15,10 @@ const AboutMe = () => {
         const initAnimation = () => {
             if (scrollTriggerRef.current) {
                 scrollTriggerRef.current.kill();
+            }
+
+            if (prefersReducedMotion()) {
+                return;
             }
 
             if (portraitRef.current) {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useCallback } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion } from "../utils/prefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,10 @@ const useSmoothScroll = () => {
 
     useEffect(() => {
         if (typeof window === "undefined") {
+            return;
+        }
+
+        if (prefersReducedMotion()) {
             return;
         }
 

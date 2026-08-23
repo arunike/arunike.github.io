@@ -84,3 +84,38 @@
     color: #333;
     opacity: 0.8;
 }
+
+.transition--route {
+    background-color: transparent;
+}
+
+.transition--route .transition-text {
+    opacity: 0;
+}
+
+.route-fallback {
+    position: fixed;
+    inset: 0;
+    z-index: 90000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+}
+
+.route-fallback p {
+    font-family: "supply-mono";
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg);
+    opacity: 0;
+    animation: route-fallback-in 0.3s var(--motion-ease) 0.45s forwards;
+}
+
+@keyframes route-fallback-in {
+    to {
+        opacity: 0.55;
+    }
+}

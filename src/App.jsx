@@ -22,6 +22,7 @@ import SectionNav from "./components/SectionNav";
 import BackToTop from "./components/BackToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { MOTION } from "./utils/motion";
+import { prefersReducedMotion } from "./utils/prefersReducedMotion";
 
 const Home = lazy(() => import("./pages/Home"));
 const CourseTaken = lazy(() => import("./pages/courses/CourseTaken"));
@@ -102,6 +103,37 @@ function ScrollToTop({ start, scrollTo }) {
     return null;
 }
 
+function TransitionManager({ onIntroComplete }) {
+    const location = useLocation();
+    const [transition, setTransition] = useState({ mode: "intro", key: 0 });
+    const prevPathnameRef = useRef(location.pathname);
+
+    useEffect(() => {
+        if (prevPathnameRef.current === location.pathname) {
+            return;
+        }
+
+        prevPathnameRef.current = location.pathname;
+        setTransition((prev) => ({ mode: "route", key: prev.key + 1 }));
+    }, [location.pathname]);
+
+    return (
+        <Transition
+            key={transition.key}
+            mode={transition.mode}
+            onComplete={onIntroComplete}
+        />
+    );
+}
+
+function RouteFallback() {
+    return (
+        <div className="route-fallback" role="status" aria-live="polite">
+            <p>Loading</p>
+        </div>
+    );
+}
+
 function App() {
     const { start, stop, scrollTo } = useSmoothScroll();
     const [loaded, setLoaded] = useState(false);
@@ -138,6 +170,15 @@ function App() {
         const pageContent = document.querySelector(".page-content");
         if (!pageContent) return;
 
+        if (prefersReducedMotion()) {
+            if (isMenuOpen) {
+                gsap.set(pageContent, { y: "100vh" });
+            } else {
+                gsap.set(pageContent, { clearProps: "transform" });
+            }
+            return;
+        }
+
         if (isMenuOpen) {
             gsap.to(pageContent, {
                 y: "100vh",
@@ -170,7 +211,7 @@ function App() {
                 start={start}
                 stop={stop}
             />
-            <Transition onComplete={handleTransitionComplete} />
+            <TransitionManager onIntroComplete={handleTransitionComplete} />
             <SectionNav
                 scrollTo={scrollTo}
                 loaded={loaded}
@@ -188,7 +229,7 @@ function App() {
                 }}
             >
                 <ErrorBoundary>
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<RouteFallback />}>
                         <Routes>
                             <Route
                                 path="/"

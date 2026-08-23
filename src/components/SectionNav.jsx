@@ -22,11 +22,24 @@ const sections = [
     { id: "contact", label: "Contact", Icon: FiMail },
 ];
 
+const COLLISION_TARGETS = [
+    {
+        selector: ".timeline-fade-left",
+        measure: "svg",
+        requiresClass: "visible",
+    },
+    { selector: ".contact-card-header-main h1" },
+    { selector: ".contact-card-header-main p" },
+    { selector: ".contact-info" },
+    { selector: ".skill-category" },
+    { selector: ".skills-heading" },
+];
+
 const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
     const [activeSection, setActiveSection] = useState("landing");
     const [isIdleHidden, setIsIdleHidden] = useState(false);
-    const [isTimelineControlOverlapping, setIsTimelineControlOverlapping] =
-        useState(false);
+    const [isColliding, setIsColliding] = useState(false);
+    const isCollidingRef = useRef(false);
     const location = useLocation();
     const navRef = useRef(null);
     const lastVisibleNavRectRef = useRef(null);
@@ -165,87 +178,105 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
     );
 
     useEffect(() => {
+        isCollidingRef.current = isColliding;
+    }, [isColliding]);
+
+    useEffect(() => {
         if (
             typeof window === "undefined" ||
             typeof document === "undefined" ||
             location.pathname !== "/"
         ) {
-            setIsTimelineControlOverlapping(false);
+            setIsColliding(false);
             return;
         }
 
-        const timelineLeftControl = document.querySelector(
-            ".timeline-fade-left"
-        );
-        const timelineLeftIcon = timelineLeftControl?.querySelector("svg");
+        const resolveTargets = () =>
+            COLLISION_TARGETS.flatMap(({ selector, measure, requiresClass }) =>
+                Array.from(document.querySelectorAll(selector))
+                    .filter(
+                        (element) =>
+                            !requiresClass ||
+                            element.classList.contains(requiresClass)
+                    )
+                    .map((element) =>
+                        measure ? element.querySelector(measure) : element
+                    )
+                    .filter(Boolean)
+            );
 
-        if (!timelineLeftControl || !timelineLeftIcon) {
-            setIsTimelineControlOverlapping(false);
-            return;
-        }
+        const intersects = (rect, navRect) =>
+            !(
+                rect.right < navRect.left ||
+                rect.left > navRect.right ||
+                rect.bottom < navRect.top ||
+                rect.top > navRect.bottom
+            );
 
-        const updateControlOverlap = () => {
-            if (activeSection !== "timeline") {
-                setIsTimelineControlOverlapping(false);
-                return;
-            }
-
+        const updateCollision = () => {
             const navRect = navRef.current?.getBoundingClientRect();
             const navIsMeasurable =
                 navRect && navRect.width > 0 && navRect.height > 0;
 
-            if (
-                navIsMeasurable &&
-                !isTimelineControlOverlapping &&
-                !isIdleHidden
-            ) {
+            if (navIsMeasurable && !isCollidingRef.current && !isIdleHidden) {
                 lastVisibleNavRectRef.current = navRect;
             }
 
             const compareRect = lastVisibleNavRectRef.current || navRect;
-            const controlRect = timelineLeftIcon.getBoundingClientRect();
-            const controlIsVisible =
-                timelineLeftControl.classList.contains("visible") &&
-                controlRect.width > 0 &&
-                controlRect.height > 0;
 
-            if (!compareRect || !controlIsVisible) {
-                setIsTimelineControlOverlapping(false);
+            if (!compareRect) {
+                setIsColliding(false);
                 return;
             }
 
-            setIsTimelineControlOverlapping(
-                !(
-                    controlRect.right < compareRect.left ||
-                    controlRect.left > compareRect.right ||
-                    controlRect.bottom < compareRect.top ||
-                    controlRect.top > compareRect.bottom
-                )
+            setIsColliding(
+                resolveTargets().some((element) => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.width <= 0 || rect.height <= 0) {
+                        return false;
+                    }
+                    return intersects(rect, compareRect);
+                })
             );
         };
 
-        updateControlOverlap();
+        let frameId = null;
+        const scheduleUpdate = () => {
+            if (frameId !== null) {
+                return;
+            }
+            frameId = window.requestAnimationFrame(() => {
+                frameId = null;
+                updateCollision();
+            });
+        };
 
-        const observer = new MutationObserver(updateControlOverlap);
-        observer.observe(timelineLeftControl, {
-            attributeFilter: ["class"],
-            attributes: true,
-        });
-        window.addEventListener("resize", updateControlOverlap);
-        window.addEventListener("scroll", updateControlOverlap);
+        updateCollision();
+
+        const timelineControl = document.querySelector(".timeline-fade-left");
+        const observer = timelineControl
+            ? new MutationObserver(scheduleUpdate)
+            : null;
+
+        if (observer && timelineControl) {
+            observer.observe(timelineControl, {
+                attributeFilter: ["class"],
+                attributes: true,
+            });
+        }
+
+        window.addEventListener("resize", scheduleUpdate);
+        window.addEventListener("scroll", scheduleUpdate, { passive: true });
 
         return () => {
-            observer.disconnect();
-            window.removeEventListener("resize", updateControlOverlap);
-            window.removeEventListener("scroll", updateControlOverlap);
+            if (frameId !== null) {
+                window.cancelAnimationFrame(frameId);
+            }
+            observer?.disconnect();
+            window.removeEventListener("resize", scheduleUpdate);
+            window.removeEventListener("scroll", scheduleUpdate);
         };
-    }, [
-        activeSection,
-        isIdleHidden,
-        isTimelineControlOverlapping,
-        loaded,
-        location.pathname,
-    ]);
+    }, [activeSection, isIdleHidden, loaded, location.pathname]);
 
     useEffect(() => {
         if (location.pathname !== "/" || !loaded) {
@@ -286,13 +317,17 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (!element) return;
-        if (scrollTo) {
-            scrollTo(element, {
-                immediate: true,
-                force: true,
-                lock: true,
-            });
-        } else {
+        // scrollTo returns false when Lenis is not running (reduced motion),
+        // so fall through to the native scroll rather than doing nothing.
+        const didScroll = scrollTo
+            ? scrollTo(element, {
+                  immediate: true,
+                  force: true,
+                  lock: true,
+              })
+            : false;
+
+        if (!didScroll) {
             element.scrollIntoView({ behavior: "auto", block: "start" });
         }
     };
@@ -305,9 +340,7 @@ const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {
         "section-nav",
         activeSection === "landing" || isMenuOpen ? "section-nav--blocked" : "",
         isIdleHidden ? "section-nav--idle-hidden" : "",
-        isTimelineControlOverlapping
-            ? "section-nav--timeline-control-overlap"
-            : "",
+        isColliding ? "section-nav--collision-hidden" : "",
     ]
         .filter(Boolean)
         .join(" ");

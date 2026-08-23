@@ -13,10 +13,10 @@ const BackToTop = ({ scrollTo }) => {
     }, []);
 
     const handleClick = () => {
-        if (scrollTo) {
-            scrollTo(0, { duration: 1.2 });
-        } else {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+        const didScroll = scrollTo ? scrollTo(0, { duration: 1.2 }) : false;
+
+        if (!didScroll) {
+            window.scrollTo({ top: 0, behavior: "auto" });
         }
     };
 

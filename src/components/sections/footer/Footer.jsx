@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import SymbolSix from "../../../assets/images/symbols/s6.png";
+import { prefersReducedMotion } from "../../../utils/prefersReducedMotion";
 
 const Footer = () => {
     const hasExplodedRef = useRef(false);
@@ -9,6 +10,10 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     useEffect(() => {
+        if (prefersReducedMotion()) {
+            return;
+        }
+
         const footer = document.querySelector("footer");
         const explosionContainer = document.querySelector(
             ".explosion-container"

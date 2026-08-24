@@ -139,7 +139,6 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
             const body = document.body;
             html.style.overflow = "hidden";
             body.style.overflow = "hidden";
-            body.style.height = "100vh";
 
             gsap.to(openLabel, {
                 y: "-1rem",

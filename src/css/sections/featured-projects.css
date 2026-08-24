@@ -9,7 +9,7 @@
 .featured-projects-pin {
     width: 100vw;
     min-height: 100dvh;
-    overflow: visible;
+    overflow: clip;
     position: relative;
     display: grid;
     place-items: center stretch;

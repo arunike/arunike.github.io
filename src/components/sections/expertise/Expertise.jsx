@@ -164,6 +164,9 @@ const Expertise = () => {
                 scrub: true,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => renderCards(self.progress),
+                onLeave: () => renderCards(1),
+                onLeaveBack: () => renderCards(0),
+                onRefresh: (self) => renderCards(self.progress),
             });
 
             return () => trigger.kill();

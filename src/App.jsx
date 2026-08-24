@@ -30,6 +30,61 @@ const Projects = lazy(() => import("./pages/projects/Projects"));
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+function PinMeasurementGuard() {
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return;
+        }
+
+        const refresh = () => {
+            ScrollTrigger.sort();
+            ScrollTrigger.refresh();
+        };
+
+        let frame = null;
+        const scheduleRefresh = () => {
+            if (frame !== null) return;
+            frame = window.requestAnimationFrame(() => {
+                frame = null;
+                refresh();
+            });
+        };
+
+        // Webfonts reflow every heading on this page, which changes section
+        // heights well after the mount-time refreshes have run.
+        let cancelled = false;
+        if (document.fonts?.ready) {
+            document.fonts.ready.then(() => {
+                if (!cancelled) refresh();
+            });
+        }
+
+        window.addEventListener("load", refresh);
+
+        // Catches late images and anything else that changes document height.
+        let lastHeight = document.documentElement.scrollHeight;
+        const observer = new ResizeObserver(() => {
+            const next = document.documentElement.scrollHeight;
+            if (Math.abs(next - lastHeight) > 4) {
+                lastHeight = next;
+                scheduleRefresh();
+            }
+        });
+        observer.observe(document.body);
+
+        return () => {
+            cancelled = true;
+            if (frame !== null) window.cancelAnimationFrame(frame);
+            observer.disconnect();
+            window.removeEventListener("load", refresh);
+        };
+    }, []);
+
+    return null;
+}
+
 // Global CSS
 import "./css/transition.css";
 import "./css/fonts.css";
@@ -203,6 +258,7 @@ function App() {
                 Skip to content
             </a>
             <ScrollToTop start={start} scrollTo={scrollTo} />
+            <PinMeasurementGuard />
             <AnalyticsTracker />
             <Nav
                 isOpen={isMenuOpen}

@@ -23,6 +23,7 @@ import BackToTop from "./components/BackToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { MOTION } from "./utils/motion";
 import { prefersReducedMotion } from "./utils/prefersReducedMotion";
+import { sweepMissedReveals } from "./utils/revealOnScroll";
 
 const Home = lazy(() => import("./pages/Home"));
 const CourseTaken = lazy(() => import("./pages/courses/CourseTaken"));
@@ -31,6 +32,52 @@ const Projects = lazy(() => import("./pages/projects/Projects"));
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.config({ ignoreMobileResize: true });
+
+function MissedRevealSweeper() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return;
+        }
+
+        let frame = null;
+        let settled = false;
+
+        const detach = () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+
+        const run = () => {
+            frame = null;
+            const { seen, pending } = sweepMissedReveals();
+
+            if (seen > 0 && pending === 0) {
+                settled = true;
+                detach();
+            }
+        };
+
+        function handleScroll() {
+            if (settled || frame !== null) {
+                return;
+            }
+            frame = window.requestAnimationFrame(run);
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        return () => {
+            if (frame !== null) {
+                window.cancelAnimationFrame(frame);
+            }
+            detach();
+        };
+    }, [location.pathname]);
+
+    return null;
+}
 
 function PinMeasurementGuard() {
     useEffect(() => {
@@ -259,6 +306,7 @@ function App() {
             </a>
             <ScrollToTop start={start} scrollTo={scrollTo} />
             <PinMeasurementGuard />
+            <MissedRevealSweeper />
             <AnalyticsTracker />
             <Nav
                 isOpen={isMenuOpen}

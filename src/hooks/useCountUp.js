@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { registerSweepCallback } from "../utils/revealOnScroll";
 
 const useCountUp = (target, duration = 1000) => {
     const [count, setCount] = useState(0);
@@ -42,7 +43,19 @@ const useCountUp = (target, duration = 1000) => {
         );
 
         observer.observe(element);
+
+        const unregister = registerSweepCallback(() => {
+            if (hasStarted.current) return true;
+            if (element.getBoundingClientRect().bottom > 0) return false;
+            hasStarted.current = true;
+            observer.disconnect();
+            setCount(target);
+            prevTarget.current = target;
+            return true;
+        });
+
         return () => {
+            unregister();
             observer.disconnect();
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
         };

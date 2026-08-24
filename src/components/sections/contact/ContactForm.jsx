@@ -2,6 +2,7 @@ import { useState } from "react";
 import ContactFormFields from "./components/ContactFormFields";
 
 const CONTACT_EMAIL = "richiezhouyjz@gmail.com";
+const MIN_SENDING_MS = 450;
 
 const initialFormData = {
     firstName: "",
@@ -141,7 +142,10 @@ ${signature}`;
         setSubmissionState("sending");
         setStatusMessage("");
 
-        const copied = await copyDraftToClipboard(body);
+        const [copied] = await Promise.all([
+            copyDraftToClipboard(body),
+            new Promise((resolve) => setTimeout(resolve, MIN_SENDING_MS)),
+        ]);
         setSubmissionState("fallback");
         setStatusMessage(
             copied
@@ -152,9 +156,8 @@ ${signature}`;
     };
 
     return (
-        <section id="contact" className="contact trail-container">
+        <section id="contact" className="contact">
             <div className="contact-wrapper">
-                <div className="floating-elements"></div>
                 <div className="contact-left">
                     <div className="contact-card-header-main">
                         <h1>Let's Talk</h1>

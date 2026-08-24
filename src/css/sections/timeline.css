@@ -96,7 +96,7 @@
 
 .timeline-fade-left svg,
 .timeline-fade-right svg {
-    background: white;
+    background: var(--mat);
     border-radius: 50%;
     padding: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -248,7 +248,7 @@
     height: 20px;
     border-radius: 50%;
     border: 3px solid;
-    background-color: white;
+    background-color: var(--mat);
     z-index: 20;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8);
 }
@@ -268,8 +268,8 @@
     left: 50%;
     bottom: calc(100% + 0.65rem);
     transform: translateX(-50%);
-    color: var(--accent1);
-    background: rgba(255, 255, 255, 0.9);
+    color: var(--mat-accent);
+    background: var(--mat);
     border: 1px solid rgba(237, 106, 90, 0.2);
     border-radius: 999px;
     padding: 0.28rem 0.55rem;
@@ -302,7 +302,6 @@
     text-align: left;
     perspective: 1500px;
     background: transparent !important;
-    border-left: none !important;
     border: none !important;
     box-shadow: none !important;
     overflow: visible !important;
@@ -361,11 +360,10 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--card);
     border-radius: 1.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    border-left: 4px solid var(--exp-color);
+    border: 2px solid color-mix(in srgb, var(--exp-color), transparent 74%);
     background-image: var(--exp-bg-gradient);
     overflow: hidden;
     position: relative;
@@ -380,13 +378,19 @@
 /* Dark Mode Desktop face overrides */
 [data-theme="dark"] .timeline-card-face {
     background-color: var(--bg2) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    border-left-color: var(--exp-color) !important;
+    border-color: color-mix(
+        in srgb,
+        var(--exp-color),
+        transparent 66%
+    ) !important;
 }
 
 [data-theme="dark"] .timeline-card-most-recent .timeline-card-face {
-    border-color: rgba(104, 128, 138, 0.3) !important;
-    border-left-color: var(--exp-color) !important;
+    border-color: color-mix(
+        in srgb,
+        var(--exp-color),
+        transparent 42%
+    ) !important;
 }
 
 [data-theme="dark"] .timeline-card:hover .timeline-card-face {
@@ -400,8 +404,7 @@
 }
 
 .timeline-card-most-recent .timeline-card-face {
-    border-color: rgba(104, 128, 138, 0.18);
-    border-left-color: var(--exp-color);
+    border-color: color-mix(in srgb, var(--exp-color), transparent 50%);
     box-shadow:
         0 14px 36px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(104, 128, 138, 0.08);
@@ -429,7 +432,7 @@
     justify-content: center;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: var(--mat);
     padding: 8px;
     overflow: hidden;
 }
@@ -443,7 +446,7 @@
 .timeline-company-logo span {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--mat-ink);
 }
 
 .timeline-company-info {
@@ -454,6 +457,7 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 0.25rem 0;
+    color: var(--fg);
     transition: color 0.3s ease;
 }
 
@@ -469,14 +473,14 @@
     position: absolute;
     top: -0.5rem;
     right: -0.5rem;
-    background: linear-gradient(135deg, #4ade80, #22c55e);
-    color: white;
+    background: var(--accent3);
+    color: var(--on-accent);
     padding: 0.25rem 0.6rem;
     border-radius: 9999px;
     font-family: "supply-mono";
     font-size: 0.7rem;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 2px 8px rgba(155, 193, 188, 0.45);
     animation: pulse 2s infinite;
 }
 
@@ -493,12 +497,15 @@
 
 .timeline-department {
     font-size: 0.9rem;
-    color: var(--muted);
+    color: color-mix(in srgb, var(--fg), transparent 32%);
     font-style: italic;
     margin-bottom: 1rem;
-    padding-left: 0.75rem;
-    border-left: 3px solid;
-    transition: border-color 0.3s ease;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.35rem;
+    width: max-content;
+    max-width: 100%;
+    background-color: color-mix(in srgb, var(--exp-color), transparent 88%);
+    transition: background-color 0.3s ease;
 }
 
 .timeline-meta {
@@ -558,6 +565,7 @@
     font-family: "supply-mono";
     font-size: 0.8rem;
     font-weight: 500;
+    color: var(--fg);
     border: 1px solid;
     transition: all 0.3s ease;
 }
@@ -696,10 +704,9 @@
 
     .timeline-card {
         width: 100% !important;
-        background-color: white !important;
+        background-color: var(--card) !important;
         border-radius: 1.5rem !important;
-        border: 2px solid rgba(0, 0, 0, 0.05) !important;
-        border-left: 4px solid var(--exp-color) !important;
+        border: 2px solid color-mix(in srgb, var(--exp-color), transparent 74%) !important;
         background-image: var(--exp-bg-gradient) !important;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
         overflow: hidden !important;
@@ -708,8 +715,11 @@
     }
 
     .timeline-card-most-recent {
-        border-color: rgba(104, 128, 138, 0.18) !important;
-        border-left-color: var(--exp-color) !important;
+        border-color: color-mix(
+            in srgb,
+            var(--exp-color),
+            transparent 50%
+        ) !important;
         box-shadow:
             0 14px 36px rgba(0, 0, 0, 0.1),
             0 0 0 1px rgba(104, 128, 138, 0.08) !important;
@@ -718,8 +728,11 @@
     /* Mobile Dark Mode override for card wrapper */
     [data-theme="dark"] .timeline-card {
         background-color: var(--bg2) !important;
-        border-color: rgba(255, 255, 255, 0.06) !important;
-        border-left-color: var(--exp-color) !important;
+        border-color: color-mix(
+            in srgb,
+            var(--exp-color),
+            transparent 66%
+        ) !important;
     }
 
     /* Override all desktop specificity rules on mobile */
@@ -832,10 +845,9 @@
     }
 
     .timeline-department {
-        border-radius: 0;
-        background: transparent;
+        border-radius: 0.35rem;
         border: none;
-        border-left: 3px solid;
+        background-color: color-mix(in srgb, var(--exp-color), transparent 88%);
     }
 
     .timeline-stats {

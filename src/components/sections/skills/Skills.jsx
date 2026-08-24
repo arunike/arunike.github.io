@@ -15,18 +15,6 @@ const Skills = () => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("skills-animated");
-
-                        const techIcons =
-                            entry.target.querySelectorAll(".tech-icon");
-                        techIcons.forEach((icon, index) => {
-                            setTimeout(
-                                () => {
-                                    icon.classList.add("skills-animated");
-                                },
-                                100 + index * MOTION.stagger.cssBaseMs
-                            );
-                        });
-
                         categoryObserver.unobserve(entry.target);
                     }
                 });
@@ -88,6 +76,7 @@ const Skills = () => {
                                         <div
                                             key={skillIdx}
                                             className="tech-icon"
+                                            style={{ "--i": skillIdx }}
                                         >
                                             {typeof skill.icon === "string" &&
                                             skill.icon.length < 5 ? (

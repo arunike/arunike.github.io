@@ -33,6 +33,7 @@ const COLLISION_TARGETS = [
     { selector: ".contact-info" },
     { selector: ".skill-category" },
     { selector: ".skills-heading" },
+    { selector: ".landing-footer-symbols" },
 ];
 
 const SectionNav = ({ scrollTo, loaded, isMenuOpen }) => {

@@ -97,8 +97,12 @@ const FeaturedProjectsSlider = ({ projects, stackRef, activeIndex }) => {
                         }}
                     >
                         <div className="fan-card-topline">
-                            <span>{String(index + 1).padStart(2, "0")}</span>
-                            <span>{project.category}</span>
+                            <span className="fan-card-tab">
+                                {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <span className="fan-card-cat">
+                                {project.category}
+                            </span>
                         </div>
                         <div className="fan-card-media">
                             <img

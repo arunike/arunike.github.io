@@ -26,19 +26,6 @@
     max-width: 600px;
 }
 
-.contact .trail-img {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 0.75em;
-    transform-origin: center;
-    pointer-events: none;
-    will-change: transform;
-    border: 2px solid var(--fg);
-    box-shadow: 4px 4px 0px var(--fg);
-}
-
 .contact-left {
     display: flex;
     flex-direction: column;
@@ -210,11 +197,23 @@
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    outline: none;
     border-color: var(--accent1);
     background-color: var(--bg);
     transform: translateY(-2px);
     box-shadow: 3px 3px 0px var(--accent1);
+}
+
+.form-group input:focus:not(:focus-visible),
+.form-group textarea:focus:not(:focus-visible),
+.form-group select:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+    outline: 3px solid var(--accent1);
+    outline-offset: 3px;
 }
 
 .form-group input:focus + label,
@@ -237,20 +236,22 @@
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--fg);
-    opacity: 0.5;
+    opacity: 0.65;
 }
 
 .submit-btn {
-    background: linear-gradient(
-        45deg,
-        var(--accent1),
-        var(--accent2),
-        var(--accent3),
-        var(--accent4)
+    background-color: var(--accent1);
+    background-image: linear-gradient(
+        100deg,
+        var(--accent1) 0%,
+        var(--accent1) 42%,
+        var(--accent2) 50%,
+        var(--accent1) 58%,
+        var(--accent1) 100%
     );
-    background-size: 400% 400%;
-    animation: gradientMove 6s ease-in-out infinite;
-    color: var(--fg);
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    color: var(--on-accent);
     border: 2px solid var(--fg);
     border-radius: 1.5em;
     padding: 1em 2.5em;
@@ -259,7 +260,11 @@
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        background-position 0.6s var(--motion-ease),
+        transform 0.25s var(--motion-ease),
+        box-shadow 0.25s var(--motion-ease),
+        opacity 0.2s var(--motion-ease);
     position: relative;
     overflow: hidden;
     margin-top: 0.75em;
@@ -271,7 +276,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%;
+    width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
         45deg,
@@ -280,19 +285,49 @@
         transparent 8px,
         transparent 16px
     );
-    animation: stripeMove 20s linear infinite;
     pointer-events: none;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.submit-btn:focus-visible {
+    background-position: 0 0;
     transform: translateY(-2px);
     box-shadow: 6px 6px 0px var(--fg);
 }
 
+.submit-btn:focus-visible {
+    outline: 3px solid var(--fg);
+    outline-offset: 3px;
+}
+
 .submit-btn:disabled {
     cursor: wait;
-    opacity: 0.75;
     transform: none;
+    color: var(--on-accent);
+}
+
+.submit-btn:disabled::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    transform-origin: left center;
+    background-color: var(--on-accent);
+    animation: submit-progress 1.1s var(--motion-ease) infinite;
+}
+
+@keyframes submit-progress {
+    0% {
+        transform: scaleX(0);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: scaleX(1);
+        opacity: 0.25;
+    }
 }
 
 .submit-btn:active {
@@ -312,11 +347,22 @@
     text-align: center;
     font-family: "formula-narrow";
     font-weight: 600;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.4s ease;
     margin-top: 0.75em;
     box-shadow: 3px 3px 0px var(--fg);
+    animation: form-status-in var(--motion-duration-base) var(--motion-ease)
+        both;
+}
+
+@keyframes form-status-in {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .form-status-sent {
@@ -366,78 +412,6 @@
     outline-offset: 2px;
 }
 
-.floating-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.floating-element {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background-color: var(--accent1);
-    border-radius: 50%;
-    animation: float 12s infinite linear;
-    opacity: 0.4;
-}
-
-.floating-element:nth-child(2n) {
-    background-color: var(--accent3);
-}
-
-.floating-element:nth-child(3n) {
-    background-color: var(--accent2);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.4;
-    }
-
-    90% {
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes stripeMove {
-    0% {
-        transform: translateX(-50%);
-    }
-
-    100% {
-        transform: translateX(0%);
-    }
-}
-
 @media (max-width: 1000px) {
     .contact {
         padding: 6em 1.5em;
@@ -472,10 +446,5 @@
 
     .form-row {
         grid-template-columns: 1fr;
-    }
-
-    .contact .trail-img {
-        width: 80px;
-        height: 80px;
     }
 }

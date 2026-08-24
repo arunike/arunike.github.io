@@ -19,7 +19,7 @@
 
 .featured-header {
     position: absolute;
-    top: clamp(2.25rem, 4.6vh, 3.5rem);
+    top: clamp(4.75rem, 8vh, 6rem);
     left: clamp(3rem, 5vw, 6rem);
     z-index: 20;
     width: min(34rem, 34vw);
@@ -224,6 +224,8 @@
 }
 
 .fan-project-card {
+    --card-depth: 0;
+    --d: min(var(--card-depth, 0), 4);
     position: absolute;
     inset: 0;
     width: 100%;
@@ -231,17 +233,25 @@
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
     gap: 1.1rem;
-    padding: clamp(1.2rem, 2vw, 1.65rem);
-    border: 1px solid rgba(20, 20, 20, 0.1);
-    border-radius: 1.35rem;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.25), transparent 40%),
-        var(--card-color);
-    box-shadow: 0 18px 36px -28px rgba(20, 20, 20, 0.3);
+    padding: clamp(1.1rem, 1.8vw, 1.5rem);
+    border: 2px solid rgba(20, 20, 20, calc(0.92 - var(--d) * 0.17));
+    border-radius: 1.25rem;
+    background: var(--card-color);
+    box-shadow:
+        0 1px 2px rgba(20, 20, 20, calc(0.24 - var(--d) * 0.04)),
+        0 calc(8px + (4 - var(--d)) * 4px) calc(18px + (4 - var(--d)) * 8px)
+            calc(-8px - var(--d) * 2px)
+            rgba(20, 20, 20, calc(0.26 - var(--d) * 0.04));
+    filter: saturate(calc(1 - var(--d) * 0.09))
+        brightness(calc(1 - var(--d) * 0.035))
+        blur(calc(var(--d) * 0.7px + var(--card-exit-blur, 0px)));
     color: var(--card-ink, #141414);
     overflow: hidden;
-    will-change: transform, opacity;
     transform: translateZ(0);
+}
+
+.featured-projects-container.is-pinned .fan-project-card {
+    will-change: transform, opacity;
 }
 
 .fan-project-card::before {
@@ -250,36 +260,50 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.42),
-        inset 0 -42px 80px rgba(20, 20, 20, 0.1);
-    opacity: calc(0.55 + (var(--card-focus, 0) * 0.45));
+    box-shadow: inset 0 0 0 1px rgba(20, 20, 20, 0.08);
+    opacity: calc(0.4 + (var(--card-focus, 0) * 0.6));
 }
 
 .fan-project-card-active {
     box-shadow:
-        0 18px 34px -24px rgba(20, 20, 20, 0.32),
-        0 30px 62px -42px rgba(20, 20, 20, 0.24);
+        0 1px 2px rgba(20, 20, 20, 0.28),
+        0 10px 20px -8px rgba(20, 20, 20, 0.24),
+        0 34px 60px -26px rgba(20, 20, 20, 0.34);
+    border-color: var(--on-accent);
 }
 
 .fan-card-topline {
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    padding-bottom: clamp(0.7rem, 1.2vw, 0.95rem);
+    border-bottom: 2px solid rgba(20, 20, 20, calc(0.9 - var(--d) * 0.2));
     font-family: "supply-mono";
     font-size: 0.72rem;
     line-height: 1.2;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--card-muted, rgba(20, 20, 20, 0.66));
 }
 
-.fan-card-topline span:last-child {
+.fan-card-tab {
+    flex: 0 0 auto;
+    padding: 0.3em 0.66em;
+    border-radius: 0.45rem;
+    background-color: var(--on-accent);
+    color: var(--card-color);
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.fan-card-cat {
     max-width: 14rem;
     text-align: right;
+    font-weight: 500;
+    color: var(--card-ink, #141414);
 }
 
 .fan-card-media {
@@ -287,10 +311,14 @@
     z-index: 1;
     align-self: stretch;
     min-height: 0;
-    border-radius: 0.95rem;
+    border-radius: 0.7rem;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.54);
-    border: 1px solid rgba(20, 20, 20, 0.08);
+    background-color: color-mix(
+        in srgb,
+        var(--mat),
+        var(--card-color) calc(var(--d) * 16%)
+    );
+    border: 2px solid rgba(20, 20, 20, calc(0.9 - var(--d) * 0.2));
 }
 
 .fan-card-media img {
@@ -305,6 +333,8 @@
 .fan-card-body {
     position: relative;
     z-index: 2;
+    padding-top: clamp(0.7rem, 1.2vw, 0.95rem);
+    border-top: 2px solid rgba(20, 20, 20, calc(0.9 - var(--d) * 0.2));
 }
 
 .fan-card-body h3 {
@@ -318,13 +348,14 @@
 }
 
 .fan-card-body p {
-    margin: 0.85rem 0 0;
+    margin: 0.7rem 0 0;
     font-family: "supply-mono";
     font-size: 0.72rem;
     line-height: 1.4;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--card-muted, rgba(20, 20, 20, 0.66));
+    color: var(--card-ink, #141414);
+    opacity: 0.72;
 }
 
 .featured-scroll-dash {

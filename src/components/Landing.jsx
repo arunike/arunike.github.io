@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Symbols from "../assets/images/symbols/symbols.png";
 import { MOTION } from "../utils/motion";
+import splitChars from "../utils/splitChars";
 
 const Landing = ({ loaded }) => {
     const landingRef = useRef(null);
@@ -24,27 +25,14 @@ const Landing = ({ loaded }) => {
         return () => ctx.revert();
     }, [loaded]);
 
-    // Split text into characters for animation
-    const splitText = (text) => {
-        return text.split("").map((char, i) => (
-            <span key={i} className="char" style={{ display: "inline-block" }}>
-                {char === " " ? "\u00A0" : char}
-            </span>
-        ));
-    };
-
     return (
         <section id="landing" className="landing" ref={landingRef}>
             <div className="landing-header-wrapper">
                 <div className="landing-header landing-header-1">
-                    <h1 style={{ overflow: "hidden", display: "flex" }}>
-                        {splitText("Richie")}
-                    </h1>
+                    <h1 className="masked-line">{splitChars("Richie")}</h1>
                 </div>
                 <div className="landing-header landing-header-2">
-                    <h1 style={{ overflow: "hidden", display: "flex" }}>
-                        {splitText("Zhou")}
-                    </h1>
+                    <h1 className="masked-line">{splitChars("Zhou")}</h1>
                 </div>
             </div>
             <div className="landing-footer">

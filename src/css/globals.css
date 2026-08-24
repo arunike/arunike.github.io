@@ -16,6 +16,19 @@
     --motion-duration-slow: 900ms;
     --motion-reveal-distance: 28px;
     --motion-stagger: 75ms;
+
+    --on-accent: #141414;
+    --accent1-ink: #ab3a26;
+    --accent4-ink: #4b4657;
+    --mat: #ffffff;
+    --mat-ink: #141414;
+    --mat-muted: #55524d;
+    --mat-accent: #ab3a26;
+    --card: #ffffff;
+    --card-border: rgba(20, 20, 20, 0.1);
+    --badge-required: #ed6a5a;
+    --badge-elective: #9bc1bc;
+    --badge-level: #5d576b;
 }
 
 [data-theme="dark"] {
@@ -29,6 +42,12 @@
     --muted: #a09e9a;
     --nav-pill-bg: rgba(255, 255, 255, 0.07);
     --nav-pill-border: rgba(255, 255, 255, 0.12);
+
+    --accent1-ink: #f0857a;
+    --accent4-ink: #a79dc0;
+    --mat: #ebe8e3;
+    --card: #1c1f24;
+    --card-border: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -147,7 +166,8 @@ p.mn {
     font-weight: bold;
     color: var(--fg);
     margin-bottom: 1rem;
-    font-family: "Supply Mono", monospace;
+    font-family: "rader";
+    font-style: italic;
 }
 
 .section-subtitle {
@@ -202,7 +222,7 @@ p.mn {
 
 .back-to-top:hover {
     background-color: var(--accent1);
-    color: #fff;
+    color: var(--on-accent);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -280,23 +300,21 @@ p.mn {
     .expertise-card-3d,
     .fan-project-card,
     .timeline-item,
-    .timeline-card {
+    .timeline-card,
+    footer .footer-col,
+    footer .copyright-info,
+    footer .footer-header h1 .char,
+    .about-hero-header .char,
+    .about-hero-bio > * {
         opacity: 1 !important;
         transform: none !important;
         visibility: visible !important;
     }
 
-    .floating-element,
-    .submit-btn,
-    .submit-btn::before,
     .timeline-active-badge,
-    .timeline-tap-hint .hint-front .arrow {
+    .timeline-tap-hint .hint-front .arrow,
+    .submit-btn:disabled::after {
         animation: none !important;
-    }
-
-    .submit-btn {
-        background: var(--accent1);
-        background-size: auto;
     }
 
     *,
@@ -309,4 +327,15 @@ p.mn {
         transition-delay: 0ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* Character-level reveals. splitChars() emits the spans; .masked-line clips
+   them so they travel in from outside the line box. */
+.masked-line {
+    display: flex;
+    overflow: hidden;
+}
+
+.char {
+    display: inline-block;
 }

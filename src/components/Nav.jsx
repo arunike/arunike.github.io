@@ -296,7 +296,9 @@ const Nav = ({ isOpen, setIsOpen, scrollTo, start, stop }) => {
 
             <div
                 id="site-menu"
-                className="nav-overlay"
+                className={`nav-overlay ${
+                    isAnimating ? "nav-overlay--animating" : ""
+                }`}
                 ref={navOverlayRef}
                 aria-hidden={!isOpen}
             >

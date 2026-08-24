@@ -31,7 +31,8 @@
     font-weight: bold;
     color: var(--fg);
     margin-bottom: 1rem;
-    font-family: "Supply Mono", monospace;
+    font-family: "rader";
+    font-style: italic;
 }
 
 .projects-subtitle {
@@ -236,7 +237,6 @@
         opacity var(--motion-duration-base) var(--motion-ease),
         transform var(--motion-duration-base) var(--motion-ease);
     transform-origin: center bottom;
-    will-change: transform, opacity;
 }
 
 .project-card.project-card-animated {
@@ -263,7 +263,6 @@
     isolation: isolate;
     transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
         translateY(0);
-    will-change: transform;
 }
 
 .project-card-inner:hover {
@@ -286,7 +285,7 @@
     width: 100%;
     height: 250px;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: var(--mat);
     border-radius: 1rem 1rem 0 0;
     transform: translateZ(0);
 }
@@ -299,7 +298,6 @@
     transform: translate3d(var(--media-shift-x), var(--media-shift-y), 0)
         scale(1.03);
     transition: transform 0.22s ease;
-    will-change: transform;
 }
 
 .project-card-inner:hover .project-image {
@@ -345,6 +343,16 @@
     transition: transform 0.24s ease;
 }
 
+.project-card:hover,
+.project-card:focus-within {
+    will-change: transform;
+}
+
+.project-card:hover .project-card-inner,
+.project-card:hover .project-image {
+    will-change: transform;
+}
+
 .project-card-inner:hover .project-links,
 .project-overlay.keep-visible .project-links {
     transform: translateY(0);
@@ -355,8 +363,8 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background-color: white;
-    color: var(--fg);
+    background-color: var(--mat);
+    color: var(--mat-ink);
     text-decoration: none;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -366,14 +374,14 @@
 
 .project-link:hover {
     background-color: var(--accent1);
-    color: white;
+    color: var(--on-accent);
     transform: translateY(-2px);
 }
 
 .dropdown-toggle.active,
 button.dropdown-toggle.active {
     background-color: var(--accent1) !important;
-    color: white !important;
+    color: var(--on-accent) !important;
     transform: translateY(0) !important;
 }
 
@@ -384,7 +392,7 @@ button.dropdown-toggle.active {
 
 .project-link.demo-link {
     background-color: var(--accent1);
-    color: var(--bg);
+    color: var(--on-accent);
     border: 1px solid var(--accent1);
 }
 
@@ -392,12 +400,12 @@ button.dropdown-toggle.active {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(237, 106, 90, 0.4);
     background-color: var(--accent1);
-    color: var(--bg);
+    color: var(--on-accent);
 }
 
 /* Demo Links List */
 .demo-links-list {
-    background-color: white;
+    background-color: var(--card);
     border-radius: 0.5rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     min-width: 200px;
@@ -410,7 +418,7 @@ button.dropdown-toggle.active {
     color: var(--fg);
     text-decoration: none;
     transition: background-color 0.2s ease;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--card-border);
     white-space: nowrap;
 }
 
@@ -420,7 +428,7 @@ button.dropdown-toggle.active {
 
 .demo-link-item:hover {
     background-color: var(--accent1);
-    color: white;
+    color: var(--on-accent);
 }
 
 /* Project Content */
@@ -485,7 +493,7 @@ button.dropdown-toggle.active {
 
 .read-more-btn:hover {
     background-color: var(--accent1);
-    color: white;
+    color: var(--on-accent);
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(237, 106, 90, 0.2);
@@ -503,15 +511,13 @@ button.dropdown-toggle.active {
 .project-tag {
     padding: 0.4rem 0.8rem;
     background-color: rgba(237, 106, 90, 0.1);
-    color: var(--accent1);
+    color: var(--accent1-ink);
     border-radius: 0.5rem;
     font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid rgba(237, 106, 90, 0.2);
-    opacity: 0.84;
     transform: translateY(0);
     transition:
-        opacity 0.22s ease,
         transform 0.22s ease,
         background-color 0.22s ease,
         border-color 0.22s ease;
@@ -519,7 +525,6 @@ button.dropdown-toggle.active {
 }
 
 .project-card-inner:hover .project-tag {
-    opacity: 1;
     transform: translateY(-3px);
     background-color: rgba(237, 106, 90, 0.16);
     border-color: rgba(237, 106, 90, 0.34);

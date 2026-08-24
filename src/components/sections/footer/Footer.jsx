@@ -2,22 +2,61 @@ import { useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import SymbolSix from "../../../assets/images/symbols/s6.png";
+import splitChars from "../../../utils/splitChars";
 import { prefersReducedMotion } from "../../../utils/prefersReducedMotion";
 
 const Footer = () => {
     const hasExplodedRef = useRef(false);
+    const footerRef = useRef(null);
+    const frameRef = useRef(null);
     const location = useLocation();
     const currentYear = new Date().getFullYear();
+
+    useEffect(() => {
+        const footerElement = footerRef.current;
+        if (!footerElement) {
+            return;
+        }
+
+        if (prefersReducedMotion()) {
+            footerElement.classList.add("footer-revealed");
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("footer-revealed");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "0px 0px 140px 0px", threshold: 0 }
+        );
+
+        observer.observe(footerElement);
+
+        return () => observer.disconnect();
+    }, [location]);
 
     useEffect(() => {
         if (prefersReducedMotion()) {
             return;
         }
 
-        const footer = document.querySelector("footer");
-        const explosionContainer = document.querySelector(
+        const footer = footerRef.current;
+        const explosionContainer = footer?.querySelector(
             ".explosion-container"
         );
+
+        if (!footer || !explosionContainer) {
+            return;
+        }
+
+        if (window.getComputedStyle(explosionContainer).display === "none") {
+            return;
+        }
 
         const config = {
             gravity: 0.25,
@@ -92,44 +131,49 @@ const Footer = () => {
                 (element) => new Particle(element)
             );
 
-            let animationId;
             const animate = () => {
                 particles.forEach((particle) => particle.update());
-                animationId = requestAnimationFrame(animate);
+
                 if (
                     particles.every(
                         (particle) =>
                             particle.y > explosionContainer.offsetHeight / 2
                     )
                 ) {
-                    cancelAnimationFrame(animationId);
+                    frameRef.current = null;
+                    return;
                 }
+
+                frameRef.current = requestAnimationFrame(animate);
             };
-            animate();
+            frameRef.current = requestAnimationFrame(animate);
         };
 
-        const checkFooterPosition = () => {
-            const footerRect = footer.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            if (footerRect.top < viewportHeight && !hasExplodedRef.current) {
-                explode();
-            }
-        };
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !hasExplodedRef.current) {
+                        explode();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "0px", threshold: 0 }
+        );
 
-        const handleScroll = () => {
-            checkFooterPosition();
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        checkFooterPosition();
+        observer.observe(footer);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            observer.disconnect();
+            if (frameRef.current !== null) {
+                cancelAnimationFrame(frameRef.current);
+                frameRef.current = null;
+            }
         };
     }, [location]);
 
     return (
-        <footer>
+        <footer ref={footerRef}>
             <div className="footer-container">
                 <div className="footer-symbols footer-symbols-1">
                     <img
@@ -160,10 +204,10 @@ const Footer = () => {
                     />
                 </div>
                 <div className="footer-header">
-                    <h1>Richie Zhou</h1>
+                    <h1 className="masked-line">{splitChars("Richie Zhou")}</h1>
                 </div>
                 <div className="footer-row">
-                    <div className="footer-col">
+                    <div className="footer-col" style={{ "--i": 0 }}>
                         <p>Explore</p>
                         <p>
                             <Link to="/">Home</Link>
@@ -175,7 +219,7 @@ const Footer = () => {
                             <Link to="/courses">Courses</Link>
                         </p>
                     </div>
-                    <div className="footer-col">
+                    <div className="footer-col" style={{ "--i": 1 }}>
                         <p>Connect</p>
                         <p>
                             <a
@@ -196,7 +240,7 @@ const Footer = () => {
                             </a>
                         </p>
                     </div>
-                    <div className="footer-col">
+                    <div className="footer-col" style={{ "--i": 2 }}>
                         <p>References</p>
                         <p>
                             <a

@@ -11,7 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
 const interpolate = (from, to, progress) => from + (to - from) * progress;
 const easeOut = (value) => 1 - Math.pow(1 - clamp(value), 3);
-const easeIn = (value) => Math.pow(clamp(value), 3);
+const easeInOutSine = (value) => 0.5 - 0.5 * Math.cos(Math.PI * clamp(value));
+const DEPTH_LIMIT = 4;
 
 const FeaturedProjects = () => {
     const stackRef = useRef(null);
@@ -50,22 +51,27 @@ const FeaturedProjects = () => {
 
             const renderCards = (nextProgress) => {
                 const fanProgress = easeOut(clamp(nextProgress / 0.22));
-                const exitWindow = 0.62;
-                const exitStartBase = 0.27;
+                const exitWindow = 0.7;
+                const exitStartBase = 0.24;
                 const stepSize = exitWindow / Math.max(totalCards, 1);
-                const cardExitDuration = 0.22;
-                const copySwitchAt = 0.78;
-                let nextActiveIndex = 0;
+                // Only ~15% overlap, so one card leaves at a time instead of
+                // three easing out on top of each other.
+                const cardExitDuration = stepSize * 1.15;
 
+                // Continuous position through the deck. Each completed exit
+                // advances it by one, so the copy can crossfade in lockstep
+                // with the cards rather than switching on a threshold.
+                let activeFloat = 0;
                 for (let index = 0; index < totalCards - 1; index += 1) {
                     const exitStart = exitStartBase + index * stepSize;
-                    const switchPoint =
-                        exitStart + cardExitDuration * copySwitchAt;
-
-                    if (nextProgress >= switchPoint) {
-                        nextActiveIndex = index + 1;
-                    }
+                    activeFloat += easeInOutSine(
+                        clamp((nextProgress - exitStart) / cardExitDuration)
+                    );
                 }
+                const nextActiveIndex = Math.min(
+                    Math.round(activeFloat),
+                    totalCards - 1
+                );
 
                 cards.forEach((card, index) => {
                     const centeredIndex = index - (totalCards - 1) / 2;
@@ -79,28 +85,33 @@ const FeaturedProjects = () => {
                     const exitProgress = isLastCard
                         ? 0
                         : clamp((nextProgress - exitStart) / cardExitDuration);
-                    const exitEase = easeIn(exitProgress);
+                    // Symmetric smoothing: no dead zone at the start, no
+                    // teleport at the end. Scrubbed motion wants a near-even
+                    // relationship to scroll.
+                    const exitEase = easeInOutSine(exitProgress);
 
                     const flyY = interpolate(
                         0,
-                        -window.innerHeight * 1.25,
+                        -window.innerHeight * 0.95,
                         exitEase
                     );
-                    const flyX = interpolate(0, 100, exitEase);
+                    const flyX = interpolate(0, 62, exitEase);
                     const flyRotate = interpolate(
                         0,
-                        centeredIndex * 5,
+                        -5 + centeredIndex * 1.6,
                         exitEase
                     );
 
-                    const frontness = clamp(
-                        1 -
-                            Math.abs(
-                                (nextProgress - exitStartBase) /
-                                    Math.max(exitWindow, 0.1) -
-                                    index / Math.max(totalCards - 1, 1)
-                            ) *
-                                1.8
+                    // Fade late enough that the card has cleared the stack
+                    // before it turns translucent, otherwise two cards' worth
+                    // of artwork blend into mud.
+                    const fade = clamp((exitProgress - 0.45) / 0.5);
+
+                    const frontness = clamp(1 - Math.abs(activeFloat - index));
+
+                    const stackDepth = Math.min(
+                        Math.max(index - nextActiveIndex, 0),
+                        DEPTH_LIMIT
                     );
 
                     gsap.set(card, {
@@ -110,25 +121,44 @@ const FeaturedProjects = () => {
                             interpolate(0, fanRotate, fanProgress) + flyRotate,
                         scale:
                             interpolate(0.94, 1, fanProgress) -
-                            exitEase * 0.07 +
-                            frontness * 0.025,
-                        opacity: 1 - clamp((exitProgress - 0.72) / 0.28),
+                            exitEase * 0.06 +
+                            frontness * 0.025 -
+                            stackDepth * 0.018 * fanProgress,
+                        opacity: 1 - fade,
                         zIndex: totalCards - index,
                     });
 
                     card.classList.toggle(
                         "fan-project-card-active",
-                        index === nextActiveIndex && exitProgress < 0.9
+                        index === nextActiveIndex && exitProgress < 0.5
                     );
                     card.style.setProperty("--card-focus", frontness);
+                    card.style.setProperty(
+                        "--card-depth",
+                        stackDepth * fanProgress
+                    );
+                    // Softens the departure without fighting the depth filter
+                    // already declared in CSS.
+                    card.style.setProperty(
+                        "--card-exit-blur",
+                        `${(exitEase * 3.4).toFixed(2)}px`
+                    );
                 });
 
                 copyPanels.forEach((panel, index) => {
                     const isActive = index === nextActiveIndex;
+                    // A linear tent puts both panels at 50% mid-handoff, which
+                    // double-exposes two paragraphs of body copy. Hold full
+                    // opacity through the middle and fall off fast so the
+                    // overlap is brief and faint.
+                    const offset = Math.abs(activeFloat - index);
+                    const presence = 1 - clamp((offset - 0.1) / 0.45);
+                    const eased = easeInOutSine(presence);
                     gsap.set(panel, {
-                        autoAlpha: isActive ? 1 : 0,
-                        y: isActive ? 0 : 18,
-                        filter: isActive ? "blur(0px)" : "blur(8px)",
+                        autoAlpha: eased,
+                        y: interpolate(18, 0, eased),
+                        filter: `blur(${((1 - eased) * 8).toFixed(2)}px)`,
+                        pointerEvents: presence > 0.5 ? "auto" : "none",
                     });
                     panel.classList.toggle(
                         "featured-copy-card-active",
@@ -169,6 +199,11 @@ const FeaturedProjects = () => {
                 anticipatePin: 1,
                 scrub: true,
                 invalidateOnRefresh: true,
+                onToggle: (self) =>
+                    triggerRef.current?.classList.toggle(
+                        "is-pinned",
+                        self.isActive
+                    ),
                 onUpdate: (self) => renderCards(self.progress),
             });
 

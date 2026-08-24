@@ -145,10 +145,13 @@ nav .theme-toggle-indicator.active {
     gap: 1em;
 }
 
+.nav-overlay.nav-overlay--animating .nav-items .nav-item {
+    will-change: transform;
+}
+
 .nav-overlay .nav-items .nav-item {
     position: relative;
     transform: translateY(100%);
-    will-change: transform;
     opacity: 0;
     border-radius: 0.5em;
     background-color: var(--bg);

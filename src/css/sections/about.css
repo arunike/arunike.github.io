@@ -96,3 +96,20 @@
         margin-left: 0;
     }
 }
+
+.about-hero .about-hero-header h1.masked-line {
+    padding: 0.06em 0.12em 0.1em 0;
+    margin: -0.06em 0 -0.1em 0;
+}
+
+.about-hero .about-hero-portrait img {
+    transform-origin: center;
+}
+
+.about-hero .about-hero-bio .mn {
+    transition: opacity var(--motion-duration-fast) var(--motion-ease);
+}
+
+.about-hero .about-hero-bio .mn:hover {
+    opacity: 1;
+}

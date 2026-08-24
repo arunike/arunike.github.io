@@ -60,10 +60,7 @@ const TimelineItem = ({
                                     />
                                 </div>
                                 <div className="timeline-company-info">
-                                    <h3
-                                        className="timeline-role"
-                                        style={{ color: expColor }}
-                                    >
+                                    <h3 className="timeline-role">
                                         {exp.role}
                                     </h3>
                                     <h4 className="timeline-company">
@@ -79,10 +76,7 @@ const TimelineItem = ({
                                 )}
                             </div>
 
-                            <div
-                                className="timeline-department"
-                                style={{ borderLeftColor: expColor }}
-                            >
+                            <div className="timeline-department">
                                 {exp.department}
                             </div>
 
@@ -165,10 +159,7 @@ const TimelineItem = ({
                                         />
                                     </div>
                                     <div className="timeline-company-info">
-                                        <h3
-                                            className="timeline-role"
-                                            style={{ color: expColor }}
-                                        >
+                                        <h3 className="timeline-role">
                                             {exp.role}
                                         </h3>
                                         <h4 className="timeline-company">
@@ -192,7 +183,6 @@ const TimelineItem = ({
                                             className="timeline-tech-tag"
                                             style={{
                                                 backgroundColor: `${expColor}20`,
-                                                color: expColor,
                                                 borderColor: `${expColor}40`,
                                             }}
                                         >

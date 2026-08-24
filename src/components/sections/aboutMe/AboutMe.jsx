@@ -3,56 +3,92 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ProfilePicture from "../../../assets/images/profile_picture.png";
+import { MOTION } from "../../../utils/motion";
+import splitChars from "../../../utils/splitChars";
 import { prefersReducedMotion } from "../../../utils/prefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe = () => {
+    const sectionRef = useRef(null);
     const portraitRef = useRef(null);
-    const scrollTriggerRef = useRef(null);
+    const portraitImageRef = useRef(null);
 
     useEffect(() => {
-        const initAnimation = () => {
-            if (scrollTriggerRef.current) {
-                scrollTriggerRef.current.kill();
-            }
+        if (prefersReducedMotion() || !portraitRef.current) {
+            return;
+        }
 
-            if (prefersReducedMotion()) {
-                return;
-            }
+        const parallax = gsap.to(portraitRef.current, {
+            scale: 1.1,
+            rotation: -10,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".about-hero",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+            },
+        });
 
-            if (portraitRef.current) {
-                scrollTriggerRef.current = gsap.to(portraitRef.current, {
-                    scale: 1.1,
-                    rotation: -10,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ".about-hero",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: 1,
+        return () => parallax.kill();
+    }, []);
+
+    useEffect(() => {
+        if (prefersReducedMotion()) {
+            return;
+        }
+
+        const ctx = gsap.context(() => {
+            const timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".about-hero",
+                    start: "top 72%",
+                    toggleActions: "play none none none",
+                },
+            });
+
+            timeline
+                .from(".about-hero-header .char", {
+                    yPercent: 110,
+                    duration: MOTION.duration.slow,
+                    ease: MOTION.ease,
+                    stagger: MOTION.stagger.tight,
+                })
+                .from(
+                    portraitImageRef.current,
+                    {
+                        scale: 1.14,
+                        duration: MOTION.duration.slow,
+                        ease: MOTION.ease,
                     },
-                });
-            }
-        };
+                    0
+                )
+                .from(
+                    ".about-hero-bio > *",
+                    {
+                        y: 18,
+                        autoAlpha: 0,
+                        duration: MOTION.duration.base,
+                        ease: MOTION.ease,
+                        stagger: MOTION.stagger.base,
+                    },
+                    0.28
+                );
+        }, sectionRef);
 
-        initAnimation();
-
-        return () => {
-            if (scrollTriggerRef.current) {
-                scrollTriggerRef.current.kill();
-            }
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
-        <section id="about-hero" className="about-hero">
+        <section id="about-hero" className="about-hero" ref={sectionRef}>
             <div className="about-hero-header">
-                <h1>Hi, I'm</h1>
-                <h1>Richie</h1>
+                <h1 className="masked-line">{splitChars("Hi, I'm")}</h1>
+                <h1 className="masked-line">{splitChars("Richie")}</h1>
             </div>
             <div className="about-hero-portrait" ref={portraitRef}>
                 <img
+                    ref={portraitImageRef}
                     src={ProfilePicture}
                     alt="Portrait of Richie"
                     loading="lazy"

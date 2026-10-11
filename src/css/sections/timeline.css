@@ -414,6 +414,12 @@
     transform: rotateY(180deg);
 }
 
+.timeline-card-back-inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 /* Internal Card Styles */
 .timeline-company-header {
     display: flex;
@@ -542,15 +548,25 @@
     padding: 0.25rem 0.55rem;
 }
 
-.timeline-achievements {
+.timeline-summary {
     margin-bottom: 1rem;
 }
 
-.timeline-achievements p {
+.timeline-summary-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: "supply-mono";
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+.timeline-summary p {
     font-size: 1rem;
     line-height: 1.5;
     color: var(--fg);
-    margin-bottom: 0.4rem;
+    margin: 0;
 }
 
 .timeline-tech-stack {
@@ -578,6 +594,41 @@
 /* Tap hint — hidden on desktop, shown on mobile */
 .timeline-tap-hint {
     display: none;
+}
+
+/* Flip hint — desktop only, pinned to the bottom of each face */
+.timeline-flip-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    font-family: "supply-mono";
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    opacity: 0.7;
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+.timeline-flip-hint svg {
+    flex-shrink: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.timeline-card:hover .timeline-flip-hint,
+.timeline-card-flip:focus-visible .timeline-flip-hint {
+    opacity: 1;
+    color: var(--exp-color);
+}
+
+.timeline-card:hover .timeline-flip-hint svg,
+.timeline-card-flip:focus-visible .timeline-flip-hint svg {
+    transform: rotate(180deg);
 }
 
 /* Stats Section */
@@ -854,6 +905,10 @@
         flex-direction: column;
         gap: 2rem;
         padding: 2rem;
+    }
+
+    .timeline-flip-hint {
+        display: none;
     }
 
     /* Tap hint */
